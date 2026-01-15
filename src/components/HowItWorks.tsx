@@ -1,23 +1,23 @@
-import { Lightbulb, Palette, Package, Heart } from "lucide-react";
+import { ImagineIcon, GenerateIcon, CustomizeIcon, ReceiveIcon } from "./PsychedelicIcons";
 
 const steps = [
   {
-    icon: Lightbulb,
+    Icon: ImagineIcon,
     title: "Imagine",
     description: "Describe your vision using words, themes, or styles. Our AI understands your creative intent.",
   },
   {
-    icon: Palette,
+    Icon: GenerateIcon,
     title: "Generate",
     description: "Watch as AI transforms your ideas into stunning, one-of-a-kind yoga mat designs in seconds.",
   },
   {
-    icon: Heart,
+    Icon: CustomizeIcon,
     title: "Customize",
     description: "Fine-tune colors, patterns, and details until your design feels perfectly aligned with you.",
   },
   {
-    icon: Package,
+    Icon: ReceiveIcon,
     title: "Receive",
     description: "Your custom mat is printed on premium materials and delivered to your door within days.",
   },
@@ -43,14 +43,8 @@ const HowItWorks = () => {
               className="relative group"
             >
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary flex items-center justify-center shadow-soft group-hover:shadow-card transition-shadow duration-300">
-                  <step.icon className="w-8 h-8 text-foreground" />
-                </div>
-                
-                <div className="absolute top-8 left-1/2 transform translate-x-8 hidden lg:block">
-                  {index < steps.length - 1 && (
-                    <div className="w-full h-0.5 bg-border" style={{ width: "calc(100% - 4rem)" }} />
-                  )}
+                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-secondary/50 p-3 shadow-soft group-hover:shadow-card transition-all duration-300 group-hover:scale-110">
+                  <step.Icon />
                 </div>
                 
                 <span className="inline-block px-3 py-1 mb-3 text-xs font-medium text-muted-foreground bg-muted rounded-full">
@@ -65,6 +59,11 @@ const HowItWorks = () => {
                   {step.description}
                 </p>
               </div>
+              
+              {/* Connector line for desktop */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-accent/40 to-transparent" />
+              )}
             </div>
           ))}
         </div>
