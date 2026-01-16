@@ -1,5 +1,10 @@
 import mat1 from "@/assets/mat-1.jpg";
 import mat2 from "@/assets/mat-2.jpg";
+import mat4 from "@/assets/mat-4.jpg";
+import mat6 from "@/assets/mat-6.jpg";
+import mat9 from "@/assets/mat-9.jpg";
+import mat11 from "@/assets/mat-11.jpg";
+import mat14 from "@/assets/mat-14.jpg";
 import mat16 from "@/assets/mat-16.jpg";
 import mat17 from "@/assets/mat-17.jpg";
 import mat18 from "@/assets/mat-18.jpg";
@@ -13,19 +18,21 @@ import mat25 from "@/assets/mat-25.png";
 import mat26 from "@/assets/mat-26.png";
 
 const designs = [
-  { id: 1, image: mat19, alt: "Egyptian pharaoh geometric yoga mat design" },
-  { id: 2, image: mat20, alt: "Mystical deer geometric yoga mat design" },
-  { id: 3, image: mat21, alt: "Psychedelic meditation figure yoga mat design" },
-  { id: 4, image: mat22, alt: "Cosmic sunset meditation yoga mat design" },
-  { id: 5, image: mat23, alt: "Chakra mandala cosmic yoga mat design" },
-  { id: 6, image: mat16, alt: "Tribal cosmic symbols yoga mat design" },
-  { id: 7, image: mat24, alt: "Geometric circles abstract yoga mat design" },
-  { id: 8, image: mat25, alt: "Cosmic mosaic mandalas yoga mat design" },
-  { id: 9, image: mat26, alt: "Vibrant circles symmetry yoga mat design" },
-  { id: 10, image: mat17, alt: "Sleeping kitten yoga mat design" },
-  { id: 11, image: mat18, alt: "Mountain lake reflection yoga mat design" },
-  { id: 12, image: mat1, alt: "Cosmic whale yoga mat design" },
-  { id: 13, image: mat2, alt: "Mandala sunset yoga mat design" },
+  { id: 1, image: mat22, alt: "Cosmic sunset meditation yoga mat design" },
+  { id: 2, image: mat16, alt: "Tribal cosmic symbols yoga mat design" },
+  { id: 3, image: mat19, alt: "Egyptian pharaoh geometric yoga mat design" },
+  { id: 4, image: mat17, alt: "Sleeping kitten yoga mat design" },
+  { id: 5, image: mat25, alt: "Cosmic mosaic mandalas yoga mat design" },
+  { id: 6, image: mat1, alt: "Cosmic whale yoga mat design" },
+  { id: 7, image: mat21, alt: "Psychedelic meditation figure yoga mat design" },
+  { id: 8, image: mat6, alt: "Cosmic cat yoga mat design" },
+  { id: 9, image: mat24, alt: "Geometric circles abstract yoga mat design" },
+  { id: 10, image: mat18, alt: "Mountain lake reflection yoga mat design" },
+  { id: 11, image: mat20, alt: "Mystical deer geometric yoga mat design" },
+  { id: 12, image: mat9, alt: "Fire dragon yoga mat design" },
+  { id: 13, image: mat23, alt: "Chakra mandala cosmic yoga mat design" },
+  { id: 14, image: mat2, alt: "Mandala sunset yoga mat design" },
+  { id: 15, image: mat26, alt: "Vibrant circles symmetry yoga mat design" },
 ];
 
 const DesignGallery = () => {
