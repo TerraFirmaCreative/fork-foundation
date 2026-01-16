@@ -1,56 +1,45 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Globe, ChevronDown, Sparkles } from "lucide-react";
+import { ShoppingCart, Globe, ChevronDown } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="relative py-4 px-6 overflow-hidden">
-      {/* Cosmic background matching hero */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-card">
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, hsla(280, 80%, 50%, 0.15) 0%, transparent 40%),
-                           radial-gradient(circle at 80% 50%, hsla(320, 70%, 50%, 0.1) 0%, transparent 35%)`
-        }} />
-      </div>
+    <header className="relative py-5 px-6">
+      <div className="absolute inset-0 bg-background" />
       
-      <nav className="max-w-7xl mx-auto flex items-center justify-between relative z-10">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-psychedelic-purple via-psychedelic-pink to-psychedelic-cyan p-[2px] shadow-lg">
-            <div className="w-full h-full rounded-xl bg-card flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-psychedelic-gold" />
-            </div>
-          </div>
-          <span className="font-display text-xl font-bold text-gradient">MatFlow</span>
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-earth-clay/20 border border-earth-clay/40" />
+          <span className="font-display text-xl tracking-wide text-foreground">Unique Yoga Mats</span>
         </div>
         
         {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {["Home", "My Designs", "Browse"].map((link) => (
+        <div className="hidden md:flex items-center gap-10">
+          {["Studio", "Collection", "Process"].map((link) => (
             <a 
               key={link}
               href="#" 
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative group"
+              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
             >
               {link}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-psychedelic-purple to-psychedelic-pink group-hover:w-full transition-all duration-300" />
             </a>
           ))}
-          <button className="flex items-center gap-1 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">
-            More <ChevronDown className="w-4 h-4" />
+          <button className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide">
+            More <ChevronDown className="w-3.5 h-3.5" />
           </button>
         </div>
         
         {/* Right Actions */}
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="text-foreground/70 hover:text-foreground hover:bg-card/50">
-            <Globe className="w-4 h-4 mr-1" />
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+            <Globe className="w-4 h-4 mr-1.5" />
             EN
           </Button>
           <div className="relative">
-            <Button variant="ghost" size="icon" className="text-foreground/70 hover:text-foreground hover:bg-card/50">
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
               <ShoppingCart className="w-5 h-5" />
             </Button>
-            <span className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-psychedelic-purple to-psychedelic-pink rounded-full text-xs font-bold text-white flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-earth-clay rounded-full text-[10px] font-medium text-background flex items-center justify-center">
               0
             </span>
           </div>
