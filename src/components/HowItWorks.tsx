@@ -1,26 +1,28 @@
+import { FractalGrid } from "./SacredGeometry";
+
 const steps = [
   {
     number: "01",
-    title: "Envision",
-    description: "Close your eyes. Describe the patterns, colors, and feelings that arise. We receive them.",
+    title: "Describe",
+    description: "Type any design idea—mandalas, landscapes, abstract art, or something totally unique to you.",
     color: "text-shaman-violet",
   },
   {
     number: "02", 
-    title: "Channel",
-    description: "Our AI interprets your intention—translating the unseen into visible form.",
+    title: "Generate",
+    description: "Our AI creates a stunning, one-of-a-kind yoga mat design based on your description.",
     color: "text-shaman-magenta",
   },
   {
     number: "03",
-    title: "Refine",
-    description: "Adjust the vision. Shift tones, deepen contrasts. Iterate until it resonates.",
+    title: "Customize",
+    description: "Tweak colors, adjust patterns, regenerate until it's exactly what you envisioned.",
     color: "text-shaman-gold",
   },
   {
     number: "04",
-    title: "Manifest",
-    description: "Printed on sacred rubber with plant inks. Delivered as a vessel for practice.",
+    title: "Receive",
+    description: "Your custom yoga mat is printed on premium natural rubber and shipped to your door.",
     color: "text-shaman-teal",
   },
 ];
@@ -31,20 +33,27 @@ const HowItWorks = () => {
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
+      {/* Fractal grid background */}
+      <FractalGrid />
+      
       {/* Subtle orbs */}
       <div 
-        className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/10"
+        className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/08"
         style={{ animationDelay: "2s" }}
+      />
+      <div 
+        className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
+        style={{ animationDelay: "5s" }}
       />
       
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
-            The Ritual
+            Simple Process
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">From vision </span>
-            <span className="text-gradient italic">to vessel</span>
+            <span className="text-foreground">How it </span>
+            <span className="text-gradient italic">works</span>
           </h2>
         </div>
         
