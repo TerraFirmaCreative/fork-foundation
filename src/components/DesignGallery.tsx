@@ -13,16 +13,19 @@ import mat12 from "@/assets/mat-12.jpg";
 import mat13 from "@/assets/mat-13.jpg";
 import mat14 from "@/assets/mat-14.jpg";
 import mat15 from "@/assets/mat-15.jpg";
+import mat16 from "@/assets/mat-16.jpg";
+import mat17 from "@/assets/mat-17.jpg";
+import mat18 from "@/assets/mat-18.jpg";
 
 const designs = [
   { id: 1, image: mat1, alt: "Cosmic whale yoga mat design" },
   { id: 2, image: mat2, alt: "Mandala sunset yoga mat design" },
-  { id: 3, image: mat3, alt: "Sacred geometry yoga mat design" },
+  { id: 3, image: mat16, alt: "Tribal cosmic symbols yoga mat design" },
   { id: 4, image: mat4, alt: "Colorful peacock yoga mat design" },
-  { id: 5, image: mat5, alt: "Meditation sunset yoga mat design" },
+  { id: 5, image: mat17, alt: "Sleeping kitten yoga mat design" },
   { id: 6, image: mat6, alt: "Cosmic cat yoga mat design" },
   { id: 7, image: mat7, alt: "Mushroom forest yoga mat design" },
-  { id: 8, image: mat8, alt: "Rainbow lotus yoga mat design" },
+  { id: 8, image: mat18, alt: "Mountain lake reflection yoga mat design" },
   { id: 9, image: mat9, alt: "Fire dragon yoga mat design" },
   { id: 10, image: mat10, alt: "Coral reef yoga mat design" },
   { id: 11, image: mat11, alt: "Aurora borealis yoga mat design" },
