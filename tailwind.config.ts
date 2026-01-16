@@ -51,12 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        earth: {
-          clay: "hsl(var(--earth-clay))",
-          terracotta: "hsl(var(--earth-terracotta))",
-          sage: "hsl(var(--earth-sage))",
-          sand: "hsl(var(--earth-sand))",
-          charcoal: "hsl(var(--earth-charcoal))",
+        shaman: {
+          violet: "hsl(var(--shaman-violet))",
+          magenta: "hsl(var(--shaman-magenta))",
+          teal: "hsl(var(--shaman-teal))",
+          gold: "hsl(var(--shaman-gold))",
+          ember: "hsl(var(--shaman-ember))",
+          deep: "hsl(var(--shaman-deep))",
         },
       },
       borderRadius: {
@@ -79,11 +80,11 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-6px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
         "pulse-subtle": {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.7" },
+          "50%": { opacity: "0.6" },
         },
       },
       animation: {
