@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Globe, ChevronDown } from "lucide-react";
+import { ShoppingCart, ChevronDown, Menu } from "lucide-react";
 
 const Header = () => {
   return (
@@ -17,7 +17,7 @@ const Header = () => {
         
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-10">
-          {["Studio", "Collection", "Process"].map((link) => (
+          {["Design Your Mat", "Gallery", "How It Works"].map((link) => (
             <a 
               key={link}
               href="#" 
@@ -33,9 +33,8 @@ const Header = () => {
         
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-            <Globe className="w-4 h-4 mr-1.5" />
-            EN
+          <Button variant="cta" size="sm" className="hidden sm:flex font-body text-sm">
+            Create Now
           </Button>
           <div className="relative">
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
@@ -45,6 +44,9 @@ const Header = () => {
               0
             </span>
           </div>
+          <Button variant="ghost" size="icon" className="md:hidden text-muted-foreground hover:text-foreground">
+            <Menu className="w-5 h-5" />
+          </Button>
         </div>
       </nav>
     </header>

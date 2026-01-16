@@ -1,15 +1,17 @@
 import { Instagram, Twitter } from "lucide-react";
+import { FractalGrid } from "./SacredGeometry";
 
 const Footer = () => {
   const footerLinks = {
-    Studio: ["Create", "Collection", "Process", "Pricing"],
-    Community: ["About", "Sustainability", "Journal", "Press"],
-    Support: ["FAQ", "Contact", "Shipping", "Returns"],
+    Product: ["Design Your Mat", "Browse Gallery", "How It Works", "Pricing"],
+    Company: ["About Us", "Sustainability", "Reviews", "Press"],
+    Support: ["FAQ", "Contact", "Shipping Info", "Returns"],
   };
 
   return (
     <footer className="relative py-16 px-6 overflow-hidden border-t border-border/30">
       <div className="texture-overlay" />
+      <FractalGrid />
       
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/40 to-transparent" />
@@ -25,8 +27,8 @@ const Footer = () => {
               <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
             </div>
             <p className="text-sm text-muted-foreground/60 font-body mb-6 leading-relaxed">
-              Visions made material.<br />
-              For sacred practice.
+              AI-designed custom yoga mats.<br />
+              Premium quality, truly unique.
             </p>
             
             {/* Social Links */}
@@ -72,6 +74,10 @@ const Footer = () => {
         <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/40 font-body">
           <p>© 2024 Unique Yoga Mats. All rights reserved.</p>
           <div className="flex items-center gap-6">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal/60" />
+              Eco-Friendly
+            </span>
             <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
             <a href="#" className="hover:text-foreground transition-colors">Terms</a>
           </div>

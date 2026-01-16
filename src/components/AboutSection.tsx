@@ -1,4 +1,5 @@
 import yogaMatMeditation from "@/assets/yoga-mat-5.jpg";
+import { MandalaDecoration } from "./SacredGeometry";
 
 const AboutSection = () => {
   return (
@@ -6,9 +7,12 @@ const AboutSection = () => {
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
+      {/* Sacred geometry decoration */}
+      <MandalaDecoration className="-top-48 -left-48" size={500} />
+      
       {/* Orbs */}
       <div 
-        className="floating-orb w-72 h-72 -bottom-36 right-1/4 bg-shaman-ember/10"
+        className="floating-orb w-72 h-72 -bottom-36 right-1/4 bg-shaman-ember/08"
         style={{ animationDelay: "5s" }}
       />
       
@@ -16,30 +20,30 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
-              Philosophy
+              About Us
             </p>
             
             <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-              <span className="text-foreground">Every mat is</span>
+              <span className="text-foreground">Premium yoga mats,</span>
               <br />
-              <span className="text-gradient italic">a medicine object.</span>
+              <span className="text-gradient italic">designed by you.</span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
-                We believe the tools of practice carry energy. The patterns you move upon, 
-                the colors that hold your gaze—they shape the container of your work.
+                We combine cutting-edge AI with premium materials to create yoga mats 
+                as unique as the people who use them. Simply describe your vision—cosmic 
+                patterns, nature scenes, sacred geometry, or anything you can imagine.
               </p>
               
               <p>
-                Each mat begins as an intention—your words, fed through AI trained on 
-                sacred geometries and visionary art. What emerges is unique to you, 
-                carrying the specific medicine of your imagination.
+                Each mat is printed on-demand using your AI-generated design, ensuring 
+                no two mats are ever the same. It's your personal artwork, made for practice.
               </p>
               
               <p className="text-foreground/70">
-                Natural tree rubber. Plant-derived inks. Biodegradable packaging. 
-                We honor the earth that receives our practice.
+                Natural tree rubber · Non-slip surface · Eco-friendly inks · 
+                Shipped worldwide in recyclable packaging.
               </p>
             </div>
             
@@ -47,15 +51,15 @@ const AboutSection = () => {
             <div className="flex gap-14 mt-12 pt-12 border-t border-border/30">
               <div>
                 <span className="block font-display text-3xl text-gradient">50K+</span>
-                <span className="text-sm text-muted-foreground/60 font-body">visions manifested</span>
+                <span className="text-sm text-muted-foreground/60 font-body">mats created</span>
               </div>
               <div>
                 <span className="block font-display text-3xl text-gradient">92</span>
                 <span className="text-sm text-muted-foreground/60 font-body">countries</span>
               </div>
               <div>
-                <span className="block font-display text-3xl text-gradient">100%</span>
-                <span className="text-sm text-muted-foreground/60 font-body">earth-conscious</span>
+                <span className="block font-display text-3xl text-gradient">4.9★</span>
+                <span className="text-sm text-muted-foreground/60 font-body">avg. rating</span>
               </div>
             </div>
           </div>
@@ -68,7 +72,7 @@ const AboutSection = () => {
             <div className="relative rounded-md overflow-hidden">
               <img
                 src={yogaMatMeditation}
-                alt="Sacred practice"
+                alt="Yoga practice on a custom mat"
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
@@ -77,7 +81,7 @@ const AboutSection = () => {
             {/* Quote overlay */}
             <div className="absolute -bottom-6 -left-6 right-16 p-6 bg-card/95 backdrop-blur-sm border border-border/40 rounded-md">
               <p className="font-display text-base italic text-foreground/80">
-                "The mat holds the imprint of your practice. Let it carry your medicine."
+                "Your mat, your design. Made for your practice."
               </p>
             </div>
           </div>
