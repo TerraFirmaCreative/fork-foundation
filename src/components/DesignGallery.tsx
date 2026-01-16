@@ -1,7 +1,6 @@
-import mat1 from "@/assets/mat-1.jpg";
-import mat2 from "@/assets/mat-2.jpg";
-import mat6 from "@/assets/mat-6.jpg";
-import mat9 from "@/assets/mat-9.jpg";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import mat16 from "@/assets/mat-16.jpg";
 import mat17 from "@/assets/mat-17.jpg";
 import mat18 from "@/assets/mat-18.jpg";
@@ -37,22 +36,30 @@ const designs = [
   { id: 10, image: mat33, alt: "Fractal vibrancy mandala yoga mat design" },
   { id: 11, image: mat16, alt: "Tribal cosmic symbols yoga mat design" },
   { id: 12, image: mat29, alt: "Chakra volcano fractals yoga mat design" },
-  { id: 13, image: mat1, alt: "Cosmic whale yoga mat design" },
-  { id: 14, image: mat36, alt: "Rainbow flower of life yoga mat design" },
-  { id: 15, image: mat21, alt: "Psychedelic meditation figure yoga mat design" },
-  { id: 16, image: mat32, alt: "Cosmic whale moonlight yoga mat design" },
-  { id: 17, image: mat24, alt: "Geometric circles abstract yoga mat design" },
-  { id: 18, image: mat34, alt: "Purple fractal feathers yoga mat design" },
-  { id: 19, image: mat6, alt: "Cosmic cat yoga mat design" },
-  { id: 20, image: mat18, alt: "Mountain lake reflection yoga mat design" },
-  { id: 21, image: mat20, alt: "Mystical deer geometric yoga mat design" },
-  { id: 22, image: mat9, alt: "Fire dragon yoga mat design" },
-  { id: 23, image: mat23, alt: "Chakra mandala cosmic yoga mat design" },
-  { id: 24, image: mat2, alt: "Mandala sunset yoga mat design" },
-  { id: 25, image: mat26, alt: "Vibrant circles symmetry yoga mat design" },
+  { id: 13, image: mat36, alt: "Rainbow flower of life yoga mat design" },
+  { id: 14, image: mat21, alt: "Psychedelic meditation figure yoga mat design" },
+  { id: 15, image: mat32, alt: "Cosmic whale moonlight yoga mat design" },
+  { id: 16, image: mat24, alt: "Geometric circles abstract yoga mat design" },
+  { id: 17, image: mat34, alt: "Purple fractal feathers yoga mat design" },
+  { id: 18, image: mat18, alt: "Mountain lake reflection yoga mat design" },
+  { id: 19, image: mat20, alt: "Mystical deer geometric yoga mat design" },
+  { id: 20, image: mat23, alt: "Chakra mandala cosmic yoga mat design" },
+  { id: 21, image: mat26, alt: "Vibrant circles symmetry yoga mat design" },
 ];
 
 const DesignGallery = () => {
+  const [expanded, setExpanded] = useState(false);
+  const itemsPerRow = 5; // on sm+ screens
+  const initialRows = 3;
+  const expandedRows = 6;
+  
+  const initialCount = initialRows * itemsPerRow; // 15 items
+  const expandedCount = expandedRows * itemsPerRow; // 30 items
+  
+  const visibleDesigns = expanded 
+    ? designs.slice(0, Math.min(expandedCount, designs.length)) 
+    : designs.slice(0, Math.min(initialCount, designs.length));
+
   return (
     <section className="hero-gradient py-12 px-6">
       <div className="max-w-7xl mx-auto">
@@ -61,7 +68,7 @@ const DesignGallery = () => {
         </a>
         
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 md:gap-4">
-          {designs.map((design, index) => (
+          {visibleDesigns.map((design, index) => (
             <div
               key={design.id}
               className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer"
@@ -76,6 +83,18 @@ const DesignGallery = () => {
             </div>
           ))}
         </div>
+        
+        {!expanded && designs.length > initialCount && (
+          <div className="flex justify-center mt-8">
+            <Button
+              onClick={() => setExpanded(true)}
+              variant="outline"
+              className="gap-2"
+            >
+              Show More <ChevronDown className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
