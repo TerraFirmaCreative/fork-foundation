@@ -1,23 +1,27 @@
 const steps = [
   {
     number: "01",
-    title: "Describe",
-    description: "Share your vision in words—textures, colors, feelings, places. We listen.",
+    title: "Envision",
+    description: "Close your eyes. Describe the patterns, colors, and feelings that arise. We receive them.",
+    color: "text-shaman-violet",
   },
   {
     number: "02", 
-    title: "Generate",
-    description: "Our AI interprets your intention into original artwork, uniquely yours.",
+    title: "Channel",
+    description: "Our AI interprets your intention—translating the unseen into visible form.",
+    color: "text-shaman-magenta",
   },
   {
     number: "03",
     title: "Refine",
-    description: "Adjust tones, details, composition. Iterate until it resonates.",
+    description: "Adjust the vision. Shift tones, deepen contrasts. Iterate until it resonates.",
+    color: "text-shaman-gold",
   },
   {
     number: "04",
-    title: "Receive",
-    description: "Printed on natural rubber with eco-inks. Delivered to your door.",
+    title: "Manifest",
+    description: "Printed on sacred rubber with plant inks. Delivered as a vessel for practice.",
+    color: "text-shaman-teal",
   },
 ];
 
@@ -25,16 +29,22 @@ const HowItWorks = () => {
   return (
     <section className="relative py-28 px-6 overflow-hidden">
       <div className="texture-overlay" />
-      <div className="absolute inset-0 earth-bg" />
+      <div className="absolute inset-0 shaman-bg" />
+      
+      {/* Subtle orbs */}
+      <div 
+        className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/10"
+        style={{ animationDelay: "2s" }}
+      />
       
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-earth-sand/70 mb-6 font-body">
-            The Process
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+            The Ritual
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">From thought </span>
-            <span className="text-gradient italic">to texture</span>
+            <span className="text-foreground">From vision </span>
+            <span className="text-gradient italic">to vessel</span>
           </h2>
         </div>
         
@@ -44,12 +54,12 @@ const HowItWorks = () => {
               key={step.title}
               className="relative group text-center"
             >
-              {/* Step number */}
-              <span className="block font-display text-7xl text-earth-clay/15 mb-4 group-hover:text-earth-clay/25 transition-colors duration-700">
+              {/* Step number with glow */}
+              <span className={`block font-display text-7xl ${step.color}/20 mb-4 group-hover:opacity-100 opacity-60 transition-opacity duration-700`}>
                 {step.number}
               </span>
               
-              <h3 className="font-display text-2xl font-medium text-foreground mb-3 tracking-tight">
+              <h3 className={`font-display text-2xl font-medium mb-3 tracking-tight ${step.color}`}>
                 {step.title}
               </h3>
               
@@ -57,9 +67,9 @@ const HowItWorks = () => {
                 {step.description}
               </p>
               
-              {/* Connector line for desktop */}
+              {/* Connector line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(100%+0.5rem)] w-[calc(100%-1rem)] h-px bg-gradient-to-r from-earth-clay/20 to-transparent" />
+                <div className="hidden lg:block absolute top-10 left-[calc(100%+0.5rem)] w-[calc(100%-1rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
               )}
             </div>
           ))}
