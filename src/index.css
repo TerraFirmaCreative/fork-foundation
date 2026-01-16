@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,97 +6,86 @@
 
 @layer base {
   :root {
-    --background: 270 30% 8%;
-    --foreground: 60 30% 96%;
+    --background: 30 15% 6%;
+    --foreground: 40 20% 92%;
 
-    --card: 270 25% 12%;
-    --card-foreground: 60 30% 96%;
+    --card: 30 12% 10%;
+    --card-foreground: 40 20% 92%;
 
-    --popover: 270 25% 12%;
-    --popover-foreground: 60 30% 96%;
+    --popover: 30 12% 10%;
+    --popover-foreground: 40 20% 92%;
 
-    --primary: 280 80% 65%;
-    --primary-foreground: 270 30% 8%;
+    --primary: 32 45% 55%;
+    --primary-foreground: 30 15% 6%;
 
-    --secondary: 320 70% 55%;
-    --secondary-foreground: 60 30% 96%;
+    --secondary: 25 30% 35%;
+    --secondary-foreground: 40 20% 92%;
 
-    --muted: 270 20% 18%;
-    --muted-foreground: 60 20% 70%;
+    --muted: 30 10% 16%;
+    --muted-foreground: 40 15% 60%;
 
-    --accent: 45 100% 60%;
-    --accent-foreground: 270 30% 8%;
+    --accent: 35 60% 50%;
+    --accent-foreground: 30 15% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 270 30% 20%;
-    --input: 270 30% 20%;
-    --ring: 280 80% 65%;
+    --border: 30 15% 18%;
+    --input: 30 15% 18%;
+    --ring: 32 45% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Psychedelic gradient palette */
-    --psychedelic-1: 280 80% 65%;
-    --psychedelic-2: 320 70% 55%;
-    --psychedelic-3: 200 90% 50%;
-    --psychedelic-4: 45 100% 60%;
-    --psychedelic-5: 160 80% 45%;
+    /* Earthy palette */
+    --earth-clay: 25 50% 45%;
+    --earth-terracotta: 15 55% 50%;
+    --earth-sage: 90 20% 45%;
+    --earth-sand: 38 35% 70%;
+    --earth-charcoal: 30 10% 20%;
     
-    --gradient-psychedelic: linear-gradient(135deg, 
-      hsl(280, 80%, 65%) 0%, 
-      hsl(320, 70%, 55%) 25%, 
-      hsl(200, 90%, 50%) 50%, 
-      hsl(160, 80%, 45%) 75%, 
-      hsl(45, 100%, 60%) 100%);
+    --gradient-earth: linear-gradient(135deg, 
+      hsl(25, 50%, 45%) 0%, 
+      hsl(32, 45%, 55%) 50%, 
+      hsl(38, 35%, 70%) 100%);
     
-    --gradient-hero: linear-gradient(180deg, 
-      hsl(270, 40%, 12%) 0%, 
-      hsl(280, 50%, 15%) 50%, 
-      hsl(270, 30%, 8%) 100%);
+    --gradient-warm: linear-gradient(180deg, 
+      hsl(30, 15%, 8%) 0%, 
+      hsl(25, 18%, 12%) 50%, 
+      hsl(30, 15%, 6%) 100%);
     
-    --gradient-warm: linear-gradient(135deg, 
-      hsl(320, 70%, 55%) 0%, 
-      hsl(280, 80%, 65%) 100%);
-    
-    --gradient-card: linear-gradient(180deg, 
-      hsla(280, 40%, 20%, 0.8) 0%, 
-      hsla(270, 25%, 12%, 0.95) 100%);
-    
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
 
-    --shadow-soft: 0 4px 20px -4px hsla(280, 80%, 40%, 0.3);
-    --shadow-card: 0 8px 32px -8px hsla(280, 80%, 40%, 0.4);
-    --shadow-elevated: 0 16px 48px -12px hsla(280, 80%, 40%, 0.5);
-    --shadow-glow: 0 0 40px -10px hsla(280, 80%, 65%, 0.6);
+    --shadow-soft: 0 4px 20px -4px hsla(30, 20%, 10%, 0.4);
+    --shadow-card: 0 8px 32px -8px hsla(30, 20%, 10%, 0.5);
+    --shadow-elevated: 0 16px 48px -12px hsla(30, 20%, 10%, 0.6);
   }
 
   .dark {
-    --background: 270 30% 8%;
-    --foreground: 60 30% 96%;
+    --background: 30 15% 6%;
+    --foreground: 40 20% 92%;
 
-    --card: 270 25% 12%;
-    --card-foreground: 60 30% 96%;
+    --card: 30 12% 10%;
+    --card-foreground: 40 20% 92%;
 
-    --popover: 270 25% 12%;
-    --popover-foreground: 60 30% 96%;
+    --popover: 30 12% 10%;
+    --popover-foreground: 40 20% 92%;
 
-    --primary: 280 80% 65%;
-    --primary-foreground: 270 30% 8%;
+    --primary: 32 45% 55%;
+    --primary-foreground: 30 15% 6%;
 
-    --secondary: 320 70% 55%;
-    --secondary-foreground: 60 30% 96%;
+    --secondary: 25 30% 35%;
+    --secondary-foreground: 40 20% 92%;
 
-    --muted: 270 20% 18%;
-    --muted-foreground: 60 20% 70%;
+    --muted: 30 10% 16%;
+    --muted-foreground: 40 15% 60%;
 
-    --accent: 45 100% 60%;
-    --accent-foreground: 270 30% 8%;
+    --accent: 35 60% 50%;
+    --accent-foreground: 30 15% 6%;
 
-    --border: 270 30% 20%;
-    --input: 270 30% 20%;
-    --ring: 280 80% 65%;
+    --border: 30 15% 18%;
+    --input: 30 15% 18%;
+    --ring: 32 45% 55%;
   }
 }
 
@@ -116,44 +105,11 @@
 }
 
 @layer components {
-  .hero-gradient {
-    background: var(--gradient-hero);
-  }
-
-  .warm-gradient {
-    background: var(--gradient-warm);
-  }
-
-  .card-gradient {
-    background: var(--gradient-card);
-  }
-
-  .psychedelic-gradient {
-    background: var(--gradient-psychedelic);
-  }
-
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-elevated {
-    box-shadow: var(--shadow-elevated);
-  }
-
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-
   .text-gradient {
     background: linear-gradient(135deg, 
-      hsl(280, 80%, 65%) 0%, 
-      hsl(320, 70%, 60%) 30%,
-      hsl(45, 100%, 60%) 60%,
-      hsl(160, 80%, 50%) 100%);
+      hsl(32, 45%, 60%) 0%, 
+      hsl(38, 40%, 70%) 50%,
+      hsl(25, 50%, 50%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -161,18 +117,17 @@
 
   .text-gradient-warm {
     background: linear-gradient(135deg, 
-      hsl(45, 100%, 60%) 0%, 
-      hsl(320, 70%, 60%) 50%,
-      hsl(280, 80%, 65%) 100%);
+      hsl(38, 35%, 70%) 0%, 
+      hsl(32, 45%, 55%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .border-gradient {
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     background: linear-gradient(var(--card), var(--card)) padding-box,
-                var(--gradient-psychedelic) border-box;
+                var(--gradient-earth) border-box;
   }
 
   .glow-effect {
@@ -183,47 +138,44 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: var(--gradient-psychedelic);
+    background: var(--gradient-earth);
     border-radius: inherit;
-    opacity: 0.5;
-    filter: blur(20px);
+    opacity: 0.2;
+    filter: blur(12px);
     z-index: -1;
     transition: opacity 0.3s ease;
   }
 
   .glow-effect:hover::before {
-    opacity: 0.8;
+    opacity: 0.35;
   }
 
-  .cosmic-bg {
+  .earth-bg {
     background: 
-      radial-gradient(ellipse at 20% 20%, hsla(280, 80%, 50%, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 30%, hsla(320, 70%, 50%, 0.12) 0%, transparent 45%),
-      radial-gradient(ellipse at 40% 80%, hsla(200, 90%, 50%, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 70% 70%, hsla(45, 100%, 50%, 0.08) 0%, transparent 40%),
-      radial-gradient(ellipse at 10% 60%, hsla(160, 80%, 45%, 0.1) 0%, transparent 45%);
+      radial-gradient(ellipse at 20% 20%, hsla(25, 50%, 45%, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 30%, hsla(32, 45%, 55%, 0.04) 0%, transparent 45%),
+      radial-gradient(ellipse at 40% 80%, hsla(90, 20%, 45%, 0.03) 0%, transparent 50%);
+  }
+
+  .texture-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
   }
 
   .floating-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
-    animation: float-orb 8s ease-in-out infinite;
+    filter: blur(100px);
+    animation: float-orb 15s ease-in-out infinite;
   }
 
   @keyframes float-orb {
     0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -20px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 4s ease-in-out infinite;
+    33% { transform: translate(15px, -10px) scale(1.02); }
+    66% { transform: translate(-10px, 8px) scale(0.98); }
   }
 
   @keyframes shimmer {
@@ -233,7 +185,7 @@
 
   .animate-shimmer {
     background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
+    animation: shimmer 4s linear infinite;
   }
 }
 

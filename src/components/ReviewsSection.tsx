@@ -1,122 +1,70 @@
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const reviews = [
   {
     id: 1,
-    name: "Sarah Mitchell",
-    location: "Los Angeles, CA",
-    rating: 5,
-    review: "I described a sunset over mountains with lotus flowers, and the AI created exactly what I envisioned! The mat quality is incredible - perfect grip and so comfortable.",
-    avatar: "SM",
-    gradientFrom: "from-psychedelic-purple",
-    gradientTo: "to-psychedelic-pink",
+    name: "Sarah M.",
+    location: "Los Angeles",
+    review: "I described morning fog over the ocean—what arrived was exactly that feeling. Grounding in a way I didn't expect from a product.",
   },
   {
     id: 2,
-    name: "David Chen",
-    location: "Vancouver, BC",
-    rating: 5,
-    review: "As a yoga instructor, I've tried dozens of mats. This is the first time I've had one that's truly mine. The cosmic mandala design I created gets compliments every class!",
-    avatar: "DC",
-    gradientFrom: "from-psychedelic-pink",
-    gradientTo: "to-psychedelic-cyan",
+    name: "David C.",
+    location: "Vancouver",
+    review: "As an instructor, I've used countless mats. This is the first that feels like mine. The texture, the grip, the intention behind it—it all translates.",
   },
   {
     id: 3,
-    name: "Emma Johansson",
-    location: "Stockholm, Sweden",
-    rating: 5,
-    review: "The whole process took less than 5 minutes! I typed 'northern lights dancing over a forest' and got the most beautiful mat I've ever owned. Shipping to Europe was fast too.",
-    avatar: "EJ",
-    gradientFrom: "from-psychedelic-cyan",
-    gradientTo: "to-psychedelic-teal",
+    name: "Emma J.",
+    location: "Stockholm",
+    review: "I typed 'northern forest at dusk' and somehow they understood. The colors, the mood. It's become a ritual object for me.",
   },
   {
     id: 4,
-    name: "Marcus Williams",
-    location: "London, UK",
-    rating: 5,
-    review: "I was skeptical about AI-generated designs, but wow! Created a psychedelic peacock pattern that looks like professional artwork. Worth every penny.",
-    avatar: "MW",
-    gradientFrom: "from-psychedelic-teal",
-    gradientTo: "to-psychedelic-gold",
+    name: "Marcus W.",
+    location: "London",
+    review: "Skeptical of AI-anything. But this was different—felt collaborative, not automated. The final piece has soul.",
   },
 ];
 
 const ReviewsSection = () => {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 cosmic-bg" />
+    <section className="relative py-28 px-6 overflow-hidden">
+      <div className="texture-overlay" />
+      <div className="absolute inset-0 earth-bg" />
       
-      {/* Floating orbs */}
-      <div 
-        className="floating-orb w-72 h-72 -top-36 right-1/4 bg-psychedelic-pink/15"
-        style={{ animationDelay: "1s" }}
-      />
-      <div 
-        className="floating-orb w-56 h-56 bottom-0 -left-28 bg-psychedelic-purple/10"
-        style={{ animationDelay: "3s" }}
-      />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-psychedelic-pink bg-psychedelic-pink/10 rounded-full border border-psychedelic-pink/30">
-            💜 Customer Love
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">Loved by Yogis</span>
-            <br />
-            <span className="text-foreground">Worldwide</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands who've transformed their practice with personalized mats
+          <p className="text-sm tracking-[0.3em] uppercase text-earth-sand/70 mb-6 font-body">
+            From the Community
           </p>
+          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
+            <span className="text-foreground">Words from </span>
+            <span className="text-gradient italic">practitioners</span>
+          </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {reviews.map((review, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {reviews.map((review) => (
             <div
               key={review.id}
-              className="group relative"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group p-8 rounded-md bg-card/40 border border-border/30 hover:border-earth-clay/20 transition-colors duration-500"
             >
-              {/* Card with gradient border on hover */}
-              <div className="relative p-6 rounded-3xl bg-card/60 backdrop-blur-sm border border-border/50 transition-all duration-500 hover:border-transparent hover:bg-card/80">
-                {/* Gradient border on hover */}
-                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${review.gradientFrom} ${review.gradientTo} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`} />
-                <div className="absolute inset-[1px] rounded-3xl bg-card/95 -z-10" />
-                
-                {/* Quote icon */}
-                <div className={`absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-br ${review.gradientFrom} ${review.gradientTo} flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:-translate-y-1`}>
-                  <Quote className="w-5 h-5 text-white" />
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  {/* Avatar with gradient ring */}
-                  <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${review.gradientFrom} ${review.gradientTo} p-[2px] shrink-0 shadow-lg`}>
-                    <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-foreground font-bold">
-                      {review.avatar}
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <div>
-                        <h4 className="font-semibold text-foreground">{review.name}</h4>
-                        <p className="text-sm text-muted-foreground">{review.location}</p>
-                      </div>
-                      <div className="flex gap-0.5">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-psychedelic-gold text-psychedelic-gold" />
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <p className="text-foreground/80 text-sm leading-relaxed italic">
-                      "{review.review}"
-                    </p>
-                  </div>
+              <div className="flex gap-1 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-earth-sand/80 text-earth-sand/80" />
+                ))}
+              </div>
+              
+              <p className="font-display text-lg text-foreground/90 italic leading-relaxed mb-8">
+                "{review.review}"
+              </p>
+              
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-earth-clay/10 border border-earth-clay/15" />
+                <div>
+                  <p className="text-sm font-medium text-foreground font-body">{review.name}</p>
+                  <p className="text-xs text-muted-foreground font-body">{review.location}</p>
                 </div>
               </div>
             </div>
@@ -124,16 +72,15 @@ const ReviewsSection = () => {
         </div>
         
         {/* Rating summary */}
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-card/60 backdrop-blur-sm border border-border/50">
-            <div className="flex">
+        <div className="text-center mt-14">
+          <div className="inline-flex items-center gap-4 text-sm text-muted-foreground font-body">
+            <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-psychedelic-gold text-psychedelic-gold" />
+                <Star key={i} className="w-4 h-4 fill-earth-sand/80 text-earth-sand/80" />
               ))}
             </div>
-            <div className="h-8 w-px bg-border" />
-            <span className="font-display text-xl font-bold text-gradient">4.9/5</span>
-            <span className="text-muted-foreground">from 2,400+ reviews</span>
+            <span className="text-foreground font-medium">4.9</span>
+            <span className="text-muted-foreground/60">from 2,400+ reviews</span>
           </div>
         </div>
       </div>

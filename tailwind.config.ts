@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body: ['DM Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,12 +51,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        psychedelic: {
-          purple: "hsl(var(--psychedelic-1))",
-          pink: "hsl(var(--psychedelic-2))",
-          cyan: "hsl(var(--psychedelic-3))",
-          gold: "hsl(var(--psychedelic-4))",
-          teal: "hsl(var(--psychedelic-5))",
+        earth: {
+          clay: "hsl(var(--earth-clay))",
+          terracotta: "hsl(var(--earth-terracotta))",
+          sage: "hsl(var(--earth-sage))",
+          sand: "hsl(var(--earth-sand))",
+          charcoal: "hsl(var(--earth-charcoal))",
         },
       },
       borderRadius: {
@@ -74,40 +74,24 @@ export default {
           to: { height: "0" },
         },
         "fade-in": {
-          from: { opacity: "0", transform: "translateY(20px)" },
+          from: { opacity: "0", transform: "translateY(10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
-        },
-        "scale-in": {
-          from: { opacity: "0", transform: "scale(0.95)" },
-          to: { opacity: "1", transform: "scale(1)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
+          "50%": { transform: "translateY(-6px)" },
         },
         "pulse-subtle": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
-        },
-        "gradient-shift": {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
-        "scale-in": "scale-in 0.4s ease-out forwards",
-        "float": "float 3s ease-in-out infinite",
-        "spin-slow": "spin-slow 20s linear infinite",
+        "float": "float 4s ease-in-out infinite",
         "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
-        "gradient-shift": "gradient-shift 8s ease infinite",
       },
     },
   },
