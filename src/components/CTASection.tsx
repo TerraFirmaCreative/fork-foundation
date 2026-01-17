@@ -39,14 +39,14 @@ const CTASection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-          <Button variant="cta" size="lg" className="group font-body font-medium tracking-wide glow-effect h-14 px-8">
+          <Button variant="cta" size="xl" className="group font-body font-medium tracking-wide glow-effect">
             Design Your Mat Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 
             variant="outline" 
-            size="lg" 
-            className="font-body font-medium tracking-wide h-14 px-8"
+            size="xl" 
+            className="font-body font-medium tracking-wide"
           >
             Browse Designs
           </Button>

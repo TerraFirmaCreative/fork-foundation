@@ -51,15 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        psych: {
-          violet: "hsl(var(--psych-violet))",
-          magenta: "hsl(var(--psych-magenta))",
-          cyan: "hsl(var(--psych-cyan))",
-          gold: "hsl(var(--psych-gold))",
-          pink: "hsl(var(--psych-pink))",
-          orange: "hsl(var(--psych-orange))",
-          lime: "hsl(var(--psych-lime))",
-          deep: "hsl(var(--psych-deep))",
+        shaman: {
+          violet: "hsl(var(--shaman-violet))",
+          magenta: "hsl(var(--shaman-magenta))",
+          teal: "hsl(var(--shaman-teal))",
+          gold: "hsl(var(--shaman-gold))",
+          ember: "hsl(var(--shaman-ember))",
+          deep: "hsl(var(--shaman-deep))",
         },
       },
       borderRadius: {
