@@ -24,94 +24,93 @@ const intervals = [4000, 5000, 6000, 7000];
 
 const benefits = [
   {
-    title: "Premium Natural Rubber",
-    description: "Superior grip and cushioning."
+    title: "Natural Rubber",
+    description: "Sustainably harvested tree rubber."
   },
   {
-    title: "Non-Slip Surface",
-    description: "Stay grounded in every pose."
+    title: "Non-Slip Grip",
+    description: "Grounded in every pose."
   },
   {
-    title: "Eco-Friendly Inks",
-    description: "Vibrant colors that won't fade."
+    title: "Eco-Friendly",
+    description: "Water-based, non-toxic inks."
   },
   {
-    title: "Perfect Thickness",
-    description: "5mm cushioning for joints."
+    title: "5mm Cushion",
+    description: "Joint protection, stable feel."
   },
   {
     title: "Easy Care",
     description: "Machine washable."
   },
   {
-    title: "Built to Last",
-    description: "2-year warranty."
+    title: "2-Year Warranty",
+    description: "Professional-grade durability."
   }
 ];
 
-// TV Screen Tile component with crossfade
+// TV Screen Tile component with smooth crossfade (no black)
 const TVScreenTile = ({ images, interval }: { images: string[], interval: number }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-        setIsTransitioning(false);
-      }, 500);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }, interval);
     return () => clearInterval(timer);
   }, [images.length, interval]);
 
   return (
-    <div className="relative rounded-lg overflow-hidden aspect-square bg-background/50">
+    <div className="relative rounded-md overflow-hidden aspect-square bg-card/30">
       {images.map((image, index) => (
         <img
           key={index}
           src={image}
           alt={`Yoga mat design ${index + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            index === currentIndex && !isTransitioning ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         />
       ))}
-      {/* TV screen overlay effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-background/10" />
-        <div className="absolute inset-0 border border-border/30 rounded-lg" />
-      </div>
+      {/* Subtle overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none z-20" />
     </div>
   );
 };
 
 const MatBenefits = () => {
   return (
-    <section className="relative py-16 px-6 overflow-hidden">
+    <section className="relative py-28 px-6 overflow-hidden">
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
-      <MandalaDecoration className="-bottom-32 -right-32" size={300} />
+      <MandalaDecoration className="-bottom-48 -right-48" size={500} />
       
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-shaman-gold/70 mb-3 font-body">
+      {/* Floating orb */}
+      <div 
+        className="floating-orb w-72 h-72 -top-36 left-1/4 bg-shaman-teal/08"
+        style={{ animationDelay: "3s" }}
+      />
+      
+      <div className="max-w-5xl mx-auto relative z-10">
+        {/* Section Header - matching AboutSection style */}
+        <div className="text-center mb-16">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
             The Mat
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium mb-4 tracking-tight">
-            <span className="text-foreground">Professional quality.</span>{" "}
+          <h2 className="font-display text-4xl md:text-5xl font-medium mb-8 tracking-tight leading-tight">
+            <span className="text-foreground">Professional quality.</span>
+            <br />
             <span className="text-gradient italic">Your unique design.</span>
           </h2>
-          <p className="text-muted-foreground font-body max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
             Premium materials that serious practitioners demand.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image Grid - Left Side - TV Screens */}
-          <div className="grid grid-cols-2 gap-3 h-full">
+          <div className="grid grid-cols-2 gap-4">
             {tileImageSets.map((images, index) => (
               <TVScreenTile 
                 key={index}
@@ -122,33 +121,33 @@ const MatBenefits = () => {
           </div>
           
           {/* Benefits Grid - Right Side */}
-          <div className="flex flex-col h-full">
-            <div className="grid grid-cols-2 gap-3 flex-1">
+          <div className="space-y-8">
+            <div className="grid grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <div 
                   key={index}
-                  className="p-4 rounded-lg bg-card/50 border border-border/40 hover:border-shaman-gold/40 transition-all duration-300 flex flex-col"
+                  className="group"
                 >
-                  <h3 className="font-display text-sm font-medium text-foreground mb-1">
+                  <h3 className="font-display text-lg font-medium text-foreground mb-2 group-hover:text-gradient transition-colors duration-300">
                     {benefit.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground font-body leading-relaxed">
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
               ))}
             </div>
             
-            {/* Bottom CTA */}
-            <div className="p-4 rounded-lg bg-gradient-to-r from-shaman-violet/15 via-shaman-magenta/15 to-shaman-gold/15 border border-border/40 mt-3">
-              <div className="flex items-center justify-between gap-4">
+            {/* Bottom CTA - matching site style */}
+            <div className="pt-8 border-t border-border/30">
+              <div className="flex items-center justify-between gap-6">
                 <div>
-                  <p className="font-display text-base text-foreground">Ready to design yours?</p>
-                  <p className="text-xs text-muted-foreground font-body">Starting at $89 · Free shipping</p>
+                  <p className="font-display text-xl text-foreground mb-1">Ready to create yours?</p>
+                  <p className="text-sm text-muted-foreground/60 font-body">Starting at $89 · Free worldwide shipping</p>
                 </div>
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-shaman-gold via-shaman-ember to-shaman-gold bg-[length:200%_100%] text-background font-body text-sm font-medium rounded-md hover:bg-right transition-all duration-500 shrink-0"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-shaman-gold via-shaman-ember to-shaman-gold bg-[length:200%_100%] text-background font-body text-sm font-medium rounded-md hover:bg-right transition-all duration-500 shrink-0"
                 >
                   Start Creating
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
