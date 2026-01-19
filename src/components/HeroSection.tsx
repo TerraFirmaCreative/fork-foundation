@@ -1,52 +1,80 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
+import SacredGeometry, { MandalaDecoration } from "./SacredGeometry";
 
 const HeroSection = () => {
+  const [prompt, setPrompt] = useState("cosmic mandalas with flowing sacred geometry");
+
   return (
-    <section className="relative py-32 md:py-40 px-6 overflow-hidden">
-      {/* Subtle background */}
+    <section className="relative py-28 px-6 overflow-hidden">
+      {/* Mystic background */}
       <div className="texture-overlay" />
-      <div className="absolute inset-0 terra-bg" />
+      <div className="absolute inset-0 shaman-bg" />
       
-      {/* Very subtle floating orb */}
+      {/* Sacred geometry patterns */}
+      <SacredGeometry opacity={0.06} />
+      <MandalaDecoration className="-top-32 -right-32" size={500} />
+      <MandalaDecoration className="-bottom-48 -left-48" size={600} />
+      
+      {/* Floating orbs */}
       <div 
-        className="floating-orb w-[600px] h-[600px] -top-48 -right-48 bg-terra-sand/5"
+        className="floating-orb w-[500px] h-[500px] -top-48 -left-48 bg-shaman-violet/15"
         style={{ animationDelay: "0s" }}
       />
+      <div 
+        className="floating-orb w-[400px] h-[400px] top-1/4 -right-32 bg-shaman-magenta/10"
+        style={{ animationDelay: "4s" }}
+      />
+      <div 
+        className="floating-orb w-[300px] h-[300px] bottom-0 left-1/3 bg-shaman-teal/08"
+        style={{ animationDelay: "8s" }}
+      />
       
-      <div className="max-w-2xl mx-auto text-center relative z-10">
-        <h1 className="font-display text-5xl md:text-7xl font-medium mb-10 leading-[1.1] tracking-tight">
-          <span className="text-foreground">A mat that holds</span>
-          <br />
-          <span className="text-gradient italic">your intention.</span>
-        </h1>
-        
-        <p className="text-lg md:text-xl text-muted-foreground mb-16 max-w-lg mx-auto font-body font-light leading-relaxed">
-          Design a yoga mat that reflects your practice. 
-          Premium natural materials. Uniquely yours.
+      <div className="max-w-3xl mx-auto text-center relative z-10">
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/80 mb-6 font-body">
+          AI-Designed Custom Yoga Mats
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-          <Button variant="cta" size="xl" className="group font-body font-medium tracking-wide">
-            Design Your Mat
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="xl" 
-            className="font-body font-light tracking-wide text-muted-foreground hover:text-foreground"
-          >
-            Explore Gallery
+        <h1 className="font-display text-5xl md:text-7xl font-medium mb-8 leading-[1.1] tracking-tight">
+          <span className="text-foreground">Design your own</span>
+          <br />
+          <span className="text-gradient italic">yoga mat.</span>
+        </h1>
+        
+        <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto font-body font-light leading-relaxed">
+          Describe any design you can imagine—sacred geometry, cosmic fractals, 
+          nature scenes—and watch AI bring it to life on a premium yoga mat.
+        </p>
+        
+        <p className="text-sm text-muted-foreground/60 mb-14 font-body">
+          Premium natural rubber · Eco-friendly inks · Free worldwide shipping
+        </p>
+        
+        {/* Input with glow */}
+        <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mb-12">
+          <div className="flex-1 relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-shaman-violet via-shaman-magenta to-shaman-gold rounded-lg opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-500" />
+            <Input
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              placeholder="Describe your dream yoga mat design..."
+              className="relative h-14 pl-5 pr-5 bg-card/80 backdrop-blur-sm border-border/50 text-foreground placeholder:text-muted-foreground/40 rounded-md font-body text-base focus:border-shaman-violet/50 transition-colors"
+            />
+          </div>
+          <Button variant="cta" size="lg" className="h-14 px-8 gap-2 font-body font-medium tracking-wide">
+            Create My Mat <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
         
-        {/* Simple markers */}
-        <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground/50 font-body">
-          <span>Natural rubber</span>
-          <span className="w-1 h-1 rounded-full bg-terra-stone/30" />
-          <span>Eco-friendly inks</span>
-          <span className="w-1 h-1 rounded-full bg-terra-stone/30" />
-          <span>Free worldwide shipping</span>
+        {/* Markers */}
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-xs text-muted-foreground/60 font-body tracking-wide">
+          <span>Ships in 5–7 days</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet/50" />
+          <span>Non-slip grip</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-shaman-magenta/50" />
+          <span>30-day money back</span>
         </div>
       </div>
     </section>
