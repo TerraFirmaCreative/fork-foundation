@@ -1,84 +1,60 @@
-import { FractalGrid } from "./SacredGeometry";
-
 const steps = [
   {
     number: "01",
-    title: "Describe",
-    description: "Type any design idea—mandalas, landscapes, abstract art, or something totally unique to you.",
-    color: "text-shaman-violet",
+    title: "Envision",
+    description: "Describe the feeling, the colors, the imagery that speaks to your practice.",
   },
   {
     number: "02", 
-    title: "Generate",
-    description: "Our AI creates a stunning, one-of-a-kind yoga mat design based on your description.",
-    color: "text-shaman-magenta",
+    title: "Create",
+    description: "Your vision becomes a unique design, shaped by intention and brought to life.",
   },
   {
     number: "03",
-    title: "Customize",
-    description: "Tweak colors, adjust patterns, regenerate until it's exactly what you envisioned.",
-    color: "text-shaman-gold",
+    title: "Refine",
+    description: "Adjust and perfect until the design feels exactly right for you.",
   },
   {
     number: "04",
     title: "Receive",
-    description: "Your custom yoga mat is printed on premium natural rubber and shipped to your door.",
-    color: "text-shaman-teal",
+    description: "Your mat arrives, printed on premium natural rubber. Ready for practice.",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
+    <section className="relative py-32 px-6 overflow-hidden">
       <div className="texture-overlay" />
-      <div className="absolute inset-0 shaman-bg" />
+      <div className="absolute inset-0 terra-bg" />
       
-      {/* Fractal grid background */}
-      <FractalGrid />
-      
-      {/* Subtle orbs */}
-      <div 
-        className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/08"
-        style={{ animationDelay: "2s" }}
-      />
-      <div 
-        className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
-        style={{ animationDelay: "5s" }}
-      />
-      
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
-            Simple Process
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">How it </span>
-            <span className="text-gradient italic">works</span>
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-foreground">
+            How it works
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative group text-center"
+              className="relative text-center"
             >
-              {/* Step number with glow */}
-              <span className={`block font-display text-7xl ${step.color}/20 mb-4 group-hover:opacity-100 opacity-60 transition-opacity duration-700`}>
+              <span className="block font-display text-5xl text-terra-sand/15 mb-6">
                 {step.number}
               </span>
               
-              <h3 className={`font-display text-2xl font-medium mb-3 tracking-tight ${step.color}`}>
+              <h3 className="font-display text-xl font-medium mb-4 tracking-tight text-foreground">
                 {step.title}
               </h3>
               
-              <p className="text-sm text-muted-foreground font-body leading-relaxed">
+              <p className="text-sm text-muted-foreground font-body font-light leading-relaxed">
                 {step.description}
               </p>
               
-              {/* Connector line */}
+              {/* Subtle connector */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(100%+0.5rem)] w-[calc(100%-1rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
+                <div className="hidden lg:block absolute top-8 left-[calc(100%+1rem)] w-[calc(100%-2rem)] h-px bg-terra-stone/10" />
               )}
             </div>
           ))}
