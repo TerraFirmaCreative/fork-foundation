@@ -9,10 +9,51 @@ const Header = () => {
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-shaman-violet via-shaman-magenta to-shaman-gold p-[1.5px]">
-            <div className="w-full h-full rounded-full bg-background" />
+          <div className="w-9 h-9 relative">
+            {/* Earth/leaf inspired logo */}
+            <svg viewBox="0 0 40 40" className="w-full h-full">
+              <defs>
+                <linearGradient id="terraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="hsl(var(--shaman-violet))" />
+                  <stop offset="50%" stopColor="hsl(var(--shaman-magenta))" />
+                  <stop offset="100%" stopColor="hsl(var(--shaman-gold))" />
+                </linearGradient>
+              </defs>
+              {/* Outer circle - earth */}
+              <circle cx="20" cy="20" r="18" fill="none" stroke="url(#terraGradient)" strokeWidth="1.5" />
+              {/* Leaf/growth symbol */}
+              <path 
+                d="M20 8 C12 14 12 26 20 32 C28 26 28 14 20 8 Z" 
+                fill="none" 
+                stroke="url(#terraGradient)" 
+                strokeWidth="1.5"
+              />
+              {/* Center vein */}
+              <path 
+                d="M20 12 L20 28" 
+                stroke="url(#terraGradient)" 
+                strokeWidth="1" 
+                opacity="0.7"
+              />
+              {/* Small side veins */}
+              <path 
+                d="M20 16 L16 19 M20 20 L15 22 M20 24 L17 26" 
+                stroke="url(#terraGradient)" 
+                strokeWidth="0.8" 
+                opacity="0.5"
+              />
+              <path 
+                d="M20 16 L24 19 M20 20 L25 22 M20 24 L23 26" 
+                stroke="url(#terraGradient)" 
+                strokeWidth="0.8" 
+                opacity="0.5"
+              />
+            </svg>
           </div>
-          <span className="font-display text-xl tracking-wide text-foreground">Unique Yoga Mats</span>
+          <div className="flex flex-col">
+            <span className="font-display text-lg tracking-wide text-foreground leading-tight">Terra Firma</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-body">Creative</span>
+          </div>
         </div>
         
         {/* Nav Links */}
