@@ -1,5 +1,12 @@
-import yogiImage from "@/assets/yogi-mat-benefits.jpg";
+import { useEffect, useState } from "react";
 import { MandalaDecoration } from "./SacredGeometry";
+
+import mat1 from "@/assets/mat-1.jpg";
+import mat5 from "@/assets/mat-5.jpg";
+import mat8 from "@/assets/mat-8.jpg";
+import mat12 from "@/assets/mat-12.jpg";
+
+const matImages = [mat1, mat5, mat8, mat12];
 
 const benefits = [
   {
@@ -29,82 +36,110 @@ const benefits = [
 ];
 
 const MatBenefits = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % matImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative py-16 px-6 overflow-hidden">
+    <section className="relative py-20 px-6 overflow-hidden">
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
-      {/* Sacred geometry decoration */}
       <MandalaDecoration className="-bottom-32 -right-32" size={350} />
       
-      {/* Orbs - smaller */}
-      <div 
-        className="floating-orb w-48 h-48 -top-24 left-1/4 bg-shaman-magenta/08"
-        style={{ animationDelay: "2s" }}
-      />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header - more compact */}
-        <div className="text-center mb-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-shaman-gold/70 mb-3 font-body">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             The Mat
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium mb-4 tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-medium mb-5 tracking-tight">
             <span className="text-foreground">Professional quality.</span>{" "}
             <span className="text-gradient italic">Your unique design.</span>
           </h2>
-          <p className="text-muted-foreground font-body max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto">
             Premium materials that serious practitioners demand—with a design that's entirely yours.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Image */}
-          <div className="relative group order-2 lg:order-1">
-            {/* Glow effect */}
-            <div className="absolute -inset-3 bg-gradient-to-br from-shaman-violet/20 via-shaman-magenta/15 to-shaman-gold/10 rounded-lg blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Image Carousel - Left Side */}
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              {matImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className={`relative rounded-lg overflow-hidden aspect-square transition-all duration-500 ${
+                    currentSlide === index 
+                      ? 'ring-2 ring-shaman-gold/60 scale-[1.02]' 
+                      : 'opacity-70 hover:opacity-100'
+                  }`}
+                  onClick={() => setCurrentSlide(index)}
+                >
+                  <img
+                    src={image}
+                    alt={`Custom yoga mat design ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent transition-opacity duration-300 ${
+                    currentSlide === index ? 'opacity-0' : 'opacity-100'
+                  }`} />
+                </div>
+              ))}
+            </div>
             
-            <div className="relative rounded-md overflow-hidden">
-              <img
-                src={yogiImage}
-                alt="Yogi practicing on a custom-designed yoga mat in nature"
-                className="w-full aspect-[16/10] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+            {/* Slide indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {matImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    currentSlide === index 
+                      ? 'bg-shaman-gold w-6' 
+                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  }`}
+                />
+              ))}
             </div>
           </div>
           
-          {/* Benefits Grid */}
-          <div className="order-1 lg:order-2">
-            <div className="grid grid-cols-2 gap-4">
+          {/* Benefits Grid - Right Side */}
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {benefits.map((benefit, index) => (
                 <div 
                   key={index}
-                  className="p-4 rounded-lg bg-card/40 border border-border/30 hover:border-shaman-gold/30 transition-colors duration-300"
+                  className="p-5 rounded-xl bg-card/50 border border-border/40 hover:border-shaman-gold/40 transition-all duration-300 hover:bg-card/70"
                 >
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 flex items-center justify-center mb-2">
-                    <span className="text-shaman-gold font-display text-xs">{index + 1}</span>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-shaman-violet/30 to-shaman-magenta/30 flex items-center justify-center mb-3">
+                    <span className="text-shaman-gold font-display text-sm font-medium">{index + 1}</span>
                   </div>
-                  <h3 className="font-display text-sm font-medium text-foreground mb-1">
+                  <h3 className="font-display text-base font-medium text-foreground mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground font-body leading-relaxed">
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
               ))}
             </div>
             
-            {/* Bottom CTA - more compact */}
-            <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-shaman-violet/10 via-shaman-magenta/10 to-shaman-gold/10 border border-border/30">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            {/* Bottom CTA */}
+            <div className="p-5 rounded-xl bg-gradient-to-r from-shaman-violet/15 via-shaman-magenta/15 to-shaman-gold/15 border border-border/40">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <p className="font-display text-base text-foreground">Ready to design yours?</p>
-                  <p className="text-xs text-muted-foreground font-body">Starting at $89 · Free worldwide shipping</p>
+                  <p className="font-display text-lg text-foreground">Ready to design yours?</p>
+                  <p className="text-sm text-muted-foreground font-body">Starting at $89 · Free worldwide shipping</p>
                 </div>
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-shaman-gold via-shaman-ember to-shaman-gold bg-[length:200%_100%] text-background font-body text-sm font-medium rounded-md hover:bg-right transition-all duration-500"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-shaman-gold via-shaman-ember to-shaman-gold bg-[length:200%_100%] text-background font-body text-sm font-medium rounded-lg hover:bg-right transition-all duration-500 shrink-0"
                 >
                   Start Creating
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
