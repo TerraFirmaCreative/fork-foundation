@@ -1,50 +1,92 @@
 import { useEffect, useState } from "react";
 import { MandalaDecoration } from "./SacredGeometry";
 
-import mat3 from "@/assets/mat-3.jpg";
-import mat6 from "@/assets/mat-6.jpg";
-import mat9 from "@/assets/mat-9.jpg";
-import mat11 from "@/assets/mat-11.jpg";
+import mat1 from "@/assets/yoga-mat-new-1.jpg";
+import mat2 from "@/assets/yoga-mat-new-2.jpg";
+import mat3 from "@/assets/yoga-mat-new-3.jpg";
+import mat4 from "@/assets/yoga-mat-new-4.jpg";
+import mat5 from "@/assets/yoga-mat-new-5.jpg";
+import mat6 from "@/assets/yoga-mat-new-6.jpg";
+import mat7 from "@/assets/yoga-mat-new-7.jpg";
+import mat8 from "@/assets/yoga-mat-new-8.jpg";
+import mat9 from "@/assets/yoga-mat-new-9.jpg";
 
-const matImages = [mat3, mat6, mat9, mat11];
+// Each tile gets its own set of images to cycle through
+const tileImageSets = [
+  [mat1, mat4, mat7],
+  [mat2, mat5, mat8],
+  [mat3, mat6, mat9],
+  [mat4, mat1, mat3],
+];
+
+// Staggered intervals: 4s, 5s, 6s, 7s
+const intervals = [4000, 5000, 6000, 7000];
 
 const benefits = [
   {
     title: "Premium Natural Rubber",
-    description: "Superior grip and cushioning from sustainably harvested tree rubber."
+    description: "Superior grip and cushioning."
   },
   {
     title: "Non-Slip Surface",
-    description: "Stay grounded in every pose, even during intense hot yoga."
+    description: "Stay grounded in every pose."
   },
   {
     title: "Eco-Friendly Inks",
-    description: "Water-based, non-toxic inks. Vibrant colors that won't fade."
+    description: "Vibrant colors that won't fade."
   },
   {
     title: "Perfect Thickness",
-    description: "5mm cushioning protects joints while maintaining stability."
+    description: "5mm cushioning for joints."
   },
   {
     title: "Easy Care",
-    description: "Machine washable and quick-drying for lasting freshness."
+    description: "Machine washable."
   },
   {
     title: "Built to Last",
-    description: "Professional-grade durability with 2-year warranty."
+    description: "2-year warranty."
   }
 ];
 
-const MatBenefits = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+// TV Screen Tile component with crossfade
+const TVScreenTile = ({ images, interval }: { images: string[], interval: number }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % matImages.length);
-    }, 4000);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setIsTransitioning(false);
+      }, 500);
+    }, interval);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length, interval]);
 
+  return (
+    <div className="relative rounded-lg overflow-hidden aspect-square bg-background/50">
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={`Yoga mat design ${index + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            index === currentIndex && !isTransitioning ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+      {/* TV screen overlay effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-background/10" />
+        <div className="absolute inset-0 border border-border/30 rounded-lg" />
+      </div>
+    </div>
+  );
+};
+
+const MatBenefits = () => {
   return (
     <section className="relative py-16 px-6 overflow-hidden">
       <div className="texture-overlay" />
@@ -68,27 +110,14 @@ const MatBenefits = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          {/* Image Grid - Left Side */}
+          {/* Image Grid - Left Side - TV Screens */}
           <div className="grid grid-cols-2 gap-3 h-full">
-            {matImages.map((image, index) => (
-              <div 
+            {tileImageSets.map((images, index) => (
+              <TVScreenTile 
                 key={index}
-                className={`relative rounded-lg overflow-hidden transition-all duration-500 cursor-pointer ${
-                  currentSlide === index 
-                    ? 'ring-2 ring-shaman-gold/60 scale-[1.02]' 
-                    : 'opacity-80 hover:opacity-100'
-                }`}
-                onClick={() => setCurrentSlide(index)}
-              >
-                <img
-                  src={image}
-                  alt={`Custom yoga mat design ${index + 1}`}
-                  className="w-full h-full object-cover aspect-square"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent transition-opacity duration-300 ${
-                  currentSlide === index ? 'opacity-0' : 'opacity-100'
-                }`} />
-              </div>
+                images={images}
+                interval={intervals[index]}
+              />
             ))}
           </div>
           
@@ -100,9 +129,6 @@ const MatBenefits = () => {
                   key={index}
                   className="p-4 rounded-lg bg-card/50 border border-border/40 hover:border-shaman-gold/40 transition-all duration-300 flex flex-col"
                 >
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-shaman-violet/30 to-shaman-magenta/30 flex items-center justify-center mb-2">
-                    <span className="text-shaman-gold font-display text-xs font-medium">{index + 1}</span>
-                  </div>
                   <h3 className="font-display text-sm font-medium text-foreground mb-1">
                     {benefit.title}
                   </h3>
