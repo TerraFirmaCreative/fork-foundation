@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { MandalaDecoration } from "./SacredGeometry";
 
 import mat1 from "@/assets/yoga-mat-new-1.jpg";
@@ -11,14 +11,10 @@ import mat7 from "@/assets/yoga-mat-new-7.jpg";
 import mat8 from "@/assets/yoga-mat-new-8.jpg";
 import mat9 from "@/assets/yoga-mat-new-9.jpg";
 
-// All images in a pool - each tile will offset to never show duplicates
 const allImages = [mat1, mat2, mat3, mat4, mat5, mat6, mat7, mat8, mat9];
 
-// Staggered intervals: 5s, 6s, 7s, 8s (slower)
-const intervals = [5000, 6000, 7000, 8000];
-
-// Starting offsets ensure no duplicates across tiles
-const startOffsets = [0, 3, 6, 1];
+// Staggered intervals for random changes
+const intervals = [4000, 5500, 7000, 8500];
 
 const benefits = [
   {
@@ -47,17 +43,14 @@ const benefits = [
   }
 ];
 
-// TV Screen Tile component with smooth crossfade
-const TVScreenTile = ({ startOffset, interval }: { startOffset: number, interval: number }) => {
-  const [currentIndex, setCurrentIndex] = useState(startOffset);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % allImages.length);
-    }, interval);
-    return () => clearInterval(timer);
-  }, [interval]);
-
+// TV Screen Tile with random selection avoiding duplicates
+const TVScreenTile = ({ 
+  currentImage, 
+  allImages 
+}: { 
+  currentImage: number;
+  allImages: string[];
+}) => {
   return (
     <div className="relative rounded-md overflow-hidden aspect-square bg-card/30">
       {allImages.map((image, index) => (
@@ -65,8 +58,8 @@ const TVScreenTile = ({ startOffset, interval }: { startOffset: number, interval
           key={index}
           src={image}
           alt={`Yoga mat design ${index + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
-            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[5000ms] ease-in-out ${
+            index === currentImage ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         />
       ))}
@@ -76,6 +69,33 @@ const TVScreenTile = ({ startOffset, interval }: { startOffset: number, interval
 };
 
 const MatBenefits = () => {
+  // Track which image each tile is showing
+  const [tileImages, setTileImages] = useState([0, 2, 5, 7]);
+
+  const getRandomAvailableImage = useCallback((currentImages: number[], excludeIndex: number) => {
+    const usedImages = currentImages.filter((_, i) => i !== excludeIndex);
+    const availableImages = allImages
+      .map((_, index) => index)
+      .filter(index => !usedImages.includes(index) && index !== currentImages[excludeIndex]);
+    
+    if (availableImages.length === 0) return currentImages[excludeIndex];
+    return availableImages[Math.floor(Math.random() * availableImages.length)];
+  }, []);
+
+  useEffect(() => {
+    const timers = intervals.map((interval, tileIndex) => {
+      return setInterval(() => {
+        setTileImages(prev => {
+          const newImages = [...prev];
+          newImages[tileIndex] = getRandomAvailableImage(prev, tileIndex);
+          return newImages;
+        });
+      }, interval);
+    });
+
+    return () => timers.forEach(timer => clearInterval(timer));
+  }, [getRandomAvailableImage]);
+
   return (
     <section className="relative py-16 px-6 overflow-hidden">
       <div className="texture-overlay" />
@@ -104,13 +124,13 @@ const MatBenefits = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          {/* Image Grid - TV Screens with unique images */}
+          {/* Image Grid - TV Screens with random unique images */}
           <div className="grid grid-cols-2 gap-3">
-            {startOffsets.map((offset, index) => (
+            {tileImages.map((imageIndex, tileIndex) => (
               <TVScreenTile 
-                key={index}
-                startOffset={offset}
-                interval={intervals[index]}
+                key={tileIndex}
+                currentImage={imageIndex}
+                allImages={allImages}
               />
             ))}
           </div>
