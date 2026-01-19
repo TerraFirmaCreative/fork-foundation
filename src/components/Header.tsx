@@ -8,8 +8,8 @@ const Header = () => {
       
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 relative">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 relative">
             {/* Earth/leaf inspired logo */}
             <svg viewBox="0 0 40 40" className="w-full h-full">
               <defs>
@@ -51,8 +51,8 @@ const Header = () => {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-lg tracking-wide text-foreground leading-tight">Terra Firma</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-body">Creative</span>
+            <span className="font-display text-xl tracking-wide text-foreground leading-tight">Terra Firma</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-body">Creative</span>
           </div>
         </div>
         
@@ -62,13 +62,13 @@ const Header = () => {
             <a 
               key={link}
               href="#" 
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+              className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
             >
               {link}
             </a>
           ))}
-          <button className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide">
-            More <ChevronDown className="w-3.5 h-3.5" />
+          <button className="flex items-center gap-1 text-base text-muted-foreground hover:text-foreground transition-colors tracking-wide">
+            More <ChevronDown className="w-4 h-4" />
           </button>
         </div>
         
