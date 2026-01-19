@@ -51,13 +51,23 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Terra palette - earthy, grounded
+        terra: {
+          clay: "hsl(var(--terra-clay))",
+          sage: "hsl(var(--terra-sage))",
+          sand: "hsl(var(--terra-sand))",
+          stone: "hsl(var(--terra-stone))",
+          moss: "hsl(var(--terra-moss))",
+          earth: "hsl(var(--terra-earth))",
+        },
+        // Legacy shaman colors mapped to terra
         shaman: {
-          violet: "hsl(var(--shaman-violet))",
-          magenta: "hsl(var(--shaman-magenta))",
-          teal: "hsl(var(--shaman-teal))",
-          gold: "hsl(var(--shaman-gold))",
-          ember: "hsl(var(--shaman-ember))",
-          deep: "hsl(var(--shaman-deep))",
+          violet: "hsl(var(--terra-clay))",
+          magenta: "hsl(var(--terra-sand))",
+          teal: "hsl(var(--terra-sage))",
+          gold: "hsl(var(--terra-sand))",
+          ember: "hsl(var(--terra-clay))",
+          deep: "hsl(var(--terra-earth))",
         },
       },
       borderRadius: {
@@ -80,19 +90,19 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(-6px)" },
         },
         "pulse-subtle": {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.6" },
+          "50%": { opacity: "0.7" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
-        "float": "float 4s ease-in-out infinite",
-        "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "pulse-subtle": "pulse-subtle 4s ease-in-out infinite",
       },
     },
   },
