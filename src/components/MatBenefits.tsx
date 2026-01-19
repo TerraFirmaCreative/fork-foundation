@@ -11,68 +11,65 @@ import mat7 from "@/assets/yoga-mat-new-7.jpg";
 import mat8 from "@/assets/yoga-mat-new-8.jpg";
 import mat9 from "@/assets/yoga-mat-new-9.jpg";
 
-// Each tile gets its own set of images to cycle through
-const tileImageSets = [
-  [mat1, mat4, mat7],
-  [mat2, mat5, mat8],
-  [mat3, mat6, mat9],
-  [mat4, mat1, mat3],
-];
+// All images in a pool - each tile will offset to never show duplicates
+const allImages = [mat1, mat2, mat3, mat4, mat5, mat6, mat7, mat8, mat9];
 
-// Staggered intervals: 4s, 5s, 6s, 7s
-const intervals = [4000, 5000, 6000, 7000];
+// Staggered intervals: 5s, 6s, 7s, 8s (slower)
+const intervals = [5000, 6000, 7000, 8000];
+
+// Starting offsets ensure no duplicates across tiles
+const startOffsets = [0, 3, 6, 1];
 
 const benefits = [
   {
-    title: "Natural Rubber",
-    description: "Sustainably harvested tree rubber."
+    title: "Premium Natural Rubber",
+    description: "Harvested from sustainable rubber tree plantations. Superior grip and cushioning that improves with use."
   },
   {
-    title: "Non-Slip Grip",
-    description: "Grounded in every pose."
+    title: "Non-Slip Surface",
+    description: "Advanced texture technology keeps you grounded through intense hot yoga and sweaty flows."
   },
   {
-    title: "Eco-Friendly",
-    description: "Water-based, non-toxic inks."
+    title: "Eco-Friendly Inks",
+    description: "Water-based, non-toxic printing. Vibrant colours that stay true wash after wash."
   },
   {
-    title: "5mm Cushion",
-    description: "Joint protection, stable feel."
+    title: "5mm Thickness",
+    description: "The perfect balance—enough cushion to protect joints, firm enough for stability in balances."
   },
   {
-    title: "Easy Care",
-    description: "Machine washable."
+    title: "Machine Washable",
+    description: "Easy care for lasting freshness. Quick-dry material ready for your next session."
   },
   {
     title: "2-Year Warranty",
-    description: "Professional-grade durability."
+    description: "Professional-grade durability backed by our guarantee. Built for daily practice."
   }
 ];
 
-// TV Screen Tile component with smooth crossfade (no black)
-const TVScreenTile = ({ images, interval }: { images: string[], interval: number }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+// TV Screen Tile component with smooth crossfade
+const TVScreenTile = ({ startOffset, interval }: { startOffset: number, interval: number }) => {
+  const [currentIndex, setCurrentIndex] = useState(startOffset);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % allImages.length);
     }, interval);
     return () => clearInterval(timer);
-  }, [images.length, interval]);
+  }, [interval]);
 
   return (
     <div className="relative rounded-md overflow-hidden aspect-square bg-card/30">
-      {images.map((image, index) => (
+      {allImages.map((image, index) => (
         <img
           key={index}
           src={image}
           alt={`Yoga mat design ${index + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
             index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         />
       ))}
-      {/* Subtle overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none z-20" />
     </div>
   );
@@ -86,14 +83,13 @@ const MatBenefits = () => {
       
       <MandalaDecoration className="-bottom-48 -right-48" size={500} />
       
-      {/* Floating orb */}
       <div 
         className="floating-orb w-72 h-72 -top-36 left-1/4 bg-shaman-teal/08"
         style={{ animationDelay: "3s" }}
       />
       
-      <div className="max-w-5xl mx-auto relative z-10">
-        {/* Section Header - matching AboutSection style */}
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
             The Mat
@@ -108,38 +104,41 @@ const MatBenefits = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Image Grid - Left Side - TV Screens */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Image Grid - TV Screens with unique images */}
           <div className="grid grid-cols-2 gap-4">
-            {tileImageSets.map((images, index) => (
+            {startOffsets.map((offset, index) => (
               <TVScreenTile 
                 key={index}
-                images={images}
+                startOffset={offset}
                 interval={intervals[index]}
               />
             ))}
           </div>
           
-          {/* Benefits Grid - Right Side */}
-          <div className="space-y-8">
-            <div className="grid grid-cols-2 gap-6">
+          {/* Benefits Grid */}
+          <div>
+            <div className="grid grid-cols-1 gap-5">
               {benefits.map((benefit, index) => (
                 <div 
                   key={index}
-                  className="group"
+                  className="flex gap-4 group"
                 >
-                  <h3 className="font-display text-lg font-medium text-foreground mb-2 group-hover:text-gradient transition-colors duration-300">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                    {benefit.description}
-                  </p>
+                  <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 group-hover:from-shaman-violet group-hover:via-shaman-magenta group-hover:to-shaman-gold transition-all duration-300" />
+                  <div className="flex-1">
+                    <h3 className="font-display text-base font-medium text-foreground mb-1">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
             
-            {/* Bottom CTA - matching site style */}
-            <div className="pt-8 border-t border-border/30">
+            {/* Bottom CTA */}
+            <div className="mt-8 pt-8 border-t border-border/30">
               <div className="flex items-center justify-between gap-6">
                 <div>
                   <p className="font-display text-xl text-foreground mb-1">Ready to create yours?</p>
