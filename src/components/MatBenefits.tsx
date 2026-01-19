@@ -77,7 +77,7 @@ const TVScreenTile = ({ startOffset, interval }: { startOffset: number, interval
 
 const MatBenefits = () => {
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
+    <section className="relative py-16 px-6 overflow-hidden">
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
@@ -90,23 +90,22 @@ const MatBenefits = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+        <div className="text-center mb-10">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             The Mat
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium mb-8 tracking-tight leading-tight">
-            <span className="text-foreground">Professional quality.</span>
-            <br />
+          <h2 className="font-display text-3xl md:text-4xl font-medium mb-4 tracking-tight leading-tight">
+            <span className="text-foreground">Professional quality.</span>{" "}
             <span className="text-gradient italic">Your unique design.</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
             Premium materials that serious practitioners demand.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Image Grid - TV Screens with unique images */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             {startOffsets.map((offset, index) => (
               <TVScreenTile 
                 key={index}
@@ -117,44 +116,23 @@ const MatBenefits = () => {
           </div>
           
           {/* Benefits Grid */}
-          <div>
-            <div className="grid grid-cols-1 gap-5">
-              {benefits.map((benefit, index) => (
-                <div 
-                  key={index}
-                  className="flex gap-4 group"
-                >
-                  <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 group-hover:from-shaman-violet group-hover:via-shaman-magenta group-hover:to-shaman-gold transition-all duration-300" />
-                  <div className="flex-1">
-                    <h3 className="font-display text-base font-medium text-foreground mb-1">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  </div>
+          <div className="grid grid-cols-1 gap-4">
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index}
+                className="flex gap-4 group"
+              >
+                <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 group-hover:from-shaman-violet group-hover:via-shaman-magenta group-hover:to-shaman-gold transition-all duration-300" />
+                <div className="flex-1">
+                  <h3 className="font-display text-base font-medium text-foreground mb-0.5">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-              ))}
-            </div>
-            
-            {/* Bottom CTA */}
-            <div className="mt-8 pt-8 border-t border-border/30">
-              <div className="flex items-center justify-between gap-6">
-                <div>
-                  <p className="font-display text-xl text-foreground mb-1">Ready to create yours?</p>
-                  <p className="text-sm text-muted-foreground/60 font-body">Starting at $89 · Free worldwide shipping</p>
-                </div>
-                <a 
-                  href="#" 
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-shaman-gold via-shaman-ember to-shaman-gold bg-[length:200%_100%] text-background font-body text-sm font-medium rounded-md hover:bg-right transition-all duration-500 shrink-0"
-                >
-                  Start Creating
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
