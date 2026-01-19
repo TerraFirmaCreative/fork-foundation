@@ -30,26 +30,26 @@ const LifestyleGallery = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-16 px-6">
+      <div className="max-w-md mx-auto">
         {/* Section header */}
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-medium mb-4 tracking-tight text-foreground">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-2xl font-medium mb-2 tracking-tight text-foreground">
             In the wild
           </h2>
-          <p className="text-muted-foreground font-body font-light max-w-md mx-auto">
-            Mats that move with you, wherever practice takes you.
+          <p className="text-muted-foreground font-body font-light text-sm">
+            Mats that move with you.
           </p>
         </div>
 
         {/* Crossfade gallery */}
-        <div className="relative aspect-[4/3] md:aspect-[16/10] rounded-xl overflow-hidden shadow-lg">
+        <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md">
           {images.map((image, index) => (
             <img
               key={index}
