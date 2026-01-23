@@ -3,26 +3,26 @@ import { FractalGrid } from "./SacredGeometry";
 const steps = [
   {
     number: "01",
-    title: "Describe",
-    description: "Type any design idea—mandalas, landscapes, abstract art, or something totally unique to you.",
+    title: "Browse",
+    description: "Explore our curated collection of stunning yoga mat designs—from sacred geometry to cosmic art.",
     color: "text-shaman-violet",
   },
   {
     number: "02", 
-    title: "Generate",
-    description: "Our AI creates a stunning, one-of-a-kind yoga mat design based on your description.",
+    title: "Choose",
+    description: "Find the design that speaks to your practice and personal style.",
     color: "text-shaman-magenta",
   },
   {
     number: "03",
-    title: "Customize",
-    description: "Tweak colors, adjust patterns, regenerate until it's exactly what you envisioned.",
+    title: "Order",
+    description: "Select your mat and complete your order with our secure checkout.",
     color: "text-shaman-gold",
   },
   {
     number: "04",
     title: "Receive",
-    description: "Your custom yoga mat is printed on premium natural rubber and shipped to your door.",
+    description: "Your artisan yoga mat is printed on premium natural rubber and shipped to your door.",
     color: "text-shaman-teal",
   },
 ];

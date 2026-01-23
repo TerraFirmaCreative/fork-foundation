@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import SacredGeometry, { MandalaDecoration } from "./SacredGeometry";
 
 const HeroSection = () => {
-  const [prompt, setPrompt] = useState("cosmic mandalas with flowing sacred geometry");
-
   return (
     <section className="relative py-28 px-6 overflow-hidden">
       {/* Mystic background */}
@@ -34,37 +30,31 @@ const HeroSection = () => {
       
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/80 mb-6 font-body">
-          AI-Designed Custom Yoga Mats
+          Artisan Yoga Mats
         </p>
         
         <h1 className="font-display text-5xl md:text-7xl font-medium mb-8 leading-[1.1] tracking-tight">
-          <span className="text-foreground">Design your own</span>
+          <span className="text-foreground">Extraordinary mats for</span>
           <br />
-          <span className="text-gradient italic">yoga mat.</span>
+          <span className="text-gradient italic">extraordinary practice.</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto font-body font-light leading-relaxed">
-          Describe any design you can imagine—sacred geometry, cosmic fractals, 
-          nature scenes—and watch AI bring it to life on a premium yoga mat.
+          Discover our curated collection of stunning yoga mats—sacred geometry, 
+          cosmic fractals, and nature-inspired art on premium natural rubber.
         </p>
         
         <p className="text-sm text-muted-foreground/60 mb-14 font-body">
           Premium natural rubber · Eco-friendly inks · Free worldwide shipping
         </p>
         
-        {/* Input with glow */}
-        <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mb-12">
-          <div className="flex-1 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-shaman-violet via-shaman-magenta to-shaman-gold rounded-lg opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-500" />
-            <Input
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Describe your dream yoga mat design..."
-              className="relative h-14 pl-5 pr-5 bg-card/80 backdrop-blur-sm border-border/50 text-foreground placeholder:text-muted-foreground/40 rounded-md font-body text-base focus:border-shaman-violet/50 transition-colors"
-            />
-          </div>
-          <Button variant="cta" size="lg" className="h-14 px-8 gap-2 font-body font-medium tracking-wide">
-            Create My Mat <ArrowRight className="w-4 h-4" />
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-12">
+          <Button variant="cta" size="lg" className="h-14 px-8 gap-2 font-body font-medium tracking-wide flex-1">
+            Shop Collection <ArrowRight className="w-4 h-4" />
+          </Button>
+          <Button variant="outline" size="lg" className="h-14 px-8 font-body font-medium tracking-wide flex-1">
+            View Gallery
           </Button>
         </div>
         

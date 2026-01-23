@@ -58,7 +58,7 @@ const Header = () => {
         
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-10">
-          {["Design Your Mat", "Gallery", "How It Works"].map((link) => (
+          {["Shop Collection", "Gallery", "How It Works"].map((link) => (
             <a 
               key={link}
               href="#" 
@@ -75,7 +75,7 @@ const Header = () => {
         {/* Right Actions */}
         <div className="flex items-center gap-4">
           <Button variant="cta" size="sm" className="hidden sm:flex font-body text-sm">
-            Create Now
+            Shop Now
           </Button>
           <div className="relative">
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">

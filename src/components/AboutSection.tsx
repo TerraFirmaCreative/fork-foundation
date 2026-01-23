@@ -24,21 +24,21 @@ const AboutSection = () => {
             </p>
             
             <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-              <span className="text-foreground">Premium yoga mats,</span>
+              <span className="text-foreground">Artisan yoga mats,</span>
               <br />
-              <span className="text-gradient italic">designed by you.</span>
+              <span className="text-gradient italic">crafted with intention.</span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
-                We combine cutting-edge AI with premium materials to create yoga mats 
-                as unique as the people who use them. Simply describe your vision—cosmic 
-                patterns, nature scenes, sacred geometry, or anything you can imagine.
+                Our collection features stunning, one-of-a-kind designs that transform 
+                your practice space. Each mat showcases intricate cosmic patterns, 
+                sacred geometry, and nature-inspired art.
               </p>
               
               <p>
-                Each mat is printed on-demand using your AI-generated design, ensuring 
-                no two mats are ever the same. It's your personal artwork, made for practice.
+                We carefully curate every design to bring beauty and inspiration to your 
+                yoga journey. No mass production—each piece is a work of art.
               </p>
               
               <p className="text-foreground/70">
@@ -51,7 +51,7 @@ const AboutSection = () => {
             <div className="flex gap-14 mt-12 pt-12 border-t border-border/30">
               <div>
                 <span className="block font-display text-3xl text-gradient">50K+</span>
-                <span className="text-sm text-muted-foreground/60 font-body">mats created</span>
+                <span className="text-sm text-muted-foreground/60 font-body">mats sold</span>
               </div>
               <div>
                 <span className="block font-display text-3xl text-gradient">92</span>
@@ -72,7 +72,7 @@ const AboutSection = () => {
             <div className="relative rounded-md overflow-hidden">
               <img
                 src={yogaMatMeditation}
-                alt="Yoga practice on a custom mat"
+                alt="Yoga practice on an artisan mat"
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
@@ -81,7 +81,7 @@ const AboutSection = () => {
             {/* Quote overlay */}
             <div className="absolute -bottom-6 -left-6 right-16 p-6 bg-card/95 backdrop-blur-sm border border-border/40 rounded-md">
               <p className="font-display text-base italic text-foreground/80">
-                "Your mat, your design. Made for your practice."
+                "Art for your practice. Made with intention."
               </p>
             </div>
           </div>

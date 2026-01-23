@@ -24,23 +24,23 @@ const CTASection = () => {
       
       <div className="max-w-2xl mx-auto text-center relative z-10">
         <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-10 font-body">
-          Start Creating Today
+          Find Your Perfect Mat
         </p>
         
         <h2 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
-          <span className="text-foreground">Your perfect yoga mat</span>
+          <span className="text-foreground">Your practice deserves</span>
           <br />
-          <span className="text-gradient italic">is one prompt away.</span>
+          <span className="text-gradient italic">something extraordinary.</span>
         </h2>
         
         <p className="text-lg text-muted-foreground mb-14 font-body font-light max-w-lg mx-auto leading-relaxed">
-          Join thousands of yogis practicing on mats they designed themselves. 
+          Join thousands of yogis practicing on our stunning artisan mats. 
           Premium quality, truly unique, delivered worldwide.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
           <Button variant="cta" size="xl" className="group font-body font-medium tracking-wide glow-effect">
-            Design Your Mat Now
+            Shop Collection
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 
@@ -48,7 +48,7 @@ const CTASection = () => {
             size="xl" 
             className="font-body font-medium tracking-wide"
           >
-            Browse Designs
+            View Gallery
           </Button>
         </div>
         
