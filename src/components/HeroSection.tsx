@@ -63,8 +63,6 @@ const HeroSection = () => {
           <span>Ships in 5–7 days</span>
           <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet/50" />
           <span>Non-slip grip</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-shaman-magenta/50" />
-          <span>30-day money back</span>
         </div>
       </div>
     </section>
