@@ -44,7 +44,7 @@ const HeroSection = () => {
         </p>
         
         <p className="text-sm text-muted-foreground/60 mb-14 font-body">
-          Premium natural rubber · Eco-friendly inks · Free worldwide shipping
+          Premium natural rubber · Eco-friendly inks
         </p>
         
 
