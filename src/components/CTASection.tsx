@@ -54,7 +54,7 @@ const CTASection = () => {
         
         {/* Trust markers */}
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-xs text-muted-foreground/60 font-body tracking-wide">
-          <span>Premium natural rubber</span>
+          <span>Premium natural rubber · Worldwide shipping</span>
         </div>
       </div>
     </section>
