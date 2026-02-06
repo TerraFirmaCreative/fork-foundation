@@ -79,12 +79,21 @@ const Header = () => {
         
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-10">
-          <a 
-            href="#" 
+          <button 
+            onClick={() => {
+              if (location.pathname === "/") {
+                document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" });
+              } else {
+                navigate("/");
+                setTimeout(() => {
+                  document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }
+            }}
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
             Shop Collection
-          </a>
+          </button>
           <button 
             onClick={scrollToHowItWorks}
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
