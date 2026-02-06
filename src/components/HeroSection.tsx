@@ -47,12 +47,6 @@ const HeroSection = () => {
           Premium natural rubber · Eco-friendly inks · Free worldwide shipping
         </p>
         
-        {/* Markers */}
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-xs text-muted-foreground/60 font-body tracking-wide mb-12">
-          <span>Ships in 5–7 days</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet/50" />
-          <span>Non-slip grip</span>
-        </div>
 
         {/* CTA Button */}
         <div className="flex justify-center mt-2 max-w-lg mx-auto">
