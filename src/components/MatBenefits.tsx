@@ -18,28 +18,36 @@ const intervals = [4000, 5500, 7000, 8500];
 
 const benefits = [
   {
-    title: "Premium Natural Rubber",
-    description: "Harvested from sustainable rubber tree plantations. Superior grip and cushioning that improves with use."
+    title: "Natural Rubber Base",
+    description: "A dense natural rubber bottom keeps your mat firmly grounded, preventing slipping and sliding on any surface."
   },
   {
-    title: "Non-Slip Surface",
-    description: "Advanced texture technology keeps you grounded through intense hot yoga and sweaty flows."
+    title: "Microfiber Suede Surface",
+    description: "Soft, velvety microfiber suede provides a comfortable feel underfoot while offering reliable grip as your practice heats up."
   },
   {
-    title: "Eco-Friendly Inks",
-    description: "Water-based, non-toxic printing. Vibrant colours that stay true wash after wash."
+    title: "Non-Slip Performance",
+    description: "Designed for stability through every pose, from slow flows to more dynamic movement."
   },
   {
-    title: "5mm Thickness",
-    description: "The perfect balance—enough cushion to protect joints, firm enough for stability in balances."
+    title: "Edge-to-Edge Printing",
+    description: "Full-coverage, high-resolution printing delivers crisp detail and vibrant colour from corner to corner."
   },
   {
-    title: "Machine Washable",
-    description: "Easy care for lasting freshness. Quick-dry material ready for your next session."
+    title: "Lightweight & Portable",
+    description: "Easy to roll, carry, and travel with — ideal for home practice, studio sessions, or taking on the go."
   },
   {
-    title: "2-Year Warranty",
-    description: "Professional-grade durability backed by our guarantee. Built for daily practice."
+    title: "3mm Thickness",
+    description: "A supportive, low-profile cushion that enhances balance while still absorbing impact for joints and knees."
+  },
+  {
+    title: "Generous Size",
+    description: "70\" x 26\" gives you extra space to move freely, stretch fully, and stay centred throughout your practice."
+  },
+  {
+    title: "Durable Construction",
+    description: "Built for regular use, with materials chosen to maintain performance and appearance over time."
   }
 ];
 
