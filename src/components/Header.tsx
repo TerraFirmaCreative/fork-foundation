@@ -65,15 +65,18 @@ const Header = () => {
         
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-10">
-          {["Shop Collection", "How It Works"].map((link) => (
-            <a 
-              key={link}
-              href="#" 
-              className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
-            >
-              {link}
-            </a>
-          ))}
+          <a 
+            href="#" 
+            className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+          >
+            Shop Collection
+          </a>
+          <Link 
+            to="/#how-it-works"
+            className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+          >
+            How It Works
+          </Link>
           <Link 
             to="/about"
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
