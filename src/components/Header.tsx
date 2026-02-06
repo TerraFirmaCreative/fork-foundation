@@ -65,7 +65,7 @@ const Header = () => {
         
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-10">
-          {["Shop Collection", "Gallery", "How It Works"].map((link) => (
+          {["Shop Collection", "How It Works"].map((link) => (
             <a 
               key={link}
               href="#" 
