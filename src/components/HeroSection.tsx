@@ -53,9 +53,6 @@ const HeroSection = () => {
           <Button variant="cta" size="lg" className="h-14 px-8 gap-2 font-body font-medium tracking-wide flex-1">
             Shop Collection <ArrowRight className="w-4 h-4" />
           </Button>
-          <Button variant="outline" size="lg" className="h-14 px-8 font-body font-medium tracking-wide flex-1">
-            View Gallery
-          </Button>
         </div>
         
         {/* Markers */}

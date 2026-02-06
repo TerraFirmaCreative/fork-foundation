@@ -43,13 +43,6 @@ const CTASection = () => {
             Shop Collection
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button 
-            variant="outline" 
-            size="xl" 
-            className="font-body font-medium tracking-wide"
-          >
-            View Gallery
-          </Button>
         </div>
         
         {/* Trust markers */}
