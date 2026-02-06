@@ -42,7 +42,7 @@ const AboutSection = () => {
               </p>
               
               <p className="text-foreground/70">
-                Natural tree rubber · Non-slip surface · Eco-friendly inks · 
+                Natural tree rubber · Non-slip surface · 
                 Shipped worldwide in recyclable packaging.
               </p>
             </div>

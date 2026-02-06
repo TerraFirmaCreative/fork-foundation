@@ -48,8 +48,6 @@ const CTASection = () => {
         {/* Trust markers */}
         <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-xs text-muted-foreground/60 font-body tracking-wide">
           <span>Premium natural rubber</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal/50" />
-          <span>Eco-friendly printing</span>
         </div>
       </div>
     </section>
