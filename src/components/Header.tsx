@@ -74,14 +74,17 @@ const Header = () => {
               {link}
             </a>
           ))}
+          <Link 
+            to="/about"
+            className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+          >
+            About
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide outline-none">
               More <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-card border-border/50 z-50">
-              <DropdownMenuItem asChild>
-                <Link to="/about" className="cursor-pointer">About</Link>
-              </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/faqs" className="cursor-pointer">FAQs</Link>
               </DropdownMenuItem>
