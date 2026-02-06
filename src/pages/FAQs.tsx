@@ -1,5 +1,74 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const faqs = [
+  {
+    question: "What is Unique Yoga Mats?",
+    answer: "Unique Yoga Mats is an online store offering beautifully designed yoga mats, printed to order and delivered directly to your door. Each design is carefully created and produced specifically for you."
+  },
+  {
+    question: "What products do you sell?",
+    answer: "We currently specialise in premium yoga mats featuring our own curated designs. Each mat is printed edge-to-edge using one of our original artworks. We plan to expand our product range over time."
+  },
+  {
+    question: "How are the designs created?",
+    answer: "Our designs are created through a blend of creative direction and digital design tools, allowing us to produce distinctive, detailed artwork that translates beautifully onto our mats."
+  },
+  {
+    question: "Are the mats made to order?",
+    answer: "Yes. All of our mats are printed to order once you place your purchase. This approach helps reduce waste and ensures each mat is made specifically for you."
+  },
+  {
+    question: "What are your mats made from?",
+    answer: "Our yoga mats feature a soft microfiber suede top layer, providing a smooth, comfortable feel and reliable grip — especially during warm or sweaty practices.\n\nThe base is made from natural rubber, helping keep the mat securely in place while you move.\n\nTogether, these materials offer a balance of comfort, durability, and performance suitable for a wide range of yoga styles."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept secure online payments via checkout, including major credit and debit cards. All payments are processed safely through our payment provider."
+  },
+  {
+    question: "When will my order be made?",
+    answer: "Production begins shortly after your payment is confirmed. As each mat is printed to order, production times may vary slightly."
+  },
+  {
+    question: "Where do you ship?",
+    answer: "We ship to a range of international locations. Available shipping destinations will be shown at checkout."
+  },
+  {
+    question: "How much does shipping cost?",
+    answer: "Shipping costs are calculated at checkout based on your location and will be clearly displayed before you complete your purchase."
+  },
+  {
+    question: "How long does delivery take?",
+    answer: "Delivery times vary depending on your location and production time. Once your order has been shipped, you'll receive tracking details where available."
+  },
+  {
+    question: "Can I change my shipping address?",
+    answer: "If you need to update your shipping address, please contact us as soon as possible after placing your order. Once production or shipping has started, changes may not be possible."
+  },
+  {
+    question: "My order hasn't arrived — what should I do?",
+    answer: "If your order hasn't arrived within the expected timeframe, please contact us and we'll be happy to investigate and help resolve the issue."
+  },
+  {
+    question: "What is your returns policy?",
+    answer: "Because our mats are printed to order, we're unable to accept returns for change of mind.\n\nIf your mat arrives damaged, faulty, or there's an issue with your order, please contact us within 14 days of delivery and we'll work with you to make it right.\n\nThis does not affect your statutory rights or rights under applicable consumer protection laws."
+  },
+  {
+    question: "Will the colours look exactly the same as on my screen?",
+    answer: "We do our best to represent colours accurately, but slight variations may occur due to screen settings and the printing process. These subtle differences are part of the making process."
+  },
+  {
+    question: "How do I contact Unique Yoga Mats?",
+    answer: "You can contact us using the details provided on the website. We aim to respond to all enquiries as quickly as possible."
+  }
+];
 
 const FAQs = () => {
   return (
@@ -10,9 +79,19 @@ const FAQs = () => {
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-8 text-foreground">
             Frequently Asked Questions
           </h1>
-          <div className="prose prose-lg text-muted-foreground font-body">
-            <p>Content coming soon...</p>
-          </div>
+          
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border-border/50">
+                <AccordionTrigger className="font-body text-left text-foreground hover:no-underline hover:text-foreground/80">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="font-body text-muted-foreground whitespace-pre-line">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </main>
       <Footer />
