@@ -47,21 +47,6 @@ const AboutSection = () => {
               </p>
             </div>
             
-            {/* Stats */}
-            <div className="flex gap-14 mt-12 pt-12 border-t border-border/30">
-              <div>
-                <span className="block font-display text-3xl text-gradient">50K+</span>
-                <span className="text-sm text-muted-foreground/60 font-body">mats sold</span>
-              </div>
-              <div>
-                <span className="block font-display text-3xl text-gradient">92</span>
-                <span className="text-sm text-muted-foreground/60 font-body">countries</span>
-              </div>
-              <div>
-                <span className="block font-display text-3xl text-gradient">4.9★</span>
-                <span className="text-sm text-muted-foreground/60 font-body">avg. rating</span>
-              </div>
-            </div>
           </div>
           
           {/* Image */}
