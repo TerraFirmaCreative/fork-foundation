@@ -51,7 +51,8 @@ const Header = () => {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-xl tracking-wide text-foreground leading-tight">Unique Yoga Mats</span>
+            <span className="font-display text-xl tracking-wide text-foreground leading-tight">Terra Firma</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-body">Creative</span>
           </div>
         </div>
         
