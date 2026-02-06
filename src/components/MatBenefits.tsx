@@ -60,7 +60,7 @@ const TVScreenTile = ({
   allImages: string[];
 }) => {
   return (
-    <div className="relative rounded-md overflow-hidden aspect-square bg-card/30">
+    <div className="relative rounded-md overflow-hidden bg-card/30">
       {allImages.map((image, index) => (
         <img
           key={index}
@@ -131,7 +131,7 @@ const MatBenefits = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           {/* Image Grid - TV Screens with random unique images */}
           <div className="grid grid-cols-2 gap-3">
             {tileImages.map((imageIndex, tileIndex) => (
