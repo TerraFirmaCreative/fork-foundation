@@ -3,7 +3,7 @@ import SacredGeometry, { MandalaDecoration } from "./SacredGeometry";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
+    <section className="relative py-28 pb-12 px-6 overflow-hidden">
       {/* Mystic background */}
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />

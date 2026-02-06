@@ -82,7 +82,7 @@ const DesignGallery = () => {
   const visibleDesigns = shuffledDesigns;
 
   return (
-    <section id="design-gallery" className="hero-gradient py-12 px-6">
+    <section id="design-gallery" className="hero-gradient pt-4 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         
 
