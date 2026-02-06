@@ -15,7 +15,7 @@ const Header = () => {
       
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
-        <div className="flex items-center gap-4">
+        <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
           <div className="w-12 h-12 relative">
             {/* Earth/leaf inspired logo */}
             <svg viewBox="0 0 40 40" className="w-full h-full">
@@ -61,7 +61,7 @@ const Header = () => {
             <span className="font-display text-xl tracking-wide text-foreground leading-tight">Terra Firma</span>
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-body">Creative</span>
           </div>
-        </div>
+        </Link>
         
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-10">
