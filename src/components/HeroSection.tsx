@@ -53,13 +53,6 @@ const HeroSection = () => {
           <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet/50" />
           <span>Non-slip grip</span>
         </div>
-
-        {/* CTA Button */}
-        <div className="flex justify-center">
-          <Button variant="cta" size="lg" className="h-14 px-8 font-body font-medium tracking-wide">
-            Shop Collection
-          </Button>
-        </div>
       </div>
     </section>
   );
