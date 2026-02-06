@@ -86,10 +86,10 @@ const Header = () => {
                 <Link to="/faqs" className="cursor-pointer">FAQs</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/terms" className="cursor-pointer">Terms & Conditions</Link>
+                <Link to="/refund-policy" className="cursor-pointer">Refund & Returns Policy</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/refund-policy" className="cursor-pointer">Refund & Returns Policy</Link>
+                <Link to="/terms" className="cursor-pointer">Terms & Conditions</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/privacy-policy" className="cursor-pointer">Privacy Policy</Link>
