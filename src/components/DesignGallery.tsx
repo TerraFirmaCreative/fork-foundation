@@ -22,18 +22,28 @@ import mat43 from "@/assets/mat-43.png";
 import mat44 from "@/assets/mat-44.png";
 import mat45 from "@/assets/mat-45.png";
 import mat46 from "@/assets/mat-46.png";
+import newMat1 from "@/assets/new-mat-1.png";
+import newMat2 from "@/assets/new-mat-2.png";
+import newMat3 from "@/assets/new-mat-3.png";
+import newMat4 from "@/assets/new-mat-4.png";
+import newMat5 from "@/assets/new-mat-5.png";
+import newMat6 from "@/assets/new-mat-6.png";
+import newMat7 from "@/assets/new-mat-7.png";
+import newMat8 from "@/assets/new-mat-8.png";
+import newMat9 from "@/assets/new-mat-9.png";
+import newMat10 from "@/assets/new-mat-10.png";
 
 const designs = [
-  { id: 1, image: mat28, alt: "Blue medicine Buddha meditation yoga mat design", prompt: "Blue medicine Buddha in serene meditation with sacred lotus flowers and ethereal light rays" },
-  { id: 2, image: mat37, alt: "Psychedelic broccoli sunrise forest yoga mat design", prompt: "Psychedelic broccoli forest at sunrise with fractal patterns and vibrant cosmic energy" },
-  { id: 3, image: mat30, alt: "Psychedelic spiral fractals yoga mat design", prompt: "Hypnotic psychedelic spirals with rainbow fractals and sacred geometry patterns" },
-  { id: 4, image: mat39, alt: "Lemuria humpback whale fractals yoga mat design", prompt: "Majestic Lemurian humpback whale swimming through cosmic fractals and starlight" },
-  { id: 5, image: mat35, alt: "Starry whale mandala yoga mat design", prompt: "Celestial whale mandala under starry night sky with flowing sacred patterns" },
-  { id: 6, image: mat42, alt: "Dolphins ocean coral sunset yoga mat design", prompt: "Playful dolphins dancing through coral reefs at golden sunset with ocean waves" },
-  { id: 7, image: mat38, alt: "Earth sunrise water flowing yoga mat design", prompt: "Mother Earth at sunrise with flowing water streams and life-giving energy" },
-  { id: 8, image: mat43, alt: "Love fractals flower of life aboriginal yoga mat design", prompt: "Aboriginal-inspired flower of life with love fractals and traditional dot patterns" },
-  { id: 9, image: mat27, alt: "Psychedelic mystic mountains yoga mat design", prompt: "Mystic mountains under psychedelic aurora with sacred tribal patterns" },
-  { id: 10, image: mat33, alt: "Fractal vibrancy mandala yoga mat design", prompt: "Vibrant fractal mandala bursting with rainbow energy and cosmic consciousness" },
+  { id: 1, image: newMat1, alt: "Yellow DMT sun psychedelic yoga mat design", prompt: "Yellow DMT sun psychedelic yoga mat design" },
+  { id: 2, image: newMat2, alt: "Detailed mandala yoga mat design", prompt: "Detailed mandala yoga mat design" },
+  { id: 3, image: newMat3, alt: "Mandelbrot set Picassoesque high vibes psychedelic", prompt: "Mandelbrot set Picassoesque high vibes psychedelic" },
+  { id: 4, image: newMat4, alt: "Psychedelic Lemuria humpback whale dolphins", prompt: "Psychedelic Lemuria humpback whale dolphins" },
+  { id: 5, image: newMat5, alt: "Red earth dub circus", prompt: "Red earth dub circus" },
+  { id: 6, image: newMat6, alt: "The sun and moon split design", prompt: "The sun and moon split design" },
+  { id: 7, image: newMat7, alt: "Vertical segmented images of abstract landscapes", prompt: "Vertical segmented images of abstract landscapes" },
+  { id: 8, image: newMat8, alt: "Zoom psychedelic dots symmetry", prompt: "Zoom psychedelic dots symmetry" },
+  { id: 9, image: newMat9, alt: "Huichol painting of a ritual spiritual ceremony", prompt: "Huichol painting of a ritual spiritual ceremony" },
+  { id: 10, image: newMat10, alt: "Aboriginal dot art symmetrical fractals of chakra", prompt: "Aboriginal dot art symmetrical fractals of chakra" },
   { id: 11, image: mat44, alt: "Aboriginal dot art chakra fractals yoga mat design", prompt: "Aboriginal dot art depicting seven chakras with fractal energy centers" },
   { id: 12, image: mat29, alt: "Chakra volcano fractals yoga mat design", prompt: "Volcanic energy erupting through chakra system with sacred fractal patterns" },
   { id: 13, image: mat36, alt: "Rainbow flower of life yoga mat design", prompt: "Rainbow-colored flower of life geometry radiating divine light and harmony" },
