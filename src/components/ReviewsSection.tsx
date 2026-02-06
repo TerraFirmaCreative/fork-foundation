@@ -81,18 +81,6 @@ const ReviewsSection = () => {
           ))}
         </div>
         
-        {/* Rating summary */}
-        <div className="text-center mt-14">
-          <div className="inline-flex items-center gap-4 text-sm text-muted-foreground font-body">
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-shaman-gold/80 text-shaman-gold/80" />
-              ))}
-            </div>
-            <span className="text-foreground font-medium">4.9</span>
-            <span className="text-muted-foreground/60">from 2,400+ happy customers</span>
-          </div>
-        </div>
       </div>
     </section>
   );
