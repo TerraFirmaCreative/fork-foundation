@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronDown, Copy } from "lucide-react";
+import { useMemo } from "react";
+
+import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import newMat1 from "@/assets/new-mat-1.png";
 import newMat2 from "@/assets/new-mat-2.png";
@@ -71,13 +71,6 @@ const shuffleArray = <T,>(array: T[], seed: number): T[] => {
 };
 
 const DesignGallery = () => {
-  const [expanded, setExpanded] = useState(false);
-  const itemsPerRow = 5; // on sm+ screens
-  const initialRows = 3;
-  const expandedRows = 6;
-  
-  const initialCount = initialRows * itemsPerRow; // 15 items
-  const expandedCount = expandedRows * itemsPerRow; // 30 items
 
   // Generate a random seed once per component mount
   const shuffledDesigns = useMemo(() => {
@@ -85,9 +78,7 @@ const DesignGallery = () => {
     return shuffleArray(designs, seed);
   }, []);
   
-  const visibleDesigns = expanded 
-    ? shuffledDesigns.slice(0, Math.min(expandedCount, shuffledDesigns.length)) 
-    : shuffledDesigns.slice(0, Math.min(initialCount, shuffledDesigns.length));
+  const visibleDesigns = shuffledDesigns;
 
   return (
     <section className="hero-gradient py-12 px-6">
@@ -122,18 +113,6 @@ const DesignGallery = () => {
             </div>
           ))}
         </div>
-        
-        {!expanded && shuffledDesigns.length > initialCount && (
-          <div className="flex justify-center mt-8">
-            <Button
-              onClick={() => setExpanded(true)}
-              variant="outline"
-              className="gap-2"
-              >
-              Show More <ChevronDown className="w-4 h-4" />
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );
