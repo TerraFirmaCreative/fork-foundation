@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, ChevronDown, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,6 +9,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToHowItWorks = () => {
+    if (location.pathname === "/") {
+      document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   return (
     <header className="relative py-5 px-6">
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
@@ -71,12 +85,12 @@ const Header = () => {
           >
             Shop Collection
           </a>
-          <Link 
-            to="/#how-it-works"
+          <button 
+            onClick={scrollToHowItWorks}
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
             How It Works
-          </Link>
+          </button>
           <Link 
             to="/about"
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
