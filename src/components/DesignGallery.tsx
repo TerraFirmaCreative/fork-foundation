@@ -2,26 +2,6 @@ import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Copy } from "lucide-react";
 import { toast } from "sonner";
-import mat27 from "@/assets/mat-27.png";
-import mat28 from "@/assets/mat-28.png";
-import mat29 from "@/assets/mat-29.png";
-import mat30 from "@/assets/mat-30.png";
-import mat31 from "@/assets/mat-31.png";
-import mat32 from "@/assets/mat-32.png";
-import mat33 from "@/assets/mat-33.png";
-import mat34 from "@/assets/mat-34.png";
-import mat35 from "@/assets/mat-35.png";
-import mat36 from "@/assets/mat-36.png";
-import mat37 from "@/assets/mat-37.png";
-import mat38 from "@/assets/mat-38.png";
-import mat39 from "@/assets/mat-39.png";
-import mat40 from "@/assets/mat-40.png";
-import mat41 from "@/assets/mat-41.png";
-import mat42 from "@/assets/mat-42.png";
-import mat43 from "@/assets/mat-43.png";
-import mat44 from "@/assets/mat-44.png";
-import mat45 from "@/assets/mat-45.png";
-import mat46 from "@/assets/mat-46.png";
 import newMat1 from "@/assets/new-mat-1.png";
 import newMat2 from "@/assets/new-mat-2.png";
 import newMat3 from "@/assets/new-mat-3.png";
@@ -42,6 +22,10 @@ import newMat17 from "@/assets/new-mat-17.png";
 import newMat18 from "@/assets/new-mat-18.png";
 import newMat19 from "@/assets/new-mat-19.png";
 import newMat20 from "@/assets/new-mat-20.png";
+import newMat21 from "@/assets/new-mat-21.png";
+import newMat22 from "@/assets/new-mat-22.png";
+import newMat23 from "@/assets/new-mat-23.png";
+import newMat24 from "@/assets/new-mat-24.png";
 
 const designs = [
   { id: 1, image: newMat1, alt: "Yellow DMT sun psychedelic yoga mat design", prompt: "Yellow DMT sun psychedelic yoga mat design" },
@@ -64,6 +48,10 @@ const designs = [
   { id: 18, image: newMat18, alt: "Symmetrical Mandelbrot set into infinity Picassoesque", prompt: "Symmetrical Mandelbrot set into infinity Picassoesque" },
   { id: 19, image: newMat19, alt: "Symmetry psychedelic Picassoesque broccoli sunrise A", prompt: "Symmetry psychedelic Picassoesque broccoli sunrise A" },
   { id: 20, image: newMat20, alt: "Symmetry psychedelic Picassoesque broccoli sunrise B", prompt: "Symmetry psychedelic Picassoesque broccoli sunrise B" },
+  { id: 21, image: newMat21, alt: "Symmetrical design circle on the middle yoga Nonatte", prompt: "Symmetrical design circle on the middle yoga Nonatte" },
+  { id: 22, image: newMat22, alt: "Amazing wonderful fractal vibrancy life symmetry", prompt: "Amazing wonderful fractal vibrancy life symmetry" },
+  { id: 23, image: newMat23, alt: "Triangles stack", prompt: "Triangles stack" },
+  { id: 24, image: newMat24, alt: "Unwavering love of surfing and symmetrical dreams", prompt: "Unwavering love of surfing and symmetrical dreams" },
 ];
 
 // Seeded random shuffle to ensure consistent order per session
@@ -141,7 +129,7 @@ const DesignGallery = () => {
               onClick={() => setExpanded(true)}
               variant="outline"
               className="gap-2"
-            >
+              >
               Show More <ChevronDown className="w-4 h-4" />
             </Button>
           </div>
