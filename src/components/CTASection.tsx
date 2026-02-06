@@ -39,7 +39,14 @@ const CTASection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-          <Button variant="cta" size="xl" className="group font-body font-medium tracking-wide glow-effect">
+          <Button 
+            variant="cta" 
+            size="xl" 
+            className="group font-body font-medium tracking-wide glow-effect"
+            onClick={() => {
+              document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             Shop Collection
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
