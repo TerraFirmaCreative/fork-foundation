@@ -19,35 +19,23 @@ const intervals = [4000, 5500, 7000, 8500];
 const benefits = [
   {
     title: "Natural Rubber Base",
-    description: "A dense natural rubber bottom keeps your mat firmly grounded, preventing slipping and sliding on any surface."
+    description: "Stable, grounded support that stays in place on any surface."
   },
   {
     title: "Microfiber Suede Surface",
-    description: "Soft, velvety microfiber suede provides a comfortable feel underfoot while offering reliable grip as your practice heats up."
+    description: "Soft underfoot, responsive to movement, and designed to grip as your practice warms."
   },
   {
-    title: "Non-Slip Performance",
-    description: "Designed for stability through every pose, from slow flows to more dynamic movement."
+    title: "Balanced Thickness",
+    description: "A low-profile cushion that supports joints while keeping you connected to the floor."
   },
   {
-    title: "Edge-to-Edge Printing",
-    description: "Full-coverage, high-resolution printing delivers crisp detail and vibrant colour from corner to corner."
+    title: "Edge-to-Edge Print",
+    description: "High-resolution, full-coverage artwork that brings each design to life."
   },
   {
-    title: "Lightweight & Portable",
-    description: "Easy to roll, carry, and travel with — ideal for home practice, studio sessions, or taking on the go."
-  },
-  {
-    title: "3mm Thickness",
-    description: "A supportive, low-profile cushion that enhances balance while still absorbing impact for joints and knees."
-  },
-  {
-    title: "Generous Size",
-    description: "70\" x 26\" gives you extra space to move freely, stretch fully, and stay centred throughout your practice."
-  },
-  {
-    title: "Durable Construction",
-    description: "Built for regular use, with materials chosen to maintain performance and appearance over time."
+    title: "Lightweight & Durable",
+    description: "Easy to carry, made to last, and designed for regular practice."
   }
 ];
 
