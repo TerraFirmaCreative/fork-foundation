@@ -48,8 +48,8 @@ const HeroSection = () => {
         
 
         {/* CTA Button */}
-        <div className="flex justify-center mt-2 max-w-lg mx-auto">
-          <Button variant="cta" size="xl" className="h-16 px-12 text-lg font-body font-medium tracking-wide w-full">
+        <div className="flex justify-center mt-2 max-w-md mx-auto">
+          <Button variant="cta" size="lg" className="h-12 px-8 text-base font-body font-medium tracking-wide w-full">
             Shop Collection
           </Button>
         </div>
