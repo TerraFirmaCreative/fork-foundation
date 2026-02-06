@@ -84,9 +84,6 @@ const DesignGallery = () => {
   return (
     <section className="hero-gradient py-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <a href="#" className="text-foreground/80 hover:text-foreground underline underline-offset-4 mb-8 inline-block">
-          Created by others &gt;
-        </a>
         
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 md:gap-4">
           {visibleDesigns.map((design, index) => (
