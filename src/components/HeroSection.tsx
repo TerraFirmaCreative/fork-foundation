@@ -33,9 +33,9 @@ const HeroSection = () => {
         </p>
         
         <h1 className="font-display text-5xl md:text-7xl font-medium mb-8 leading-[1.1] tracking-tight">
-          <span className="text-foreground">Extraordinary mats for</span>
+          <span className="text-foreground">Beautiful mats for</span>
           <br />
-          <span className="text-gradient italic">extraordinary practice.</span>
+          <span className="text-gradient italic">meaningful practice.</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto font-body font-light leading-relaxed">
