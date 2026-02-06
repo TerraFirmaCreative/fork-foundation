@@ -32,6 +32,16 @@ import newMat7 from "@/assets/new-mat-7.png";
 import newMat8 from "@/assets/new-mat-8.png";
 import newMat9 from "@/assets/new-mat-9.png";
 import newMat10 from "@/assets/new-mat-10.png";
+import newMat11 from "@/assets/new-mat-11.png";
+import newMat12 from "@/assets/new-mat-12.png";
+import newMat13 from "@/assets/new-mat-13.png";
+import newMat14 from "@/assets/new-mat-14.png";
+import newMat15 from "@/assets/new-mat-15.png";
+import newMat16 from "@/assets/new-mat-16.png";
+import newMat17 from "@/assets/new-mat-17.png";
+import newMat18 from "@/assets/new-mat-18.png";
+import newMat19 from "@/assets/new-mat-19.png";
+import newMat20 from "@/assets/new-mat-20.png";
 
 const designs = [
   { id: 1, image: newMat1, alt: "Yellow DMT sun psychedelic yoga mat design", prompt: "Yellow DMT sun psychedelic yoga mat design" },
@@ -44,16 +54,16 @@ const designs = [
   { id: 8, image: newMat8, alt: "Zoom psychedelic dots symmetry", prompt: "Zoom psychedelic dots symmetry" },
   { id: 9, image: newMat9, alt: "Huichol painting of a ritual spiritual ceremony", prompt: "Huichol painting of a ritual spiritual ceremony" },
   { id: 10, image: newMat10, alt: "Aboriginal dot art symmetrical fractals of chakra", prompt: "Aboriginal dot art symmetrical fractals of chakra" },
-  { id: 11, image: mat44, alt: "Aboriginal dot art chakra fractals yoga mat design", prompt: "Aboriginal dot art depicting seven chakras with fractal energy centers" },
-  { id: 12, image: mat29, alt: "Chakra volcano fractals yoga mat design", prompt: "Volcanic energy erupting through chakra system with sacred fractal patterns" },
-  { id: 13, image: mat36, alt: "Rainbow flower of life yoga mat design", prompt: "Rainbow-colored flower of life geometry radiating divine light and harmony" },
-  { id: 14, image: mat40, alt: "Lemuria humpback whale yoga mat design", prompt: "Ancient Lemurian humpback whale guardian of sacred ocean wisdom" },
-  { id: 15, image: mat32, alt: "Cosmic whale moonlight yoga mat design", prompt: "Cosmic whale breaching under moonlight with stardust and celestial energy" },
-  { id: 16, image: mat45, alt: "Surfing symmetrical dreams yoga mat design", prompt: "Symmetrical surfing dreamscape with perfect waves and spiritual balance" },
-  { id: 17, image: mat34, alt: "Purple fractal feathers yoga mat design", prompt: "Ethereal purple fractal feathers floating in cosmic purple nebula" },
-  { id: 18, image: mat41, alt: "Zoomed psychedelic lemuria fractals yoga mat design", prompt: "Deep zoom into Lemurian fractals revealing psychedelic sacred patterns" },
-  { id: 19, image: mat46, alt: "Amazing chakra volcanos fractals yoga mat design", prompt: "Volcanic chakra awakening with fractal lava flows and spiritual fire" },
-  { id: 20, image: mat31, alt: "Colorful cats hugging yoga mat design", prompt: "Loving colorful cats embracing with psychedelic rainbow fur patterns" },
+  { id: 11, image: newMat11, alt: "Earth sunrise water flowing psychedelic Picassoesque", prompt: "Earth sunrise water flowing psychedelic Picassoesque" },
+  { id: 12, image: newMat12, alt: "High contrast pale blue green black chakra crystals", prompt: "High contrast pale blue green black chakra crystals" },
+  { id: 13, image: newMat13, alt: "Mandelbrot set aboriginal dot art symmetrical love", prompt: "Mandelbrot set aboriginal dot art symmetrical love" },
+  { id: 14, image: newMat14, alt: "Psychedelic fractals Picassoesque Lemuria humpback sun", prompt: "Psychedelic fractals Picassoesque Lemuria humpback sun" },
+  { id: 15, image: newMat15, alt: "Psychedelic fractals Picassoesque Lemuria humpback moon", prompt: "Psychedelic fractals Picassoesque Lemuria humpback moon" },
+  { id: 16, image: newMat16, alt: "Radial symmetry mountains sun painterly", prompt: "Radial symmetry mountains sun painterly" },
+  { id: 17, image: newMat17, alt: "Simple rainbow of colours Sunlight flower of life", prompt: "Simple rainbow of colours Sunlight flower of life" },
+  { id: 18, image: newMat18, alt: "Symmetrical Mandelbrot set into infinity Picassoesque", prompt: "Symmetrical Mandelbrot set into infinity Picassoesque" },
+  { id: 19, image: newMat19, alt: "Symmetry psychedelic Picassoesque broccoli sunrise A", prompt: "Symmetry psychedelic Picassoesque broccoli sunrise A" },
+  { id: 20, image: newMat20, alt: "Symmetry psychedelic Picassoesque broccoli sunrise B", prompt: "Symmetry psychedelic Picassoesque broccoli sunrise B" },
 ];
 
 // Seeded random shuffle to ensure consistent order per session
