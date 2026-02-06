@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import SacredGeometry, { MandalaDecoration } from "./SacredGeometry";
 
 const HeroSection = () => {
@@ -48,18 +47,18 @@ const HeroSection = () => {
           Premium natural rubber · Eco-friendly inks · Free worldwide shipping
         </p>
         
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-12">
-          <Button variant="cta" size="lg" className="h-14 px-8 gap-2 font-body font-medium tracking-wide flex-1">
-            Shop Collection <ArrowRight className="w-4 h-4" />
-          </Button>
-        </div>
-        
         {/* Markers */}
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-xs text-muted-foreground/60 font-body tracking-wide">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-xs text-muted-foreground/60 font-body tracking-wide mb-12">
           <span>Ships in 5–7 days</span>
           <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet/50" />
           <span>Non-slip grip</span>
+        </div>
+
+        {/* CTA Button */}
+        <div className="flex justify-center">
+          <Button variant="cta" size="lg" className="h-14 px-8 font-body font-medium tracking-wide">
+            Shop Collection
+          </Button>
         </div>
       </div>
     </section>
