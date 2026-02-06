@@ -128,7 +128,21 @@ const Header = () => {
         
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          <Button variant="cta" size="sm" className="hidden sm:flex font-body text-sm">
+          <Button 
+            variant="cta" 
+            size="sm" 
+            className="hidden sm:flex font-body text-sm"
+            onClick={() => {
+              if (location.pathname === "/") {
+                document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" });
+              } else {
+                navigate("/");
+                setTimeout(() => {
+                  document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }
+            }}
+          >
             Shop Now
           </Button>
           <div className="relative">
