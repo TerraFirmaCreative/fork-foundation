@@ -50,8 +50,6 @@ const CTASection = () => {
           <span>Premium natural rubber</span>
           <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal/50" />
           <span>Eco-friendly printing</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold/50" />
-          <span>Free shipping worldwide</span>
         </div>
       </div>
     </section>
