@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, ChevronDown, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   return (
@@ -67,9 +74,28 @@ const Header = () => {
               {link}
             </a>
           ))}
-          <button className="flex items-center gap-1 text-base text-muted-foreground hover:text-foreground transition-colors tracking-wide">
-            More <ChevronDown className="w-4 h-4" />
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide outline-none">
+              More <ChevronDown className="w-4 h-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-card border-border/50 z-50">
+              <DropdownMenuItem asChild>
+                <Link to="/about" className="cursor-pointer">About</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/faqs" className="cursor-pointer">FAQs</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/terms" className="cursor-pointer">Ts & Cs</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/refund-policy" className="cursor-pointer">Refund & Returns Policy</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/privacy-policy" className="cursor-pointer">Privacy Policy</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         
         {/* Right Actions */}
