@@ -39,10 +39,6 @@ const Footer = () => {
               </div>
               <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
             </div>
-            <p className="text-sm text-muted-foreground/60 font-body mb-6 leading-relaxed">
-              AI-designed custom yoga mats.<br />
-              Premium quality, truly unique.
-            </p>
             
             {/* Social Links */}
             <div className="flex gap-4">
