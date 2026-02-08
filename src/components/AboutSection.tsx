@@ -40,11 +40,11 @@ const AboutSection = () => {
                 We carefully curate every design to bring beauty and inspiration to your 
                 yoga journey. No mass production—each piece is a work of art.
               </p>
-              
-              <p className="text-foreground/70">
-                Premium natural rubber · Stable surface · Designed for daily practice
-              </p>
             </div>
+
+            <p className="text-sm text-muted-foreground/60 mt-6 font-body">
+              Premium natural rubber · Stable surface · Designed for daily practice
+            </p>
             
           </div>
           
