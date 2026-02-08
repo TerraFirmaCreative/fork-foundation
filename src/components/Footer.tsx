@@ -1,10 +1,11 @@
 import { Instagram, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
 
 const Footer = () => {
   const footerLinks = {
     Product: ["Shop Collection", "How It Works"],
-    Company: ["About Us", "Sustainability", "Reviews", "Press"],
+    Company: ["About", "Sustainability", "Reviews", "Press"],
     Support: ["FAQ", "Contact", "Shipping Info", "Returns"],
   };
 
@@ -64,16 +65,23 @@ const Footer = () => {
             <div key={category}>
               <h4 className="text-sm font-medium text-foreground/70 mb-4 font-body tracking-wide">{category}</h4>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a 
-                      href="#" 
-                      className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy" };
+                  const to = linkMap[link];
+                  return (
+                    <li key={link}>
+                      {to ? (
+                        <Link to={to} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                          {link}
+                        </Link>
+                      ) : (
+                        <a href="#" className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                          {link}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
