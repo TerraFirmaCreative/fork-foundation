@@ -91,7 +91,7 @@ const Header = () => {
             }}
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
-            Shop Collection
+            Shop
           </button>
           <button 
             onClick={scrollToHowItWorks}
