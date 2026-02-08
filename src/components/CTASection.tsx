@@ -54,7 +54,7 @@ const CTASection = () => {
         
         {/* Trust markers */}
         <p className="text-sm text-muted-foreground/60 font-body">
-          Natural tree rubber · Non-slip surface · Shipped worldwide
+          Premium natural rubber · Stable surface · Designed for daily practice
         </p>
       </div>
     </section>
