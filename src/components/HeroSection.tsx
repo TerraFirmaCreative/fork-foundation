@@ -43,7 +43,7 @@ const HeroSection = () => {
         </p>
         
         <p className="text-sm text-muted-foreground/60 mb-14 font-body">
-          Premium natural rubber · Stable surface · Designed for daily practice
+          Natural tree rubber · Non-slip surface · Shipped worldwide
         </p>
         
 
