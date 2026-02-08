@@ -12,7 +12,7 @@ const RefundPolicy = () => {
           </h1>
           
           <p className="text-lg text-muted-foreground font-body mb-12">
-            At Unique Yoga Mats, each product is made to order. Please read our returns policy carefully before making a purchase.
+            At Unique Yoga Mats, all products are made to order. Please read our returns policy carefully before making a purchase.
           </p>
 
           <div className="space-y-12 text-muted-foreground font-body leading-relaxed">
