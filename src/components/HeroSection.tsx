@@ -49,7 +49,12 @@ const HeroSection = () => {
 
         {/* CTA Button */}
         <div className="flex justify-center mt-2 max-w-xs mx-auto">
-          <Button variant="cta" size="lg" className="h-12 px-8 text-base font-body font-medium tracking-wide w-full">
+          <Button 
+            variant="cta" 
+            size="lg" 
+            className="h-12 px-8 text-base font-body font-medium tracking-wide w-full"
+            onClick={() => document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" })}
+          >
             Shop Collection
           </Button>
         </div>
