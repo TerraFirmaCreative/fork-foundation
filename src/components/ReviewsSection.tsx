@@ -4,27 +4,23 @@ import { FractalGrid } from "./SacredGeometry";
 const reviews = [
   {
     id: 1,
-    name: "Sarah M.",
-    location: "Los Angeles, CA",
-    review: "I described a sunset with sacred geometry patterns and received exactly what I imagined. The quality is incredible—perfect grip for hot yoga.",
+    name: "David M.",
+    review: "I've been using my mat regularly for well over a year now and it still looks and feels incredible. The grip has held up beautifully, the surface hasn't worn, and it genuinely feels like a premium piece rather than just another yoga mat.",
   },
   {
     id: 2,
-    name: "David C.",
-    location: "Austin, TX",
-    review: "As a yoga instructor, I wanted something unique for my studio. The fractal mandala design I created gets compliments every single class!",
+    name: "Sarah C.",
+    review: "The design is stunning — even more so in real life. It has a quiet, considered feel to it and really elevates my practice space. It's one of those pieces you notice every time you unroll it.",
   },
   {
     id: 3,
-    name: "Emma J.",
-    location: "London, UK",
-    review: "The colors, the detail—it's like they pulled the design straight from my imagination. Best yoga mat I've ever owned.",
+    name: "Marcus W.",
+    review: "What surprised me most is how comfortable and supportive it feels during practice. There's a softness to the surface but still plenty of grip, even in longer sessions.",
   },
   {
     id: 4,
-    name: "Marcus W.",
-    location: "Vancouver, BC",
-    review: "Skeptical at first, but the AI understood exactly what I meant by 'cosmic ocean waves.' The natural rubber feel is premium quality.",
+    name: "Emma J.",
+    review: "This mat feels thoughtfully made — from the weight and texture to the artwork itself. It's held up beautifully over time and still feels special to use.",
   },
 ];
 
@@ -74,7 +70,6 @@ const ReviewsSection = () => {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20" />
                 <div>
                   <p className="text-sm font-medium text-foreground font-body">{review.name}</p>
-                  <p className="text-xs text-muted-foreground font-body">{review.location}</p>
                 </div>
               </div>
             </div>
