@@ -26,7 +26,7 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
+    <section id="reviews" className="relative py-28 px-6 overflow-hidden">
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       

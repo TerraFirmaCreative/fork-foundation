@@ -1,8 +1,22 @@
 import { Instagram, Twitter } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname === "/") {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   const footerLinks = {
     Product: ["Shop Collection", "How It Works"],
     Company: ["About", "Sustainability", "Reviews"],
@@ -67,13 +81,19 @@ const Footer = () => {
               <ul className="space-y-3">
                 {links.map((link) => {
                   const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy" };
+                  const scrollMap: Record<string, string> = { "Reviews": "reviews", "Shop Collection": "design-gallery", "How It Works": "how-it-works" };
                   const to = linkMap[link];
+                  const sectionId = scrollMap[link];
                   return (
                     <li key={link}>
                       {to ? (
                         <Link to={to} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
                           {link}
                         </Link>
+                      ) : sectionId ? (
+                        <button onClick={() => scrollToSection(sectionId)} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                          {link}
+                        </button>
                       ) : (
                         <a href="#" className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
                           {link}
