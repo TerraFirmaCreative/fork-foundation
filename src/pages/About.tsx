@@ -52,7 +52,7 @@ const About = () => {
                 What truly sets our mats apart is the artwork.
               </p>
               <p className="mb-4">
-                Each design is developed through a considered creative process, resulting in artwork that exists nowhere else. Whether you're drawn to bold patterns, abstract forms, or calm, nature-inspired visuals, your mat becomes a personal expression of your style and energy.
+                Each design is developed through a thoughtful creative process, resulting in artwork that exists nowhere else. Whether you're drawn to bold patterns, abstract forms, or calm, nature-inspired visuals, your mat becomes a personal expression of your style and energy.
               </p>
               <p>
                 Designs are printed edge-to-edge in vibrant, high-quality colour, ensuring a striking finish that doesn't fade or peel with use. No two mats are ever the same.
