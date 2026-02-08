@@ -42,8 +42,7 @@ const AboutSection = () => {
               </p>
               
               <p className="text-foreground/70">
-                Natural tree rubber · Non-slip surface · 
-                Shipped worldwide.
+                Premium natural rubber · Stable surface · Designed for daily practice
               </p>
             </div>
             
