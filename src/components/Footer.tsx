@@ -3,7 +3,7 @@ import { FractalGrid } from "./SacredGeometry";
 
 const Footer = () => {
   const footerLinks = {
-    Product: ["Shop Collection", "Browse Gallery", "How It Works", "Pricing"],
+    Product: ["Shop Collection", "How It Works"],
     Company: ["About Us", "Sustainability", "Reviews", "Press"],
     Support: ["FAQ", "Contact", "Shipping Info", "Returns"],
   };
