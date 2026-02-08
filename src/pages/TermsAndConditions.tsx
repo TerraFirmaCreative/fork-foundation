@@ -105,7 +105,7 @@ const TermsAndConditions = () => {
                 Section 5 – Products or Services
               </h2>
               <p className="mb-4">
-                Certain products are available exclusively online through the Site and are made to order in limited quantities.
+                Certain products are made to order and available exclusively online through the Site.
               </p>
               <p className="mb-4">
                 We have made every effort to display product colours and images as accurately as possible. We cannot guarantee that your device's display of any colour will be accurate.
