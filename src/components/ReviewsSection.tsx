@@ -5,22 +5,22 @@ const reviews = [
   {
     id: 1,
     name: "David M.",
-    review: "I've been using my mat regularly for well over a year now and it still looks and feels incredible. The grip has held up beautifully, the surface hasn't worn, and it genuinely feels like a premium piece rather than just another yoga mat.",
+    review: "The design really is beautiful. It's one of the main reasons I chose this mat, and it still feels special every time I use it.",
   },
   {
     id: 2,
     name: "Sarah C.",
-    review: "The design is stunning — even more so in real life. It has a quiet, considered feel to it and really elevates my practice space. It's one of those pieces you notice every time you unroll it.",
+    review: "It's comfortable and supportive, especially for longer sessions. There's enough grip without it feeling sticky.",
   },
   {
     id: 3,
     name: "Marcus W.",
-    review: "What surprised me most is how comfortable and supportive it feels during practice. There's a softness to the surface but still plenty of grip, even in longer sessions.",
+    review: "It feels like a well-made mat that's been thought through. I use it a lot and it still looks great.",
   },
   {
     id: 4,
     name: "Emma J.",
-    review: "This mat feels thoughtfully made — from the weight and texture to the artwork itself. It's held up beautifully over time and still feels special to use.",
+    review: "It's a simple design, but it's done beautifully. I still get comments on it.",
   },
 ];
 
