@@ -13,7 +13,7 @@ const About = () => {
           
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              Our custom-made yoga mats are designed with care, combining premium materials with AI-generated artwork to create mats that are both functional and truly one of a kind.
+              Our yoga mats are designed with care, combining premium materials with original artwork to create mats that are both functional and one of a kind.
             </p>
             
             <p>
