@@ -66,7 +66,7 @@ const About = () => {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Original, artist-led designs</strong> – Each design is created from a unique creative prompt and printed with care</span>
+                  <span><strong className="text-foreground">Original, considered designs</strong> – Each artwork is created individually and printed with care</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-magenta mt-2.5 shrink-0" />
