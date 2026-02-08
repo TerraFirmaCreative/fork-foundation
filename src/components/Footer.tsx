@@ -5,7 +5,7 @@ import { FractalGrid } from "./SacredGeometry";
 const Footer = () => {
   const footerLinks = {
     Product: ["Shop Collection", "How It Works"],
-    Company: ["About", "Sustainability", "Reviews", "Press"],
+    Company: ["About", "Sustainability", "Reviews"],
     Support: ["FAQ", "Contact", "Shipping Info", "Returns"],
   };
 
