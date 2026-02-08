@@ -77,7 +77,7 @@ const Header = () => {
         </Link>
         
         {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           <button 
             onClick={() => {
               if (location.pathname === "/") {
