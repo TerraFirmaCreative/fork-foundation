@@ -88,7 +88,7 @@ const About = () => {
                 Step onto a mat that feels as individual as your practice.
               </p>
               <p className="mt-4">
-                Our yoga mats are more than just equipment — they're a blend of performance, creativity, and considered design.
+                Our yoga mats are more than just equipment — they balance performance and creativity in equal measure.
               </p>
             </div>
           </div>
