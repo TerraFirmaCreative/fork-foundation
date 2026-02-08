@@ -28,7 +28,7 @@ const About = () => {
                 Our mats feature a microfiber suede top layer that feels soft and luxurious underfoot while offering excellent grip — especially during sweaty sessions. As your practice warms up, grip improves, helping you stay grounded and focused through every pose.
               </p>
               <p>
-                The base is made from natural rubber, which is non-toxic and eco-conscious. It provides reliable cushioning and shock absorption, while gripping firmly to the floor to prevent slipping on any surface.
+                The base is made from natural rubber, providing reliable cushioning and shock absorption while gripping firmly to the floor.
               </p>
             </div>
 
