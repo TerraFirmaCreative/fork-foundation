@@ -28,7 +28,7 @@ const HeroSection = () => {
       />
       
       <div className="max-w-3xl mx-auto text-center relative z-10">
-        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/80 mb-6 font-body">
+        <p className="text-base tracking-[0.3em] uppercase text-shaman-gold/80 mb-6 font-body">
           Artisan Yoga Mats
         </p>
         
