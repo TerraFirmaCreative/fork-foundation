@@ -81,35 +81,6 @@ const RefundPolicy = () => {
               </p>
             </section>
 
-            {/* EU cooling-off period */}
-            <section>
-              <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                European Union 14-day cooling-off period
-              </h2>
-              <p className="mb-4">
-                If your order is shipped to the European Union, you have the right to cancel or return your order within <strong className="text-foreground">14 days</strong>, without providing a reason.
-              </p>
-              <p className="mb-3">Returned items must be:</p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span>In the same condition as received</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span>Unused and in original condition</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span>In original packaging</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span>With proof of purchase</span>
-                </li>
-              </ul>
-            </section>
-
             {/* Refunds */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
