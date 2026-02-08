@@ -109,14 +109,10 @@ const Footer = () => {
         
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/40 font-body">
-          <p>© 2024 Unique Yoga Mats. All rights reserved.</p>
+          <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal/60" />
-              Eco-Friendly
-            </span>
-            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
+            <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </div>
