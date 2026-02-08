@@ -74,7 +74,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Eco-conscious materials</strong> – Natural rubber base, non-toxic and supportive</span>
+                  <span><strong className="text-foreground">Natural rubber base</strong> – Supportive, stable, and designed for daily practice</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
