@@ -19,7 +19,7 @@ const Footer = () => {
 
   const footerLinks = {
     Product: ["Shop Collection", "How It Works"],
-    Company: ["About", "Sustainability", "Reviews"],
+    Company: ["About", "Reviews"],
     Support: ["FAQ", "Contact", "Shipping Info", "Returns"],
   };
 
