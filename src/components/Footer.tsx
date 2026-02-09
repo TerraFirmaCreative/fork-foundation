@@ -20,7 +20,7 @@ const Footer = () => {
   const footerLinks = {
     Product: ["Shop Collection", "How It Works"],
     Company: ["About", "Reviews"],
-    Support: ["FAQ", "Contact", "Shipping Info", "Returns"],
+    Support: ["FAQ", "Contact", "Shipping", "Returns"],
   };
 
   return (
@@ -80,7 +80,7 @@ const Footer = () => {
               <h4 className="text-sm font-medium text-foreground/70 mb-4 font-body tracking-wide">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => {
-                  const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy", "Contact": "/contact" };
+                  const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy", "Contact": "/contact", "Shipping": "/shipping" };
                   const scrollMap: Record<string, string> = { "Reviews": "reviews", "Shop Collection": "design-gallery", "How It Works": "how-it-works" };
                   const to = linkMap[link];
                   const sectionId = scrollMap[link];

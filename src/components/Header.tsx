@@ -123,6 +123,9 @@ const Header = () => {
                 <Link to="/privacy-policy" className="cursor-pointer">Privacy Policy</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
+                <Link to="/shipping" className="cursor-pointer">Shipping</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
                 <Link to="/contact" className="cursor-pointer">Contact</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
