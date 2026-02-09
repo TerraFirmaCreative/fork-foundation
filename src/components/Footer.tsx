@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
 
@@ -56,13 +56,20 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            <div className="flex gap-4">
+            <div className="flex justify-center gap-4 mt-1">
               <a
                 href="#"
                 aria-label="Instagram"
                 className="text-muted-foreground/40 hover:text-shaman-violet transition-colors"
               >
                 <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="text-muted-foreground/40 hover:text-shaman-violet transition-colors"
+              >
+                <Facebook className="w-4 h-4" />
               </a>
             </div>
           </div>
