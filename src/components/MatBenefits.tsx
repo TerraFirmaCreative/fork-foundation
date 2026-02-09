@@ -115,7 +115,7 @@ const MatBenefits = () => {
             <span className="text-gradient italic">Built for practice.</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
-            Premium materials that serious practitioners demand.
+            Premium materials chosen to support daily practice.
           </p>
         </div>
         
