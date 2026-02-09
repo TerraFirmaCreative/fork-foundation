@@ -22,7 +22,7 @@ const steps = [
   {
     number: "04",
     title: "Receive",
-    description: "Your artisan yoga mat is printed on premium natural rubber and shipped to your door.",
+    description: "Your chosen yoga mat is printed on premium natural rubber and shipped to your door.",
     color: "text-shaman-teal",
   },
 ];
