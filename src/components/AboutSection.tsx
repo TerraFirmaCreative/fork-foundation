@@ -1,4 +1,4 @@
-import yogaMatMeditation from "@/assets/yoga-mat-5.jpg";
+import aboutMatImage from "@/assets/about-mat.png";
 import { MandalaDecoration } from "./SacredGeometry";
 
 const AboutSection = () => {
@@ -56,7 +56,7 @@ const AboutSection = () => {
             
             <div className="relative rounded-md overflow-hidden">
               <img
-                src={yogaMatMeditation}
+                src={aboutMatImage}
                 alt="Yoga practice on an artisan mat"
                 className="w-full aspect-[4/5] object-cover"
               />
