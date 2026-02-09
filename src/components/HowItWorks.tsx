@@ -4,7 +4,7 @@ const steps = [
   {
     number: "01",
     title: "Browse",
-    description: "Explore our curated collection of stunning yoga mat designs—from sacred geometry to cosmic art.",
+    description: "Explore our curated collection of beautiful yoga mat designs—from sacred geometry to cosmic art.",
     color: "text-shaman-violet",
   },
   {
