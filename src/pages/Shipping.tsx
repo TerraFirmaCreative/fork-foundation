@@ -16,8 +16,8 @@ const Shipping = () => {
               We currently ship orders within the United States.
             </p>
 
-            <p className="italic">
-              International shipping options are something we're working towards and we'll share updates when available.
+            <p>
+              International shipping is something we're working toward, and we'll share updates as new destinations become available.
             </p>
 
             <p>
