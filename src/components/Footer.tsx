@@ -1,4 +1,4 @@
-import { Instagram, Twitter } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
 
@@ -63,13 +63,6 @@ const Footer = () => {
                 className="text-muted-foreground/40 hover:text-shaman-violet transition-colors"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Twitter"
-                className="text-muted-foreground/40 hover:text-shaman-violet transition-colors"
-              >
-                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>
