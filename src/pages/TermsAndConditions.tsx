@@ -42,7 +42,7 @@ const TermsAndConditions = () => {
             {/* Section 1 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 1 – ONLINE STORE TERMS
+                Section 1 – Online Store Terms
               </h2>
               <p className="mb-4">
                 By agreeing to these Terms, you represent that you are at least the age of majority in your place of residence, or that you are the age of majority and you have given consent for any minor dependents to use this Site.
@@ -58,7 +58,7 @@ const TermsAndConditions = () => {
             {/* Section 2 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 2 – GENERAL CONDITIONS
+                Section 2 – General Conditions
               </h2>
               <p className="mb-4">
                 We reserve the right to refuse service to anyone for any reason at any time.
@@ -77,7 +77,7 @@ const TermsAndConditions = () => {
             {/* Section 3 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 3 – ACCURACY, COMPLETENESS, AND TIMELINESS OF INFORMATION
+                Section 3 – Accuracy, Completeness, and Timeliness of Information
               </h2>
               <p className="mb-4">
                 We are not responsible if information made available on this Site is not accurate, complete, or current. The material on this Site is provided for general information only and should not be relied upon as the sole basis for making decisions.
@@ -90,7 +90,7 @@ const TermsAndConditions = () => {
             {/* Section 4 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 4 – MODIFICATIONS TO THE SERVICE AND PRICES
+                Section 4 – Modifications to the Service and Prices
               </h2>
               <p className="mb-4">
                 Prices for our products are subject to change without notice.
@@ -103,7 +103,7 @@ const TermsAndConditions = () => {
             {/* Section 5 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 5 – PRODUCTS OR SERVICES
+                Section 5 – Products or Services
               </h2>
               <p className="mb-4">
                 Certain products are available exclusively online through the Site and are made to order.
@@ -128,7 +128,7 @@ const TermsAndConditions = () => {
             {/* Section 6 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 6 – ACCURACY OF BILLING AND ACCOUNT INFORMATION
+                Section 6 – Accuracy of Billing and Account Information
               </h2>
               <p className="mb-4">
                 We reserve the right to refuse or cancel any order. We may limit or cancel quantities purchased per person, per household, or per order.
@@ -147,7 +147,7 @@ const TermsAndConditions = () => {
             {/* Section 7 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 7 – OPTIONAL TOOLS
+                Section 7 – Optional Tools
               </h2>
               <p className="mb-4">
                 We may provide access to third-party tools over which we have no control or input. These tools are provided "as is" and "as available" without warranties or conditions of any kind.
@@ -160,7 +160,7 @@ const TermsAndConditions = () => {
             {/* Section 8 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 8 – THIRD-PARTY LINKS
+                Section 8 – Third-Party Links
               </h2>
               <p className="mb-4">
                 Certain content, products, or services may include materials from third parties. Third-party links may direct you to external websites not affiliated with us.
@@ -173,7 +173,7 @@ const TermsAndConditions = () => {
             {/* Section 9 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 9 – USER COMMENTS, FEEDBACK, AND SUBMISSIONS
+                Section 9 – User Comments, Feedback, and Submissions
               </h2>
               <p className="mb-4">
                 If you submit ideas, feedback, or other content to us, you agree that we may use, edit, and distribute such content without restriction or compensation.
@@ -189,7 +189,7 @@ const TermsAndConditions = () => {
             {/* Section 10 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 10 – PERSONAL INFORMATION
+                Section 10 – Personal Information
               </h2>
               <p>
                 Your submission of personal information through the Site is governed by our <Link to="/privacy-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Privacy Policy</Link>.
@@ -199,7 +199,7 @@ const TermsAndConditions = () => {
             {/* Section 11 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 11 – ERRORS, INACCURACIES, AND OMISSIONS
+                Section 11 – Errors, Inaccuracies, and Omissions
               </h2>
               <p className="mb-4">
                 Occasionally there may be information on the Site that contains errors or omissions relating to product descriptions, pricing, promotions, shipping, or availability.
@@ -212,7 +212,7 @@ const TermsAndConditions = () => {
             {/* Section 12 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 12 – PROHIBITED USES
+                Section 12 – Prohibited Uses
               </h2>
               <p className="mb-4">
                 You are prohibited from using the Site or its content for any unlawful purpose; to violate laws; to infringe intellectual property rights; to harass or discriminate; to submit false information; to upload malicious code; to collect personal data of others; to spam or scrape; or to interfere with security features.
@@ -225,7 +225,7 @@ const TermsAndConditions = () => {
             {/* Section 13 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 13 – DISCLAIMER OF WARRANTIES; LIMITATION OF LIABILITY
+                Section 13 – Disclaimer of Warranties; Limitation of Liability
               </h2>
               <p className="mb-4">
                 We do not guarantee that your use of the Service will be uninterrupted, secure, or error-free.
@@ -247,7 +247,7 @@ const TermsAndConditions = () => {
             {/* Section 14 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 14 – INDEMNIFICATION
+                Section 14 – Indemnification
               </h2>
               <p>
                 You agree to indemnify and hold harmless <strong className="text-foreground">Unique Yoga Mats</strong> and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
@@ -257,7 +257,7 @@ const TermsAndConditions = () => {
             {/* Section 15 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 15 – SEVERABILITY
+                Section 15 – Severability
               </h2>
               <p>
                 If any provision of these Terms is found to be unlawful or unenforceable, that provision shall be severed without affecting the enforceability of the remaining provisions.
@@ -267,7 +267,7 @@ const TermsAndConditions = () => {
             {/* Section 16 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 16 – TERMINATION
+                Section 16 – Termination
               </h2>
               <p>
                 These Terms remain effective unless terminated by either you or us. We may terminate access without notice if we believe you have breached these Terms.
@@ -277,7 +277,7 @@ const TermsAndConditions = () => {
             {/* Section 17 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 17 – ENTIRE AGREEMENT
+                Section 17 – Entire Agreement
               </h2>
               <p>
                 These Terms, together with any policies posted on the Site, constitute the entire agreement between you and us and supersede any prior agreements or communications.
@@ -287,7 +287,7 @@ const TermsAndConditions = () => {
             {/* Section 18 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 18 – GOVERNING LAW
+                Section 18 – Governing Law
               </h2>
               <p>
                 Except where required otherwise, these Terms are governed by and construed in accordance with the laws of <strong className="text-foreground">Western Australia</strong>.
@@ -297,7 +297,7 @@ const TermsAndConditions = () => {
             {/* Section 19 */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 19 – CHANGES TO TERMS
+                Section 19 – Changes to Terms
               </h2>
               <p>
                 You can review the most current version of these Terms at any time on this page. Continued use of the Site following changes constitutes acceptance of those changes.
@@ -307,7 +307,7 @@ const TermsAndConditions = () => {
             {/* Section 20 */}
             <section className="pt-4 border-t border-border/30">
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                SECTION 20 – CONTACT INFORMATION
+                Section 20 – Contact Information
               </h2>
               <p className="mb-4">
                 Questions about these Terms should be sent to:
