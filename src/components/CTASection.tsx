@@ -48,7 +48,6 @@ const CTASection = () => {
             }}
           >
             Shop Collection
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
         
