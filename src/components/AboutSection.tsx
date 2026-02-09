@@ -24,27 +24,28 @@ const AboutSection = () => {
             </p>
             
             <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-              <span className="text-foreground">Artisan yoga mats,</span>
+              <span className="text-foreground">Yoga mats where</span>
               <br />
-              <span className="text-gradient italic">crafted with intention.</span>
+              <span className="text-gradient italic">art meets practice.</span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
-                Our collection features stunning, one-of-a-kind designs that transform 
-                your practice space. Each mat showcases intricate cosmic patterns, 
-                sacred geometry, and nature-inspired art.
+                Our collection brings original artwork into the space where you practice. 
+                Each yoga mat is designed to add visual depth without distracting from 
+                movement, breath, or focus.
               </p>
               
               <p>
-                We carefully curate every design to bring beauty and inspiration to your 
-                yoga journey. No mass production—each piece is a work of art.
+                Drawing inspiration from geometry, nature, and subtle pattern, every 
+                design is developed to feel distinctive while remaining calm and usable.
+              </p>
+
+              <p>
+                Each mat is printed to order and made to support daily practice — balancing 
+                form, function, and durability.
               </p>
             </div>
-
-            <p className="text-sm text-muted-foreground/60 mt-6 font-body">
-              Premium natural rubber · Stable surface · Designed for daily practice
-            </p>
             
           </div>
           
