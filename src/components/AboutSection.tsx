@@ -50,7 +50,7 @@ const AboutSection = () => {
           </div>
           
           {/* Image */}
-          <div className="relative group max-w-md mx-auto">
+          <div className="relative group">
             {/* Glow effect */}
             <div className="absolute -inset-4 bg-gradient-to-br from-shaman-violet/20 via-shaman-magenta/15 to-shaman-gold/10 rounded-lg blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
             
