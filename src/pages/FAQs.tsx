@@ -14,11 +14,11 @@ const faqs = [
   },
   {
     question: "What products do you sell?",
-    answer: "We currently specialise in premium yoga mats featuring our own curated designs. Each mat is printed edge-to-edge using one of our original artworks. We plan to expand our product range over time."
+    answer: "We currently specialize in premium yoga mats featuring our own original designs. Each mat is printed edge-to-edge using one of our artworks. We plan to expand our product range over time."
   },
   {
     question: "How are the designs created?",
-    answer: "Our designs are created through a blend of creative direction and digital design tools, allowing us to produce distinctive, detailed artwork that translates beautifully onto our mats."
+    answer: "Our designs are developed through a blend of creative direction and digital design tools, allowing us to produce distinctive, detailed artwork that translates beautifully onto our mats."
   },
   {
     question: "Are the mats made to order?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We accept secure online payments via checkout, including major credit and debit cards. All payments are processed safely through our payment provider."
+    answer: "We accept secure online payments at checkout, including major credit and debit cards. All payments are processed safely through our payment provider."
   },
   {
     question: "When will my order be made?",
@@ -38,15 +38,15 @@ const faqs = [
   },
   {
     question: "Where do you ship?",
-    answer: "We ship to a range of international locations. Available shipping destinations will be shown at checkout."
+    answer: "We currently ship orders within the United States.\nInternational shipping options are something we're working toward, and we'll share updates when available."
   },
   {
     question: "How much does shipping cost?",
-    answer: "Shipping costs are calculated at checkout based on your location and will be clearly displayed before you complete your purchase."
+    answer: "Shipping costs are calculated at checkout based on your delivery address and will be clearly displayed before you complete your purchase."
   },
   {
     question: "How long does delivery take?",
-    answer: "Delivery times vary depending on your location and production time. Once your order has been shipped, you'll receive tracking details where available."
+    answer: "Orders typically ship within 3 business days. Delivery times vary depending on your location. Once your order has shipped, you'll receive tracking details where available."
   },
   {
     question: "Can I change my shipping address?",
@@ -58,15 +58,15 @@ const faqs = [
   },
   {
     question: "What is your returns policy?",
-    answer: "Because our mats are printed to order, we're unable to accept returns for change of mind.\n\nIf your mat arrives damaged, faulty, or there's an issue with your order, please contact us within 14 days of delivery and we'll work with you to make it right.\n\nThis does not affect your statutory rights or rights under applicable consumer protection laws."
+    answer: "Because our mats are printed to order, we're unable to accept returns for change of mind.\n\nIf your mat arrives damaged, faulty, or there's an issue with your order, please contact us within 30 days of delivery and we'll work with you to make it right.\n\nThis does not affect your rights under applicable consumer protection laws."
   },
   {
-    question: "Will the colours look exactly the same as on my screen?",
-    answer: "We do our best to represent colours accurately, but slight variations may occur due to screen settings and the printing process. These subtle differences are part of the making process."
+    question: "Will the colors look exactly the same as on my screen?",
+    answer: "We do our best to represent colors accurately, but slight variations may occur due to screen settings and the printing process. These subtle differences are a normal part of production."
   },
   {
     question: "How do I contact Unique Yoga Mats?",
-    answer: "You can contact us using the details provided on the website. We aim to respond to all enquiries as quickly as possible."
+    answer: "You can contact us using the details provided on the website. We aim to respond to all inquiries as quickly as possible."
   }
 ];
 
