@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <Link to="/" className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 relative">
                 <svg viewBox="0 0 40 40" className="w-full h-full">
                   <defs>
@@ -52,7 +52,7 @@ const Footer = () => {
                 </svg>
               </div>
               <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
-            </div>
+            </Link>
             
           </div>
           
