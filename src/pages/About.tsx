@@ -37,10 +37,10 @@ const About = () => {
                 Designed for Practice, Built to Last
               </h2>
               <p className="mb-4">
-                Lightweight yet supportive, our mats strike a balance between comfort and portability. At 3mm thick and weighing 62 oz, they're easy to carry while still offering the joint support you need for daily practice.
+                Lightweight yet supportive, our mats strike a balance between comfort and portability. At 3 mm thick and weighing 62 oz, they're easy to carry while still offering the joint support you need for daily practice.
               </p>
               <p>
-                Sized at 70" x 26", each mat gives you plenty of space to move freely, stretch fully, and flow without restriction. Durable construction ensures your mat holds its shape and performance over time, even with regular use.
+                Sized at 70" × 26", each mat gives you plenty of space to move freely, stretch fully, and flow without restriction. Durable construction ensures your mat holds its shape and performance over time, even with regular use.
               </p>
             </div>
 
@@ -55,7 +55,7 @@ const About = () => {
                 Each design is developed through a thoughtful creative process, resulting in artwork that exists nowhere else. Whether you're drawn to bold patterns, abstract forms, or calm, nature-inspired visuals, your mat becomes a personal expression of your style and energy.
               </p>
               <p>
-                Designs are printed edge-to-edge in vibrant, high-quality colour, ensuring a striking finish that doesn't fade or peel with use.
+                Designs are printed edge-to-edge in vibrant, high-quality color, ensuring a striking finish that doesn't fade or peel with use. No two mats are ever the same.
               </p>
             </div>
 
@@ -66,19 +66,19 @@ const About = () => {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Original, considered designs</strong> – Each artwork is created individually and printed edge-to-edge</span>
+                  <span><strong className="text-foreground">Original, considered designs</strong> — Each artwork is created individually and printed edge-to-edge</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-magenta mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Superior grip</strong> – Microfiber suede surface that improves with moisture</span>
+                  <span><strong className="text-foreground">Superior grip</strong> — Microfiber suede surface that improves with moisture</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Natural rubber base</strong> – Supportive, stable, and designed for daily practice</span>
+                  <span><strong className="text-foreground">Natural rubber base</strong> — Supportive, stable, and designed for daily practice</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Durable & portable</strong> – Lightweight, cushioned, and made to last</span>
+                  <span><strong className="text-foreground">Durable & portable</strong> — Lightweight, cushioned, and made to last</span>
                 </li>
               </ul>
             </div>
