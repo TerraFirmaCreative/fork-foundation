@@ -111,8 +111,8 @@ const MatBenefits = () => {
             The Mat
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-medium mb-4 tracking-tight leading-tight">
-            <span className="text-foreground">Professional quality.</span>{" "}
-            <span className="text-gradient italic">Your unique design.</span>
+            <span className="text-foreground">Beautiful design.</span>{" "}
+            <span className="text-gradient italic">Built for practice.</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
             Premium materials that serious practitioners demand.
