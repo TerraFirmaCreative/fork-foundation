@@ -17,11 +17,11 @@ const PrivacyPolicy = () => {
 
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p>
-              This Privacy Policy describes how <strong className="text-foreground">Unique Yoga Mats</strong> (the "Site", "we", "us", or "our") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from <strong className="text-foreground">uniqueyogamats.com</strong> (the "Site") or otherwise communicate with us (collectively, the "Services").
+              This Privacy Policy describes how <strong className="text-foreground">Unique Yoga Mats</strong> (the "Site", "we", "us", or "our") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from <strong className="text-foreground">uniqueyogamats.com</strong>, or otherwise communicate with us (collectively, the "Services").
             </p>
             
             <p>
-              For the purposes of this Privacy Policy, "you" and "your" means you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected.
+              For the purposes of this Privacy Policy, "you" and "your" mean you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected.
             </p>
             
             <p>
@@ -69,7 +69,7 @@ const PrivacyPolicy = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                  <span>Communications you send to us (e.g. support enquiries)</span>
+                  <span>Communications you send to us (e.g., support inquiries)</span>
                 </li>
               </ul>
               <p className="mb-6">
@@ -126,11 +126,11 @@ const PrivacyPolicy = () => {
               <ul className="space-y-2">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
-                  <span>Process payments and fulfil orders</span>
+                  <span>Process payments and fulfill orders</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
-                  <span>Communicate with you about your order or enquiries</span>
+                  <span>Communicate with you about your order or inquiries</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
@@ -138,7 +138,7 @@ const PrivacyPolicy = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
-                  <span>Improve and optimise our Services</span>
+                  <span>Improve and optimize our Services</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
@@ -179,7 +179,7 @@ const PrivacyPolicy = () => {
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                  <span>Service providers who help operate our business (e.g. payment processing, fulfilment, analytics)</span>
+                  <span>Service providers who help operate our business (e.g., payment processing, fulfillment, analytics)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
@@ -198,7 +198,7 @@ const PrivacyPolicy = () => {
             {/* Third Party Websites */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Third Party Websites
+                Third-Party Websites
               </h2>
               <p>
                 Our Site may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites and encourage you to review their policies.
