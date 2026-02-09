@@ -31,7 +31,7 @@ const RefundPolicy = () => {
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                  <span>The item must be in the same condition you received it</span>
+                  <span>The item must be in the same condition as received</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
@@ -64,7 +64,7 @@ const RefundPolicy = () => {
             {/* Damages and issues */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Damages and issues
+                Damages and Issues
               </h2>
               <p>
                 Please inspect your order upon arrival. If your item is defective, damaged, or incorrect, contact us immediately at <strong className="text-foreground">support@uniqueyogamats.com</strong> so we can assess the issue and resolve it.
@@ -97,7 +97,7 @@ const RefundPolicy = () => {
             {/* Return address */}
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Return address
+                Return Address
               </h2>
               <p>
                 For approved returns, the return address will be provided once your return request has been reviewed and accepted.
