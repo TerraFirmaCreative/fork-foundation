@@ -34,8 +34,7 @@ const CTASection = () => {
         </h2>
         
         <p className="text-lg text-muted-foreground mb-14 font-body font-light max-w-lg mx-auto leading-relaxed">
-          Join thousands of yogis practicing on our stunning artisan mats. 
-          Premium quality, truly unique, delivered worldwide.
+          Explore yoga mats created to bring beauty and presence into your practice space.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
