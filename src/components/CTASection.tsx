@@ -30,7 +30,7 @@ const CTASection = () => {
         <h2 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
           <span className="text-foreground">Your practice deserves</span>
           <br />
-          <span className="text-gradient italic">something extraordinary.</span>
+          <span className="text-gradient italic">more than the ordinary.</span>
         </h2>
         
         <p className="text-lg text-muted-foreground mb-14 font-body font-light max-w-lg mx-auto leading-relaxed">
