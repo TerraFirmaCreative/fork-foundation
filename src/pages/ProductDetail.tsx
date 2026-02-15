@@ -117,43 +117,59 @@ const ProductDetail = () => {
             )}
 
             {/* Main Image */}
-            <div
-              className="flex-1 rounded-xl overflow-hidden bg-muted/20 relative cursor-crosshair"
-              onMouseMove={(e) => {
-                if (!imageRef.current) return;
-                const rect = imageRef.current.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const percX = (x / rect.width) * 100;
-                const percY = (y / rect.height) * 100;
-                setMagnifier({ show: true, x: e.clientX - rect.left, y: e.clientY - rect.top, bgX: percX, bgY: percY });
-              }}
-              onMouseLeave={() => setMagnifier((m) => ({ ...m, show: false }))}
-            >
+            <div className="flex-1 rounded-xl overflow-hidden bg-muted/20 relative flex items-center justify-center">
               {images[selectedImageIndex] ? (
                 <>
                   <img
                     ref={imageRef}
                     src={images[selectedImageIndex].node.url}
                     alt={images[selectedImageIndex].node.altText || product.node.title}
-                    className="w-full h-auto object-contain max-h-[70vh]"
+                    className="w-full h-auto object-contain max-h-[70vh] cursor-crosshair"
+                    onMouseMove={(e) => {
+                      const img = imageRef.current;
+                      if (!img) return;
+                      const rect = img.getBoundingClientRect();
+                      const x = e.clientX - rect.left;
+                      const y = e.clientY - rect.top;
+                      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+                        setMagnifier((m) => ({ ...m, show: false }));
+                        return;
+                      }
+                      setMagnifier({
+                        show: true,
+                        x: x + (rect.left - img.closest('.relative')!.getBoundingClientRect().left),
+                        y: y + (rect.top - img.closest('.relative')!.getBoundingClientRect().top),
+                        bgX: x / rect.width,
+                        bgY: y / rect.height,
+                      });
+                    }}
+                    onMouseLeave={() => setMagnifier((m) => ({ ...m, show: false }))}
                   />
-                  {magnifier.show && (
-                    <div
-                      className="absolute pointer-events-none rounded-full border-2 border-foreground/20 shadow-lg"
-                      style={{
-                        width: 160,
-                        height: 160,
-                        left: magnifier.x - 80,
-                        top: magnifier.y - 80,
-                        backgroundImage: `url(${images[selectedImageIndex].node.url})`,
-                        backgroundSize: `${(imageRef.current?.offsetWidth || 300) * 2.5}px ${(imageRef.current?.offsetHeight || 500) * 2.5}px`,
-                        backgroundPosition: `${magnifier.bgX}% ${magnifier.bgY}%`,
-                        backgroundRepeat: 'no-repeat',
-                        zIndex: 10,
-                      }}
-                    />
-                  )}
+                  {magnifier.show && imageRef.current && (() => {
+                    const img = imageRef.current;
+                    const zoom = 2.5;
+                    const lensSize = 160;
+                    const bgW = img.getBoundingClientRect().width * zoom;
+                    const bgH = img.getBoundingClientRect().height * zoom;
+                    const bgPosX = -(magnifier.bgX * bgW - lensSize / 2);
+                    const bgPosY = -(magnifier.bgY * bgH - lensSize / 2);
+                    return (
+                      <div
+                        className="absolute pointer-events-none rounded-full border-2 border-foreground/20 shadow-lg"
+                        style={{
+                          width: lensSize,
+                          height: lensSize,
+                          left: magnifier.x - lensSize / 2,
+                          top: magnifier.y - lensSize / 2,
+                          backgroundImage: `url(${images[selectedImageIndex].node.url})`,
+                          backgroundSize: `${bgW}px ${bgH}px`,
+                          backgroundPosition: `${bgPosX}px ${bgPosY}px`,
+                          backgroundRepeat: 'no-repeat',
+                          zIndex: 10,
+                        }}
+                      />
+                    );
+                  })()}
                 </>
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
