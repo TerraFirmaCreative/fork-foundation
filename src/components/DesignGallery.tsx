@@ -8,7 +8,7 @@ const DesignGallery = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchCollectionProducts("home", 24)
+    fetchCollectionProducts("featured-home", 24)
       .then((items) => {
         setProducts(items);
         setLoading(false);
