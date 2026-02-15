@@ -11,10 +11,17 @@ import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
 import Shipping from "./pages/Shipping";
+import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import { useCartSync } from "./hooks/useCartSync";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  useCartSync();
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -22,9 +29,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AppContent />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/product/:handle" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/terms" element={<TermsAndConditions />} />

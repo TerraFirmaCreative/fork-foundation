@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCollectionProducts, ShopifyProduct } from "@/lib/shopify";
 
@@ -38,9 +39,10 @@ const DesignGallery = () => {
             {products.map((product, index) => {
               const image = product.node.images.edges[0]?.node;
               return (
-                <div
+                <Link
+                  to={`/product/${product.node.handle}`}
                   key={product.node.id}
-                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
@@ -56,7 +58,7 @@ const DesignGallery = () => {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
+                </Link>
               );
             })}
           </div>
