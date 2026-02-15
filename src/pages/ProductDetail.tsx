@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
@@ -8,6 +8,7 @@ import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, Circl
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
+import ImageMagnifier from "@/components/ImageMagnifier";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -15,8 +16,6 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [magnifier, setMagnifier] = useState({ show: false, x: 0, y: 0, bgX: 0, bgY: 0 });
-  const imageRef = useRef<HTMLImageElement>(null);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
 
@@ -117,60 +116,13 @@ const ProductDetail = () => {
             )}
 
             {/* Main Image */}
-            <div className="flex-1 rounded-xl overflow-hidden bg-muted/20 relative flex items-center justify-center">
+            <div className="flex-1 rounded-xl overflow-hidden bg-muted/20">
               {images[selectedImageIndex] ? (
-                <>
-                  <img
-                    ref={imageRef}
-                    src={images[selectedImageIndex].node.url}
-                    alt={images[selectedImageIndex].node.altText || product.node.title}
-                    className="w-full h-auto object-contain max-h-[70vh] cursor-crosshair"
-                    onMouseMove={(e) => {
-                      const img = imageRef.current;
-                      if (!img) return;
-                      const rect = img.getBoundingClientRect();
-                      const x = e.clientX - rect.left;
-                      const y = e.clientY - rect.top;
-                      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
-                        setMagnifier((m) => ({ ...m, show: false }));
-                        return;
-                      }
-                      setMagnifier({
-                        show: true,
-                        x: x + (rect.left - img.closest('.relative')!.getBoundingClientRect().left),
-                        y: y + (rect.top - img.closest('.relative')!.getBoundingClientRect().top),
-                        bgX: x / rect.width,
-                        bgY: y / rect.height,
-                      });
-                    }}
-                    onMouseLeave={() => setMagnifier((m) => ({ ...m, show: false }))}
-                  />
-                  {magnifier.show && imageRef.current && (() => {
-                    const img = imageRef.current;
-                    const zoom = 2.5;
-                    const lensSize = 160;
-                    const bgW = img.getBoundingClientRect().width * zoom;
-                    const bgH = img.getBoundingClientRect().height * zoom;
-                    const bgPosX = -(magnifier.bgX * bgW - lensSize / 2);
-                    const bgPosY = -(magnifier.bgY * bgH - lensSize / 2);
-                    return (
-                      <div
-                        className="absolute pointer-events-none rounded-full border-2 border-foreground/20 shadow-lg"
-                        style={{
-                          width: lensSize,
-                          height: lensSize,
-                          left: magnifier.x - lensSize / 2,
-                          top: magnifier.y - lensSize / 2,
-                          backgroundImage: `url(${images[selectedImageIndex].node.url})`,
-                          backgroundSize: `${bgW}px ${bgH}px`,
-                          backgroundPosition: `${bgPosX}px ${bgPosY}px`,
-                          backgroundRepeat: 'no-repeat',
-                          zIndex: 10,
-                        }}
-                      />
-                    );
-                  })()}
-                </>
+                <ImageMagnifier
+                  src={images[selectedImageIndex].node.url}
+                  alt={images[selectedImageIndex].node.altText || product.node.title}
+                  className="w-full h-auto object-contain max-h-[70vh] cursor-crosshair"
+                />
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
                   No image available
