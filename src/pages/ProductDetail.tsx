@@ -18,6 +18,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
+  const setDrawerOpen = useCartStore((s) => s.setDrawerOpen);
 
   useEffect(() => {
     if (!handle) return;
@@ -43,6 +44,7 @@ const ProductDetail = () => {
       selectedOptions: variant.selectedOptions || [],
     });
     toast.success("Added to cart", { position: "top-center" });
+    setDrawerOpen(true);
   };
 
   const images = product?.node.images.edges || [];
