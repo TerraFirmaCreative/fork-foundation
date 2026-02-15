@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { CartDrawer } from "@/components/CartDrawer";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -134,14 +135,7 @@ const Header = () => {
         
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          <div className="relative">
-            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
-              <ShoppingCart className="w-5 h-5" />
-            </Button>
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-shaman-violet to-shaman-magenta rounded-full text-[10px] font-medium text-white flex items-center justify-center">
-              0
-            </span>
-          </div>
+          <CartDrawer />
           <Button variant="ghost" size="icon" className="md:hidden text-muted-foreground hover:text-foreground">
             <Menu className="w-5 h-5" />
           </Button>
