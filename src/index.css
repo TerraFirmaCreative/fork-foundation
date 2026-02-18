@@ -28,7 +28,7 @@
     --secondary-foreground: 35 20% 88%;
 
     --muted: 30 10% 15%;
-    --muted-foreground: 35 15% 55%;
+    --muted-foreground: 35 18% 68%;
 
     --accent: 35 50% 50%;
     --accent-foreground: 30 15% 7%;
@@ -121,7 +121,7 @@
     --secondary: 160 25% 35%;
     --secondary-foreground: 35 20% 88%;
     --muted: 30 10% 15%;
-    --muted-foreground: 35 15% 55%;
+    --muted-foreground: 35 18% 68%;
     --accent: 35 50% 50%;
     --accent-foreground: 30 15% 7%;
     --border: 30 12% 18%;
@@ -162,6 +162,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    line-height: 1.8;
   }
 
   h1, h2, h3, h4, h5, h6 {
