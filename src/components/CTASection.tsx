@@ -33,7 +33,7 @@ const CTASection = () => {
           <span className="text-gradient italic">more than the ordinary.</span>
         </h2>
         
-        <p className="text-lg text-muted-foreground mb-14 font-body font-light max-w-lg mx-auto leading-relaxed">
+        <p className="text-lg text-muted-foreground mb-14 font-body font-normal max-w-lg mx-auto leading-[1.8]">
           Explore our curated collection of yoga mats, created to bring beauty and presence into your practice space.
         </p>
         
