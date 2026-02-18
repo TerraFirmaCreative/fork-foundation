@@ -115,9 +115,6 @@ const MatBenefits = () => {
             <span className="hidden md:inline"> </span>
             <span className="block md:inline text-gradient italic">Built for practice.</span>
           </h2>
-          <p className="text-muted-foreground font-body max-w-xl mx-auto leading-relaxed">
-            Premium materials chosen to support daily practice.
-          </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
