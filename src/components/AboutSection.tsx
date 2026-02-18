@@ -23,7 +23,7 @@ const AboutSection = () => {
               About Us
             </p>
             
-            <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight text-center lg:text-left">
+            <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight text-center lg:text-left">
               <span className="text-foreground">Yoga mats where art meets</span>
                <br />
                <span className="text-gradient italic">movement.</span>
