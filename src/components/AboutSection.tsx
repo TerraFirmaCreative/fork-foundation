@@ -30,17 +30,17 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
                 Our collection brings original artwork into the space where you practice. 
-                Each yoga mat is designed to add visual depth without distracting from 
-                movement, breath, or focus.
+                Each mat is designed to add visual depth without distracting from 
+                breath, focus, or flow.
               </p>
               
               <p>
                 Drawing inspiration from geometry, nature, and subtle pattern, every 
-                design is developed to feel distinctive while remaining calm and usable.
+                design feels distinctive while remaining calm and usable.
               </p>
 
               <p>
-                Each mat is printed to order and made to support daily practice — balancing 
+                Each mat is printed to order and crafted for daily use — balancing 
                 form, function, and durability.
               </p>
             </div>
