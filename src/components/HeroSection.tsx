@@ -50,7 +50,7 @@ const HeroSection = () => {
             className="group font-body font-medium tracking-wide glow-effect"
             onClick={() => document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Shop Collection
+            Explore the Collection
           </Button>
         </div>
       </div>
