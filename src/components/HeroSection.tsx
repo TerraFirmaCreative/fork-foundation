@@ -37,7 +37,8 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-foreground/70 mb-4 max-w-xl mx-auto font-body font-normal leading-[1.8]">
-          Inspired by geometry, nature, and cosmic patterns. Find yours.
+          Inspired by geometry, nature, and cosmic patterns.<br />
+          Find yours.
         </p>
         
         
