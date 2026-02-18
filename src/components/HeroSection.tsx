@@ -37,8 +37,7 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-foreground/70 mb-4 max-w-xl mx-auto font-body font-normal leading-[1.8]">
-          Discover a series of striking yoga mats.<br />
-          Inspired by geometry, nature, and cosmic patterns.
+          Inspired by geometry, nature, and cosmic patterns. Find yours.
         </p>
         
         
