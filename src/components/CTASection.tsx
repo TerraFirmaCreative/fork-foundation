@@ -28,7 +28,7 @@ const CTASection = () => {
         </p>
         
         <h2 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
-          <span className="text-foreground">Your practice deserves</span>
+          <span className="text-foreground">You deserve</span>
           <br />
           <span className="text-gradient italic">more than the ordinary.</span>
         </h2>
