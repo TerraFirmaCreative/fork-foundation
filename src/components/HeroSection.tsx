@@ -37,8 +37,8 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-foreground/70 mb-4 max-w-xl mx-auto font-body font-normal leading-[1.8]">
-          Original artwork inspired by nature and the cosmos<br />
-          Designed for performance
+          Original artwork inspired by nature and the cosmos.<br />
+          Designed for performance.
         </p>
         
         
