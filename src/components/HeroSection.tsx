@@ -44,7 +44,7 @@ const HeroSection = () => {
         
 
         {/* CTA Button */}
-        <div className="flex justify-center mt-2">
+        <div className="flex justify-center mt-10">
           <Button 
             variant="cta" 
             size="xl" 
