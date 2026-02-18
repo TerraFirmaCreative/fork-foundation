@@ -52,7 +52,9 @@ const CTASection = () => {
         
         {/* Trust markers */}
         <p className="text-sm text-muted-foreground/60 font-body">
-          Premium natural rubber · Stable surface · Designed for daily practice
+          <span className="block sm:inline text-center">Premium natural rubber · Stable surface</span>
+          <span className="hidden sm:inline"> · </span>
+          <span className="block sm:inline">Designed for daily practice</span>
         </p>
       </div>
     </section>
