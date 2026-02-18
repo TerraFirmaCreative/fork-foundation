@@ -24,9 +24,9 @@ const AboutSection = () => {
             </p>
             
             <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight text-center lg:text-left">
-              <span className="text-foreground">Yoga mats where</span>
-              <br />
-              <span className="text-gradient italic">art meets practice.</span>
+              <span className="text-foreground">Yoga mats where art meets</span>
+               <br />
+               <span className="text-gradient italic">movement.</span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
