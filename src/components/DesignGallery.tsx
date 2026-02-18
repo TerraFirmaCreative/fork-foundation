@@ -22,7 +22,7 @@ const DesignGallery = () => {
   }, []);
 
   return (
-    <section id="design-gallery" className="hero-gradient pt-4 pb-12 px-6">
+    <section id="design-gallery" className="hero-gradient pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         {loading ? (
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 md:gap-4">
