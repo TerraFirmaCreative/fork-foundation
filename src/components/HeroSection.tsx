@@ -41,11 +41,6 @@ const HeroSection = () => {
           Inspired by geometry, nature, and cosmic patterns.
         </p>
         
-        <p className="text-sm text-muted-foreground/60 mb-14 font-body">
-          <span className="block sm:inline text-center">Premium natural rubber · Stable surface</span>
-          <span className="hidden sm:inline"> · </span>
-          <span className="block sm:inline">Designed to Perform</span>
-        </p>
         
 
         {/* CTA Button */}
