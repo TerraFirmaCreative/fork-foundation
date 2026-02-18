@@ -19,11 +19,11 @@ const AboutSection = () => {
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
-            <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+            <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body text-center lg:text-left">
               About Us
             </p>
             
-            <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-medium mb-10 tracking-tight leading-tight text-center lg:text-left">
               <span className="text-foreground">Yoga mats where</span>
               <br />
               <span className="text-gradient italic">art meets practice.</span>
