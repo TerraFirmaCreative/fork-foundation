@@ -120,7 +120,7 @@ const MatBenefits = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
           {/* Image Grid - TV Screens with random unique images */}
           <div className="grid grid-cols-2 gap-3">
             {tileImages.map((imageIndex, tileIndex) => (
