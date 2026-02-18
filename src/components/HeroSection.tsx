@@ -38,7 +38,7 @@ const HeroSection = () => {
         
         <p className="text-lg md:text-xl text-foreground/70 mb-4 max-w-xl mx-auto font-body font-normal leading-[1.8]">
           Original artwork inspired by nature and the cosmos.<br />
-          Printed on premium performance mats.
+          Designed for performance.
         </p>
         
         
