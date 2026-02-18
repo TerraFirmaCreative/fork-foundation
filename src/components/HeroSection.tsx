@@ -36,7 +36,7 @@ const HeroSection = () => {
           <span className="text-gradient italic">meaningful practice.</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto font-body font-light leading-relaxed">
+        <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-xl mx-auto font-body font-normal leading-relaxed">
           Discover a series of striking yoga mats.<br />
           Inspired by geometry, nature, and cosmic patterns.
         </p>
