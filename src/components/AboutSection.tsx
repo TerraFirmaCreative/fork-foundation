@@ -40,7 +40,7 @@ const AboutSection = () => {
               </p>
 
               <p>
-                Each mat is printed to order and crafted for daily use — balancing 
+                Each mat is printed to order and designed for daily use — balancing 
                 form, function, and durability.
               </p>
             </div>
