@@ -106,7 +106,7 @@ const MatBenefits = () => {
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             The Mat
           </p>
