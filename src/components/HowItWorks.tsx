@@ -81,24 +81,26 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative group text-center"
+              className="relative group text-center flex flex-col"
             >
               {/* Step number with glow */}
               <span className={`block font-display text-5xl ${step.color}/20 mb-4 group-hover:opacity-100 opacity-60 transition-opacity duration-700`}>
                 {step.number}
               </span>
               
-              <h3 className={`font-display text-[2rem] md:text-[2.15rem] font-medium mb-4 tracking-tight ${step.color}`}>
-                {step.title}
-              </h3>
-
-              {step.price && (
-                <p className={`font-display text-xl md:text-2xl font-semibold mb-3 ${step.color}`}>
-                  {step.price}
-                </p>
-              )}
+              {/* Fixed height title + price area so lines align */}
+              <div className="h-[4.5rem] md:h-[5rem] flex flex-col items-center justify-start">
+                <h3 className={`font-display text-[2rem] md:text-[2.15rem] font-medium tracking-tight ${step.color}`}>
+                  {step.title}
+                </h3>
+                {step.price && (
+                  <p className={`font-display text-xl md:text-2xl font-semibold mt-1 ${step.color}`}>
+                    {step.price}
+                  </p>
+                )}
+              </div>
               
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 mt-4">
                 {step.lines.map((line, i) => (
                   <p key={i} className="text-sm text-muted-foreground font-body leading-relaxed">
                     {line}
