@@ -24,7 +24,6 @@ const Index = () => {
       <AboutSection />
       <AffiliateSection />
       <ClosingCTA />
-      <ClosingCTA />
       
       <Footer />
     </div>
