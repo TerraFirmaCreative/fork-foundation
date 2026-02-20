@@ -3,7 +3,6 @@ import { MandalaDecoration } from "./SacredGeometry";
 
 import mat1 from "@/assets/yoga-mat-new-1.jpg";
 import mat2 from "@/assets/yoga-mat-new-2.jpg";
-import mat3 from "@/assets/yoga-mat-new-3.jpg";
 import mat4 from "@/assets/yoga-mat-new-4.jpg";
 import mat5 from "@/assets/yoga-mat-new-5.jpg";
 import mat6 from "@/assets/yoga-mat-new-6.jpg";
@@ -11,7 +10,7 @@ import mat7 from "@/assets/yoga-mat-new-7.jpg";
 import mat8 from "@/assets/yoga-mat-new-8.jpg";
 import mat9 from "@/assets/yoga-mat-new-9.jpg";
 
-const allImages = [mat1, mat2, mat3, mat4, mat5, mat6, mat7, mat8, mat9];
+const allImages = [mat1, mat2, mat4, mat5, mat6, mat7, mat8, mat9];
 
 // Staggered intervals for random changes
 const intervals = [4000, 5500, 7000, 8500];
