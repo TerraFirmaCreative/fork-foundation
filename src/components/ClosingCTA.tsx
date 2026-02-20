@@ -19,16 +19,16 @@ const ClosingCTA = () => {
 
       <div className="max-w-3xl mx-auto relative z-10 text-center">
         <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-8 font-body">
-          Find Your Perfect Mat
+          Your Practice Deserves This
         </p>
         <h2 className="font-display text-4xl md:text-6xl font-medium tracking-tight mb-4 leading-tight">
-          <span className="text-foreground">Beautiful, unique, artistic</span>
+          <span className="text-foreground">Ready to step onto</span>
           <br />
-          <span className="text-gradient italic">and grippy</span>
-          <span className="text-foreground italic"> yoga mats.</span>
+          <span className="text-foreground">something </span>
+          <span className="text-gradient italic">extraordinary?</span>
         </h2>
         <p className="text-lg text-foreground/60 font-body leading-relaxed mt-8 mb-10">
-          Mats so beautiful that you want to leave them out to admire.
+          Original artwork. Premium grip. A mat that's yours and yours alone.
         </p>
         <Button
           variant="cta"
@@ -36,14 +36,11 @@ const ClosingCTA = () => {
           className="font-body font-medium tracking-wide glow-effect"
           onClick={scrollToCollection}
         >
-          View the Collection
+          Choose Your Mat
         </Button>
         <div className="mt-12 space-y-1">
           <p className="text-sm text-foreground/40 font-body">
-            Premium natural rubber · Suede microfibre surface · Non-slip
-          </p>
-          <p className="text-sm text-foreground/40 font-body">
-            Delivery included in the price globally
+            $149 AUD · Free global delivery · Made to order in the USA
           </p>
         </div>
       </div>
