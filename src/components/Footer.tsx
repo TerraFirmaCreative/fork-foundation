@@ -25,7 +25,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative py-16 px-6 overflow-hidden border-t border-border/30">
+    <footer className="relative py-10 px-6 overflow-hidden border-t border-border/30">
       <div className="texture-overlay" />
       <FractalGrid />
       
@@ -33,7 +33,7 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/40 to-transparent" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
@@ -61,7 +61,7 @@ const Footer = () => {
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="col-span-1">
               <h4 className="text-sm font-medium text-foreground/70 mb-4 font-body tracking-wide">{category}</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {links.map((link) => {
                   const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy", "Contact": "/contact", "Shipping": "/shipping", "Terms & Conditions": "/terms", "Privacy Policy": "/privacy-policy" };
                   const scrollMap: Record<string, string> = { "Reviews": "reviews", "Shop Collection": "design-gallery", "How It Works": "how-it-works" };
@@ -109,7 +109,7 @@ const Footer = () => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/20 flex flex-col items-center gap-6">
+        <div className="pt-6 border-t border-border/20 flex flex-col items-center gap-4">
           {/* Payment Method Icons - Reduced Size & Prominence */}
           <div className="flex items-center gap-2 flex-wrap justify-center opacity-50 hover:opacity-80 transition-opacity duration-300">
             {[
