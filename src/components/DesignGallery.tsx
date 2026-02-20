@@ -57,9 +57,6 @@ const DesignGallery = () => {
                       <span className="text-muted-foreground text-xs">No image</span>
                     </div>
                   )}
-                  <span className="absolute top-1 right-1 bg-background/80 backdrop-blur-sm text-foreground text-sm md:text-lg font-body font-semibold px-2.5 py-1.5 rounded-md z-10">
-                    $129
-                  </span>
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Link>
               );
