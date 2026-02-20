@@ -9,30 +9,30 @@ import lifestyle8 from "@/assets/lifestyle-8.png";
 import lifestyle9 from "@/assets/lifestyle-9.png";
 
 const images = [
-  { src: lifestyle1, alt: "Yoga pose in nature", className: "col-span-2 row-span-2" },
-  { src: lifestyle2, alt: "Warrior pose on mat", className: "col-span-1 row-span-1" },
-  { src: lifestyle3, alt: "Hand detail on mat", className: "col-span-1 row-span-1" },
-  { src: lifestyle4, alt: "Forward fold yoga pose", className: "col-span-1 row-span-1" },
-  { src: lifestyle5, alt: "Upward dog pose", className: "col-span-1 row-span-1" },
-  { src: lifestyle6, alt: "Hand on colorful mat", className: "col-span-1 row-span-1" },
-  { src: lifestyle7, alt: "Standing forward bend", className: "col-span-1 row-span-1" },
-  { src: lifestyle8, alt: "Foot detail on mat", className: "col-span-2 row-span-2" },
-  { src: lifestyle9, alt: "Mat texture close up", className: "col-span-2 row-span-1" },
+  { src: lifestyle1, alt: "Yoga pose in nature" },
+  { src: lifestyle2, alt: "Warrior pose on mat" },
+  { src: lifestyle3, alt: "Hand detail on mat" },
+  { src: lifestyle4, alt: "Forward fold yoga pose" },
+  { src: lifestyle5, alt: "Upward dog pose" },
+  { src: lifestyle6, alt: "Hand on colorful mat" },
+  { src: lifestyle7, alt: "Standing forward bend" },
+  { src: lifestyle8, alt: "Foot detail on mat" },
+  { src: lifestyle9, alt: "Mat texture close up" },
 ];
 
 const LifestyleGallery = () => {
   return (
-    <section className="relative overflow-hidden">
-      <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[110px] md:auto-rows-[145px] gap-1">
+    <section className="relative overflow-hidden p-1">
+      <div className="columns-2 md:columns-4 gap-1 space-y-1">
         {images.map((image, index) => (
           <div
             key={index}
-            className={`relative overflow-hidden ${image.className}`}
+            className="relative break-inside-avoid overflow-hidden"
           >
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
           </div>
