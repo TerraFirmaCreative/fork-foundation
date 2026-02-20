@@ -16,7 +16,7 @@ const steps = [
     number: "02", 
     title: "Buy",
     color: "text-shaman-magenta",
-    price: "$149 AUD",
+    price: "$149 per mat",
     lines: [
       "Delivery included in the price",
       "No hidden fees",
@@ -93,12 +93,13 @@ const HowItWorks = () => {
                 <h3 className={`font-display text-[2rem] md:text-[2.15rem] font-medium tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
-                {step.price && (
-                  <p className={`font-display text-xl md:text-2xl font-semibold mt-1 ${step.color}`}>
-                    {step.price}
-                  </p>
-                )}
               </div>
+
+              {step.price && (
+                <p className={`font-display text-2xl md:text-3xl font-bold my-4 ${step.color} drop-shadow-[0_0_12px_hsl(var(--shaman-magenta)/0.4)]`}>
+                  {step.price}
+                </p>
+              )}
               
               <div className="space-y-1.5 mt-4">
                 {step.lines.map((line, i) => (
