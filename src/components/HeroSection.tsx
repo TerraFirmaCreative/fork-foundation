@@ -60,6 +60,11 @@ const HeroSection = () => {
           Delivery included in the price globally
         </p>
       </div>
+
+      {/* Made in USA - bottom right */}
+      <p className="absolute bottom-6 right-8 text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body z-10">
+        Made in the USA
+      </p>
     </section>
   );
 };
