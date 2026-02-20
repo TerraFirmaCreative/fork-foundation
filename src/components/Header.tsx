@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { CartDrawer } from "@/components/CartDrawer";
+import SocialLinks from "@/components/SocialLinks";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -107,6 +108,7 @@ const Header = () => {
         
         {/* Right Actions */}
         <div className="flex items-center gap-4">
+          <SocialLinks className="hidden md:flex" />
           <CartDrawer />
 
           {/* Mobile Hamburger */}

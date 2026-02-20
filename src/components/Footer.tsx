@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -90,8 +91,9 @@ const Footer = () => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/20 text-center text-xs text-muted-foreground/40 font-body">
+        <div className="pt-8 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/40 font-body">
           <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
+          <SocialLinks />
         </div>
       </div>
     </footer>
