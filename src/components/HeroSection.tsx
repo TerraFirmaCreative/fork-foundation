@@ -35,7 +35,7 @@ const HeroSection = () => {
         <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
           <span className="text-foreground">Beautiful, unique, artistic</span>
           <br />
-          <span className="text-gradient italic"><span className="underline decoration-2 underline-offset-4">and</span> grippy</span>
+          <span className="text-gradient italic"><span className="underline decoration-shaman-gold decoration-2 underline-offset-4">and</span> grippy</span>
           <span className="text-foreground/70 italic"> yoga mats.</span>
         </h1>
         
