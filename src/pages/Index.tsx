@@ -7,7 +7,6 @@ import MatBenefits from "@/components/MatBenefits";
 import ReviewsSection from "@/components/ReviewsSection";
 import AboutSection from "@/components/AboutSection";
 import AffiliateSection from "@/components/AffiliateSection";
-import RetreatsSection from "@/components/RetreatsSection";
 import ClosingCTA from "@/components/ClosingCTA";
 
 import Footer from "@/components/Footer";
@@ -24,7 +23,7 @@ const Index = () => {
       <ReviewsSection />
       <AboutSection />
       <AffiliateSection />
-      <RetreatsSection />
+      <ClosingCTA />
       <ClosingCTA />
       
       <Footer />
