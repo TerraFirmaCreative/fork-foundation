@@ -93,13 +93,13 @@ const HowItWorks = () => {
               className="relative group text-center flex flex-col"
             >
               {/* Step number */}
-              <span className="block font-display text-5xl text-foreground/15 mb-4 group-hover:text-foreground/30 transition-colors duration-700">
+              <span className="block font-display text-5xl text-foreground/30 mb-4 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
               
               {/* Fixed height title area */}
               <div className="h-[5rem] md:h-[5.5rem] flex flex-col items-center justify-start">
-                <h3 className={`font-display text-xl md:text-2xl font-medium tracking-tight ${step.color}`}>
+                <h3 className={`font-display text-2xl md:text-[1.75rem] font-medium tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
               </div>
