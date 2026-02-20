@@ -29,22 +29,18 @@ const rows = [row1, row2, row3];
 const LifestyleGallery = () => {
   return (
     <section className="relative overflow-hidden px-[10%] py-1">
-      <div className="flex flex-col gap-1">
-        {rows.map((row, rowIndex) => (
-          <div key={rowIndex} className="grid grid-cols-2 md:grid-cols-3 gap-1">
-            {row.map((image, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden aspect-[4/3]"
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+      <div className="columns-2 md:columns-4 gap-1">
+        {rows.flat().map((image, index) => (
+          <div
+            key={index}
+            className="relative overflow-hidden mb-1 break-inside-avoid"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-auto transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
           </div>
         ))}
       </div>
