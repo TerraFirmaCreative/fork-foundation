@@ -23,7 +23,7 @@ const images = [
 const LifestyleGallery = () => {
   return (
     <section className="relative overflow-hidden">
-      <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[140px] md:auto-rows-[180px] gap-1">
+      <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[110px] md:auto-rows-[145px] gap-1">
         {images.map((image, index) => (
           <div
             key={index}
