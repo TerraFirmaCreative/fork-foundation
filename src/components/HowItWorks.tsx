@@ -4,26 +4,46 @@ const steps = [
   {
     number: "01",
     title: "View",
-    description: "Browse 24 beautifully designed natural rubber mats, featuring a suede microfibre surface for extra grip.",
     color: "text-shaman-violet",
+    lines: [
+      "24 beautifully designed mats",
+      "Natural rubber base",
+      "Suede microfibre surface",
+      "Extra grip for your practice",
+    ],
   },
   {
     number: "02", 
     title: "Buy",
-    description: "$149 AUD per mat — delivery included in the price. No hidden fees.",
     color: "text-shaman-magenta",
+    price: "$149 AUD",
+    lines: [
+      "Delivery included in the price",
+      "No hidden fees",
+      "Secure checkout",
+    ],
   },
   {
     number: "03",
     title: "Delivery",
-    description: "Generally 1 week in USA, 2 weeks in Europe, 3 weeks in Australia. Mats made in the USA.",
     color: "text-shaman-gold",
+    lines: [
+      "~1 week in USA",
+      "~2 weeks in Europe",
+      "~3 weeks in Australia",
+      "Mats made in the USA",
+    ],
   },
   {
     number: "04",
     title: "Updates",
-    description: "We keep you informed through the whole process — from order confirmation to delivery.",
     color: "text-shaman-teal",
+    lines: [
+      "Order confirmation",
+      "Production updates",
+      "Shipping notification",
+      "Delivery tracking",
+    ],
   },
 ];
 
@@ -68,13 +88,23 @@ const HowItWorks = () => {
                 {step.number}
               </span>
               
-              <h3 className={`font-display text-[2rem] md:text-[2.15rem] font-medium mb-3 tracking-tight ${step.color}`}>
+              <h3 className={`font-display text-[2rem] md:text-[2.15rem] font-medium mb-4 tracking-tight ${step.color}`}>
                 {step.title}
               </h3>
+
+              {step.price && (
+                <p className={`font-display text-xl md:text-2xl font-semibold mb-3 ${step.color}`}>
+                  {step.price}
+                </p>
+              )}
               
-              <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                {step.description}
-              </p>
+              <div className="space-y-1.5">
+                {step.lines.map((line, i) => (
+                  <p key={i} className="text-sm text-muted-foreground font-body leading-relaxed">
+                    {line}
+                  </p>
+                ))}
+              </div>
               
               {/* Connector line */}
               {index < steps.length - 1 && (
