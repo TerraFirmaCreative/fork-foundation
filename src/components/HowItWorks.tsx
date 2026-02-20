@@ -3,7 +3,7 @@ import { FractalGrid } from "./SacredGeometry";
 const steps = [
   {
     number: "01",
-    title: "View",
+    title: "Browse the Range",
     color: "text-shaman-violet",
     lines: [
       "24 beautifully designed mats",
@@ -14,9 +14,9 @@ const steps = [
   },
   {
     number: "02", 
-    title: "Buy",
+    title: "Invest in Your Mat",
     color: "text-shaman-magenta",
-    price: "$149 per mat",
+    price: "$149 AUD per mat",
     lines: [
       "Delivery included in the price",
       "No hidden fees",
@@ -25,24 +25,33 @@ const steps = [
   },
   {
     number: "03",
-    title: "Delivery",
+    title: "Delivery Times",
     color: "text-shaman-gold",
     lines: [
-      "~1 week in USA",
-      "~2 weeks in Europe",
-      "~3 weeks in Australia",
-      "Mats made in the USA",
+      "USA — 1 week",
+      "Europe — 2 weeks",
+      "Australia — up to 3 weeks",
+      "Mats made in Nevada, USA",
     ],
   },
   {
     number: "04",
-    title: "Updates",
+    title: "We Keep You Updated",
     color: "text-shaman-teal",
     lines: [
-      "Order confirmation",
-      "Production updates",
-      "Shipping notification",
-      "Delivery tracking",
+      "We track your item",
+      "Share updates with you",
+      "From production to delivery",
+    ],
+  },
+  {
+    number: "05",
+    title: "Become an Affiliate",
+    color: "text-shaman-violet",
+    lines: [
+      "Share with friends",
+      "Earn an income",
+      "Join our affiliate program",
     ],
   },
 ];
@@ -66,7 +75,7 @@ const HowItWorks = () => {
         style={{ animationDelay: "5s" }}
       />
       
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
             Simple Process
@@ -77,33 +86,33 @@ const HowItWorks = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {steps.map((step, index) => (
             <div
               key={step.title}
               className="relative group text-center flex flex-col"
             >
-              {/* Step number with glow */}
-              <span className={`block font-display text-5xl ${step.color}/20 mb-4 group-hover:opacity-100 opacity-60 transition-opacity duration-700`}>
+              {/* Step number */}
+              <span className="block font-display text-5xl text-foreground/15 mb-4 group-hover:text-foreground/30 transition-colors duration-700">
                 {step.number}
               </span>
               
-              {/* Fixed height title + price area so lines align */}
-              <div className="h-[4.5rem] md:h-[5rem] flex flex-col items-center justify-start">
-                <h3 className={`font-display text-[2rem] md:text-[2.15rem] font-medium tracking-tight ${step.color}`}>
+              {/* Fixed height title area */}
+              <div className="h-[5rem] md:h-[5.5rem] flex flex-col items-center justify-start">
+                <h3 className={`font-display text-xl md:text-2xl font-medium tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
               </div>
 
               {step.price && (
-                <p className={`font-display text-2xl md:text-3xl font-bold my-4 ${step.color} drop-shadow-[0_0_12px_hsl(var(--shaman-magenta)/0.4)]`}>
+                <p className="font-display text-xl md:text-2xl font-bold my-3 text-foreground">
                   {step.price}
                 </p>
               )}
               
-              <div className="space-y-1.5 mt-4">
+              <div className="space-y-1.5 mt-2">
                 {step.lines.map((line, i) => (
-                  <p key={i} className="text-sm text-muted-foreground font-body leading-relaxed">
+                  <p key={i} className="text-sm text-foreground/70 font-body leading-relaxed">
                     {line}
                   </p>
                 ))}
@@ -111,7 +120,7 @@ const HowItWorks = () => {
               
               {/* Connector line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(100%+0.5rem)] w-[calc(100%-1rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
+                <div className="hidden lg:block absolute top-10 left-[calc(100%+0.25rem)] w-[calc(100%-0.5rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
               )}
             </div>
           ))}
