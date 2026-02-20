@@ -55,9 +55,7 @@ const HeroSection = () => {
         </div>
         
         <p className="text-sm text-muted-foreground/60 font-body">
-          <span className="block sm:inline text-center">Premium natural rubber · Stable surface</span>
-          <span className="hidden sm:inline"> · </span>
-          <span className="block sm:inline">Designed to Perform</span>
+          Premium natural rubber · Suede microfibre surface · No slip · Delivery included in the price globally
         </p>
       </div>
     </section>
