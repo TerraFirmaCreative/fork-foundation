@@ -27,32 +27,37 @@ const HeroSection = () => {
         style={{ animationDelay: "8s" }}
       />
       
-      <div className="max-w-3xl mx-auto text-center relative z-10">
-        
-        
-        <h1 className="font-display text-5xl md:text-7xl font-medium mb-8 leading-[1.1] tracking-tight">
-          <span className="text-foreground">Beautiful mats for</span>
-          <br />
-          <span className="text-gradient italic">meaningful practice.</span>
-        </h1>
-        
-        <p className="text-lg md:text-xl text-foreground/70 mb-4 max-w-xl mx-auto font-body font-normal leading-[1.8]">
-          Discover a series of striking yoga mats. Inspired by geometry, nature, and cosmic patterns.
+      <div className="max-w-2xl mx-auto text-center relative z-10">
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-10 font-body">
+          Find Your Perfect Mat
         </p>
         
+        <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
+          <span className="text-foreground">Beautiful unique artistic</span>
+          <br />
+          <span className="text-gradient italic">and grippy yoga mats.</span>
+        </h1>
         
-
-        {/* CTA Button */}
-        <div className="flex justify-center mt-16">
+        <p className="text-lg text-muted-foreground mb-14 font-body font-normal max-w-lg mx-auto leading-[1.8]">
+          Explore our curated collection of yoga mats, created to bring beauty and presence into your practice space.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
           <Button 
             variant="cta" 
             size="xl" 
             className="group font-body font-medium tracking-wide glow-effect"
             onClick={() => document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Explore the Collection
+            Shop Collection
           </Button>
         </div>
+        
+        <p className="text-sm text-muted-foreground/60 font-body">
+          <span className="block sm:inline text-center">Premium natural rubber · Stable surface</span>
+          <span className="hidden sm:inline"> · </span>
+          <span className="block sm:inline">Designed to Perform</span>
+        </p>
       </div>
     </section>
   );
