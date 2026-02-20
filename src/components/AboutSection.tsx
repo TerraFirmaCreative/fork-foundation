@@ -67,12 +67,6 @@ const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
             </div>
             
-            {/* Quote overlay */}
-            <div className="absolute -bottom-6 -left-6 right-16 p-6 bg-card/95 backdrop-blur-sm border border-border/40 rounded-md">
-              <p className="font-display text-base italic text-foreground/80">
-                "Three time zones. One mat at a time."
-              </p>
-            </div>
           </div>
         </div>
       </div>
