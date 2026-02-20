@@ -25,11 +25,11 @@ const AffiliateSection = () => {
         </p>
         <Button
           variant="cta"
-          size="xl"
+          size="lg"
           className="font-body font-medium tracking-wide glow-effect"
           onClick={() => window.location.href = "/contact"}
         >
-          Sign Me Up
+          Let's Talk
         </Button>
       </div>
     </section>
