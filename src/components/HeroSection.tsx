@@ -33,13 +33,13 @@ const HeroSection = () => {
         </p>
         
         <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
-          <span className="text-foreground">Beautiful unique artistic</span>
+          <span className="text-foreground">Beautiful, unique, artistic</span>
           <br />
-          <span className="text-gradient italic">and grippy yoga mats.</span>
+          <span className="text-gradient italic"><span className="underline decoration-2 underline-offset-4">and</span> grippy yoga mats.</span>
         </h1>
         
         <p className="text-lg text-muted-foreground mb-14 font-body font-normal max-w-lg mx-auto leading-[1.8]">
-          Explore our curated collection of yoga mats, created to bring beauty and presence into your practice space.
+          Mats so beautiful that you want to leave them out to admire.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
