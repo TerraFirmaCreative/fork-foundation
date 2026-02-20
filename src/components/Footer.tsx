@@ -90,10 +90,61 @@ const Footer = () => {
           ))}
         </div>
         
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground/40 font-body">
-          <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
-          <SocialLinks />
+        {/* Follow on Shop + Payment Icons */}
+        <div className="pt-8 border-t border-border/20 flex flex-col items-center gap-6">
+          {/* Follow on Shop */}
+          <a
+            href="https://shop.app/unique-yoga-mats"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5A31F4] hover:bg-[#4926CC] transition-colors text-white text-sm font-medium"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+            </svg>
+            Follow on Shop
+          </a>
+
+          {/* Payment Method Icons */}
+          <div className="flex items-center gap-2 flex-wrap justify-center">
+            {[
+              { name: "Amex", bg: "#006FCF", text: "AMEX", textSize: "text-[6px]" },
+              { name: "Apple Pay", bg: "#000", icon: "apple" },
+              { name: "Google Pay", bg: "#fff", icon: "google" },
+              { name: "Mastercard", bg: "#1A1F36", icon: "mastercard" },
+              { name: "PayPal", bg: "#003087", icon: "paypal" },
+              { name: "Shop Pay", bg: "#5A31F4", icon: "shop" },
+              { name: "Union Pay", bg: "#E21836", text: "UP", textSize: "text-[7px]" },
+              { name: "Visa", bg: "#1A1F71", text: "VISA", textSize: "text-[7px]" },
+            ].map((card) => (
+              <div
+                key={card.name}
+                className="w-10 h-6 rounded flex items-center justify-center border border-border/20"
+                style={{ backgroundColor: card.bg }}
+                title={card.name}
+              >
+                {card.text ? (
+                  <span className={`text-white font-bold ${card.textSize} tracking-wider`}>{card.text}</span>
+                ) : card.icon === "apple" ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                ) : card.icon === "google" ? (
+                  <span className="text-[8px] font-bold text-gray-700">G Pay</span>
+                ) : card.icon === "mastercard" ? (
+                  <svg width="20" height="12" viewBox="0 0 20 12"><circle cx="7" cy="6" r="5" fill="#EB001B"/><circle cx="13" cy="6" r="5" fill="#F79E1B"/><path d="M10 1.8a5 5 0 010 8.4 5 5 0 000-8.4z" fill="#FF5F00"/></svg>
+                ) : card.icon === "paypal" ? (
+                  <span className="text-[7px] font-bold text-white tracking-tight">PayPal</span>
+                ) : card.icon === "shop" ? (
+                  <span className="text-[7px] font-bold text-white tracking-tight">Shop</span>
+                ) : null}
+              </div>
+            ))}
+          </div>
+
+          {/* Copyright + Social */}
+          <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4 text-xs text-muted-foreground/40 font-body">
+            <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
+            <SocialLinks />
+          </div>
         </div>
       </div>
     </footer>
