@@ -46,12 +46,11 @@ const steps = [
   },
   {
     number: "05",
-    title: "Become an Affiliate",
+    title: "Enjoy Your Mat",
     color: "text-shaman-violet",
     lines: [
-      "Share with friends",
-      "Earn an income",
-      "Join our affiliate program",
+      "Enjoy your practice",
+      "Enjoy your life",
     ],
   },
 ];

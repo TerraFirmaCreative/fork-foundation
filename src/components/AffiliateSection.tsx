@@ -1,0 +1,30 @@
+import { MandalaDecoration } from "./SacredGeometry";
+
+const AffiliateSection = () => {
+  return (
+    <section className="relative py-24 px-6 overflow-hidden">
+      <div className="texture-overlay" />
+      <div className="absolute inset-0 shaman-bg" />
+      
+      <MandalaDecoration className="-top-32 -left-32" size={400} />
+      
+      <div className="max-w-3xl mx-auto relative z-10 text-center">
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+          Partner With Us
+        </p>
+        <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-6">
+          <span className="text-foreground">Become an </span>
+          <span className="text-gradient italic">Affiliate</span>
+        </h2>
+        <p className="text-lg text-foreground/70 font-body leading-relaxed mb-4">
+          Share our mats with friends and earn an income doing it.
+        </p>
+        <p className="text-base text-foreground/50 font-body leading-relaxed">
+          Join our affiliate program and get rewarded every time someone purchases through your link.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default AffiliateSection;

@@ -6,6 +6,7 @@ import LifestyleGallery from "@/components/LifestyleGallery";
 import MatBenefits from "@/components/MatBenefits";
 import ReviewsSection from "@/components/ReviewsSection";
 import AboutSection from "@/components/AboutSection";
+import AffiliateSection from "@/components/AffiliateSection";
 
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <MatBenefits />
       <ReviewsSection />
       <AboutSection />
+      <AffiliateSection />
       
       <Footer />
     </div>
