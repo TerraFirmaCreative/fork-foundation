@@ -68,7 +68,7 @@ const HowItWorks = () => {
                 {step.number}
               </span>
               
-              <h3 className={`font-display text-2xl font-medium mb-3 tracking-tight ${step.color}`}>
+              <h3 className={`font-display text-[1.75rem] md:text-[1.85rem] font-medium mb-3 tracking-tight ${step.color}`}>
                 {step.title}
               </h3>
               
