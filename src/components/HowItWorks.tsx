@@ -27,10 +27,12 @@ const steps = [
     number: "03",
     title: "Delivery Times",
     color: "text-shaman-gold",
+    deliveryLines: [
+      { country: "USA", time: "1 week" },
+      { country: "Europe", time: "2 weeks" },
+      { country: "Australia", time: "up to 3 weeks" },
+    ],
     lines: [
-      "USA — 1 week",
-      "Europe — 2 weeks",
-      "Australia — up to 3 weeks",
       "Mats made in Nevada, USA",
     ],
   },
@@ -109,6 +111,18 @@ const HowItWorks = () => {
                 </p>
               )}
               
+              {step.deliveryLines && (
+                <div className="space-y-1.5 mt-2">
+                  {step.deliveryLines.map((dl, i) => (
+                    <p key={i} className="text-[0.938rem] text-foreground/70 font-body leading-relaxed">
+                      <span className="font-semibold text-foreground/90">{dl.country}</span>
+                      <span className="inline-block w-[2.5ch] text-center">—</span>
+                      {dl.time}
+                    </p>
+                  ))}
+                </div>
+              )}
+
               <div className="space-y-1.5 mt-2">
                 {step.lines.map((line, i) => (
                   <p key={i} className="text-sm text-foreground/70 font-body leading-relaxed">
