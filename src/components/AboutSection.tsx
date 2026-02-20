@@ -1,4 +1,4 @@
-import aboutMatImage from "@/assets/about-mat.png";
+import aboutFoundersImage from "@/assets/about-founders.png";
 import { MandalaDecoration } from "./SacredGeometry";
 
 const AboutSection = () => {
@@ -20,28 +20,34 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body text-center lg:text-left">
-              About Us
+              Our Story
             </p>
             
             <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight text-center lg:text-left">
-              <span className="text-foreground">Where art meets </span><span className="text-gradient italic">movement</span>
+              <span className="text-foreground">Three friends, </span><span className="text-gradient italic">one vision</span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
-                Our collection brings original artwork into the space where you practice. 
-                Each mat is designed to add visual depth without distracting from 
-                breath, focus, or flow.
+                It started with a conversation between three friends scattered across 
+                the globe — Charly in Australia, Phil in the UK, and Tym in Poland. 
+                Despite the distance, they shared something deeper: a belief that art 
+                and movement belong together.
               </p>
               
               <p>
-                Drawing inspiration from geometry, nature, and subtle pattern, every 
-                design feels distinctive while remaining calm and usable.
+                Each brought something different to the table. A love of design. A 
+                passion for wellness. A quiet conviction that even a small shift — 
+                ten minutes on the mat, one more stretch, one mindful breath — can 
+                change the shape of a day.
               </p>
 
               <p>
-                Each mat is printed to order and designed for daily use — balancing 
-                form, function, and durability.
+                What began as a shared idea became a creative studio with no walls. 
+                From three different time zones, they build mats that carry original 
+                artwork edge to edge — pieces designed to make your practice space 
+                feel like it belongs to you, and to gently remind you to show up for 
+                yourself, even just a little more.
               </p>
             </div>
             
@@ -54,8 +60,8 @@ const AboutSection = () => {
             
             <div className="relative rounded-md overflow-hidden">
               <img
-                src={aboutMatImage}
-                alt="Yoga practice on an artisan mat"
+                src={aboutFoundersImage}
+                alt="Charly, Phil and Tym — the founders"
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
@@ -64,7 +70,7 @@ const AboutSection = () => {
             {/* Quote overlay */}
             <div className="absolute -bottom-6 -left-6 right-16 p-6 bg-card/95 backdrop-blur-sm border border-border/40 rounded-md">
               <p className="font-display text-base italic text-foreground/80">
-                "Art for your practice. Made with intention."
+                "Three time zones. One mat at a time."
               </p>
             </div>
           </div>

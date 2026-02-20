@@ -8,17 +8,33 @@ const About = () => {
       <main className="py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-8 text-foreground">
-            About Our Mats
+            Our Story
           </h1>
           
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              Our yoga mats combine premium materials with original artwork to create pieces that are both functional and one of a kind.
+              We're Charly, Phil, and Tym — three friends based in Australia, the UK, and Poland, building something we believe in from opposite sides of the world.
             </p>
             
             <p>
-              Each mat is made to order, ensuring your design is as unique as your practice.
+              The idea was simple: create yoga mats that carry original, meaningful artwork — pieces that make your practice space feel personal and inspiring. But behind that simplicity is a shared philosophy that runs deeper.
             </p>
+
+            <p>
+              We believe wellness doesn't need to be complicated. It can start with one stretch, one breath, one moment of showing up for yourself. And the space you practice in matters. A mat that feels like yours — that reflects something you connect with — makes it easier to come back to it, day after day.
+            </p>
+
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
+                Built Across Borders
+              </h2>
+              <p className="mb-4">
+                We work across three time zones, bringing together different perspectives, creative backgrounds, and a shared love of art and movement. Charly brings the vision from the Australian coast. Phil brings precision and craft from the UK. Tym brings bold creative energy from Poland.
+              </p>
+              <p>
+                Together, we design every mat with intention — each one printed to order, edge to edge, and made to last.
+              </p>
+            </div>
 
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
@@ -46,49 +62,16 @@ const About = () => {
 
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Edge-to-Edge, One-of-a-Kind Designs
+                Why We Do This
               </h2>
               <p className="mb-4">
-                What truly sets our mats apart is the artwork.
+                We're not trying to change the world overnight. We just want to inspire people to do a little more — one practice, one morning, one mat at a time. If our designs make your space feel more like yours, and that helps you show up more often, then we've done what we set out to do.
               </p>
-              <p className="mb-4">
-                Each design is developed through a thoughtful creative process, resulting in artwork that exists nowhere else. Whether you're drawn to bold patterns, abstract forms, or calm, nature-inspired visuals, your mat becomes a personal expression of your style and energy.
-              </p>
-              <p>
-                Designs are printed edge-to-edge in vibrant, high-quality color, ensuring a striking finish that doesn't fade or peel with use. No two mats are ever the same.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Why Choose Our Mats?
-              </h2>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Original, considered designs</strong> — Each artwork is created individually and printed edge-to-edge</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-magenta mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Superior grip</strong> — Microfiber suede surface that improves with moisture</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Natural rubber base</strong> — Supportive, stable, and designed for daily practice</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-gold mt-2.5 shrink-0" />
-                  <span><strong className="text-foreground">Durable & portable</strong> — Lightweight, cushioned, and made to last</span>
-                </li>
-              </ul>
             </div>
 
             <div className="pt-4 border-t border-border/30">
               <p className="text-lg italic text-foreground/80">
-                Step onto a mat that feels as individual as your practice.
-              </p>
-              <p className="mt-4">
-                Our yoga mats are more than just equipment — they balance performance and creativity in equal measure.
+                Three friends. Three time zones. One mat at a time.
               </p>
             </div>
           </div>
