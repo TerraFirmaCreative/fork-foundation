@@ -3,26 +3,26 @@ import { FractalGrid } from "./SacredGeometry";
 const steps = [
   {
     number: "01",
-    title: "Browse",
-    description: "Explore our collection of beautiful yoga mat designs—from sacred geometry to cosmic art.",
+    title: "View",
+    description: "Browse 24 beautifully designed natural rubber mats, featuring a suede microfibre surface for extra grip.",
     color: "text-shaman-violet",
   },
   {
     number: "02", 
-    title: "Choose",
-    description: "Find the design that speaks to your practice and personal style.",
+    title: "Buy",
+    description: "$149 AUD per mat — delivery included in the price. No hidden fees.",
     color: "text-shaman-magenta",
   },
   {
     number: "03",
-    title: "Order",
-    description: "Select your mat and complete your order with our secure checkout.",
+    title: "Delivery",
+    description: "Generally 1 week in USA, 2 weeks in Europe, 3 weeks in Australia. Mats made in the USA.",
     color: "text-shaman-gold",
   },
   {
     number: "04",
-    title: "Receive",
-    description: "Your chosen yoga mat is printed on premium natural rubber and shipped to your door.",
+    title: "Updates",
+    description: "We keep you informed through the whole process — from order confirmation to delivery.",
     color: "text-shaman-teal",
   },
 ];
