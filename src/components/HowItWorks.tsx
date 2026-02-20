@@ -6,10 +6,10 @@ const steps = [
     title: "Browse the Range",
     color: "text-shaman-violet",
     lines: [
-      "24 beautifully designed mats",
-      "Natural rubber base",
-      "Suede microfibre surface",
-      "Extra grip for your practice",
+      { text: "24 beautifully designed", bold: "mats" },
+      { text: "Natural", bold: "rubber base" },
+      { text: "Suede", bold: "microfibre surface" },
+      { text: "Extra grip", bold: "for your practice" },
     ],
   },
   {
@@ -18,9 +18,9 @@ const steps = [
     color: "text-shaman-magenta",
     price: "$149 AUD per mat",
     lines: [
-      "Delivery included in the price",
-      "No hidden fees",
-      "Secure checkout",
+      { text: "Delivery", bold: "included in the price" },
+      { text: "No", bold: "hidden fees" },
+      { text: "", bold: "Secure checkout" },
     ],
   },
   {
@@ -33,7 +33,7 @@ const steps = [
       { country: "Australia", time: "up to 3 weeks" },
     ],
     lines: [
-      "Mats made in Nevada, USA",
+      { text: "Mats made in", bold: "Nevada, USA" },
     ],
   },
   {
@@ -41,9 +41,9 @@ const steps = [
     title: "We Keep You Updated",
     color: "text-shaman-teal",
     lines: [
-      "We track your item",
-      "Share updates with you",
-      "From production to delivery",
+      { text: "We", bold: "track your item" },
+      { text: "Share", bold: "updates with you" },
+      { text: "From", bold: "production to delivery" },
     ],
   },
   {
@@ -51,8 +51,8 @@ const steps = [
     title: "Enjoy Your Mat",
     color: "text-shaman-violet",
     lines: [
-      "Enjoy your practice",
-      "Enjoy your life",
+      { text: "Enjoy your", bold: "practice" },
+      { text: "Enjoy your", bold: "life" },
     ],
   },
 ];
@@ -126,7 +126,7 @@ const HowItWorks = () => {
               <div className="space-y-1.5 mt-2">
                 {step.lines.map((line, i) => (
                   <p key={i} className="text-sm text-foreground/70 font-body leading-relaxed">
-                    {line}
+                    {line.text}{line.text ? " " : ""}<span className="font-semibold text-foreground/90">{line.bold}</span>
                   </p>
                 ))}
               </div>
