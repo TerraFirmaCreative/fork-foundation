@@ -15,8 +15,8 @@ const row1 = [
 ];
 const row2 = [
   { src: lifestyle4, alt: "Forward fold yoga pose" },
-  { src: lifestyle5, alt: "Upward dog pose" },
   { src: lifestyle6, alt: "Hand on colorful mat" },
+  { src: lifestyle5, alt: "Upward dog pose" },
 ];
 const row3 = [
   { src: lifestyle7, alt: "Standing forward bend" },
