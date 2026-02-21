@@ -4,7 +4,7 @@ import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
-import { useLocale, SupportedLocale } from "@/lib/i18n";
+import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
 import SocialLinks from "@/components/SocialLinks";
 import {
@@ -129,13 +129,16 @@ const Header = () => {
                 <Globe className="w-5 h-5" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-card border-border/50 z-50 min-w-0">
-              <DropdownMenuItem onClick={() => switchLocale("en-US")} className={`cursor-pointer ${locale === "en-US" ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
-                US
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => switchLocale("en-AU")} className={`cursor-pointer ${locale === "en-AU" ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
-                AU
-              </DropdownMenuItem>
+            <DropdownMenuContent className="bg-card border-border/50 z-50 min-w-0 max-h-72 overflow-y-auto">
+              {SUPPORTED_LOCALES.map((loc) => (
+                <DropdownMenuItem
+                  key={loc}
+                  onClick={() => switchLocale(loc)}
+                  className={`cursor-pointer ${locale === loc ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                >
+                  {LOCALE_LABELS[loc]}
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
           <CartDrawer />
