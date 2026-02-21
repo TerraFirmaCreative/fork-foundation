@@ -1,13 +1,42 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
-export const SUPPORTED_LOCALES = ["en-US", "en-AU"] as const;
+export const SUPPORTED_LOCALES = [
+  "en-US", "en-AU", "de-AT", "fr-BE", "bg-BG", "hr-HR", "cs-CZ", "da-DK",
+  "nl-NL", "et-EE", "fi-FI", "fr-FR", "de-DE", "el-GR", "hu-HU", "en-IE",
+  "it-IT", "lv-LV", "lt-LT", "fr-LU", "mt-MT", "pl-PL", "pt-PT", "ro-RO",
+  "sk-SK", "sl-SI", "es-ES", "sv-SE", "el-CY",
+] as const;
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 export const DEFAULT_LOCALE: SupportedLocale = "en-US";
 
 const LOCALE_COUNTRY_MAP: Record<SupportedLocale, string> = {
-  "en-US": "US",
-  "en-AU": "AU",
+  "en-US": "US", "en-AU": "AU", "de-AT": "AT", "fr-BE": "BE", "bg-BG": "BG",
+  "hr-HR": "HR", "cs-CZ": "CZ", "da-DK": "DK", "nl-NL": "NL", "et-EE": "EE",
+  "fi-FI": "FI", "fr-FR": "FR", "de-DE": "DE", "el-GR": "GR", "hu-HU": "HU",
+  "en-IE": "IE", "it-IT": "IT", "lv-LV": "LV", "lt-LT": "LT", "fr-LU": "LU",
+  "mt-MT": "MT", "pl-PL": "PL", "pt-PT": "PT", "ro-RO": "RO", "sk-SK": "SK",
+  "sl-SI": "SI", "es-ES": "ES", "sv-SE": "SE", "el-CY": "CY",
+};
+
+/** Human-readable label for the locale picker */
+export const LOCALE_LABELS: Record<SupportedLocale, string> = {
+  "en-US": "US", "en-AU": "AU", "de-AT": "AT", "fr-BE": "BE", "bg-BG": "BG",
+  "hr-HR": "HR", "cs-CZ": "CZ", "da-DK": "DK", "nl-NL": "NL", "et-EE": "EE",
+  "fi-FI": "FI", "fr-FR": "FR", "de-DE": "DE", "el-GR": "GR", "hu-HU": "HU",
+  "en-IE": "IE", "it-IT": "IT", "lv-LV": "LV", "lt-LT": "LT", "fr-LU": "LU",
+  "mt-MT": "MT", "pl-PL": "PL", "pt-PT": "PT", "ro-RO": "RO", "sk-SK": "SK",
+  "sl-SI": "SI", "es-ES": "ES", "sv-SE": "SE", "el-CY": "CY",
+};
+
+/** Map country code (from IP API) → locale */
+const COUNTRY_TO_LOCALE: Record<string, SupportedLocale> = {
+  US: "en-US", AU: "en-AU", AT: "de-AT", BE: "fr-BE", BG: "bg-BG",
+  HR: "hr-HR", CZ: "cs-CZ", DK: "da-DK", NL: "nl-NL", EE: "et-EE",
+  FI: "fi-FI", FR: "fr-FR", DE: "de-DE", GR: "el-GR", HU: "hu-HU",
+  IE: "en-IE", IT: "it-IT", LV: "lv-LV", LT: "lt-LT", LU: "fr-LU",
+  MT: "mt-MT", PL: "pl-PL", PT: "pt-PT", RO: "ro-RO", SK: "sk-SK",
+  SI: "sl-SI", ES: "es-ES", SE: "sv-SE", CY: "el-CY",
 };
 
 export function getCountryForLocale(locale: SupportedLocale): string {
@@ -65,16 +94,16 @@ export async function detectUserLocale(): Promise<SupportedLocale> {
     if (response.ok) {
       const data = await response.json();
       const countryCode = data.country_code;
-      if (countryCode === "AU") {
-        detected = "en-AU";
+      if (countryCode && COUNTRY_TO_LOCALE[countryCode]) {
+        detected = COUNTRY_TO_LOCALE[countryCode];
       }
-      // All other countries default to en-US
     }
   } catch {
-    // Fallback to accept-language
+    // Fallback to browser language (e.g. "en-AU", "de-AT", "fr-FR")
     const browserLang = navigator.language || (navigator as any).userLanguage || "";
-    if (browserLang.toLowerCase().includes("en-au")) {
-      detected = "en-AU";
+    const normalized = browserLang.replace("_", "-");
+    if (isValidLocale(normalized)) {
+      detected = normalized;
     }
   }
 
