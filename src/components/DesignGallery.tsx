@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCollectionProducts, ShopifyProduct } from "@/lib/shopify";
+import LocaleLink from "@/components/LocaleLink";
+import { useLocale } from "@/lib/i18n";
 
 const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { country } = useLocale();
 
   useEffect(() => {
-    fetchCollectionProducts("featured-home", 24)
+    fetchCollectionProducts("featured-home", 24, country)
       .then((items) => {
         setProducts(items);
         setLoading(false);
@@ -19,7 +21,7 @@ const DesignGallery = () => {
         setError("Failed to load designs");
         setLoading(false);
       });
-  }, []);
+  }, [country]);
 
   return (
     <section id="design-gallery" className="hero-gradient pt-20 md:pt-12 pb-12 px-6">
@@ -39,7 +41,7 @@ const DesignGallery = () => {
             {products.map((product, index) => {
               const image = product.node.images.edges[0]?.node;
               return (
-                <Link
+                <LocaleLink
                   to={`/product/${product.node.handle}`}
                   key={product.node.id}
                   className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block"
@@ -58,7 +60,7 @@ const DesignGallery = () => {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Link>
+                </LocaleLink>
               );
             })}
           </div>

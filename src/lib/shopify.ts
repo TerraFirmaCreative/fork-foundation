@@ -80,7 +80,7 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
 }
 
 const COLLECTION_BY_HANDLE_QUERY = `
-  query GetCollectionByHandle($handle: String!, $first: Int!) {
+  query GetCollectionByHandle($handle: String!, $first: Int!, $country: CountryCode) @inContext(country: $country) {
     collection(handle: $handle) {
       id
       title
@@ -134,7 +134,7 @@ const COLLECTION_BY_HANDLE_QUERY = `
 `;
 
 const PRODUCT_BY_HANDLE_QUERY = `
-  query GetProductByHandle($handle: String!) {
+  query GetProductByHandle($handle: String!, $country: CountryCode) @inContext(country: $country) {
     product(handle: $handle) {
       id
       title
@@ -179,14 +179,14 @@ const PRODUCT_BY_HANDLE_QUERY = `
   }
 `;
 
-export async function fetchCollectionProducts(handle: string, first = 24): Promise<ShopifyProduct[]> {
-  const data = await storefrontApiRequest(COLLECTION_BY_HANDLE_QUERY, { handle, first });
+export async function fetchCollectionProducts(handle: string, first = 24, country = "US"): Promise<ShopifyProduct[]> {
+  const data = await storefrontApiRequest(COLLECTION_BY_HANDLE_QUERY, { handle, first, country });
   if (!data?.data?.collection) return [];
   return data.data.collection.products.edges;
 }
 
-export async function fetchProductByHandle(handle: string): Promise<ShopifyProduct | null> {
-  const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
+export async function fetchProductByHandle(handle: string, country = "US"): Promise<ShopifyProduct | null> {
+  const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle, country });
   if (!data?.data?.product) return null;
   return { node: data.data.product };
 }
@@ -200,7 +200,7 @@ export const CART_QUERY = `
 `;
 
 const CART_CREATE_MUTATION = `
-  mutation cartCreate($input: CartInput!) {
+  mutation cartCreate($input: CartInput!, $country: CountryCode) @inContext(country: $country) {
     cartCreate(input: $input) {
       cart {
         id
@@ -266,9 +266,10 @@ export interface CartItem {
   selectedOptions: Array<{ name: string; value: string }>;
 }
 
-export async function createShopifyCart(item: CartItem): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+export async function createShopifyCart(item: CartItem, country = "US"): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
+    country,
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {

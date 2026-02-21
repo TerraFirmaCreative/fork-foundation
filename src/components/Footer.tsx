@@ -1,14 +1,20 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { FractalGrid } from "./SacredGeometry";
 import SocialLinks from "./SocialLinks";
+import LocaleLink from "./LocaleLink";
+import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
+import { useLocale } from "@/lib/i18n";
 
 const Footer = () => {
-  const navigate = useNavigate();
+  const navigate = useLocaleNavigate();
   const location = useLocation();
+  const { locale } = useLocale();
+
+  const isHomePage = location.pathname === `/${locale}` || location.pathname === `/${locale}/`;
 
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname === "/") {
+    if (isHomePage) {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     } else {
       navigate("/");
@@ -36,7 +42,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-4">
+            <LocaleLink to="/" className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 relative">
                 <svg viewBox="0 0 40 40" className="w-full h-full">
                   <defs>
@@ -54,7 +60,7 @@ const Footer = () => {
                 </svg>
               </div>
               <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
-            </Link>
+            </LocaleLink>
           </div>
           
           {/* Link Columns */}
@@ -70,9 +76,9 @@ const Footer = () => {
                   return (
                     <li key={link}>
                       {to ? (
-                        <Link to={to} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                        <LocaleLink to={to} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
                           {link}
-                        </Link>
+                        </LocaleLink>
                       ) : sectionId ? (
                         <button onClick={() => scrollToSection(sectionId)} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
                           {link}

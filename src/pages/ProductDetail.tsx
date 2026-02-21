@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -9,6 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
 import ImageMagnifier from "@/components/ImageMagnifier";
+import LocaleLink from "@/components/LocaleLink";
+import { useLocale } from "@/lib/i18n";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -19,17 +21,18 @@ const ProductDetail = () => {
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
   const setDrawerOpen = useCartStore((s) => s.setDrawerOpen);
+  const { country } = useLocale();
 
   useEffect(() => {
     if (!handle) return;
     setLoading(true);
-    fetchProductByHandle(handle)
+    fetchProductByHandle(handle, country)
       .then((p) => {
         setProduct(p);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [handle]);
+  }, [handle, country]);
 
   const handleAddToCart = async () => {
     if (!product) return;
@@ -74,7 +77,7 @@ const ProductDetail = () => {
         <Header />
         <div className="max-w-6xl mx-auto px-6 py-24 text-center">
           <h1 className="font-display text-3xl text-foreground mb-4">Product not found</h1>
-          <Link to="/" className="text-shaman-gold hover:underline">Return to shop</Link>
+          <LocaleLink to="/" className="text-shaman-gold hover:underline">Return to shop</LocaleLink>
         </div>
         <Footer />
       </div>
@@ -86,10 +89,10 @@ const ProductDetail = () => {
       <Header />
 
       <div className="max-w-6xl mx-auto px-6 py-8">
-        <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
+        <LocaleLink to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm">Back to shop</span>
-        </Link>
+        </LocaleLink>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: Image Gallery */}
@@ -195,12 +198,12 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <Link
+            <LocaleLink
               to="/about"
               className="text-shaman-gold hover:underline text-sm mt-6 font-body"
             >
               Learn more about our mats...
-            </Link>
+            </LocaleLink>
           </div>
         </div>
       </div>
