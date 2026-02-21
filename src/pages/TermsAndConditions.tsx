@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import LocaleLink from "@/components/LocaleLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -121,7 +121,7 @@ const TermsAndConditions = () => {
                 Product descriptions and pricing are subject to change at any time without notice. We reserve the right to discontinue any product at any time. Any offer made on this Site is void where prohibited.
               </p>
               <p>
-                Returns and refunds are handled in accordance with our <Link to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</Link>.
+                Returns and refunds are handled in accordance with our <LocaleLink to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
               </p>
             </section>
 
@@ -140,7 +140,7 @@ const TermsAndConditions = () => {
                 You agree to provide current, complete, and accurate purchase and account information and to promptly update your details so we can complete transactions and contact you as required.
               </p>
               <p>
-                For more information, please review our <Link to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</Link>.
+                For more information, please review our <LocaleLink to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
               </p>
             </section>
 
@@ -192,7 +192,7 @@ const TermsAndConditions = () => {
                 Section 10 – Personal Information
               </h2>
               <p>
-                Your submission of personal information through the Site is governed by our <Link to="/privacy-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Privacy Policy</Link>.
+                Your submission of personal information through the Site is governed by our <LocaleLink to="/privacy-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Privacy Policy</LocaleLink>.
               </p>
             </section>
 

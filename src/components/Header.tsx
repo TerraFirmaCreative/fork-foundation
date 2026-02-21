@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import LocaleLink from "@/components/LocaleLink";
+import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
+import { useLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
 import SocialLinks from "@/components/SocialLinks";
 import {
@@ -13,13 +16,16 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Header = () => {
-  const navigate = useNavigate();
+  const navigate = useLocaleNavigate();
   const location = useLocation();
+  const { locale } = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const isHomePage = location.pathname === `/${locale}` || location.pathname === `/${locale}/`;
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
-    if (location.pathname === "/") {
+    if (isHomePage) {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
       navigate("/");
@@ -38,7 +44,7 @@ const Header = () => {
       
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+        <LocaleLink to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
           <div className="w-12 h-12 relative">
             <svg viewBox="0 0 40 40" className="w-full h-full">
               <defs>
@@ -58,7 +64,7 @@ const Header = () => {
           <div className="flex flex-col">
             <span className="font-display text-xl tracking-wide text-foreground leading-tight">Unique Yoga Mats</span>
           </div>
-        </Link>
+        </LocaleLink>
         
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
@@ -74,34 +80,34 @@ const Header = () => {
           >
             How It Works
           </button>
-          <Link 
+          <LocaleLink 
             to="/about"
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
             About
-          </Link>
+          </LocaleLink>
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide outline-none">
               More <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-card border-border/50 z-50">
               <DropdownMenuItem asChild>
-                <Link to="/faqs" className="cursor-pointer">FAQs</Link>
+                <LocaleLink to="/faqs" className="cursor-pointer">FAQs</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/refund-policy" className="cursor-pointer">Refund & Returns Policy</Link>
+                <LocaleLink to="/refund-policy" className="cursor-pointer">Refund & Returns Policy</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/terms" className="cursor-pointer">Terms & Conditions</Link>
+                <LocaleLink to="/terms" className="cursor-pointer">Terms & Conditions</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/privacy-policy" className="cursor-pointer">Privacy Policy</Link>
+                <LocaleLink to="/privacy-policy" className="cursor-pointer">Privacy Policy</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/shipping" className="cursor-pointer">Shipping</Link>
+                <LocaleLink to="/shipping" className="cursor-pointer">Shipping</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/contact" className="cursor-pointer">Contact</Link>
+                <LocaleLink to="/contact" className="cursor-pointer">Contact</LocaleLink>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -133,20 +139,20 @@ const Header = () => {
                 >
                   How It Works
                 </button>
-                <Link
+                <LocaleLink
                   to="/about"
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-lg font-body text-foreground hover:text-primary transition-colors tracking-wide"
                 >
                   About
-                </Link>
+                </LocaleLink>
                 <div className="border-t border-border/30 pt-4 flex flex-col gap-4">
-                  <Link to="/faqs" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">FAQs</Link>
-                  <Link to="/refund-policy" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Refund & Returns</Link>
-                  <Link to="/terms" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</Link>
-                  <Link to="/privacy-policy" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-                  <Link to="/shipping" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Shipping</Link>
-                  <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
+                  <LocaleLink to="/faqs" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">FAQs</LocaleLink>
+                  <LocaleLink to="/refund-policy" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Refund & Returns</LocaleLink>
+                  <LocaleLink to="/terms" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</LocaleLink>
+                  <LocaleLink to="/privacy-policy" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</LocaleLink>
+                  <LocaleLink to="/shipping" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Shipping</LocaleLink>
+                  <LocaleLink to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Contact</LocaleLink>
                 </div>
               </nav>
             </SheetContent>
