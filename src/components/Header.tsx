@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
-import { useLocale } from "@/lib/i18n";
+import { useLocale, SupportedLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
 import SocialLinks from "@/components/SocialLinks";
 import {
@@ -16,10 +16,17 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Header = () => {
-  const navigate = useLocaleNavigate();
+  const localeNavigate = useLocaleNavigate();
+  const rawNavigate = useNavigate();
   const location = useLocation();
   const { locale } = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const switchLocale = (newLocale: SupportedLocale) => {
+    if (newLocale === locale) return;
+    const currentPath = location.pathname.replace(`/${locale}`, '') || '/';
+    rawNavigate(`/${newLocale}${currentPath}`);
+  };
 
   const isHomePage = location.pathname === `/${locale}` || location.pathname === `/${locale}/`;
 
@@ -28,7 +35,7 @@ const Header = () => {
     if (isHomePage) {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/");
+      localeNavigate("/");
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
@@ -116,6 +123,21 @@ const Header = () => {
         {/* Right Actions */}
         <div className="flex items-center gap-4">
           <SocialLinks className="hidden md:flex" />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+                <Globe className="w-5 h-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-card border-border/50 z-50 min-w-0">
+              <DropdownMenuItem onClick={() => switchLocale("en-US")} className={`cursor-pointer ${locale === "en-US" ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
+                US
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => switchLocale("en-AU")} className={`cursor-pointer ${locale === "en-AU" ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
+                AU
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <CartDrawer />
 
           {/* Mobile Hamburger */}
