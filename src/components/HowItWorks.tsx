@@ -41,9 +41,7 @@ const steps = [
     title: "We Keep You Updated",
     color: "text-shaman-teal",
     lines: [
-      { text: "We", bold: "track your item" },
-      { text: "Share", bold: "updates with you" },
-      { text: "From", bold: "production to delivery" },
+      { text: "Updated", bold: "every step of the way" },
     ],
   },
   {
@@ -51,6 +49,7 @@ const steps = [
     title: "Enjoy Your Mat",
     color: "text-shaman-violet",
     lines: [
+      { text: "Enjoy your beautiful", bold: "new mat" },
       { text: "Enjoy your", bold: "practice" },
       { text: "Enjoy your", bold: "life" },
     ],
