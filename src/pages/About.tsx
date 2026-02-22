@@ -13,7 +13,7 @@ const About = () => {
           
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              We're Charly, Phil, and Tym — three friends based in Australia, the UK, and Poland, building something we believe in from opposite sides of the world.
+              We're Phil, Charly, and Tym — three friends based in Australia, the UK, and Poland, building something we believe in from opposite sides of the world.
             </p>
             
             <p>
@@ -29,7 +29,7 @@ const About = () => {
                 Built Across Borders
               </h2>
               <p className="mb-4">
-                We work across three time zones, bringing together different perspectives, creative backgrounds, and a shared love of art and movement. Charly brings the vision from the Australian coast. Phil brings precision and craft from the UK. Tym brings bold creative energy from Poland.
+                We work across three time zones, bringing together different perspectives, creative backgrounds, and a shared love of art and movement. Phil brings the vision from the Australian coast. Charly brings precision and craft from the UK. Tym brings bold creative energy from Poland.
               </p>
               <p>
                 Together, we design every mat with intention — each one printed to order, edge to edge, and made to last.
