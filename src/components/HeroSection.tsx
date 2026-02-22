@@ -54,7 +54,7 @@ const HeroSection = () => {
           </Button>
         </div>
         
-        <p className="text-base md:text-lg text-muted-foreground/70 font-body">
+        <p className="text-sm md:text-lg text-muted-foreground/70 font-body">
           Premium natural rubber · Suede microfibre surface · Non-slip
           <br />
           Delivery included in the price globally
@@ -62,7 +62,7 @@ const HeroSection = () => {
       </div>
 
       {/* Made in USA - bottom right */}
-      <p className="absolute bottom-6 right-8 text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body z-10">
+      <p className="absolute bottom-6 left-0 right-0 text-center text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body z-10">
         Made in the USA
       </p>
     </section>
