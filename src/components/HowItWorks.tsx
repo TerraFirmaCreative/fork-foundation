@@ -46,12 +46,12 @@ const steps = [
   },
   {
     number: "05",
-    title: "Enjoy Your Mat",
+    title: "Enjoy Your New Mat",
     color: "text-shaman-violet",
     lines: [
-      { text: "Enjoy your beautiful", bold: "new mat" },
       { text: "Enjoy your", bold: "practice" },
       { text: "Enjoy your", bold: "life" },
+      { text: "Be", bold: "happy" },
     ],
   },
 ];
