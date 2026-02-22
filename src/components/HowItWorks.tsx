@@ -38,14 +38,6 @@ const steps = [
   },
   {
     number: "04",
-    title: "We Keep You Updated",
-    color: "text-shaman-teal",
-    lines: [
-      { text: "Updated", bold: "every step of the way" },
-    ],
-  },
-  {
-    number: "05",
     title: "Enjoy Your New Mat",
     color: "text-shaman-violet",
     lines: [
@@ -86,7 +78,7 @@ const HowItWorks = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {steps.map((step, index) => (
             <div
               key={step.title}
