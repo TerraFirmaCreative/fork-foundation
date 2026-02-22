@@ -144,7 +144,7 @@ const ProductDetail = () => {
 
             {price && (
               <p className="text-xl text-muted-foreground mt-3 font-body italic">
-                ${parseFloat(price.amount).toFixed(2)} {price.currencyCode}
+                {new Intl.NumberFormat(undefined, { style: 'currency', currency: price.currencyCode }).format(parseFloat(price.amount))}
               </p>
             )}
 
