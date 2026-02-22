@@ -50,7 +50,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="relative py-28 px-6 overflow-hidden">
+    <section id="how-it-works" className="relative py-16 md:py-28 px-6 overflow-hidden">
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
@@ -68,8 +68,8 @@ const HowItWorks = () => {
       />
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+        <div className="text-center mb-10 md:mb-20">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 md:mb-6 font-body">
             Simple Process
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
@@ -78,19 +78,19 @@ const HowItWorks = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-8">
           {steps.map((step, index) => (
             <div
               key={step.title}
               className="relative group text-center flex flex-col"
             >
               {/* Step number */}
-              <span className="block font-display text-5xl text-foreground/30 mb-4 group-hover:text-foreground/50 transition-colors duration-700">
+              <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
               
               {/* Fixed height title area */}
-              <div className="h-[5rem] md:h-[5.5rem] flex flex-col items-center justify-start">
+              <div className="h-auto md:h-[5.5rem] flex flex-col items-center justify-start mb-1 md:mb-0">
                 <h3 className={`font-display text-2xl md:text-[1.75rem] font-medium tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
