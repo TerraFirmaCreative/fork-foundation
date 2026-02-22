@@ -62,7 +62,7 @@ const HeroSection = () => {
       </div>
 
       {/* Made in USA - bottom right */}
-      <p className="absolute bottom-6 left-0 right-0 text-center text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body z-10">
+      <p className="absolute bottom-6 left-0 right-0 text-center md:text-right md:left-auto md:right-8 text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body z-10">
         Made in the USA
       </p>
     </section>
