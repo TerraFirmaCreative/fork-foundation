@@ -39,7 +39,7 @@ const HeroSection = () => {
           <span className="text-foreground/70 italic"> yoga mats.</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-muted-foreground/80 mb-14 font-body font-normal max-w-2xl mx-auto leading-[1.8] whitespace-nowrap">
+        <p className="text-lg md:text-xl text-muted-foreground/80 mb-14 font-body font-normal max-w-2xl mx-auto leading-[1.8] md:whitespace-nowrap">
           Mats so beautiful that you want to leave them out to admire.
         </p>
         
