@@ -30,7 +30,7 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
                 It started with a conversation between three friends scattered across 
-                the globe — Charly in Australia, Phil in the UK, and Tym in Poland. 
+                the globe — Phil in Australia, Charly in the UK, and Tym in Poland.
                 Despite the distance, they shared something deeper: a belief that art 
                 and movement belong together.
               </p>
