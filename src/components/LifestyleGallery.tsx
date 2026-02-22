@@ -28,8 +28,8 @@ const rows = [row1, row2, row3];
 
 const LifestyleGallery = () => {
   return (
-    <section className="relative overflow-hidden px-[4%] py-1">
-      <div className="columns-2 md:columns-4 gap-1">
+    <section className="relative overflow-hidden px-6 py-1">
+      <div className="max-w-6xl mx-auto columns-2 md:columns-4 gap-1">
         {rows.flat().map((image, index) => (
           <div
             key={index}
