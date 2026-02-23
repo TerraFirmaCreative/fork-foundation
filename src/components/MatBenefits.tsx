@@ -56,6 +56,8 @@ const TVScreenTile = ({
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[5000ms] ease-in-out ${
             index === currentImage ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
+          loading="lazy"
+          decoding="async"
         />
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none z-20" />

@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { shopifyImageUrl } from "@/lib/imageUtils";
 
 export const CartDrawer = () => {
   const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart, isDrawerOpen, setDrawerOpen } = useCartStore();
@@ -55,7 +56,7 @@ export const CartDrawer = () => {
                     <div key={item.variantId} className="flex gap-4 p-3 rounded-lg bg-muted/30">
                       <div className="w-16 h-20 rounded-md overflow-hidden flex-shrink-0">
                         {item.product.node.images?.edges?.[0]?.node && (
-                          <img src={item.product.node.images.edges[0].node.url} alt={item.product.node.title} className="w-full h-full object-cover" />
+                          <img src={shopifyImageUrl(item.product.node.images.edges[0].node.url, 80)} alt={item.product.node.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">

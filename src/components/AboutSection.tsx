@@ -63,6 +63,8 @@ const AboutSection = () => {
                 src={aboutFoundersImage}
                 alt="Charly, Phil and Tym — the founders"
                 className="w-full aspect-[4/5] object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
             </div>

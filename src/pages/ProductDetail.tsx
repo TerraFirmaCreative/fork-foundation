@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import ImageMagnifier from "@/components/ImageMagnifier";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
+import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -111,9 +112,13 @@ const ProductDetail = () => {
                     }`}
                   >
                     <img
-                      src={img.node.url}
+                      src={shopifyImageUrl(img.node.url, 80)}
+                      srcSet={shopifySrcSet(img.node.url, [80, 160])}
+                      sizes={THUMBNAIL_SIZES}
                       alt={img.node.altText || `Thumbnail ${i + 1}`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </button>
                 ))}
@@ -124,7 +129,9 @@ const ProductDetail = () => {
             <div className="flex-1 rounded-xl overflow-hidden bg-muted/20">
               {images[selectedImageIndex] ? (
                 <ImageMagnifier
-                  src={images[selectedImageIndex].node.url}
+                  src={shopifyImageUrl(images[selectedImageIndex].node.url, 800)}
+                  srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
+                  sizes={PRODUCT_MAIN_SIZES}
                   alt={images[selectedImageIndex].node.altText || product.node.title}
                   className="w-full h-auto object-contain max-h-[70vh] cursor-crosshair"
                 />
