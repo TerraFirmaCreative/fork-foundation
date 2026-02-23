@@ -40,6 +40,7 @@ const LifestyleGallery = () => {
               alt={image.alt}
               className="w-full h-auto transition-transform duration-700 hover:scale-105"
               loading="lazy"
+              decoding="async"
             />
           </div>
         ))}
