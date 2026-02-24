@@ -90,42 +90,6 @@ const YogiOfTheWeek = () => {
           </h2>
         </div>
 
-        {/* Two-column: blurb + slideshow */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <div className="space-y-5">
-            <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground">
-              Hudson
-            </h3>
-            <p className="text-foreground/70 font-body leading-relaxed">
-              Hudson is from Canada and currently travelling Australia. She's just bought a 4x4 and
-              is hitting the open road — exploring the coastline one breathtaking spot at a time.
-            </p>
-            <p className="text-foreground/70 font-body leading-relaxed">
-              She picked up her Unique mat at the beginning of her trip and has been obsessed with
-              the colours and the pattern ever since. It just makes her want to practice in every
-              beautiful place she can find.
-            </p>
-            <p className="text-foreground/50 font-body text-sm italic">
-              📍 Bunker Bay, Western Australia
-            </p>
-          </div>
-
-          <div className="relative aspect-square rounded-xl overflow-hidden">
-            {images.map((img, i) => (
-              <img
-                key={i}
-                src={img.src}
-                alt={img.alt}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                  i === current ? "opacity-100" : "opacity-0"
-                }`}
-                loading="lazy"
-                decoding="async"
-              />
-            ))}
-          </div>
-        </div>
-
         {/* Shop Hudson's Mat */}
         <div className="mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
