@@ -114,7 +114,7 @@ const YogiOfTheWeek = () => {
                       key={i}
                       src={img.src}
                       alt="Psychedelic Mandelbrot Dreams yoga mat"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${
                         i === current ? "opacity-100" : "opacity-0"
                       }`}
                       loading="lazy"
