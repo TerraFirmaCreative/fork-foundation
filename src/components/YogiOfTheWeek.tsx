@@ -92,11 +92,11 @@ const YogiOfTheWeek = () => {
 
         {/* Shop Hudson's Mat */}
         <div className="mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-start">
             {/* Product image */}
             <LocaleLink
               to={`/product/${PRODUCT_HANDLE}`}
-              className="block relative aspect-[3/4] rounded-xl overflow-hidden group"
+              className="block relative aspect-square rounded-xl overflow-hidden group"
             >
               {productImage ? (
                 <img
