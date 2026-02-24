@@ -139,6 +139,44 @@ const YogiOfTheWeek = () => {
               <p className="font-display text-3xl text-foreground font-medium">
                 {price}
               </p>
+
+              {/* Quantity + Add to Cart */}
+              <div className="flex items-center gap-4 pt-2">
+                <div className="flex items-center border border-border rounded-lg">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-10 w-10"
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  >
+                    <Minus className="h-4 w-4" />
+                  </Button>
+                  <span className="w-10 text-center font-body text-foreground">{quantity}</span>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-10 w-10"
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+
+                <Button
+                  variant="cta"
+                  size="lg"
+                  className="flex-1 font-body font-medium tracking-wide glow-effect"
+                  onClick={handleAddToCart}
+                  disabled={isLoading || !variant}
+                >
+                  {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                  ) : (
+                    <ShoppingCart className="h-4 w-4 mr-2" />
+                  )}
+                  Add to Cart
+                </Button>
+              </div>
             </div>
           </div>
         </div>
