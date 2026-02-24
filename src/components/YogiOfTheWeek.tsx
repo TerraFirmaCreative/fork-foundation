@@ -131,66 +131,14 @@ const YogiOfTheWeek = () => {
                 Hudson's Mat
               </p>
               <h3 className="font-display text-3xl md:text-4xl font-medium text-foreground">
-                Psychedelic Mandelbrot Dreams
+                Mandelbrot Dreams
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">
-                Inspired by the fractal geometry that becomes present during psychedelic experiences.
-                Every spiral unfolds infinitely — just like your practice.
+                Hudson is a yoga teacher from Margaret River, WA, whose practice is rooted in movement, nature and community. She chose this design for its infinite, fractal patterns — a reminder that growth on the mat never stops.
               </p>
               <p className="font-display text-3xl text-foreground font-medium">
                 {price}
               </p>
-
-              {/* Quantity + Add to Cart */}
-              <div className="flex items-center gap-4 pt-2">
-                <div className="flex items-center border border-border rounded-lg">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-10 w-10"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  >
-                    <Minus className="h-4 w-4" />
-                  </Button>
-                  <span className="w-10 text-center font-body text-foreground">{quantity}</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-10 w-10"
-                    onClick={() => setQuantity(quantity + 1)}
-                  >
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
-
-                <Button
-                  variant="cta"
-                  size="lg"
-                  className="flex-1 font-body font-medium tracking-wide glow-effect"
-                  onClick={handleAddToCart}
-                  disabled={isLoading || !variant}
-                >
-                  {isLoading ? (
-                    <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  ) : (
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                  )}
-                  Add to Cart
-                </Button>
-              </div>
-
-              {!product && (
-                <p className="text-xs text-muted-foreground/50 font-body">
-                  Product coming soon — check back shortly.
-                </p>
-              )}
-
-              <LocaleLink
-                to={`/product/${PRODUCT_HANDLE}`}
-                className="inline-block text-sm text-shaman-gold/70 hover:text-shaman-gold transition-colors font-body underline underline-offset-4"
-              >
-                View full product details →
-              </LocaleLink>
             </div>
           </div>
         </div>
