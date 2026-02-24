@@ -48,7 +48,7 @@ const YogiOfTheWeek = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 3800);
     return () => clearInterval(timer);
   }, []);
 
@@ -107,14 +107,21 @@ const YogiOfTheWeek = () => {
                   decoding="async"
                 />
               ) : (
-                /* Fallback: cycle through Hudson's photos showing the mat */
-                <img
-                  src={images[current].src}
-                  alt="Psychedelic Mandelbrot Dreams yoga mat"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
+                /* Fallback: dissolve through Hudson's photos */
+                <>
+                  {images.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img.src}
+                      alt="Psychedelic Mandelbrot Dreams yoga mat"
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+                        i === current ? "opacity-100" : "opacity-0"
+                      }`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ))}
+                </>
               )}
             </LocaleLink>
 
