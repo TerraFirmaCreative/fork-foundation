@@ -41,20 +41,20 @@ const YogiOfTheWeek = () => {
 
   return (
     <section className="relative py-16 md:py-24 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             Community Spotlight
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
             <span className="text-foreground">Unique Yogi </span>
             <span className="text-gradient italic">of the Week</span>
           </h2>
         </div>
 
-        {/* Content: blurb + cycling image */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-10">
+        {/* Two-column: blurb + slideshow, matched height */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Blurb */}
           <div className="space-y-5">
             <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground">
@@ -70,12 +70,12 @@ const YogiOfTheWeek = () => {
               beautiful place she can find.
             </p>
             <p className="text-foreground/50 font-body text-sm italic">
-              📍 These photos were taken at Bunker Bay, Western Australia
+              📍 Bunker Bay, Western Australia
             </p>
           </div>
 
-          {/* Cycling hero image */}
-          <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-elevated">
+          {/* Cycling image – square to match text height */}
+          <div className="relative aspect-square rounded-xl overflow-hidden">
             {images.map((img, i) => (
               <img
                 key={i}
@@ -89,21 +89,6 @@ const YogiOfTheWeek = () => {
               />
             ))}
           </div>
-        </div>
-
-        {/* Masonry gallery – same style as LifestyleGallery */}
-        <div className="columns-2 md:columns-4 gap-1">
-          {images.map((img, i) => (
-            <div key={i} className="relative overflow-hidden mb-1 break-inside-avoid">
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-auto transition-transform duration-700 hover:scale-105"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ))}
         </div>
       </div>
     </section>
