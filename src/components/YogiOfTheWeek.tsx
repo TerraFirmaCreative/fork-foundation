@@ -8,6 +8,10 @@ import hudson6 from "@/assets/hudson-6.jpg";
 import hudson7 from "@/assets/hudson-7.jpg";
 import hudson8 from "@/assets/hudson-8.jpg";
 import hudson9 from "@/assets/hudson-9.jpg";
+import hudson10 from "@/assets/hudson-10.jpg";
+import hudson11 from "@/assets/hudson-11.jpg";
+import hudson12 from "@/assets/hudson-12.jpg";
+import hudson13 from "@/assets/hudson-13.jpg";
 
 const images = [
   { src: hudson1, alt: "Hudson practising yoga on the beach at Bunker Bay" },
@@ -19,6 +23,10 @@ const images = [
   { src: hudson7, alt: "Hudson in warrior pose at Bunker Bay" },
   { src: hudson8, alt: "Hudson in downward dog at sunset" },
   { src: hudson9, alt: "Hudson in cobra pose on the beach" },
+  { src: hudson10, alt: "Hudson in crescent lunge at Bunker Bay" },
+  { src: hudson11, alt: "Hudson in low lunge reaching up" },
+  { src: hudson12, alt: "Hudson in child's pose on the sand" },
+  { src: hudson13, alt: "Hudson standing on her mat by the ocean" },
 ];
 
 const YogiOfTheWeek = () => {
