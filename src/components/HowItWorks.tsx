@@ -97,7 +97,7 @@ const HowItWorks = () => {
               </div>
 
               {step.price && (
-                <p className="font-display text-xl md:text-2xl font-bold my-3 text-foreground">
+                <p className="font-display text-xl md:text-2xl font-normal my-3 text-foreground">
                   {step.price}
                 </p>
               )}
@@ -106,7 +106,7 @@ const HowItWorks = () => {
                 <div className="space-y-1.5 mt-2">
                   {step.deliveryLines.map((dl, i) => (
                     <p key={i} className="text-[0.938rem] text-foreground/70 font-body leading-relaxed">
-                      <span className="font-semibold text-foreground/90">{dl.country}</span>
+                      <span className="text-foreground/90">{dl.country}</span>
                       <span className="inline-block w-[2.5ch] text-center">—</span>
                       {dl.time}
                     </p>
@@ -117,7 +117,7 @@ const HowItWorks = () => {
               <div className="space-y-1.5 mt-2">
                 {step.lines.map((line, i) => (
                   <p key={i} className="text-sm text-foreground/70 font-body leading-relaxed">
-                    {line.text}{line.text ? " " : ""}<span className="font-semibold text-foreground/90">{line.bold}</span>
+                    {line.text}{line.text ? " " : ""}<span className="text-foreground/90">{line.bold}</span>
                   </p>
                 ))}
               </div>
