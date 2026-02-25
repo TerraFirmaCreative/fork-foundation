@@ -54,7 +54,7 @@ const HeroSection = () => {
           </Button>
         </div>
         
-        <p className="text-[0.6rem] md:text-lg text-muted-foreground/70 font-body whitespace-nowrap">
+        <p className="text-[0.5rem] md:text-lg text-muted-foreground/70 font-body whitespace-nowrap">
           Premium natural rubber · Suede microfibre surface · Non-slip
         </p>
         <p className="text-xs md:text-base text-muted-foreground/70 font-body">
