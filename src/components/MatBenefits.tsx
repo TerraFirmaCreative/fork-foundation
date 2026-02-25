@@ -58,10 +58,10 @@ const MatBenefits = () => {
             >
               <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 group-hover:from-shaman-violet group-hover:via-shaman-magenta group-hover:to-shaman-gold transition-all duration-300" />
               <div className="flex-1">
-                <h3 className="font-display text-base font-medium text-foreground mb-0.5">
+                <h3 className="font-display text-lg font-medium text-foreground mb-1">
                   {benefit.title}
                 </h3>
-                <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                <p className="text-base text-muted-foreground font-body leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
