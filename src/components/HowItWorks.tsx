@@ -56,7 +56,7 @@ const HowItWorks = () => {
   const [priceLabel, setPriceLabel] = useState("$149 AUD");
 
   useEffect(() => {
-    fetchCollectionProducts("home", 1, country).then((products) => {
+    fetchCollectionProducts("featured-home", 1, country).then((products) => {
       const price = products[0]?.node.variants.edges[0]?.node.price
         || products[0]?.node.priceRange.minVariantPrice;
       if (price) {
