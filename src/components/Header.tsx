@@ -116,6 +116,9 @@ const Header = () => {
               <DropdownMenuItem asChild>
                 <LocaleLink to="/contact" className="cursor-pointer">Contact</LocaleLink>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/blog" className="cursor-pointer">Blog</LocaleLink>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -178,6 +181,7 @@ const Header = () => {
                   <LocaleLink to="/privacy-policy" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</LocaleLink>
                   <LocaleLink to="/shipping" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Shipping</LocaleLink>
                   <LocaleLink to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Contact</LocaleLink>
+                  <LocaleLink to="/blog" onClick={() => setMobileMenuOpen(false)} className="text-base font-body text-muted-foreground hover:text-foreground transition-colors">Blog</LocaleLink>
                 </div>
               </nav>
             </SheetContent>
