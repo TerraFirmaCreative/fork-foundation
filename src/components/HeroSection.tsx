@@ -58,7 +58,7 @@ const HeroSection = () => {
           Premium natural rubber · Suede microfibre surface · Non-slip
         </p>
         <p className="text-xs md:text-base text-muted-foreground/70 font-body">
-          <em>Delivery included in the price globally</em>
+          Delivery included in the price globally
         </p>
       </div>
 
