@@ -12,6 +12,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
 import Shipping from "./pages/Shipping";
 import Blog from "./pages/Blog";
+import BlogPostHudson from "./pages/BlogPost-Hudson";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
@@ -47,6 +48,7 @@ const App = () => (
             <Route path="contact" element={<Contact />} />
             <Route path="shipping" element={<Shipping />} />
             <Route path="blog" element={<Blog />} />
+            <Route path="blog/hudson-in-margaret-river" element={<BlogPostHudson />} />
           </Route>
 
           {/* Bare paths → detect locale and redirect */}
@@ -60,6 +62,7 @@ const App = () => (
           <Route path="/contact" element={<LocaleRedirect />} />
           <Route path="/shipping" element={<LocaleRedirect />} />
           <Route path="/blog" element={<LocaleRedirect />} />
+          <Route path="/blog/hudson-in-margaret-river" element={<LocaleRedirect />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
