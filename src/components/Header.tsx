@@ -6,7 +6,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
-import SocialLinks from "@/components/SocialLinks";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -122,7 +122,7 @@ const Header = () => {
         
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          <SocialLinks className="hidden md:flex" />
+          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
