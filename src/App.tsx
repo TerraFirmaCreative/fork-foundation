@@ -11,6 +11,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
 import Shipping from "./pages/Shipping";
+import Blog from "./pages/Blog";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="contact" element={<Contact />} />
             <Route path="shipping" element={<Shipping />} />
+            <Route path="blog" element={<Blog />} />
           </Route>
 
           {/* Bare paths → detect locale and redirect */}
@@ -57,6 +59,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<LocaleRedirect />} />
           <Route path="/contact" element={<LocaleRedirect />} />
           <Route path="/shipping" element={<LocaleRedirect />} />
+          <Route path="/blog" element={<LocaleRedirect />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
