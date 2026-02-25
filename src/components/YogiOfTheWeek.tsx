@@ -36,7 +36,7 @@ const images = [
   { src: hudson13, alt: "Hudson standing on her mat by the ocean" },
 ];
 
-const PRODUCT_HANDLE = "psychedelic-mandelbrot-dreams";
+const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
 
 const YogiOfTheWeek = () => {
   const [current, setCurrent] = useState(0);
@@ -98,31 +98,18 @@ const YogiOfTheWeek = () => {
               to={`/product/${PRODUCT_HANDLE}`}
               className="block relative aspect-square rounded-xl overflow-hidden group"
             >
-              {productImage ? (
+              {images.map((img, i) => (
                 <img
-                  src={shopifyImageUrl(productImage.url, 600)}
-                  alt={productImage.altText || "Psychedelic Mandelbrot Dreams yoga mat"}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  key={i}
+                  src={img.src}
+                  alt={img.alt}
+                  className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${
+                    i === current ? "opacity-100" : "opacity-0"
+                  }`}
                   loading="lazy"
                   decoding="async"
                 />
-              ) : (
-                /* Fallback: dissolve through Hudson's photos */
-                <>
-                  {images.map((img, i) => (
-                    <img
-                      key={i}
-                      src={img.src}
-                      alt="Psychedelic Mandelbrot Dreams yoga mat"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out object-contain ${
-                        i === current ? "opacity-100" : "opacity-0"
-                      }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ))}
-                </>
-              )}
+              ))}
             </LocaleLink>
 
             {/* Product info + add to cart */}
