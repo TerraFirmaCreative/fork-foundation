@@ -48,7 +48,7 @@ const YogiOfTheWeek = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5500);
+    }, 8000);
     return () => clearInterval(timer);
   }, []);
 
@@ -103,7 +103,7 @@ const YogiOfTheWeek = () => {
                   key={i}
                   src={img.src}
                   alt={img.alt}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[4500ms] ease-in-out ${
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[7000ms] ease-in-out ${
                     i === current ? "opacity-100" : "opacity-0"
                   }`}
                   loading="lazy"
