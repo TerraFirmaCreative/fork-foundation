@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import { FractalGrid } from "./SacredGeometry";
+import { fetchCollectionProducts } from "@/lib/shopify";
+import { useLocale } from "@/lib/i18n";
 
-const steps = [
+const getSteps = (priceLabel: string) => [
   {
     number: "01",
     title: "Browse the Range",
@@ -16,7 +19,7 @@ const steps = [
     number: "02", 
     title: "Invest in Your Mat",
     color: "text-shaman-magenta",
-    price: "$149 AUD per mat",
+    price: `${priceLabel} per mat`,
     lines: [
       { text: "Delivery", bold: "included in the price" },
       { text: "No", bold: "hidden fees" },
@@ -49,6 +52,24 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  const { country } = useLocale();
+  const [priceLabel, setPriceLabel] = useState("$149 AUD");
+
+  useEffect(() => {
+    fetchCollectionProducts("home", 1, country).then((products) => {
+      const price = products[0]?.node.variants.edges[0]?.node.price
+        || products[0]?.node.priceRange.minVariantPrice;
+      if (price) {
+        const formatted = new Intl.NumberFormat(undefined, {
+          style: "currency",
+          currency: price.currencyCode,
+        }).format(parseFloat(price.amount));
+        setPriceLabel(formatted);
+      }
+    }).catch(() => {});
+  }, [country]);
+
+  const steps = getSteps(priceLabel);
   return (
     <section id="how-it-works" className="relative py-16 md:py-24 px-6 overflow-hidden">
       <div className="texture-overlay" />
