@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { FractalGrid } from "./SacredGeometry";
-import SocialLinks from "./SocialLinks";
+
 import LocaleLink from "./LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale } from "@/lib/i18n";
@@ -110,7 +110,7 @@ const Footer = () => {
                  <ArrowRight className="w-4 h-4" />
               </button>
             </form>
-            <SocialLinks className="justify-start" />
+            
           </div>
         </div>
         
