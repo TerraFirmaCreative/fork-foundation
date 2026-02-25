@@ -1,19 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
 import { MandalaDecoration } from "./SacredGeometry";
-
-import mat1 from "@/assets/yoga-mat-new-1.jpg";
-import mat2 from "@/assets/yoga-mat-new-2.jpg";
-import mat4 from "@/assets/yoga-mat-new-4.jpg";
-import mat5 from "@/assets/yoga-mat-new-5.jpg";
-import mat6 from "@/assets/yoga-mat-new-6.jpg";
-import mat7 from "@/assets/yoga-mat-new-7.jpg";
-import mat8 from "@/assets/yoga-mat-new-8.jpg";
-import mat9 from "@/assets/yoga-mat-new-9.jpg";
-
-const allImages = [mat1, mat2, mat4, mat5, mat6, mat7, mat8, mat9];
-
-// Staggered intervals for random changes
-const intervals = [4000, 5500, 7000, 8500];
 
 const benefits = [
   {
@@ -38,61 +23,7 @@ const benefits = [
   }
 ];
 
-// TV Screen Tile with random selection avoiding duplicates
-const TVScreenTile = ({ 
-  currentImage, 
-  allImages 
-}: { 
-  currentImage: number;
-  allImages: string[];
-}) => {
-  return (
-    <div className="relative rounded-md overflow-hidden bg-card/30">
-      {allImages.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Yoga mat design ${index + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[5000ms] ease-in-out ${
-            index === currentImage ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-          loading="lazy"
-          decoding="async"
-        />
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none z-20" />
-    </div>
-  );
-};
-
 const MatBenefits = () => {
-  // Track which image each tile is showing
-  const [tileImages, setTileImages] = useState([0, 2, 5, 7]);
-
-  const getRandomAvailableImage = useCallback((currentImages: number[], excludeIndex: number) => {
-    const usedImages = currentImages.filter((_, i) => i !== excludeIndex);
-    const availableImages = allImages
-      .map((_, index) => index)
-      .filter(index => !usedImages.includes(index) && index !== currentImages[excludeIndex]);
-    
-    if (availableImages.length === 0) return currentImages[excludeIndex];
-    return availableImages[Math.floor(Math.random() * availableImages.length)];
-  }, []);
-
-  useEffect(() => {
-    const timers = intervals.map((interval, tileIndex) => {
-      return setInterval(() => {
-        setTileImages(prev => {
-          const newImages = [...prev];
-          newImages[tileIndex] = getRandomAvailableImage(prev, tileIndex);
-          return newImages;
-        });
-      }, interval);
-    });
-
-    return () => timers.forEach(timer => clearInterval(timer));
-  }, [getRandomAvailableImage]);
-
   return (
     <section className="relative py-16 px-6 overflow-hidden">
       <div className="texture-overlay" />
@@ -105,7 +36,7 @@ const MatBenefits = () => {
         style={{ animationDelay: "3s" }}
       />
       
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-2xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
@@ -118,37 +49,24 @@ const MatBenefits = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
-          {/* Image Grid - TV Screens with random unique images */}
-          <div className="grid grid-cols-2 gap-3">
-            {tileImages.map((imageIndex, tileIndex) => (
-              <TVScreenTile 
-                key={tileIndex}
-                currentImage={imageIndex}
-                allImages={allImages}
-              />
-            ))}
-          </div>
-          
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 gap-4">
-            {benefits.map((benefit, index) => (
-              <div 
-                key={index}
-                className="flex gap-4 group"
-              >
-                <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 group-hover:from-shaman-violet group-hover:via-shaman-magenta group-hover:to-shaman-gold transition-all duration-300" />
-                <div className="flex-1">
-                  <h3 className="font-display text-base font-medium text-foreground mb-0.5">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
+        {/* Benefits List - Centered */}
+        <div className="grid grid-cols-1 gap-4">
+          {benefits.map((benefit, index) => (
+            <div 
+              key={index}
+              className="flex gap-4 group"
+            >
+              <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 group-hover:from-shaman-violet group-hover:via-shaman-magenta group-hover:to-shaman-gold transition-all duration-300" />
+              <div className="flex-1">
+                <h3 className="font-display text-base font-medium text-foreground mb-0.5">
+                  {benefit.title}
+                </h3>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                  {benefit.description}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
