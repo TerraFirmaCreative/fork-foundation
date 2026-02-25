@@ -61,7 +61,7 @@ export const CartDrawer = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm truncate text-foreground">{item.product.node.title}</h4>
-                        <p className="text-sm text-muted-foreground mt-1">{new Intl.NumberFormat(undefined, { style: "currency", currency: item.price.currencyCode }).format(parseFloat(item.price.amount))}</p>
+                        <p className="text-sm text-muted-foreground mt-1">${parseFloat(item.price.amount).toFixed(2)} {item.price.currencyCode}</p>
                       </div>
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
                         <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-destructive" onClick={() => removeItem(item.variantId)}>
@@ -84,7 +84,7 @@ export const CartDrawer = () => {
               <div className="flex-shrink-0 space-y-4 pt-4 border-t border-border/50 bg-card">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-display font-semibold">Total</span>
-                  <span className="text-xl font-bold">{new Intl.NumberFormat(undefined, { style: "currency", currency: items[0]?.price.currencyCode || "AUD" }).format(totalPrice)}</span>
+                  <span className="text-xl font-bold">${totalPrice.toFixed(2)}</span>
                 </div>
                 <Button onClick={handleCheckout} className="w-full bg-gradient-to-r from-shaman-violet to-shaman-magenta hover:opacity-90 text-white" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Checkout</>}
