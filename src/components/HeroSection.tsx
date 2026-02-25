@@ -57,9 +57,6 @@ const HeroSection = () => {
         <p className="text-[0.68rem] md:text-lg text-muted-foreground/70 font-body whitespace-nowrap">
           Premium natural rubber · Suede microfibre surface · Non-slip
         </p>
-        <p className="text-xs md:text-base text-muted-foreground/70 font-body">
-          Delivery included in the price globally
-        </p>
       </div>
 
       {/* Made in USA - bottom right */}
