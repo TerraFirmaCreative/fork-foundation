@@ -103,7 +103,7 @@ const YogiOfTheWeek = () => {
                   key={i}
                   src={img.src}
                   alt={img.alt}
-                  className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[4500ms] ease-in-out ${
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[4500ms] ease-in-out ${
                     i === current ? "opacity-100" : "opacity-0"
                   }`}
                   loading="lazy"
