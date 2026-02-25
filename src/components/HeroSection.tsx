@@ -54,10 +54,10 @@ const HeroSection = () => {
           </Button>
         </div>
         
-        <p className="text-[0.68rem] md:text-lg text-muted-foreground/70 font-body whitespace-nowrap">
+        <p className="text-xs md:text-lg text-muted-foreground/70 font-body whitespace-nowrap">
           Premium natural rubber · Suede microfibre surface · Non-slip
         </p>
-        <p className="text-[0.68rem] md:text-base text-muted-foreground/70 font-body mt-2">
+        <p className="text-xs md:text-base text-muted-foreground/70 font-body mt-2">
           Free shipping on all mats
         </p>
       </div>
