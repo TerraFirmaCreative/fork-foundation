@@ -60,12 +60,10 @@ const HeroSection = () => {
         <p className="text-xs md:text-base text-muted-foreground/70 font-body mt-2">
           Free shipping on all mats
         </p>
+        <p className="text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body mt-3">
+          Made in the USA
+        </p>
       </div>
-
-      {/* Made in USA - bottom right */}
-      <p className="absolute bottom-6 left-0 right-0 text-center md:text-right md:left-auto md:right-8 text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body z-10">
-        Made in the USA
-      </p>
     </section>
   );
 };
