@@ -93,7 +93,7 @@ const BlogPostHudson = () => {
             Hudson in Margaret River
           </h1>
           <p className="font-display text-xl md:text-2xl text-muted-foreground/60 italic">
-            South West Australia
+            Denmark, Western Australia
           </p>
         </div>
 
@@ -116,7 +116,7 @@ const BlogPostHudson = () => {
         {/* Article body */}
         <article className="prose-custom space-y-6 text-foreground/75 font-body leading-relaxed text-base md:text-lg">
           <p>
-            Hudson is originally from Canada, but right now you'll find her on the other side of the world — travelling through the wild, coastal beauty of South West Australia.
+            Hudson is originally from Canada, but right now you'll find her on the other side of the world — living in Denmark, a coastal town nestled in the wild beauty of Western Australia.
           </p>
           <p>
             She's currently based in Margaret River, a region known for its dramatic limestone cliffs, turquoise water, ancient forests and long, empty beaches. It's a place where mornings begin with mist rising through the karri trees and end with golden light spilling across the Indian Ocean. The pace is slower here. Spacious. Grounded. It's the kind of landscape that naturally pulls you into your body.
