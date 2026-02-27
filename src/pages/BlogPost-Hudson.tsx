@@ -97,47 +97,48 @@ const BlogPostHudson = () => {
           </p>
         </div>
 
-        {/* Image slideshow */}
-        <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-12">
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img.src}
-              alt={img.alt}
-              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${
-                i === current ? "opacity-100" : "opacity-0"
-              }`}
-              loading={i === 0 ? "eager" : "lazy"}
-              decoding="async"
-            />
-          ))}
-        </div>
+        {/* Article body with floated image */}
+        <article className="prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg">
+          <div className="relative aspect-[4/3] w-full md:w-1/2 md:float-right md:ml-8 mb-6 rounded-xl overflow-hidden">
+            {images.map((img, i) => (
+              <img
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${
+                  i === current ? "opacity-100" : "opacity-0"
+                }`}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            ))}
+          </div>
 
-        {/* Article body */}
-        <article className="prose-custom space-y-6 text-foreground/75 font-body leading-relaxed text-base md:text-lg">
           <p>
             Hudson is originally from Canada, but right now you'll find her on the other side of the world — living in Denmark, a coastal town nestled in the wild beauty of Western Australia.
           </p>
-          <p>
+          <p className="mt-6">
             She's currently based in Margaret River, a region known for its dramatic limestone cliffs, turquoise water, ancient forests and long, empty beaches. It's a place where mornings begin with mist rising through the karri trees and end with golden light spilling across the Indian Ocean. The pace is slower here. Spacious. Grounded. It's the kind of landscape that naturally pulls you into your body.
           </p>
-          <p>
+          <p className="mt-6">
             Hudson has been rolling out her mat at quiet lookouts above the ocean and in pockets of bushland just outside town — practising as the wind moves through the trees and the sound of the waves carries in the background.
           </p>
 
-          <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground pt-4">
+          <div className="clear-both" />
+
+          <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground pt-8">
             Her Mat of Choice: Centered Light
           </h2>
-          <p>
+          <p className="mt-6">
             Hudson chose Centered Light for its balance of softness and strength. The design feels calm but intentional — subtle movement in the artwork that mirrors the rhythm of breath.
           </p>
-          <p>
+          <p className="mt-6">
             She says she was drawn to it because it feels "anchoring without being heavy." The tones sit beautifully against the pale sand and deep greens of the region, and the grip holds steady even on cooler coastal mornings.
           </p>
-          <p>
+          <p className="mt-6">
             For Hudson, travelling means constantly adapting — new time zones, new environments, new routines. Having a mat that feels familiar and grounding wherever she lays it down has become part of her ritual. A small piece of consistency in ever-changing surroundings.
           </p>
-          <p>
+          <p className="mt-6">
             Margaret River might be thousands of miles from home, but practice has a way of creating its own sense of place.
           </p>
         </article>
