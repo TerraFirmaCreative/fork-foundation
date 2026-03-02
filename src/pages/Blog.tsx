@@ -7,9 +7,9 @@ const blogPosts = [
   {
     slug: "hudson-in-margaret-river",
     title: "Hudson in Margaret River",
-    subtitle: "Denmark, Western Australia",
+    subtitle: "South West Australia",
     excerpt:
-      "Hudson is originally from Canada, but right now you'll find her on the other side of the world — living in Denmark, a coastal town nestled in the wild beauty of Western Australia.",
+      "Hudson is originally from Canada, but at the moment you'll find her on the other side of the world — travelling slowly through South West Australia.",
     image: hudson1,
     imageAlt: "Hudson practising yoga on the beach at Bunker Bay",
     category: "Unique Yogi of the Week",

@@ -93,7 +93,7 @@ const BlogPostHudson = () => {
             Hudson in Margaret River
           </h1>
           <p className="font-display text-xl md:text-2xl text-muted-foreground/60 italic">
-            Denmark, Western Australia
+            South West Australia
           </p>
         </div>
 
@@ -115,31 +115,40 @@ const BlogPostHudson = () => {
           </div>
 
           <p>
-            Hudson is originally from Canada, but right now you'll find her on the other side of the world — living in Denmark, a coastal town nestled in the wild beauty of Western Australia.
+            Hudson is originally from Canada, but at the moment you'll find her on the other side of the world — travelling slowly through South West Australia.
           </p>
           <p className="mt-6">
-            She's currently based in Margaret River, a region known for its dramatic limestone cliffs, turquoise water, ancient forests and long, empty beaches. It's a place where mornings begin with mist rising through the karri trees and end with golden light spilling across the Indian Ocean. The pace is slower here. Spacious. Grounded. It's the kind of landscape that naturally pulls you into your body.
+            She's currently based in Margaret River, a coastal region known for its limestone cliffs, turquoise water, ancient forests and long stretches of open beach. Mornings often begin with mist moving quietly through the karri trees, and end with golden light settling over the Indian Ocean.
           </p>
           <p className="mt-6">
-            Hudson has been rolling out her mat at quiet lookouts above the ocean and in pockets of bushland just outside town — practising as the wind moves through the trees and the sound of the waves carries in the background.
+            It's spacious. Unhurried. The kind of place that naturally brings you back into your body.
+          </p>
+          <p className="mt-6">
+            Hudson has been rolling out her mat at quiet ocean lookouts and in pockets of bushland just outside town — practising with the sound of waves in the distance and the wind moving through the trees.
+          </p>
+          <p className="mt-6">
+            There's something about practising outdoors that strips things back. No studio walls. No mirrors. Just breath, movement and landscape.
           </p>
 
           <div className="clear-both" />
 
           <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground pt-8">
-            Her Mat of Choice: Centered Light
+            Her Mat of Choice: Mandelbrot Dreams
           </h2>
           <p className="mt-6">
-            Hudson chose Centered Light for its balance of softness and strength. The design feels calm but intentional — subtle movement in the artwork that mirrors the rhythm of breath.
+            Hudson chose Mandelbrot Dreams — a design that feels expansive and quietly mesmerising.
           </p>
           <p className="mt-6">
-            She says she was drawn to it because it feels "anchoring without being heavy." The tones sit beautifully against the pale sand and deep greens of the region, and the grip holds steady even on cooler coastal mornings.
+            There's depth in the artwork, layers that draw you in the longer you look at it. It's intricate without being overwhelming — structured, but still fluid. She said she was drawn to it because it feels "anchoring without being heavy."
           </p>
           <p className="mt-6">
-            For Hudson, travelling means constantly adapting — new time zones, new environments, new routines. Having a mat that feels familiar and grounding wherever she lays it down has become part of her ritual. A small piece of consistency in ever-changing surroundings.
+            Set against the pale sand and deep greens of the region, the tones sit naturally in the landscape. And even on cooler coastal mornings, the grip holds steady as her practice builds warmth.
           </p>
           <p className="mt-6">
-            Margaret River might be thousands of miles from home, but practice has a way of creating its own sense of place.
+            For Hudson, travel means constant change — new time zones, new surroundings, new routines. Having a mat that feels familiar wherever she lays it down has become part of her ritual. A small, grounding constant in ever-shifting places.
+          </p>
+          <p className="mt-6">
+            Margaret River might be far from home, but practice has a way of creating its own sense of place.
           </p>
         </article>
 
