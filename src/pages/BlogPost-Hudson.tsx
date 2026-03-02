@@ -39,7 +39,7 @@ const images = [
   { src: hudson13, alt: "Hudson standing on her mat by the ocean" },
 ];
 
-const PRODUCT_HANDLE = "psychedelic-mandelbrot-dreams";
+const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
 
 const BlogPostHudson = () => {
   const [current, setCurrent] = useState(0);
