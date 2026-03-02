@@ -24,30 +24,35 @@ const AboutSection = () => {
             </p>
             
             <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight text-center lg:text-left">
-              <span className="text-foreground">Three friends, </span><span className="text-gradient italic">one vision</span>
+              <span className="text-foreground">Three friends. </span><span className="text-gradient italic">One shared idea.</span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
               <p>
-                It started with a conversation between three friends scattered across 
-                the globe — Phil in Australia, Charly in the UK, and Tym in Poland.
-                Despite the distance, they shared something deeper: a belief that art 
-                and movement belong together.
+                Unique Yoga Mats began as a conversation between three friends living 
+                in different corners of the world — Phil in Australia, Charly in the 
+                UK, and Tym in Poland.
               </p>
               
               <p>
-                Each brought something different to the table. A love of design. A 
-                passion for wellness. A quiet conviction that even a small shift — 
-                ten minutes on the mat, one more stretch, one mindful breath — can 
-                change the shape of a day.
+                We believed something simple: art and movement belong together.
               </p>
 
               <p>
-                What began as a shared idea became a creative studio with no walls. 
-                From three different time zones, they build mats that carry original 
-                artwork edge to edge — pieces designed to make your practice space 
-                feel like it belongs to you, and to gently remind you to show up for 
-                yourself, even just a little more.
+                We didn't want to create just another yoga mat. We wanted to create 
+                pieces with original artwork — mats you'd genuinely want to leave out, 
+                not tuck away.
+              </p>
+
+              <p>
+                From three time zones, we design and build every mat with intention. 
+                Each one printed edge to edge. Each one made to order. Each one 
+                created to make your practice space feel personal.
+              </p>
+
+              <p>
+                Because sometimes all it takes is one stretch, one breath, one moment 
+                on the mat to shift your whole day.
               </p>
             </div>
             
