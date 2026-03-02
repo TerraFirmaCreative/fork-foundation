@@ -31,7 +31,7 @@ const Blog = () => {
             Blog
           </h1>
           <p className="text-muted-foreground/80 font-body max-w-xl mx-auto">
-            Thoughts on yoga, design, wellness, and the things that inspire us.
+            Stories from our community — where they're practising, what they're using, and the rituals that keep them grounded.
           </p>
         </div>
 
