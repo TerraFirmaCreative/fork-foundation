@@ -41,6 +41,10 @@ const faqs = [
     answer: "We currently ship orders within the United States.\nInternational shipping options are something we're working toward, and we'll share updates when available."
   },
   {
+    question: "Will I need to pay any additional taxes or fees on delivery?",
+    answer: "Because each mat is crafted in the United States and shipped internationally, some countries may apply local import taxes upon arrival.\n\nFor customers in the UK, European Union, or Canada, your order may be subject to local import taxes (such as VAT or GST) and a small carrier handling fee, depending on your country's regulations.\n\nThese charges are determined by your local customs authority and, if applicable, are payable at delivery.\n\nIf you're unsure about import regulations in your country, we recommend checking with your local customs office before ordering."
+  },
+  {
     question: "How much does shipping cost?",
     answer: "Shipping costs are calculated at checkout based on your delivery address and will be clearly displayed before you complete your purchase."
   },
