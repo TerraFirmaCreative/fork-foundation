@@ -110,6 +110,7 @@ const Footer = () => {
                  <ArrowRight className="w-4 h-4" />
               </button>
             </form>
+            <p className="text-[11px] text-muted-foreground/40 font-body -mt-4 mb-6">No spam. Unsubscribe anytime.</p>
             
           </div>
         </div>
