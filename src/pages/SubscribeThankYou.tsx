@@ -1,9 +1,18 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import LocaleLink from "@/components/LocaleLink";
+import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 
 const SubscribeThankYou = () => {
+  const navigate = useLocaleNavigate();
+
+  const handleExplore = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("design-gallery")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -26,11 +35,9 @@ const SubscribeThankYou = () => {
           </div>
 
           <div className="mt-10">
-            <LocaleLink to="/#design-gallery">
-              <Button variant="cta" size="lg" className="font-body font-medium tracking-wide glow-effect">
-                Explore the Collection
-              </Button>
-            </LocaleLink>
+            <Button variant="cta" size="lg" className="font-body font-medium tracking-wide glow-effect" onClick={handleExplore}>
+              Explore the Collection
+            </Button>
           </div>
         </div>
       </main>
