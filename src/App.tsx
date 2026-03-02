@@ -11,6 +11,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
 import Shipping from "./pages/Shipping";
+import SubscribeThankYou from "./pages/SubscribeThankYou";
 import Blog from "./pages/Blog";
 import BlogPostHudson from "./pages/BlogPost-Hudson";
 import ProductDetail from "./pages/ProductDetail";
@@ -47,6 +48,7 @@ const App = () => (
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="contact" element={<Contact />} />
             <Route path="shipping" element={<Shipping />} />
+            <Route path="subscribe/thank-you" element={<SubscribeThankYou />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/hudson-in-margaret-river" element={<BlogPostHudson />} />
           </Route>
@@ -61,6 +63,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<LocaleRedirect />} />
           <Route path="/contact" element={<LocaleRedirect />} />
           <Route path="/shipping" element={<LocaleRedirect />} />
+          <Route path="/subscribe/thank-you" element={<LocaleRedirect />} />
           <Route path="/blog" element={<LocaleRedirect />} />
           <Route path="/blog/hudson-in-margaret-river" element={<LocaleRedirect />} />
 
