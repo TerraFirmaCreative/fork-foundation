@@ -99,7 +99,7 @@ const Footer = () => {
           <div className="col-span-2 lg:col-span-1">
             <h4 className="text-sm font-medium text-foreground/70 mb-2 font-body tracking-wide uppercase">Subscribe</h4>
             <p className="text-sm text-muted-foreground/60 mb-4 font-body">Early access. New designs. Community stories.</p>
-            <form className="flex items-center border-b border-foreground/20 pb-1 mb-6 max-w-xs" onSubmit={(e) => { e.preventDefault(); navigate(`/${locale}/subscribe/thank-you`); }}>
+            <form className="flex items-center border-b border-foreground/20 pb-1 mb-6 max-w-xs" onSubmit={(e) => { e.preventDefault(); navigate("/subscribe/thank-you"); }}>
               <input 
                 type="email" 
                 placeholder="Email address" 
