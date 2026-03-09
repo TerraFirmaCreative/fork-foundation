@@ -39,14 +39,14 @@ export const useCartStore = create<CartStore>()(
       isDrawerOpen: false,
       setDrawerOpen: (open) => set({ isDrawerOpen: open }),
 
-      addItem: async (item) => {
+      addItem: async (item, country) => {
         const { items, cartId, clearCart } = get();
         const existingItem = items.find(i => i.variantId === item.variantId);
 
         set({ isLoading: true });
         try {
           if (!cartId) {
-            const result = await createShopifyCart({ ...item, lineId: null });
+            const result = await createShopifyCart({ ...item, lineId: null }, country);
             if (result) {
               set({
                 cartId: result.cartId,
