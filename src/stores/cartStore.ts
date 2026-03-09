@@ -20,7 +20,7 @@ interface CartStore {
   isSyncing: boolean;
   isDrawerOpen: boolean;
   setDrawerOpen: (open: boolean) => void;
-  addItem: (item: Omit<CartItem, 'lineId'>) => Promise<void>;
+  addItem: (item: Omit<CartItem, 'lineId'>, country?: string) => Promise<void>;
   updateQuantity: (variantId: string, quantity: number) => Promise<void>;
   removeItem: (variantId: string) => Promise<void>;
   clearCart: () => void;
@@ -39,14 +39,14 @@ export const useCartStore = create<CartStore>()(
       isDrawerOpen: false,
       setDrawerOpen: (open) => set({ isDrawerOpen: open }),
 
-      addItem: async (item) => {
+      addItem: async (item, country) => {
         const { items, cartId, clearCart } = get();
         const existingItem = items.find(i => i.variantId === item.variantId);
 
         set({ isLoading: true });
         try {
           if (!cartId) {
-            const result = await createShopifyCart({ ...item, lineId: null });
+            const result = await createShopifyCart({ ...item, lineId: null }, country);
             if (result) {
               set({
                 cartId: result.cartId,

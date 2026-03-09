@@ -71,7 +71,7 @@ const BlogPostHudson = () => {
       price: variant.price,
       quantity,
       selectedOptions: variant.selectedOptions || [],
-    });
+    }, country);
     setDrawerOpen(true);
   };
 

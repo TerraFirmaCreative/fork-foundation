@@ -46,7 +46,7 @@ const ProductDetail = () => {
       price: variant.price,
       quantity,
       selectedOptions: variant.selectedOptions || [],
-    });
+    }, country);
     toast.success("Added to cart", { position: "top-center" });
     setDrawerOpen(true);
   };
