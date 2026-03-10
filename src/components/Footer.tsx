@@ -1,15 +1,20 @@
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { FractalGrid } from "./SacredGeometry";
+import { toast } from "sonner";
 
 import LocaleLink from "./LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale } from "@/lib/i18n";
+import { subscribeToNewsletter } from "@/lib/shopify";
 
 const Footer = () => {
   const navigate = useLocaleNavigate();
   const location = useLocation();
   const { locale } = useLocale();
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isHomePage = location.pathname === `/${locale}` || location.pathname === `/${locale}/`;
 
