@@ -400,3 +400,57 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   }
   return { success: true, cost: data?.data?.cartLinesRemove?.cart.cost };
 }
+
+// Newsletter subscribe via Storefront API (unstable version required for this mutation)
+const SHOPIFY_STOREFRONT_UNSTABLE_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/unstable/graphql.json`;
+
+const CUSTOMER_EMAIL_MARKETING_SUBSCRIBE = `
+  mutation customerEmailMarketingSubscribe($email: String!) {
+    customerEmailMarketingSubscribe(email: $email) {
+      customer {
+        id
+      }
+      customerUserErrors {
+        code
+        field
+        message
+      }
+    }
+  }
+`;
+
+export async function subscribeToNewsletter(email: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const response = await fetch(SHOPIFY_STOREFRONT_UNSTABLE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
+      },
+      body: JSON.stringify({
+        query: CUSTOMER_EMAIL_MARKETING_SUBSCRIBE,
+        variables: { email },
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.errors) {
+      throw new Error(data.errors.map((e: { message: string }) => e.message).join(', '));
+    }
+
+    const userErrors = data?.data?.customerEmailMarketingSubscribe?.customerUserErrors || [];
+    if (userErrors.length > 0) {
+      return { success: false, error: userErrors[0].message };
+    }
+
+    return { success: true };
+  } catch (err) {
+    console.error('Newsletter subscribe error:', err);
+    return { success: false, error: 'Something went wrong. Please try again.' };
+  }
+}
