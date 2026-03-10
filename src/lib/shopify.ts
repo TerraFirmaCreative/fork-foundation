@@ -420,7 +420,7 @@ const CUSTOMER_EMAIL_MARKETING_SUBSCRIBE = `
 
 export async function subscribeToNewsletter(email: string): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch(SHOPIFY_STOREFRONT_UNSTABLE_URL, {
+    const response = await fetch(SHOPIFY_STOREFRONT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
