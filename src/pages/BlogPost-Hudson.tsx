@@ -22,6 +22,7 @@ import hudson10 from "@/assets/hudson-10.jpg";
 import hudson11 from "@/assets/hudson-11.jpg";
 import hudson12 from "@/assets/hudson-12.jpg";
 import hudson13 from "@/assets/hudson-13.jpg";
+import { formatPrice } from "@/lib/utils";
 
 const images = [
   { src: hudson1, alt: "Hudson practising yoga on the beach at Bunker Bay" },
@@ -76,7 +77,7 @@ const BlogPostHudson = () => {
   };
 
   const price = variant
-    ? new Intl.NumberFormat("en-AU", { style: "currency", currency: variant.price.currencyCode }).format(parseFloat(variant.price.amount))
+    ? formatPrice(variant.price)
     : "$170.00";
 
   return (
@@ -105,9 +106,8 @@ const BlogPostHudson = () => {
                 key={i}
                 src={img.src}
                 alt={img.alt}
-                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${
-                  i === current ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+                  }`}
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
               />
@@ -175,9 +175,8 @@ const BlogPostHudson = () => {
                       key={i}
                       src={img.src}
                       alt="Psychedelic Mandelbrot Dreams yoga mat"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${
-                        i === current ? "opacity-100" : "opacity-0"
-                      }`}
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+                        }`}
                       loading="lazy"
                       decoding="async"
                     />

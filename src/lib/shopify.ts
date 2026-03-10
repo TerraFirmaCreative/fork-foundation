@@ -205,6 +205,12 @@ const CART_CREATE_MUTATION = `
       cart {
         id
         checkoutUrl
+        cost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        }
         lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
       }
       userErrors { field message }
@@ -218,6 +224,12 @@ const CART_BUYER_IDENTITY_UPDATE_MUTATION = `
         cart {
           id
           checkoutUrl
+          cost {
+            totalAmount {
+              amount
+              currencyCode
+            }
+          }
           lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
         }
         userErrors { field message }
@@ -230,6 +242,12 @@ const CART_LINES_ADD_MUTATION = `
     cartLinesAdd(cartId: $cartId, lines: $lines) {
       cart {
         id
+        cost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        }
         lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
       }
       userErrors { field message }
@@ -240,7 +258,15 @@ const CART_LINES_ADD_MUTATION = `
 const CART_LINES_UPDATE_MUTATION = `
   mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
     cartLinesUpdate(cartId: $cartId, lines: $lines) {
-      cart { id }
+      cart { 
+        id
+        cost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        } 
+      }
       userErrors { field message }
     }
   }
@@ -249,7 +275,15 @@ const CART_LINES_UPDATE_MUTATION = `
 const CART_LINES_REMOVE_MUTATION = `
   mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
     cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
-      cart { id }
+      cart { 
+        id
+        cost {
+          totalAmount {
+            amount
+            currencyCode
+          }
+        } 
+      }
       userErrors { field message }
     }
   }
@@ -279,7 +313,7 @@ export interface CartItem {
   selectedOptions: Array<{ name: string; value: string }>;
 }
 
-export async function createShopifyCart(item: CartItem, country = "US"): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+export async function createShopifyCart(item: CartItem, country = "US"): Promise<{ cartId: string; checkoutUrl: string; lineId: string, cost: { totalAmount: { amount: string, currencyCode: string } } } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: {
       lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
@@ -300,10 +334,10 @@ export async function createShopifyCart(item: CartItem, country = "US"): Promise
   const lineId = cart.lines.edges[0]?.node?.id;
   if (!lineId) return null;
 
-  return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId };
+  return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId, cost: cart.cost };
 }
 
-export async function updateCartBuyerIdentity(cartId: string, country = "US"): Promise<boolean> {
+export async function updateCartBuyerIdentity(cartId: string, country = "US"): Promise<{ success: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
   const data = await storefrontApiRequest(CART_BUYER_IDENTITY_UPDATE_MUTATION, {
     cartId: cartId,
     buyerIdentity: {
@@ -313,13 +347,13 @@ export async function updateCartBuyerIdentity(cartId: string, country = "US"): P
 
   if (data?.data?.cartBuyerIdentityUpdate?.userErrors.length > 0) {
     console.error('Cart identity update failed:', data.data.cartBuyerIdentityUpdate.userErrors);
-    return false;
+    return { success: false };
   }
 
-  return true
+  return { success: true, cost: data?.data?.cartBuyerIdentityUpdate?.cart.cost }
 }
 
-export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
+export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
   const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
     cartId,
     lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
@@ -334,10 +368,10 @@ export async function addLineToShopifyCart(cartId: string, item: CartItem): Prom
 
   const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
   const newLine = lines.find((l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId);
-  return { success: true, lineId: newLine?.node?.id };
+  return { success: true, lineId: newLine?.node?.id, cost: data?.data?.cartLinesAdd?.cart.cost };
 }
 
-export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; cartNotFound?: boolean }> {
+export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
   const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, {
     cartId,
     lines: [{ id: lineId, quantity }],
@@ -349,10 +383,10 @@ export async function updateShopifyCartLine(cartId: string, lineId: string, quan
     console.error('Update line failed:', userErrors);
     return { success: false };
   }
-  return { success: true };
+  return { success: true, cost: data?.data?.cartLinesUpdate?.cart.cost };
 }
 
-export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; cartNotFound?: boolean }> {
+export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
   const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, {
     cartId,
     lineIds: [lineId],
@@ -364,5 +398,5 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
     console.error('Remove line failed:', userErrors);
     return { success: false };
   }
-  return { success: true };
+  return { success: true, cost: data?.data?.cartLinesRemove?.cart.cost };
 }

@@ -15,6 +15,7 @@ export type { CartItem } from '@/lib/shopify';
 
 interface CartStore {
   items: CartItem[];
+  totalPrice: { amount: string; currencyCode: string };
   cartId: string | null;
   checkoutUrl: string | null;
   isLoading: boolean;
@@ -37,6 +38,7 @@ export const useCartStore = create<CartStore>()(
       cartId: null,
       checkoutUrl: null,
       isLoading: false,
+      totalPrice: { amount: "0.00", currencyCode: "USD" },
       isSyncing: false,
       isDrawerOpen: false,
       setDrawerOpen: (open) => set({ isDrawerOpen: open }),
@@ -46,7 +48,17 @@ export const useCartStore = create<CartStore>()(
 
         set({ isLoading: true });
         try {
-          await updateCartBuyerIdentity(cartId, country);
+          const result = await updateCartBuyerIdentity(cartId, country);
+
+          if (result.success && result.cost) {
+            set({
+              totalPrice: {
+                amount: result.cost?.totalAmount.amount,
+                currencyCode: result.cost?.totalAmount.currencyCode
+              }
+            });
+          }
+
           return;
         }
         catch (e) {
@@ -70,6 +82,10 @@ export const useCartStore = create<CartStore>()(
               set({
                 cartId: result.cartId,
                 checkoutUrl: result.checkoutUrl,
+                totalPrice: {
+                  amount: result.cost.totalAmount.amount,
+                  currencyCode: result.cost.totalAmount.currencyCode
+                },
                 items: [{ ...item, lineId: result.lineId }],
               });
             }
@@ -78,14 +94,30 @@ export const useCartStore = create<CartStore>()(
             if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
-              set({ items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i) });
+              set({
+                items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i),
+                ...(result.cost && {
+                  totalPrice: {
+                    amount: result.cost?.totalAmount.amount,
+                    currencyCode: result.cost?.totalAmount.currencyCode
+                  }
+                })
+              });
             } else if (result.cartNotFound) {
               clearCart();
             }
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
             if (result.success) {
-              set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }] });
+              set({
+                items: [...get().items, { ...item, lineId: result.lineId ?? null }],
+                ...(result.cost && {
+                  totalPrice: {
+                    amount: result.cost?.totalAmount.amount,
+                    currencyCode: result.cost?.totalAmount.currencyCode
+                  }
+                })
+              });
             } else if (result.cartNotFound) {
               clearCart();
             }
@@ -111,7 +143,15 @@ export const useCartStore = create<CartStore>()(
         try {
           const result = await updateShopifyCartLine(cartId, item.lineId, quantity);
           if (result.success) {
-            set({ items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i) });
+            set({
+              items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i),
+              ...(result.cost && {
+                totalPrice: {
+                  amount: result.cost?.totalAmount.amount,
+                  currencyCode: result.cost?.totalAmount.currencyCode
+                }
+              })
+            });
           } else if (result.cartNotFound) {
             clearCart();
           }
@@ -132,7 +172,15 @@ export const useCartStore = create<CartStore>()(
           const result = await removeLineFromShopifyCart(cartId, item.lineId);
           if (result.success) {
             const newItems = get().items.filter(i => i.variantId !== variantId);
-            newItems.length === 0 ? clearCart() : set({ items: newItems });
+            newItems.length === 0 ? clearCart() : set({
+              items: newItems,
+              ...(result.cost && {
+                totalPrice: {
+                  amount: result.cost?.totalAmount.amount,
+                  currencyCode: result.cost?.totalAmount.currencyCode
+                }
+              })
+            });
           } else if (result.cartNotFound) {
             clearCart();
           }
@@ -143,7 +191,7 @@ export const useCartStore = create<CartStore>()(
         }
       },
 
-      clearCart: () => set({ items: [], cartId: null, checkoutUrl: null }),
+      clearCart: () => set({ items: [], cartId: null, checkoutUrl: null, totalPrice: { amount: "0.00", currencyCode: "USD" } }),
       getCheckoutUrl: () => get().checkoutUrl,
 
       syncCart: async () => {

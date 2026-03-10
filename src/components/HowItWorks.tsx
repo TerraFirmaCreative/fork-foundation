@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FractalGrid } from "./SacredGeometry";
 import { fetchCollectionProducts } from "@/lib/shopify";
 import { useLocale } from "@/lib/i18n";
+import { formatPrice } from "@/lib/utils";
 
 const getSteps = (priceLabel: string) => [
   {
@@ -16,7 +17,7 @@ const getSteps = (priceLabel: string) => [
     ],
   },
   {
-    number: "02", 
+    number: "02",
     title: "Invest in Your Mat",
     color: "text-shaman-magenta",
     price: `${priceLabel} per mat`,
@@ -60,13 +61,9 @@ const HowItWorks = () => {
       const price = products[0]?.node.variants.edges[0]?.node.price
         || products[0]?.node.priceRange.minVariantPrice;
       if (price) {
-        const formatted = new Intl.NumberFormat(undefined, {
-          style: "currency",
-          currency: price.currencyCode,
-        }).format(parseFloat(price.amount));
-        setPriceLabel(formatted);
+        setPriceLabel(formatPrice(price));
       }
-    }).catch(() => {});
+    }).catch(() => { });
   }, [country]);
 
   const steps = getSteps(priceLabel);
@@ -74,20 +71,20 @@ const HowItWorks = () => {
     <section id="how-it-works" className="relative py-16 md:py-24 px-6 overflow-hidden">
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
-      
+
       {/* Fractal grid background */}
       <FractalGrid />
-      
+
       {/* Subtle orbs */}
-      <div 
+      <div
         className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/08"
         style={{ animationDelay: "2s" }}
       />
-      <div 
+      <div
         className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
         style={{ animationDelay: "5s" }}
       />
-      
+
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-10 md:mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 md:mb-6 font-body">
@@ -98,7 +95,7 @@ const HowItWorks = () => {
             <span className="text-gradient italic">works</span>
           </h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-8">
           {steps.map((step, index) => (
             <div
@@ -109,7 +106,7 @@ const HowItWorks = () => {
               <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
-              
+
               {/* Fixed height title area */}
               <div className="h-auto md:h-[5.5rem] flex flex-col items-center justify-start mb-1 md:mb-0">
                 <h3 className={`font-display text-2xl md:text-[1.75rem] font-normal tracking-tight ${step.color}`}>
@@ -122,7 +119,7 @@ const HowItWorks = () => {
                   {step.price}
                 </p>
               )}
-              
+
               {step.deliveryLines && (
                 <div className="space-y-1.5 mt-2">
                   {step.deliveryLines.map((dl, i) => (
@@ -140,7 +137,7 @@ const HowItWorks = () => {
                   </p>
                 ))}
               </div>
-              
+
               {/* Connector line */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[calc(100%+0.25rem)] w-[calc(100%-0.5rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />

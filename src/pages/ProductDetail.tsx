@@ -12,6 +12,7 @@ import ImageMagnifier from "@/components/ImageMagnifier";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
+import { formatPrice } from "@/lib/utils";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -105,11 +106,10 @@ const ProductDetail = () => {
                   <button
                     key={i}
                     onClick={() => setSelectedImageIndex(i)}
-                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
-                      i === selectedImageIndex
-                        ? "border-shaman-gold opacity-100"
-                        : "border-transparent opacity-60 hover:opacity-90"
-                    }`}
+                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${i === selectedImageIndex
+                      ? "border-shaman-gold opacity-100"
+                      : "border-transparent opacity-60 hover:opacity-90"
+                      }`}
                   >
                     <img
                       src={shopifyImageUrl(img.node.url, 80)}
@@ -151,7 +151,7 @@ const ProductDetail = () => {
 
             {price && (
               <p className="text-xl text-muted-foreground mt-3 font-body italic">
-                {new Intl.NumberFormat(undefined, { style: 'currency', currency: price.currencyCode }).format(parseFloat(price.amount))}
+                {formatPrice(price)}
               </p>
             )}
 
