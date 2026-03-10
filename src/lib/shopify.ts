@@ -431,6 +431,7 @@ export async function subscribeToNewsletter(email: string): Promise<{ success: b
         variables: {
           input: {
             email,
+            password: crypto.randomUUID(),
             acceptsMarketing: true,
           },
         },
