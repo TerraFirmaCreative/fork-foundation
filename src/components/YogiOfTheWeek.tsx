@@ -123,46 +123,25 @@ const YogiOfTheWeek = () => {
               <p className="text-foreground/60 font-body leading-relaxed">
                 Hudson is a yoga teacher from Margaret River, WA, whose practice is rooted in movement, nature and community. She chose this design for its infinite, fractal patterns — a reminder that growth on the mat never stops.
               </p>
-              <p className="font-display text-3xl text-foreground font-medium">
-                {price}
-              </p>
 
-              {/* Quantity + Add to Cart */}
-              <div className="flex items-center gap-4 pt-2">
-                <div className="flex items-center border border-border rounded-lg">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-10 w-10"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  >
-                    <Minus className="h-4 w-4" />
-                  </Button>
-                  <span className="w-10 text-center font-body text-foreground">{quantity}</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-10 w-10"
-                    onClick={() => setQuantity(quantity + 1)}
-                  >
-                    <Plus className="h-4 w-4" />
-                  </Button>
-                </div>
-
-                <Button
-                  variant="cta"
-                  size="lg"
-                  className="flex-1 font-body font-medium tracking-wide glow-effect"
-                  onClick={handleAddToCart}
-                  disabled={isLoading || !variant}
+              {/* Shop Now */}
+              <div className="flex items-center flex-row gap-4 pt-2 w-full">
+                <p className="font-display text-3xl text-foreground font-medium">
+                  {price}
+                </p>
+                <LocaleLink
+                  to={`/product/${product?.node.handle}`}
+                  className="px-8"
                 >
-                  {isLoading ? (
-                    <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  ) : (
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                  )}
-                  Add to Cart
-                </Button>
+                  <Button
+                    variant="cta"
+                    size="lg"
+                    className="font-body font-medium mx-auto tracking-wide glow-effect"
+                    disabled={isLoading || !variant}
+                  >
+                    Shop Now
+                  </Button>
+                </LocaleLink>
               </div>
             </div>
           </div>
