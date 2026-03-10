@@ -401,11 +401,11 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   return { success: true, cost: data?.data?.cartLinesRemove?.cart.cost };
 }
 
-// Newsletter subscribe via Storefront API
+// Newsletter subscribe via Storefront API (using customerCreate with acceptsMarketing)
 
-const CUSTOMER_EMAIL_MARKETING_SUBSCRIBE = `
-  mutation customerEmailMarketingSubscribe($email: String!) {
-    customerEmailMarketingSubscribe(email: $email) {
+const CUSTOMER_CREATE_SUBSCRIBE = `
+  mutation customerCreate($input: CustomerCreateInput!) {
+    customerCreate(input: $input) {
       customer {
         id
       }
@@ -427,8 +427,13 @@ export async function subscribeToNewsletter(email: string): Promise<{ success: b
         'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
       },
       body: JSON.stringify({
-        query: CUSTOMER_EMAIL_MARKETING_SUBSCRIBE,
-        variables: { email },
+        query: CUSTOMER_CREATE_SUBSCRIBE,
+        variables: {
+          input: {
+            email,
+            acceptsMarketing: true,
+          },
+        },
       }),
     });
 
@@ -442,8 +447,12 @@ export async function subscribeToNewsletter(email: string): Promise<{ success: b
       throw new Error(data.errors.map((e: { message: string }) => e.message).join(', '));
     }
 
-    const userErrors = data?.data?.customerEmailMarketingSubscribe?.customerUserErrors || [];
+    const userErrors = data?.data?.customerCreate?.customerUserErrors || [];
     if (userErrors.length > 0) {
+      // If customer already exists, treat as success (they're already subscribed)
+      if (userErrors[0].code === 'TAKEN' || userErrors[0].code === 'CUSTOMER_DISABLED') {
+        return { success: true };
+      }
       return { success: false, error: userErrors[0].message };
     }
 
