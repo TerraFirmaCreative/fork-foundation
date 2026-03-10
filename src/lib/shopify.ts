@@ -401,8 +401,7 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   return { success: true, cost: data?.data?.cartLinesRemove?.cart.cost };
 }
 
-// Newsletter subscribe via Storefront API (unstable version required for this mutation)
-const SHOPIFY_STOREFRONT_UNSTABLE_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/unstable/graphql.json`;
+// Newsletter subscribe via Storefront API
 
 const CUSTOMER_EMAIL_MARKETING_SUBSCRIBE = `
   mutation customerEmailMarketingSubscribe($email: String!) {
