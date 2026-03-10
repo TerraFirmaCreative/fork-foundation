@@ -4,7 +4,7 @@ import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
-import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS } from "@/lib/i18n";
+import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
 
 import {
@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useCartStore } from "@/stores/cartStore";
 
 const Header = () => {
   const localeNavigate = useLocaleNavigate();
@@ -21,10 +22,12 @@ const Header = () => {
   const location = useLocation();
   const { locale } = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { updateLocale } = useCartStore()
 
   const switchLocale = (newLocale: SupportedLocale) => {
     if (newLocale === locale) return;
     const currentPath = location.pathname.replace(`/${locale}`, '') || '/';
+    updateLocale(getCountryForLocale(newLocale))
     rawNavigate(`/${newLocale}${currentPath}`);
   };
 
@@ -48,7 +51,7 @@ const Header = () => {
     <header className="relative py-5 px-6">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background/60 backdrop-blur-sm" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-gold/20 to-transparent" />
-      
+
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
         <LocaleLink to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
@@ -72,22 +75,22 @@ const Header = () => {
             <span className="font-display text-xl tracking-wide text-foreground leading-tight">Unique Yoga Mats</span>
           </div>
         </LocaleLink>
-        
+
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-          <button 
+          <button
             onClick={() => scrollToSection("design-gallery")}
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
             Shop
           </button>
-          <button 
+          <button
             onClick={scrollToHowItWorks}
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
             How It Works
           </button>
-          <LocaleLink 
+          <LocaleLink
             to="/about"
             className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
           >
@@ -122,10 +125,10 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        
+
         {/* Right Actions */}
         <div className="flex items-center gap-4">
-          
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">

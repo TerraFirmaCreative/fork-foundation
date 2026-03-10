@@ -200,7 +200,7 @@ export const CART_QUERY = `
 `;
 
 const CART_CREATE_MUTATION = `
-  mutation cartCreate($input: CartInput!, $country: CountryCode) @inContext(country: $country) {
+  mutation cartCreate($input: CartInput!) {
     cartCreate(input: $input) {
       cart {
         id
@@ -210,6 +210,19 @@ const CART_CREATE_MUTATION = `
       userErrors { field message }
     }
   }
+`;
+
+const CART_BUYER_IDENTITY_UPDATE_MUTATION = `
+  mutation cartBuyerIdentityUpdate($cartId: ID!, $buyerIdentity: CartBuyerIdentityInput!) {
+      cartBuyerIdentityUpdate(cartId: $cartId, buyerIdentity: $buyerIdentity ) {
+        cart {
+          id
+          checkoutUrl
+          lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
+        }
+        userErrors { field message }
+      }
+    }
 `;
 
 const CART_LINES_ADD_MUTATION = `
@@ -268,8 +281,12 @@ export interface CartItem {
 
 export async function createShopifyCart(item: CartItem, country = "US"): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
-    country,
+    input: {
+      lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
+      buyerIdentity: {
+        countryCode: country
+      }
+    },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
@@ -284,6 +301,22 @@ export async function createShopifyCart(item: CartItem, country = "US"): Promise
   if (!lineId) return null;
 
   return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId };
+}
+
+export async function updateCartBuyerIdentity(cartId: string, country = "US"): Promise<boolean> {
+  const data = await storefrontApiRequest(CART_BUYER_IDENTITY_UPDATE_MUTATION, {
+    cartId: cartId,
+    buyerIdentity: {
+      countryCode: country
+    }
+  })
+
+  if (data?.data?.cartBuyerIdentityUpdate?.userErrors.length > 0) {
+    console.error('Cart identity update failed:', data.data.cartBuyerIdentityUpdate.userErrors);
+    return false;
+  }
+
+  return true
 }
 
 export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {

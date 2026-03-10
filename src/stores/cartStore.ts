@@ -8,6 +8,7 @@ import {
   addLineToShopifyCart,
   updateShopifyCartLine,
   removeLineFromShopifyCart,
+  updateCartBuyerIdentity,
 } from '@/lib/shopify';
 
 export type { CartItem } from '@/lib/shopify';
@@ -26,6 +27,7 @@ interface CartStore {
   clearCart: () => void;
   syncCart: () => Promise<void>;
   getCheckoutUrl: () => string | null;
+  updateLocale: (country: string) => Promise<void>;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -38,6 +40,23 @@ export const useCartStore = create<CartStore>()(
       isSyncing: false,
       isDrawerOpen: false,
       setDrawerOpen: (open) => set({ isDrawerOpen: open }),
+
+      updateLocale: async (country: string) => {
+        const { cartId } = get();
+
+        set({ isLoading: true });
+        try {
+          await updateCartBuyerIdentity(cartId, country);
+          return;
+        }
+        catch (e) {
+          console.error("Failed to update cart buyer identity.");
+          return;
+        }
+        finally {
+          set({ isLoading: false });
+        }
+      },
 
       addItem: async (item, country) => {
         const { items, cartId, clearCart } = get();
