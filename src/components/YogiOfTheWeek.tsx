@@ -121,7 +121,7 @@ const YogiOfTheWeek = () => {
                 Mandelbrot Dreams
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">
-                Hudson is from Canada, whose practice is rooted in movement, nature and community. She chose this design for its infinite, fractal patterns — a reminder that growth on the mat never stops.
+                Hudson is originally from Canada. Her practice is rooted in movement, nature and community. She chose this design for its infinite, fractal patterns — a reminder that growth on the mat never stops.
               </p>
 
               {/* Shop Now */}
