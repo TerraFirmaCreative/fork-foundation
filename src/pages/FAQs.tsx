@@ -70,7 +70,7 @@ const faqs = [
   },
   {
     question: "How do I contact Unique Yoga Mats?",
-    answer: "You can contact us using the details provided on the website. We aim to respond to all inquiries as quickly as possible."
+    answer: "You can reach us at hello@uniqueyogamats.com and we'll aim to get back to you as quickly as possible"
   }
 ];
 
