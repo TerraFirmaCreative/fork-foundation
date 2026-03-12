@@ -139,7 +139,7 @@ const YogiOfTheWeek = () => {
                     className="font-body font-medium mx-auto tracking-wide glow-effect"
                     disabled={isLoading || !variant}
                   >
-                    I want this mat
+                    I Want This Mat
                   </Button>
                 </LocaleLink>
               </div>
