@@ -67,7 +67,7 @@ const RefundPolicy = () => {
                 Damages and Issues
               </h2>
               <p>
-                Please inspect your order upon arrival. If your item is defective, damaged, or incorrect, contact us immediately at <strong className="text-foreground">support@uniqueyogamats.com</strong> so we can assess the issue and resolve it.
+                Please inspect your order upon arrival. If your item is defective, damaged, or incorrect, contact us immediately at <strong className="text-foreground">hello@uniqueyogamats.com</strong> so we can assess the issue and resolve it.
               </p>
             </section>
 
