@@ -90,7 +90,7 @@ const RefundPolicy = () => {
                 Once we receive and inspect your return, we'll notify you whether the refund has been approved. If approved, refunds will be issued to your original payment method within <strong className="text-foreground">10 business days</strong>.
               </p>
               <p>
-                Please note that processing times may vary depending on your bank or card provider. If more than <strong className="text-foreground">15 business days</strong> have passed since approval, please contact us at <strong className="text-foreground">support@uniqueyogamats.com</strong>.
+                Please note that processing times may vary depending on your bank or card provider. If more than <strong className="text-foreground">15 business days</strong> have passed since approval, please contact us at <strong className="text-foreground">hello@uniqueyogamats.com</strong>.
               </p>
             </section>
 
