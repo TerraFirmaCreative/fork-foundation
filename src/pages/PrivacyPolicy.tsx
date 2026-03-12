@@ -254,7 +254,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy or how we handle your personal information, please contact us at:
               </p>
               <p>
-                <strong className="text-foreground">support@uniqueyogamats.com</strong>
+                <strong className="text-foreground">hello@uniqueyogamats.com</strong>
               </p>
             </section>
           </div>
