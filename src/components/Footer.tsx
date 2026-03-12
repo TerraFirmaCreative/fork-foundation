@@ -6,7 +6,7 @@ import { FractalGrid } from "./SacredGeometry";
 import LocaleLink from "./LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale } from "@/lib/i18n";
-import { subscribeToNewsletter } from "@/lib/shopify";
+
 
 const Footer = () => {
   const navigate = useLocaleNavigate();
