@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: "Will I need to pay any additional taxes or fees on delivery?",
-    answer: "We offer free worldwide shipping on all orders."
+    answer: "Most orders arrive with no additional charges, though some countries may apply local import taxes depending on order value and local regulations. If you're unsure, check with your local customs office before ordering."
   },
   {
     question: "How much does shipping cost?",
