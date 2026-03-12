@@ -132,21 +132,8 @@ const Footer = () => {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4 text-xs text-muted-foreground/40 font-body">
+          <div className="text-xs text-muted-foreground/40 font-body text-center">
             <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
-            
-            {/* Follow on Shop */}
-            <a
-              href="https://shop.app/unique-yoga-mats"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#5A31F4]/90 hover:bg-[#5A31F4] transition-colors text-white text-[10px] font-medium opacity-80 hover:opacity-100"
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
-              </svg>
-              Follow on Shop
-            </a>
           </div>
         </div>
       </div>
