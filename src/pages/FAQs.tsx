@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     question: "My order hasn't arrived — what should I do?",
-    answer: "If your order hasn't arrived within the expected timeframe, please contact us and we'll be happy to investigate and help resolve the issue."
+    answer: "If your order hasn't arrived within the expected timeframe, please contact us at hello@uniqueyogamats.com and we'll be happy to investigate and resolve the issue."
   },
   {
     question: "What is your returns policy?",
