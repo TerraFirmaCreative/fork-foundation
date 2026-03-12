@@ -100,39 +100,6 @@ const Footer = () => {
             </div>
           ))}
 
-          {/* Subscribe Column */}
-          <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-sm font-medium text-foreground/70 mb-2 font-body tracking-wide uppercase">Subscribe</h4>
-            <p className="text-sm text-muted-foreground/60 mb-4 font-body">Early access. New designs. Community stories.</p>
-            <form className="flex items-center border-b border-foreground/20 pb-1 mb-6 max-w-xs" onSubmit={async (e) => {
-              e.preventDefault();
-              if (isSubmitting || !email) return;
-              setIsSubmitting(true);
-              const result = await subscribeToNewsletter(email);
-              setIsSubmitting(false);
-              if (result.success) {
-                setEmail("");
-                navigate("/subscribe/thank-you");
-              } else {
-                toast.error(result.error || "Failed to subscribe. Please try again.");
-              }
-            }}>
-              <input 
-                type="email" 
-                placeholder="Email address" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-muted-foreground/40 text-foreground py-1"
-                required
-                disabled={isSubmitting}
-              />
-              <button type="submit" disabled={isSubmitting} className="w-8 h-8 rounded-full bg-secondary/10 hover:bg-secondary/20 flex items-center justify-center transition-colors text-foreground/80 flex-shrink-0 ml-2">
-                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
-              </button>
-            </form>
-            <p className="text-[11px] text-muted-foreground/40 font-body -mt-4 mb-6">No spam. Unsubscribe anytime.</p>
-            
-          </div>
         </div>
         
         {/* Bottom Bar */}
