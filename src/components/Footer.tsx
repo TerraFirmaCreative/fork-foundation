@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { FractalGrid } from "./SacredGeometry";
 import { FractalGrid } from "./SacredGeometry";
 import { toast } from "sonner";
 
