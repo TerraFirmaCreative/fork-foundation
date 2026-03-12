@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     question: "How much does shipping cost?",
-    answer: "Shipping costs are calculated at checkout based on your delivery address and will be clearly displayed before you complete your purchase."
+    answer: "We offer free worldwide shipping on all orders."
   },
   {
     question: "How long does delivery take?",
