@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     question: "What is your returns policy?",
-    answer: "Because our mats are printed to order, we're unable to accept returns for change of mind.\n\nIf your mat arrives damaged, faulty, or there's an issue with your order, please contact us within 30 days of delivery and we'll work with you to make it right.\n\nThis does not affect your rights under applicable consumer protection laws."
+    answer: "If your mat arrives damaged, faulty, or there's an issue with your order, please contact us at hello@uniqueyogamats.com within 30 days of delivery and we'll work with you to make it right."
   },
   {
     question: "Will the colors look exactly the same as on my screen?",
