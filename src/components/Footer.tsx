@@ -12,8 +12,6 @@ const Footer = () => {
   const navigate = useLocaleNavigate();
   const location = useLocation();
   const { locale } = useLocale();
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isHomePage = location.pathname === `/${locale}` || location.pathname === `/${locale}/`;
 
