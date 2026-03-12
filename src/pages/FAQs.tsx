@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: "Where do you ship?",
-    answer: "We currently ship orders within the United States.\nInternational shipping options are something we're working toward, and we'll share updates when available."
+    answer: "We ship worldwide and are continuously expanding our delivery options. Any questions? Get in touch"
   },
   {
     question: "Will I need to pay any additional taxes or fees on delivery?",
