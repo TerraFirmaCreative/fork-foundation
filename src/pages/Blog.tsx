@@ -31,7 +31,7 @@ const Blog = () => {
             Blog
           </h1>
           <p className="text-muted-foreground/80 font-body max-w-xl mx-auto">
-            Stories from our community — their practice, their place in the world, and the rituals that keep them grounded.
+            Stories from our community — the practice, the place, and the rituals that keep them grounded.
           </p>
         </div>
 
