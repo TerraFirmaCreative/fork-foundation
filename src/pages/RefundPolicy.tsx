@@ -51,7 +51,7 @@ const RefundPolicy = () => {
                 </li>
               </ul>
               <p className="mb-4">
-                To start a return, please contact us at <strong className="text-foreground">support@uniqueyogamats.com</strong>.
+                To start a return, please contact us at <strong className="text-foreground">hello@uniqueyogamats.com</strong>.
               </p>
               <p className="mb-4">
                 If your return is approved, we'll provide instructions on how and where to send your item.
