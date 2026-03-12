@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
 import { FractalGrid } from "./SacredGeometry";
-import { toast } from "sonner";
+
 
 import LocaleLink from "./LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
