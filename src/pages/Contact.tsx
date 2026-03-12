@@ -17,8 +17,8 @@ const Contact = () => {
             </p>
             
             <p>
-              <a href="mailto:support@uniqueyogamats.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">
-                support@uniqueyogamats.com
+              <a href="mailto:hello@uniqueyogamats.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">
+                hello@uniqueyogamats.com
               </a>
             </p>
             
