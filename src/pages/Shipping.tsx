@@ -72,8 +72,8 @@ const Shipping = () => {
               <h3 className="font-display text-xl text-foreground mb-3">Questions?</h3>
               <p>We're always happy to help.</p>
               <p className="mt-2">
-                <a href="mailto:support@uniqueyogamats.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">
-                  support@uniqueyogamats.com
+                <a href="mailto:hello@uniqueyogamats.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">
+                  hello@uniqueyogamats.com
                 </a>
               </p>
             </div>
