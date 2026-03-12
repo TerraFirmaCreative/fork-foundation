@@ -1,12 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { FractalGrid } from "./SacredGeometry";
-import { FractalGrid } from "./SacredGeometry";
-
-
 import LocaleLink from "./LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale } from "@/lib/i18n";
-
 
 const Footer = () => {
   const navigate = useLocaleNavigate();
