@@ -131,6 +131,7 @@ const ProductDetail = () => {
             <div className="flex-1 rounded-xl overflow-hidden bg-muted/20">
               {images[selectedImageIndex] ? (
                 <ImageMagnifier
+                  thumbhash={images[selectedImageIndex].node.thumbhash}
                   src={shopifyImageUrl(images[selectedImageIndex].node.url, 800)}
                   srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
                   sizes={PRODUCT_MAIN_SIZES}
