@@ -153,6 +153,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
           node {
             url
             altText
+            thumbhash
           }
         }
       }
