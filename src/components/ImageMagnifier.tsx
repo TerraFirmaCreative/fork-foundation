@@ -1,12 +1,36 @@
-import React, { MouseEvent, useState, ImgHTMLAttributes } from 'react';
+import React, { MouseEvent, useState, useMemo, ImgHTMLAttributes } from 'react';
+import { thumbHashToDataURL } from 'thumbhash';
+
+function decodeBase64ThumbHash(base64: string): string | null {
+  try {
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    return thumbHashToDataURL(bytes);
+  } catch {
+    return null;
+  }
+}
 
 const MAGNIFIER_SIZE = 300;
 const ZOOM_LEVEL = 2.5;
 
-const ImageMagnifier = (props: ImgHTMLAttributes<HTMLImageElement>) => {
+interface ImageMagnifierProps extends ImgHTMLAttributes<HTMLImageElement> {
+  thumbhash?: string | null;
+}
+
+const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
   const [zoomable, setZoomable] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
   const [position, setPosition] = useState({ x: 100, y: 100, mouseX: 0, mouseY: 0 });
+
+  const placeholderUrl = useMemo(
+    () => (thumbhash ? decodeBase64ThumbHash(thumbhash) : null),
+    [thumbhash]
+  );
 
   const handleMouseEnter = (e: MouseEvent) => {
     const element = e.currentTarget;
