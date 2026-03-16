@@ -12,6 +12,7 @@ import ImageMagnifier from "@/components/ImageMagnifier";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
+import ThumbhashImage from "@/components/ThumbhashImage";
 import { formatPrice } from "@/lib/utils";
 
 const ProductDetail = () => {
