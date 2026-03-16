@@ -68,7 +68,15 @@ const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
     >
-      <img {...props} />
+      {placeholderUrl && !loaded && (
+        <img
+          src={placeholderUrl}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover z-[1]"
+        />
+      )}
+      <img {...props} className={`${props.className ?? ''} relative z-[2]`} onLoad={(e) => { setLoaded(true); props.onLoad?.(e); }} />
       <div
         style={{
           backgroundPosition: `${Math.max(Math.min(0, position.x), -imageSize.width * ZOOM_LEVEL + MAGNIFIER_SIZE)}px ${Math.max(Math.min(0, position.y), -imageSize.height * ZOOM_LEVEL + MAGNIFIER_SIZE)}px`,
