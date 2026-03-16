@@ -103,6 +103,7 @@ const COLLECTION_BY_HANDLE_QUERY = `
                 node {
                   url
                   altText
+                  thumbhash
                 }
               }
             }
