@@ -22,6 +22,7 @@ export interface ShopifyProduct {
         node: {
           url: string;
           altText: string | null;
+          thumbhash: string | null;
         };
       }>;
     };
