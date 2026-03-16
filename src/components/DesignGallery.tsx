@@ -50,7 +50,8 @@ const DesignGallery = () => {
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
-                    <img
+                    <ThumbhashImage
+                      thumbhash={image.thumbhash}
                       src={shopifyImageUrl(image.url, 400)}
                       srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
                       sizes={GALLERY_SIZES}

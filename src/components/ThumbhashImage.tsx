@@ -16,9 +16,11 @@ function decodeBase64ThumbHash(base64: string): string | null {
 
 interface ThumbhashImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   thumbhash?: string | null;
+  /** Extra classes on the wrapper div */
+  wrapperClassName?: string;
 }
 
-const ThumbhashImage = ({ thumbhash, className, style, ...imgProps }: ThumbhashImageProps) => {
+const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }: ThumbhashImageProps) => {
   const [loaded, setLoaded] = useState(false);
 
   const placeholderUrl = useMemo(
@@ -27,20 +29,18 @@ const ThumbhashImage = ({ thumbhash, className, style, ...imgProps }: ThumbhashI
   );
 
   return (
-    <div className="relative overflow-hidden" style={{ display: "contents" }}>
+    <div className={`relative overflow-hidden ${wrapperClassName ?? ""}`}>
       {placeholderUrl && !loaded && (
         <img
           src={placeholderUrl}
           alt=""
           aria-hidden
-          className={className}
-          style={{ ...style, position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }}
+          className="absolute inset-0 w-full h-full object-cover z-[1]"
         />
       )}
       <img
         {...imgProps}
-        className={className}
-        style={style}
+        className={`${className ?? ""} relative z-[2]`}
         onLoad={(e) => {
           setLoaded(true);
           imgProps.onLoad?.(e);
