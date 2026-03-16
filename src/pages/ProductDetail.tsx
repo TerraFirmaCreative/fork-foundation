@@ -112,7 +112,8 @@ const ProductDetail = () => {
                       : "border-transparent opacity-60 hover:opacity-90"
                       }`}
                   >
-                    <img
+                    <ThumbhashImage
+                      thumbhash={img.node.thumbhash}
                       src={shopifyImageUrl(img.node.url, 80)}
                       srcSet={shopifySrcSet(img.node.url, [80, 160])}
                       sizes={THUMBNAIL_SIZES}
