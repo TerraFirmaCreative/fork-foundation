@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import BlogPostHudson from "./pages/BlogPost-Hudson";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
+import Sitemap from "./pages/Sitemap";
 import ScrollToTop from "./components/ScrollToTop";
 import LocaleRedirect from "./components/LocaleRedirect";
 import LocaleLayout from "./components/LocaleLayout";
