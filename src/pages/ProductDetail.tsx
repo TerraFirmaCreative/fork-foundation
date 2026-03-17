@@ -136,7 +136,7 @@ const ProductDetail = () => {
                   srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
                   sizes={PRODUCT_MAIN_SIZES}
                   alt={images[selectedImageIndex].node.altText || product.node.title}
-                  className={cn(selectedImageIndex == 0 && "aspect-[1/3]", "cursor-crosshair rounded-md overflow-clip")}
+                  className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
                 />
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
