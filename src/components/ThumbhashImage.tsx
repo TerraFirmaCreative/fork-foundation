@@ -22,7 +22,6 @@ interface ThumbhashImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
 }
 
 const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }: ThumbhashImageProps) => {
-  const [loaded, setLoaded] = useState(false);
 
   const placeholderUrl = useMemo(
     () => (thumbhash ? decodeBase64ThumbHash(thumbhash) : null),
@@ -31,22 +30,21 @@ const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }:
 
   return (
     <div className={`relative overflow-hidden ${wrapperClassName ?? ""}`}>
-      {placeholderUrl && !loaded && (
-        <img
-          src={placeholderUrl}
-          alt=""
-          aria-hidden
-          className={cn("absolute inset-0 w-full h-full object-cover z-[1]", className)}
-        />
-      )}
       <img
         {...imgProps}
         className={cn("relative z-[2]", className)}
         onLoad={(e) => {
-          setLoaded(true);
           imgProps.onLoad?.(e);
         }}
       />
+      {placeholderUrl && (
+        <img
+          src={placeholderUrl}
+          alt=""
+          aria-hidden
+          className={cn("absolute top-0 inset-0 w-full h-full object-cover z-[1]", className)}
+        />
+      )}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import React, { MouseEvent, useState, useMemo, ImgHTMLAttributes } from 'react';
+import { MouseEvent, useState, useMemo, ImgHTMLAttributes } from 'react';
 import { thumbHashToDataURL } from 'thumbhash';
 
 function decodeBase64ThumbHash(base64: string): string | null {
@@ -24,7 +24,6 @@ interface ImageMagnifierProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
   const [zoomable, setZoomable] = useState(false);
-  const [loaded, setLoaded] = useState(false);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
   const [position, setPosition] = useState({ x: 100, y: 100, mouseX: 0, mouseY: 0 });
 
@@ -69,15 +68,15 @@ const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
     >
-      {placeholderUrl && !loaded && (
+      <img {...props} className={cn(`relative z-[2] h-full w-full object-cover`)} onLoad={(e) => { props.onLoad?.(e); }} />
+      {placeholderUrl && (
         <img
           src={placeholderUrl}
           alt=""
           aria-hidden
-          className={cn("relative object-cover z-[4] h-full w-full")}
+          className={cn("absolute top-0 object-cover z-[1] h-full w-full")}
         />
       )}
-      <img {...props} className={cn(`relative z-[2] h-full w-full object-cover`)} onLoad={(e) => { setLoaded(true); props.onLoad?.(e); }} />
       <div
         style={{
           backgroundPosition: `${Math.max(Math.min(0, position.x), -imageSize.width * ZOOM_LEVEL + MAGNIFIER_SIZE)}px ${Math.max(Math.min(0, position.y), -imageSize.height * ZOOM_LEVEL + MAGNIFIER_SIZE)}px`,
