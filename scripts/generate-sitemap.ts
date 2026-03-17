@@ -52,7 +52,7 @@ async function generateSitemap() {
 
   // Ensure the dist folder exists (just in case)
   console.log(process.cwd())
-  const distDir = "./dist";
+  const distDir = "./public";
   fs.mkdirSync(distDir, { recursive: true });
 
   fs.writeFileSync(`${distDir}/sitemap.xml`, sitemap);
