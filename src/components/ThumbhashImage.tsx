@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { thumbHashToDataURL } from "thumbhash";
 
 function decodeBase64ThumbHash(base64: string): string | null {

@@ -5,6 +5,9 @@ const SHOPIFY_STORE_PERMANENT_DOMAIN = 'e38601-2.myshopify.com';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
 const SHOPIFY_STOREFRONT_TOKEN = '7dc3a3eb2f66fb19af18f3317e9e7d59';
 
+const CUSTOM_SHOPIFY_STOREFRONT_TOKEN = '14dbe478bb1d983b3b5369681203acf3'; //Legacy app
+const UNSTABLE_SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/unstable/graphql.json`
+
 export interface ShopifyProduct {
   node: {
     id: string;
@@ -406,16 +409,16 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
 
 // Newsletter subscribe via Storefront API (using customerCreate with acceptsMarketing)
 
-const CUSTOMER_CREATE_SUBSCRIBE = `
-  mutation customerCreate($input: CustomerCreateInput!) {
-    customerCreate(input: $input) {
+const CUSTOMER_SUBSCRIBE = `
+  mutation customerSubscribe($email: String!) {
+		customerEmailMarketingSubscribe(email: $email) {
       customer {
         id
       }
       customerUserErrors {
-        code
         field
         message
+        code
       }
     }
   }
@@ -423,20 +426,16 @@ const CUSTOMER_CREATE_SUBSCRIBE = `
 
 export async function subscribeToNewsletter(email: string): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch(SHOPIFY_STOREFRONT_URL, {
+    const response = await fetch(UNSTABLE_SHOPIFY_STOREFRONT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
+        'X-Shopify-Storefront-Access-Token': CUSTOM_SHOPIFY_STOREFRONT_TOKEN,
       },
       body: JSON.stringify({
-        query: CUSTOMER_CREATE_SUBSCRIBE,
+        query: CUSTOMER_SUBSCRIBE,
         variables: {
-          input: {
-            email,
-            password: crypto.randomUUID(),
-            acceptsMarketing: true,
-          },
+          email: email
         },
       }),
     });

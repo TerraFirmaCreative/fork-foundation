@@ -95,8 +95,7 @@ const BlogPostHudson = () => {
                 srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
                 sizes={GALLERY_SIZES}
                 alt={img.alt}
-                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
-                  }`}
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
               />
