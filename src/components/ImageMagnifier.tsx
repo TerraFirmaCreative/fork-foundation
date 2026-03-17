@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React, { MouseEvent, useState, useMemo, ImgHTMLAttributes } from 'react';
 import { thumbHashToDataURL } from 'thumbhash';
 
@@ -63,7 +64,7 @@ const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
 
   return (
     <div
-      className="relative w-full h-full flex justify-center items-center"
+      className={cn("relative flex justify-center h-full max-h-[600px] items-center", props.className)}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
@@ -73,10 +74,10 @@ const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
           src={placeholderUrl}
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-cover z-[1]"
+          className={cn("relative object-cover z-[1]")}
         />
       )}
-      <img {...props} className={`${props.className ?? ''} relative z-[2]`} onLoad={(e) => { setLoaded(true); props.onLoad?.(e); }} />
+      <img {...props} className={cn(`relative z-[2] border h-full w-full object-cover`)} onLoad={(e) => { setLoaded(true); props.onLoad?.(e); }} />
       <div
         style={{
           backgroundPosition: `${Math.max(Math.min(0, position.x), -imageSize.width * ZOOM_LEVEL + MAGNIFIER_SIZE)}px ${Math.max(Math.min(0, position.y), -imageSize.height * ZOOM_LEVEL + MAGNIFIER_SIZE)}px`,

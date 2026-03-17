@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { useState, useMemo } from "react";
 import { thumbHashToDataURL } from "thumbhash";
 
@@ -35,12 +36,12 @@ const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }:
           src={placeholderUrl}
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-cover z-[1]"
+          className={cn("absolute inset-0 w-full h-full object-cover z-[1]", className)}
         />
       )}
       <img
         {...imgProps}
-        className={`${className ?? ""} relative z-[2]`}
+        className={cn("relative z-[2]", className)}
         onLoad={(e) => {
           setLoaded(true);
           imgProps.onLoad?.(e);

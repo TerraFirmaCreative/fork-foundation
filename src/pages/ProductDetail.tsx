@@ -13,7 +13,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
-import { formatPrice } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -128,7 +128,7 @@ const ProductDetail = () => {
             )}
 
             {/* Main Image */}
-            <div className="flex-1 rounded-xl overflow-hidden bg-muted/20">
+            <div className="flex flex-col rounded-xl overflow-hidden bg-muted/20 w-full items-center p-4">
               {images[selectedImageIndex] ? (
                 <ImageMagnifier
                   thumbhash={images[selectedImageIndex].node.thumbhash}
@@ -136,7 +136,7 @@ const ProductDetail = () => {
                   srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
                   sizes={PRODUCT_MAIN_SIZES}
                   alt={images[selectedImageIndex].node.altText || product.node.title}
-                  className="w-full h-auto object-contain max-h-[70vh] cursor-crosshair"
+                  className={cn(selectedImageIndex == 0 && "aspect-[1/3]", "cursor-crosshair rounded-md overflow-clip")}
                 />
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
