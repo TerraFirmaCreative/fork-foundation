@@ -1,40 +1,26 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, ShoppingCart, Loader2 } from "lucide-react";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useLocale } from "@/lib/i18n";
-import { shopifyImageUrl } from "@/lib/imageUtils";
+import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
-import hudson1 from "@/assets/hudson-1.jpg";
-import hudson2 from "@/assets/hudson-2.jpg";
-import hudson3 from "@/assets/hudson-3.jpg";
-import hudson4 from "@/assets/hudson-4.jpg";
-import hudson5 from "@/assets/hudson-5.jpg";
-import hudson6 from "@/assets/hudson-6.jpg";
-import hudson7 from "@/assets/hudson-7.jpg";
-import hudson8 from "@/assets/hudson-8.jpg";
-import hudson9 from "@/assets/hudson-9.jpg";
-import hudson10 from "@/assets/hudson-10.jpg";
-import hudson11 from "@/assets/hudson-11.jpg";
-import hudson12 from "@/assets/hudson-12.jpg";
-import hudson13 from "@/assets/hudson-13.jpg";
 import { formatPrice } from "@/lib/utils";
 
 const images = [
-  { src: hudson1, alt: "Hudson practising yoga on the beach at Bunker Bay" },
-  { src: hudson2, alt: "Hudson in downward dog at Bunker Bay" },
-  { src: hudson3, alt: "Yoga mat on the sand with sun flare at Bunker Bay" },
-  { src: hudson4, alt: "Hudson in triangle pose at Bunker Bay" },
-  { src: hudson5, alt: "Hudson in forward fold on the beach" },
-  { src: hudson6, alt: "Hudson in plank pose at Bunker Bay" },
-  { src: hudson7, alt: "Hudson in warrior pose at Bunker Bay" },
-  { src: hudson8, alt: "Hudson in downward dog at sunset" },
-  { src: hudson9, alt: "Hudson in cobra pose on the beach" },
-  { src: hudson10, alt: "Hudson in crescent lunge at Bunker Bay" },
-  { src: hudson11, alt: "Hudson in low lunge reaching up" },
-  { src: hudson12, alt: "Hudson in child's pose on the sand" },
-  { src: hudson13, alt: "Hudson standing on her mat by the ocean" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118", alt: "Hudson practising yoga on the beach at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-2.jpg?v=1773738117", alt: "Hudson in downward dog at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-3.webp?v=1773738118", alt: "Yoga mat on the sand with sun flare at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-4.webp?v=1773738118", alt: "Hudson in triangle pose at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-5.webp?v=1773738118", alt: "Hudson in forward fold on the beach" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-6.webp?v=1773738118", alt: "Hudson in plank pose at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-7.webp?v=1773738118", alt: "Hudson in warrior pose at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-8.webp?v=1773738118", alt: "Hudson in downward dog at sunset" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-9.webp?v=1773738118", alt: "Hudson in cobra pose on the beach" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-10.webp?v=1773738118", alt: "Hudson in crescent lunge at Bunker Bay" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-11.webp?v=1773738118", alt: "Hudson in low lunge reaching up" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-12.jpg?v=1773738118", alt: "Hudson in child's pose on the sand" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-13.jpg?v=1773738117", alt: "Hudson standing on her mat by the ocean" },
 ];
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
@@ -102,7 +88,9 @@ const YogiOfTheWeek = () => {
               {images.map((img, i) => (
                 <img
                   key={i}
-                  src={img.src}
+                  src={shopifyImageUrl(img.src, 400)}
+                  srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
+                  sizes={GALLERY_SIZES}
                   alt={img.alt}
                   className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[7000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
                     }`}

@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LocaleLink from "@/components/LocaleLink";
-import hudson1 from "@/assets/hudson-1.jpg";
+import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 
 const blogPosts = [
   {
@@ -10,7 +10,7 @@ const blogPosts = [
     subtitle: "South West Australia",
     excerpt:
       "Hudson is originally from Canada, but at the moment you'll find her on the other side of the world — travelling slowly through South West Australia.",
-    image: hudson1,
+    image: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118",
     imageAlt: "Hudson practising yoga on the beach at Bunker Bay",
     category: "Unique Yogi of the Week",
     date: "25 February 2026",
@@ -45,7 +45,9 @@ const Blog = () => {
               <div className="grid md:grid-cols-[1.2fr_1fr] gap-0">
                 <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
                   <img
-                    src={post.image}
+                    src={shopifyImageUrl(post.image, 400)}
+                    srcSet={shopifySrcSet(post.image, [150, 300, 450, 600])}
+                    sizes={GALLERY_SIZES}
                     alt={post.imageAlt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"

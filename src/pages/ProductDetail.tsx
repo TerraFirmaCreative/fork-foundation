@@ -118,7 +118,7 @@ const ProductDetail = () => {
                       srcSet={shopifySrcSet(img.node.url, [80, 160])}
                       sizes={THUMBNAIL_SIZES}
                       alt={img.node.altText || `Thumbnail ${i + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover aspect-[2/3]"
                       loading="lazy"
                       decoding="async"
                     />
