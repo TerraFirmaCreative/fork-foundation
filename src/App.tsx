@@ -68,6 +68,7 @@ const App = () => (
           <Route path="/blog" element={<LocaleRedirect />} />
           <Route path="/blog/hudson-in-margaret-river" element={<LocaleRedirect />} />
 
+          <Route path="/sitemap.xml" element={<Sitemap />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
