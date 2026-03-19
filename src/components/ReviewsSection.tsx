@@ -52,16 +52,6 @@ const ReviewsSection = () => {
             <span className="text-gradient italic">yogis worldwide</span>
           </h2>
           
-          {/* Google aggregate rating */}
-          <div className="flex items-center justify-center gap-2 mt-6">
-            <GoogleIcon />
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-shaman-gold/90 text-shaman-gold/90" />
-              ))}
-            </div>
-            <span className="text-sm text-foreground/60 font-body">5.0 based on Google Reviews</span>
-          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
