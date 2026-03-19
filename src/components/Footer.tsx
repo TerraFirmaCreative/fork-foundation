@@ -44,7 +44,7 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
             <LocaleLink to="/" className="flex items-center gap-3 mb-4">
