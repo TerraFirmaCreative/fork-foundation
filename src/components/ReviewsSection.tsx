@@ -66,10 +66,6 @@ const ReviewsSection = () => {
                     <Star key={i} className="w-3.5 h-3.5 fill-shaman-gold/80 text-shaman-gold/80" />
                   ))}
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground/50 font-body">
-                  <GoogleIcon />
-                  <span>Posted on Google</span>
-                </div>
               </div>
               
               <p className="font-display text-lg text-foreground/90 italic leading-relaxed mb-8">
