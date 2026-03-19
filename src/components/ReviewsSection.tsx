@@ -82,9 +82,6 @@ const ReviewsSection = () => {
                     <p className="text-xs text-muted-foreground/40 font-body">{review.date}</p>
                   </div>
                 </div>
-                <span className="text-[10px] uppercase tracking-wider text-shaman-teal/60 font-body border border-shaman-teal/20 px-2 py-0.5 rounded-full">
-                  Verified
-                </span>
               </div>
             </div>
           ))}
