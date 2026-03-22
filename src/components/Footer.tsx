@@ -177,7 +177,7 @@ const Footer = () => {
           </div>
 
           <div className="text-xs text-muted-foreground/40 font-body text-center">
-            <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
+            <p>© 2026 Terra Firma Collective. All rights reserved.</p>
           </div>
         </div>
       </div>

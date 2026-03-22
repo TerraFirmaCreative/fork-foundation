@@ -26,7 +26,7 @@ const AboutSection = () => {
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
           <p>
-            Unique Yoga Mats began as a conversation between three friends living 
+            Terra Firma Collective began as a conversation between three friends living 
             in different corners of the world — Phil in Australia, Charly in the 
             UK, and Tym in Poland.
           </p>

@@ -69,7 +69,7 @@ const faqs = [
     answer: "We do our best to represent colors accurately, but slight variations may occur due to screen settings and the printing process. These subtle differences are a normal part of production."
   },
   {
-    question: "How do I contact Unique Yoga Mats?",
+    question: "How do I contact Terra Firma Collective?",
     answer: "You can reach us at hello@uniqueyogamats.com and we'll aim to get back to you as quickly as possible."
   }
 ];

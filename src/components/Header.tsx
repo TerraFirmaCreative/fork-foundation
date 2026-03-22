@@ -72,7 +72,8 @@ const Header = () => {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-xl tracking-wide text-foreground leading-tight">Unique Yoga Mats</span>
+            <span className="font-display text-xl tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
+            <span className="font-body text-[9px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
           </div>
         </LocaleLink>
 

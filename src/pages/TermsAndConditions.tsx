@@ -250,7 +250,7 @@ const TermsAndConditions = () => {
                 Section 14 – Indemnification
               </h2>
               <p>
-                You agree to indemnify and hold harmless <strong className="text-foreground">Unique Yoga Mats</strong> and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
+                You agree to indemnify and hold harmless <strong className="text-foreground">Terra Firma Collective</strong> and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
               </p>
             </section>
 
