@@ -9,8 +9,8 @@ import {
 
 const faqs = [
   {
-    question: "What is Unique Yoga Mats?",
-    answer: "Unique Yoga Mats is an online store offering beautifully designed yoga mats, printed to order and delivered directly to your door. Each design is carefully created and produced specifically for you."
+    question: "What is Terra Firma Collective?",
+    answer: "Terra Firma Collective is an online store offering beautifully designed yoga mats, printed to order and delivered directly to your door. Each design is carefully created and produced specifically for you."
   },
   {
     question: "What products do you sell?",
