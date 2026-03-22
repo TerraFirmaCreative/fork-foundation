@@ -234,7 +234,7 @@ const TermsAndConditions = () => {
                 All products and services are provided "as is" and "as available", except as expressly stated.
               </p>
               <p className="mb-4">
-                To the maximum extent permitted by law, <strong className="text-foreground">Unique Yoga Mats</strong> shall not be liable for any direct, indirect, incidental, punitive, or consequential damages arising from your use of the Service or any products purchased.
+                To the maximum extent permitted by law, <strong className="text-foreground">Terra Firma Collective</strong> shall not be liable for any direct, indirect, incidental, punitive, or consequential damages arising from your use of the Service or any products purchased.
               </p>
               <p className="mb-4">
                 Where liability cannot be excluded, it is limited to the maximum extent permitted by law.
