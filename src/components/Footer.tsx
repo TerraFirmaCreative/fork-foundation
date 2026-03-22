@@ -64,7 +64,10 @@ const Footer = () => {
                   <path d="M20 16 L24 19 M20 20 L25 22 M20 24 L23 26" stroke="url(#footerTerraGradient)" strokeWidth="0.8" opacity="0.5" />
                 </svg>
               </div>
-              <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
+              <div className="flex flex-col">
+                <span className="font-display text-lg tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
+                <span className="font-body text-[8px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
+              </div>
             </LocaleLink>
           </div>
 
