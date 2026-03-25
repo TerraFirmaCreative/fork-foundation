@@ -76,7 +76,7 @@ const Header = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-display text-xl tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
-            <span className="font-body text-[9px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Creative</span>
+            <span className="font-display text-[10px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
           </div>
         </LocaleLink>
 

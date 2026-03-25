@@ -12,7 +12,7 @@ const RefundPolicy = () => {
           </h1>
           
           <p className="text-lg text-muted-foreground font-body mb-12">
-            At Terra Firma Creative, all products are made to order. Please read our returns policy carefully before making a purchase.
+            At Terra Firma Collective, all products are made to order. Please read our returns policy carefully before making a purchase.
           </p>
 
           <div className="space-y-12 text-muted-foreground font-body leading-relaxed">
