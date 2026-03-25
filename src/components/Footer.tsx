@@ -66,7 +66,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-lg tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
-                <span className="font-body text-[8px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Creative</span>
+                <span className="font-display text-[9px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
               </div>
             </LocaleLink>
           </div>
@@ -177,7 +177,7 @@ const Footer = () => {
           </div>
 
           <div className="text-xs text-muted-foreground/40 font-body text-center">
-            <p>© 2026 Terra Firma Creative. All rights reserved.</p>
+            <p>© 2026 Terra Firma Collective. All rights reserved.</p>
           </div>
         </div>
       </div>

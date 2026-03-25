@@ -9,8 +9,8 @@ import {
 
 const faqs = [
   {
-    question: "What is Terra Firma Creative?",
-    answer: "Terra Firma Creative is an online store offering beautifully designed yoga mats, printed to order and delivered directly to your door. Each design is carefully created and produced specifically for you."
+    question: "What is Terra Firma Collective?",
+    answer: "Terra Firma Collective is an online store offering beautifully designed yoga mats, printed to order and delivered directly to your door. Each design is carefully created and produced specifically for you."
   },
   {
     question: "What products do you sell?",
@@ -69,7 +69,7 @@ const faqs = [
     answer: "We do our best to represent colors accurately, but slight variations may occur due to screen settings and the printing process. These subtle differences are a normal part of production."
   },
   {
-    question: "How do I contact Terra Firma Creative?",
+    question: "How do I contact Terra Firma Collective?",
     answer: "You can reach us at hello@uniqueyogamats.com and we'll aim to get back to you as quickly as possible."
   }
 ];

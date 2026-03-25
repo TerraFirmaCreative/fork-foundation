@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
 
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p>
-              This Privacy Policy describes how <strong className="text-foreground">Terra Firma Creative</strong> (the "Site", "we", "us", or "our") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from <strong className="text-foreground">terrafirmacollective.com</strong>, or otherwise communicate with us (collectively, the "Services").
+              This Privacy Policy describes how <strong className="text-foreground">Terra Firma Collective</strong> (the "Site", "we", "us", or "our") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from <strong className="text-foreground">terrafirmacollective.com</strong>, or otherwise communicate with us (collectively, the "Services").
             </p>
             
             <p>
