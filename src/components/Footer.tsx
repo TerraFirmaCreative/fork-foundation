@@ -59,14 +59,14 @@ const Footer = () => {
                     </linearGradient>
                   </defs>
                   <circle cx="20" cy="20" r="18" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.2" />
-                  <path d="M8 28 L15 16 L20 22 L25 14 L32 28 Z" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.3" strokeLinejoin="round" />
-                  <line x1="6" y1="28" x2="34" y2="28" stroke="url(#footerTerraGradient)" strokeWidth="1" opacity="0.5" />
-                  <circle cx="20" cy="11" r="2.5" fill="url(#footerTerraGradient)" opacity="0.7" />
+                  <path d="M10 26 Q10 12 20 10 Q30 12 30 26" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.2" />
+                  <path d="M8 24 Q12 22 16 24 Q20 26 24 24 Q28 22 32 24" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1" />
+                  <path d="M6 28 Q11 25.5 16 28 Q21 30.5 26 28 Q31 25.5 34 28" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1" />
                 </svg>
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-lg tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
-                <span className="font-body text-[8px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
+                <span className="font-body text-[8px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Creative</span>
               </div>
             </LocaleLink>
           </div>
@@ -177,7 +177,7 @@ const Footer = () => {
           </div>
 
           <div className="text-xs text-muted-foreground/40 font-body text-center">
-            <p>© 2026 Terra Firma Collective. All rights reserved.</p>
+            <p>© 2026 Terra Firma Creative. All rights reserved.</p>
           </div>
         </div>
       </div>
