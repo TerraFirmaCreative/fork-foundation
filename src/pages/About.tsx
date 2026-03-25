@@ -13,7 +13,7 @@ const About = () => {
           
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              We're Phil, Charly and Tym — three friends building Terra Firma Collective from Australia, the UK and Poland.
+              We're Phil, Charly and Tym — three friends building Terra Firma Creative from Australia, the UK and Poland.
             </p>
             
             <p>
