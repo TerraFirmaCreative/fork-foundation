@@ -66,7 +66,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-lg tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
-                <span className="font-body text-[8px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Creative</span>
+                <span className="font-display text-[9px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
               </div>
             </LocaleLink>
           </div>
