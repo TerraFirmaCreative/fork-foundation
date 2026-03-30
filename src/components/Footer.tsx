@@ -51,23 +51,20 @@ const Footer = () => {
               <div className="w-10 h-10 relative">
                 <svg viewBox="0 0 40 40" className="w-full h-full">
                   <defs>
-                    <linearGradient id="footerTerraGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(var(--terra-clay))" />
-                      <stop offset="40%" stopColor="hsl(var(--terra-sand))" />
-                      <stop offset="70%" stopColor="hsl(var(--terra-sage))" />
-                      <stop offset="100%" stopColor="hsl(var(--terra-moss))" />
+                    <linearGradient id="footerTerraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="hsl(var(--shaman-violet))" />
+                      <stop offset="50%" stopColor="hsl(var(--shaman-magenta))" />
+                      <stop offset="100%" stopColor="hsl(var(--shaman-gold))" />
                     </linearGradient>
                   </defs>
-                  <circle cx="20" cy="20" r="18" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.2" />
-                  <path d="M10 26 Q10 12 20 10 Q30 12 30 26" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.2" />
-                  <path d="M8 24 Q12 22 16 24 Q20 26 24 24 Q28 22 32 24" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1" />
-                  <path d="M6 28 Q11 25.5 16 28 Q21 30.5 26 28 Q31 25.5 34 28" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1" />
+                  <circle cx="20" cy="20" r="18" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.5" />
+                  <path d="M20 8 C12 14 12 26 20 32 C28 26 28 14 20 8 Z" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.5" />
+                  <path d="M20 12 L20 28" stroke="url(#footerTerraGradient)" strokeWidth="1" opacity="0.7" />
+                  <path d="M20 16 L16 19 M20 20 L15 22 M20 24 L17 26" stroke="url(#footerTerraGradient)" strokeWidth="0.8" opacity="0.5" />
+                  <path d="M20 16 L24 19 M20 20 L25 22 M20 24 L23 26" stroke="url(#footerTerraGradient)" strokeWidth="0.8" opacity="0.5" />
                 </svg>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-lg tracking-[0.15em] uppercase text-foreground leading-tight">Terra Firma</span>
-                <span className="font-display text-[9px] tracking-[0.35em] uppercase text-muted-foreground leading-none">Collective</span>
-              </div>
+              <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
             </LocaleLink>
           </div>
 
@@ -177,7 +174,7 @@ const Footer = () => {
           </div>
 
           <div className="text-xs text-muted-foreground/40 font-body text-center">
-            <p>© 2026 Terra Firma Collective. All rights reserved.</p>
+            <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
           </div>
         </div>
       </div>
