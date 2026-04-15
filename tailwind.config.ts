@@ -20,7 +20,7 @@ export default {
   				'serif'
   			],
 			body: [
-				'Lora',
+				'Cormorant Garamond',
 				'Georgia',
 				'serif'
 			],
