@@ -21,8 +21,10 @@ const getSteps = (priceLabel: string) => [
     title: "Place Your Order",
     color: "text-shaman-magenta",
     lines: [
-      { text: `${priceLabel} per mat, delivery included.`, bold: "" },
-      { text: "No hidden fees. Secure checkout.", bold: "" },
+      { text: `${priceLabel} per mat`, bold: "" },
+      { text: "Delivery included", bold: "" },
+      { text: "No hidden fees", bold: "" },
+      { text: "Secure checkout", bold: "" },
     ],
   },
   {
