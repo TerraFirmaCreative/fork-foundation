@@ -7,47 +7,41 @@ import { formatPrice } from "@/lib/utils";
 const getSteps = (priceLabel: string) => [
   {
     number: "01",
-    title: "Browse the Range",
+    title: "Browse the Collection",
     color: "text-shaman-violet",
     lines: [
-      { text: "24 beautifully designed", bold: "mats" },
-      { text: "Natural", bold: "rubber base" },
-      { text: "Suede", bold: "microfibre surface" },
-      { text: "Extra grip", bold: "for your practice" },
+      { text: "24 original designs to choose from.", bold: "" },
+      { text: "Natural rubber base, suede microfibre surface, extra grip for your practice.", bold: "" },
     ],
   },
   {
     number: "02",
-    title: "Invest in Your Mat",
+    title: "Place Your Order",
     color: "text-shaman-magenta",
-    price: `${priceLabel} per mat`,
     lines: [
-      { text: "Delivery", bold: "included in the price" },
-      { text: "No", bold: "hidden fees" },
-      { text: "", bold: "Secure checkout" },
+      { text: `${priceLabel} per mat, delivery included.`, bold: "" },
+      { text: "No hidden fees. Secure checkout.", bold: "" },
     ],
   },
   {
     number: "03",
-    title: "Delivery Times",
+    title: "We'll Get It To You",
     color: "text-shaman-gold",
     deliveryLines: [
-      { country: "USA", time: "1 week" },
-      { country: "Europe", time: "2 weeks" },
+      { country: "USA", time: "around 1 week" },
+      { country: "Europe", time: "around 2 weeks" },
       { country: "Australia", time: "up to 3 weeks" },
     ],
     lines: [
-      { text: "Mats made in", bold: "Nevada, USA" },
+      { text: "Every mat is printed to order in Nevada, USA.", bold: "" },
     ],
   },
   {
     number: "04",
-    title: "Enjoy Your New Mat",
+    title: "Enjoy Your Practice",
     color: "text-shaman-violet",
     lines: [
-      { text: "Enjoy your", bold: "practice" },
-      { text: "Enjoy your", bold: "life" },
-      { text: "Be", bold: "happy" },
+      { text: "That's it. Unroll it, step on it, and see how it feels.", bold: "" },
     ],
   },
 ];
@@ -114,11 +108,6 @@ const HowItWorks = () => {
                 </h3>
               </div>
 
-              {step.price && (
-                <p className="text-sm text-foreground/70 font-body leading-relaxed mt-2">
-                  {step.price}
-                </p>
-              )}
 
               {step.deliveryLines && (
                 <div className="space-y-1.5 mt-2">
