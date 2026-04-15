@@ -39,7 +39,7 @@ const HeroSection = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground/80 mb-14 font-body font-normal max-w-2xl mx-auto leading-[1.8] md:whitespace-nowrap">
-          You'll never want to roll them up.
+          Designed to inspire and made to perform. Simple as that.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
