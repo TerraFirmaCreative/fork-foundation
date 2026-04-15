@@ -29,7 +29,7 @@ const getSteps = (priceLabel: string) => [
   },
   {
     number: "03",
-    title: "We'll Get It To You",
+    title: "Delivery",
     color: "text-shaman-gold",
     deliveryLines: [
       { country: "USA", time: "around 1 week" },
