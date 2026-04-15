@@ -53,13 +53,13 @@ const HeroSection = () => {
           </Button>
         </div>
         
-        <p className="text-xs md:text-lg text-muted-foreground/70 font-body whitespace-nowrap">
+        <p className="text-sm md:text-xl text-muted-foreground/70 font-body whitespace-nowrap">
           Premium natural rubber · Suede microfibre surface · Non-slip
         </p>
-        <p className="text-xs md:text-base text-muted-foreground/70 font-body mt-2">
+        <p className="text-sm md:text-lg text-muted-foreground/70 font-body mt-2">
           Free shipping on all mats
         </p>
-        <p className="text-xs tracking-[0.15em] uppercase text-muted-foreground/40 font-body mt-3">
+        <p className="text-sm tracking-[0.15em] uppercase text-muted-foreground/40 font-body mt-3">
           Made in the USA
         </p>
       </div>
