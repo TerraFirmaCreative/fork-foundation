@@ -1,4 +1,5 @@
 import { MandalaDecoration } from "./SacredGeometry";
+import LocaleLink from "./LocaleLink";
 
 const AboutSection = () => {
   return (
@@ -21,35 +22,30 @@ const AboutSection = () => {
         </p>
         
         <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-          <span className="text-foreground">Three friends. </span><span className="text-gradient italic">One shared idea.</span>
+          <span className="text-foreground">Hi, we're Charly, Phil and Tym </span><span className="text-gradient italic">— the small team behind Ensori.</span>
         </h2>
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
           <p>
-            Unique Yoga Mats began as a conversation between three friends living 
-            in different corners of the world — Phil in Australia, Charly in the 
-            UK, and Tym in Poland.
-          </p>
-          
-          <p>
-            We believed something simple: art and movement belong together.
+            Phil started designing beautiful yoga mats using AI a few years back. 
+            When we saw what he was creating, we wanted to be part of it.
           </p>
 
           <p>
-            We didn't want to create just another yoga mat. We wanted to create 
-            pieces with original artwork — mats you'd genuinely want to leave out, 
-            not tuck away.
+            Phil is the creative heart of everything — he designs every mat, working 
+            with AI to produce artwork you genuinely won't find anywhere else. Tym is 
+            the technical brain who makes it all actually work. And I'm Charly — I 
+            handle everything in between and make sure your mat arrives at your door.
           </p>
 
           <p>
-            From three time zones, we design and build every mat with intention. 
-            Each one printed edge to edge. Each one made to order. Each one 
-            created to make your practice space feel personal.
-          </p>
-
-          <p>
-            Because sometimes all it takes is one stretch, one breath, one moment 
-            on the mat to shift your whole day.
+            We'd love you to join our little community.{" "}
+            <LocaleLink 
+              to="/about" 
+              className="text-shaman-gold hover:text-shaman-gold/80 underline underline-offset-4 transition-colors"
+            >
+              Read our full story →
+            </LocaleLink>
           </p>
         </div>
       </div>
