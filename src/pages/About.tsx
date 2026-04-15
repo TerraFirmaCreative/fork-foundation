@@ -13,42 +13,37 @@ const About = () => {
           
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              We're Phil, Charly and Tym — three friends building Unique Yoga Mats from Australia, the UK and Poland.
+              Hi. We're Charly, Phil and Tym — three friends now living in the UK, Australia and Poland.
             </p>
             
             <p>
-              What started as a simple idea turned into something much bigger. We wanted to create yoga mats that carry original artwork — pieces you'd genuinely want to live with, not just roll out and pack away.
-            </p>
-
-            <p>
-              Because we believe your space matters.
-            </p>
-
-            <p>
-              Wellness doesn't have to be complicated. It can start with one stretch. One breath. One quiet moment in the morning before the day begins. And when your mat feels personal — when it reflects something you connect with — it's easier to come back to it.
-            </p>
-
-            <p>
-              That's really where this began.
+              Unique Yoga Mats started with a simple idea — that yoga mats should be genuinely beautiful. We wanted to create mats that carry original artwork — designs you'd genuinely want to leave out. That's really where this began.
             </p>
 
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Built Across Borders
+                How We Met
               </h2>
               <p className="mb-4">
-                We work across three time zones (which makes scheduling interesting), but it also means every mat is shaped by different perspectives.
-              </p>
-              <p className="mb-4">
-                Phil brings the vision and creative direction from the Australian coast.
-                <br />Charly keeps everything moving from the UK — structure, detail, making sure ideas become real things.
-                <br />Tym brings the technical brain and bold creative energy from Poland, building and refining everything behind the scenes.
-              </p>
-              <p className="mb-4">
-                We challenge each other. We refine things. We care about getting it right.
+                I'm Charly. Phil and I worked together in Perth back in 2013, and Phil met Tym a few years later in Fremantle — Tym was travelling, they got talking, and that was that.
               </p>
               <p>
-                Every design is original. Every mat is printed edge-to-edge and made to order. Nothing mass-produced. Nothing rushed.
+                Fast forward, a lot of WhatsApp messages, and more Google Meets than any of us care to count — Unique Yoga Mats was born, and we're genuinely proud of what we've made.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
+                What We Each Bring
+              </h2>
+              <p className="mb-4">
+                Phil is the creative heart of everything. Every design starts with him — he works with AI to create each mat, refining until it feels right. Vision, creativity, energy — that's his world. (Just don't ask him to file anything!)
+              </p>
+              <p className="mb-4">
+                Tym is the technical brain. He builds, he solves, he makes the stuff that exists only in Phil's head function in real life.
+              </p>
+              <p>
+                And I'm Charly — I keep everything moving. The structure, the detail, the small things that need doing so that ideas actually turn into mats that arrive at your door.
               </p>
             </div>
 
@@ -57,19 +52,13 @@ const About = () => {
                 The Mats Themselves
               </h2>
               <p className="mb-4">
-                They had to feel as good as they look.
+                Our mats are designed to be beautiful — genuinely, strikingly beautiful. Artwork that means something. Designs that are emotive, original and unlike anything else you'll find on a yoga mat.
               </p>
               <p className="mb-4">
-                The top layer is a soft microfiber suede that gets grippier as you move and warm up — especially during sweaty sessions. The more you practice, the better it performs.
-              </p>
-              <p className="mb-4">
-                The base is natural rubber, giving you cushioning and stability without sliding around the floor.
-              </p>
-              <p className="mb-4">
-                At 3mm thick, they're lightweight enough to carry easily, but supportive enough for everyday practice. Sized at 70" × 26", there's plenty of room to move, stretch and flow freely.
+                But they also had to feel as good as they look. Soft microfibre suede on top that gets grippier as you warm up, a natural rubber base that stays put, and printed edge-to-edge so the artwork looks exactly as it should. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice.
               </p>
               <p>
-                Simple. Functional. Built to last.
+                We were fussy about every detail. Our mats had to earn their place.
               </p>
             </div>
 
@@ -78,13 +67,13 @@ const About = () => {
                 Why We're Doing This
               </h2>
               <p className="mb-4">
-                We're not trying to build the biggest yoga brand in the world.
+                We want to make mats we're genuinely proud of — artistic, original, and the kind of thing that makes you want to roll your mat out again tomorrow.
               </p>
               <p className="mb-4">
-                We just want to create something thoughtful. Something artistic. Something that makes you want to roll your mat out again tomorrow.
+                What we envisage is a growing community of people who love beautiful yoga mats. Hearing where you practice, seeing your mat wherever you are — that means a lot to us. It's early days, but that's where we're headed.
               </p>
               <p>
-                If one of our designs makes your space feel more like yours — and brings you back to your practice more often — then we've done our job.
+                Come and be a part of it.
               </p>
             </div>
 
