@@ -20,9 +20,7 @@ const AffiliateSection = () => {
         <p className="text-lg text-foreground/70 font-body leading-relaxed mb-4">
           Share our mats with your friends and family and earn every time someone buys through your link.
         </p>
-        <p className="text-base text-foreground/50 font-body leading-relaxed mb-10">
-          Join our affiliate program and get rewarded every time someone purchases through your link.
-        </p>
+        <div className="mb-10" />
         <Button
           variant="cta"
           size="lg"
