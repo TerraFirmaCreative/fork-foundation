@@ -22,7 +22,7 @@ const AboutSection = () => {
         </p>
         
         <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-          <span className="text-foreground">Hi, we're Charly, Phil and Tym </span><span className="text-gradient italic">— the small team behind Ensori.</span>
+<span className="text-foreground">Three friends. </span><span className="text-gradient italic">One shared idea.</span>
         </h2>
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
