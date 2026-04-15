@@ -32,7 +32,7 @@ const AboutSection = () => {
 
           <p>
             Phil started designing beautiful yoga mats using AI a few years back. 
-            When we saw what he was creating, we wanted to be part of it.
+            We saw what he was creating and that was that.
           </p>
 
           <p>
