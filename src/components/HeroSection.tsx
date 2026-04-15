@@ -28,7 +28,10 @@ const HeroSection = () => {
       />
       
       <div className="max-w-2xl mx-auto text-center relative z-10">
-        
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-10 font-body">
+          Find Your Perfect Mat
+        </p>
+
         <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
           <span className="text-foreground">Beautiful </span>
           <span className="text-gradient italic"><span className="underline decoration-shaman-gold decoration-2 underline-offset-4">and</span> grippy</span>
