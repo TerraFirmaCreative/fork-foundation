@@ -33,14 +33,13 @@ const HeroSection = () => {
         </p>
         
         <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
-          <span className="text-foreground">Beautiful, unique,</span>
-          <br />
+          <span className="text-foreground">Beautiful </span>
           <span className="text-gradient italic"><span className="underline decoration-shaman-gold decoration-2 underline-offset-4">and</span> grippy</span>
           <span className="text-foreground/70 italic"> yoga mats.</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground/80 mb-14 font-body font-normal max-w-2xl mx-auto leading-[1.8] md:whitespace-nowrap">
-          Mats so beautiful, you'll never want to roll them up.
+          You'll never want to roll them up.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
