@@ -18,7 +18,7 @@ const AffiliateSection = () => {
           <span className="text-gradient italic">Affiliate</span>
         </h2>
         <p className="text-lg text-foreground/70 font-body leading-relaxed mb-4">
-          Share our mats with friends and earn an income doing it.
+          Share our mats with friends and family and earn an income doing it.
         </p>
         <p className="text-base text-foreground/50 font-body leading-relaxed mb-10">
           Join our affiliate program and get rewarded every time someone purchases through your link.
