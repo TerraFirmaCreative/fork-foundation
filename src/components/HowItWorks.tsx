@@ -10,8 +10,10 @@ const getSteps = (priceLabel: string) => [
     title: "Browse the Collection",
     color: "text-shaman-violet",
     lines: [
-      { text: "24 original designs to choose from.", bold: "" },
-      { text: "Natural rubber base, suede microfibre surface, extra grip for your practice.", bold: "" },
+      { text: "24 original designs to choose from", bold: "" },
+      { text: "Natural rubber base", bold: "" },
+      { text: "Suede microfibre surface", bold: "" },
+      { text: "Extra grip for your practice", bold: "" },
     ],
   },
   {
