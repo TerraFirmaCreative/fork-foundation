@@ -108,11 +108,6 @@ const HowItWorks = () => {
                 </h3>
               </div>
 
-              {step.price && (
-                <p className="text-sm text-foreground/70 font-body leading-relaxed mt-2">
-                  {step.price}
-                </p>
-              )}
 
               {step.deliveryLines && (
                 <div className="space-y-1.5 mt-2">
