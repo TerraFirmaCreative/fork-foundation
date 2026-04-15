@@ -7,7 +7,7 @@ const About = () => {
       <Header />
       <main className="py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-display text-4xl md:text-5xl font-medium mb-8 text-foreground">
+          <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Our Story
           </h1>
           
