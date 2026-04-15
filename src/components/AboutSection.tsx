@@ -27,6 +27,10 @@ const AboutSection = () => {
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
           <p>
+            Hi, we're Charly, Phil and Tym — the small team behind Ensori.
+          </p>
+
+          <p>
             Phil started designing beautiful yoga mats using AI a few years back. 
             When we saw what he was creating, we wanted to be part of it.
           </p>
