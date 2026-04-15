@@ -42,10 +42,10 @@ const getSteps = (priceLabel: string) => [
   },
   {
     number: "04",
-    title: "Enjoy Your Practice",
+    title: "Now the Fun Part",
     color: "text-shaman-violet",
     lines: [
-      { text: "Now the fun part — unroll it and enjoy your practice.", bold: "" },
+      { text: "Unroll it and enjoy your practice.", bold: "" },
     ],
   },
 ];
