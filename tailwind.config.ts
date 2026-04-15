@@ -19,11 +19,11 @@ export default {
   				'Georgia',
   				'serif'
   			],
-  			body: [
-  				'DM Sans',
-  				'system-ui',
-  				'sans-serif'
-  			],
+			body: [
+				'Lora',
+				'Georgia',
+				'serif'
+			],
   			sans: [
   				'ui-sans-serif',
   				'system-ui',

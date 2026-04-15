@@ -62,7 +62,7 @@
       hsl(270, 25%, 6%) 100%);
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-body: 'Lora', Georgia, serif;
 
     --shadow-soft: 0 4px 24px -4px hsla(30, 20%, 10%, 0.5);
     --shadow-card: 0 8px 40px -12px hsla(30, 20%, 10%, 0.6);
