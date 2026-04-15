@@ -3,23 +3,23 @@ import { MandalaDecoration } from "./SacredGeometry";
 const benefits = [
   {
     title: "Natural Rubber Base",
-    description: "Stable, grounded support that stays in place on any surface."
+    description: "Stays put on any surface, so you can focus on your practice, not your mat."
   },
   {
-    title: "Microfiber Suede Surface",
-    description: "Soft underfoot, responsive to movement, and designed to grip as your practice warms."
+    title: "Microfibre Suede Surface",
+    description: "Soft underfoot and gets grippier as you warm up — exactly when you need it most."
   },
   {
     title: "Balanced Thickness",
-    description: "A low-profile cushion that supports joints while keeping you connected to the floor."
+    description: "Enough cushion to support your joints, thin enough to keep you connected to the floor."
   },
   {
     title: "Edge-to-Edge Print",
-    description: "High-resolution, full-coverage artwork that brings each design to life."
+    description: "The full artwork, edge to edge, in stunning detail."
   },
   {
     title: "Lightweight & Durable",
-    description: "Easy to carry, made to last, and designed for regular practice."
+    description: "Light enough to carry anywhere, tough enough for daily practice."
   }
 ];
 
