@@ -45,7 +45,7 @@ const getSteps = (priceLabel: string) => [
     title: "Now the Fun Part",
     color: "text-shaman-violet",
     lines: [
-      { text: "Unroll it and enjoy your practice.", bold: "" },
+      { text: "Your beautiful new mat has arrived! We hope you love it as much as we do.", bold: "" },
     ],
   },
 ];
