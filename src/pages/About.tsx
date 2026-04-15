@@ -77,11 +77,6 @@ const About = () => {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-border/30">
-              <p className="text-lg italic text-foreground/80">
-                Three friends. Three countries. One mat at a time.
-              </p>
-            </div>
           </div>
         </div>
       </main>
