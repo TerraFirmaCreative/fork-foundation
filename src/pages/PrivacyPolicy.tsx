@@ -15,6 +15,10 @@ const PrivacyPolicy = () => {
             Last updated: February 2026
           </p>
 
+          <p className="text-lg text-muted-foreground font-body mb-8 leading-relaxed">
+            We respect your privacy and we'll never sell your personal information. This policy explains what we collect, why we collect it, and how we use it. If you have any questions, just get in touch at <strong className="text-foreground">hello@uniqueyogamats.com</strong>.
+          </p>
+
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p>
               This Privacy Policy describes how <strong className="text-foreground">Unique Yoga Mats</strong> (the "Site", "we", "us", or "our") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from <strong className="text-foreground">uniqueyogamats.com</strong>, or otherwise communicate with us (collectively, the "Services").
