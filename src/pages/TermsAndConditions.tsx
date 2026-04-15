@@ -16,6 +16,10 @@ const TermsAndConditions = () => {
             Last updated: February 2026
           </p>
 
+          <p className="text-lg text-muted-foreground font-body mb-8 leading-relaxed">
+            We've tried to keep this as straightforward as possible. The short version: our mats are made to order, we take quality seriously, and if something goes wrong we'll do our best to put it right. The full details are below.
+          </p>
+
           <div className="space-y-10 text-muted-foreground font-body leading-relaxed">
             {/* Overview */}
             <section>
