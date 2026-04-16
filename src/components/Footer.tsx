@@ -51,17 +51,16 @@ const Footer = () => {
               <div className="w-10 h-10 relative">
                 <svg viewBox="0 0 40 40" className="w-full h-full">
                   <defs>
-                    <linearGradient id="footerTerraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="hsl(var(--shaman-violet))" />
-                      <stop offset="50%" stopColor="hsl(var(--shaman-magenta))" />
-                      <stop offset="100%" stopColor="hsl(var(--shaman-gold))" />
+                    <linearGradient id="footerExpansuraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#6b3d9e" />
+                      <stop offset="60%" stopColor="#c97a2f" />
+                      <stop offset="100%" stopColor="#c8a96e" />
                     </linearGradient>
                   </defs>
-                  <circle cx="20" cy="20" r="18" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.5" />
-                  <path d="M20 8 C12 14 12 26 20 32 C28 26 28 14 20 8 Z" fill="none" stroke="url(#footerTerraGradient)" strokeWidth="1.5" />
-                  <path d="M20 12 L20 28" stroke="url(#footerTerraGradient)" strokeWidth="1" opacity="0.7" />
-                  <path d="M20 16 L16 19 M20 20 L15 22 M20 24 L17 26" stroke="url(#footerTerraGradient)" strokeWidth="0.8" opacity="0.5" />
-                  <path d="M20 16 L24 19 M20 20 L25 22 M20 24 L23 26" stroke="url(#footerTerraGradient)" strokeWidth="0.8" opacity="0.5" />
+                  <circle cx="20" cy="20" r="18" fill="none" stroke="url(#footerExpansuraGradient)" strokeWidth="0.6" opacity="0.5" />
+                  <path d="M20 5 L35 32 L5 32 Z" fill="none" stroke="url(#footerExpansuraGradient)" strokeWidth="0.7" />
+                  <circle cx="20" cy="22" r="4.5" fill="none" stroke="url(#footerExpansuraGradient)" strokeWidth="0.6" />
+                  <circle cx="20" cy="22" r="1.5" fill="#c97a2f" />
                 </svg>
               </div>
               <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
