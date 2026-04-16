@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     question: "What are the mats made from?",
-    answer: "The top layer is a soft microfibre suede that gets grippier as you warm up — exactly when you need it most. The base is natural rubber, which keeps the mat firmly in place while you move. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice."
+    answer: "The top layer is a soft suede that gets grippier as you warm up — exactly when you need it most. The base is natural rubber, which keeps the mat firmly in place while you move. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice."
   },
   {
     question: "What payment methods do you accept?",

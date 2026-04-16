@@ -6,7 +6,7 @@ const benefits = [
     description: "Stays put on any surface, so you can focus on your practice, not your mat."
   },
   {
-    title: "Microfibre Suede Surface",
+    title: "Suede Top",
     description: "Soft underfoot and gets grippier as you warm up — exactly when you need it most."
   },
   {

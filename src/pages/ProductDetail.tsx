@@ -199,7 +199,7 @@ const ProductDetail = () => {
             <div className="mt-8 border-t border-border/50 pt-8">
               <h3 className="font-display text-lg text-foreground font-semibold mb-4">Specifications</h3>
               <div className="grid grid-cols-2 gap-4">
-                <SpecItem icon={<Layers className="w-5 h-5" />} text="Microfibre Suede Top" />
+                <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
                 <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
                 <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
                 <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (64oz)" />
