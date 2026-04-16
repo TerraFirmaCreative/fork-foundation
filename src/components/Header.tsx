@@ -75,7 +75,7 @@ const Header = () => {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl tracking-[0.15em] text-foreground leading-tight uppercase" style={{ fontWeight: 400 }}>Expansura</span>
+            <span className="font-display text-xl tracking-[0.15em] text-foreground leading-tight uppercase" style={{ fontWeight: 400 }}>Expansura</span>
           </div>
         </LocaleLink>
 
