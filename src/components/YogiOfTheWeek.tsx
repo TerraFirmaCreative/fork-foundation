@@ -24,21 +24,59 @@ const images = [
 ];
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
+const SLOT_COUNT = 4;
 
-/** A single gallery slot that cycles through images at a random interval */
-const GallerySlot = ({ startIndex }: { startIndex: number }) => {
-  const [current, setCurrent] = useState(startIndex % images.length);
+/** Shared controller that ensures no two slots show the same image */
+const useGalleryController = () => {
+  // Each slot gets a dedicated pool of indices so they never overlap
+  const [slots, setSlots] = useState<number[]>(() => {
+    // Spread starting indices evenly
+    return Array.from({ length: SLOT_COUNT }, (_, i) =>
+      Math.floor((i * images.length) / SLOT_COUNT)
+    );
+  });
 
+  const slotsRef = useRef(slots);
+  slotsRef.current = slots;
+
+  const advance = useCallback((slotIndex: number) => {
+    setSlots((prev) => {
+      const taken = new Set(prev);
+      let next = (prev[slotIndex] + 1) % images.length;
+      // Walk forward until we find an image not used by another slot
+      let attempts = 0;
+      while (taken.has(next) && next !== prev[slotIndex] && attempts < images.length) {
+        next = (next + 1) % images.length;
+        attempts++;
+      }
+      const updated = [...prev];
+      updated[slotIndex] = next;
+      return updated;
+    });
+  }, []);
+
+  return { slots, advance };
+};
+
+const GallerySlot = ({
+  currentIndex,
+  onAdvance,
+  delay,
+}: {
+  currentIndex: number;
+  onAdvance: () => void;
+  delay: number;
+}) => {
   useEffect(() => {
     const tick = () => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      onAdvance();
       schedule();
     };
     let timeout: ReturnType<typeof setTimeout>;
     const schedule = () => {
       timeout = setTimeout(tick, 2500 + Math.random() * 1500);
     };
-    schedule();
+    timeout = setTimeout(tick, delay);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -51,7 +89,7 @@ const GallerySlot = ({ startIndex }: { startIndex: number }) => {
           srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
           sizes={GALLERY_SIZES}
           alt={img.alt}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === currentIndex ? "opacity-100" : "opacity-0"}`}
           loading="lazy"
           decoding="async"
         />
@@ -62,87 +100,75 @@ const GallerySlot = ({ startIndex }: { startIndex: number }) => {
 
 const YogiOfTheWeek = () => {
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
-  const [quantity, setQuantity] = useState(1);
-  const { addItem, isLoading, setDrawerOpen } = useCartStore();
+  const { isLoading } = useCartStore();
   const { country } = useLocale();
+  const { slots, advance } = useGalleryController();
 
   useEffect(() => {
     fetchProductByHandle(PRODUCT_HANDLE, country).then(setProduct);
   }, [country]);
 
   const variant = product?.node.variants.edges[0]?.node;
-
-  const price = variant
-    ? formatPrice(variant.price)
-    : "$170.00";
+  const price = variant ? formatPrice(variant.price) : "$170.00";
 
   return (
-    <section className="relative py-16 md:py-24 px-6 overflow-hidden">
+    <section className="relative py-12 md:py-16 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
+        <div className="text-center mb-8">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-3 font-body">
             Community Spotlight
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
             <span className="text-foreground">Unique Yogi </span>
             <span className="text-gradient italic">of the Week</span>
           </h2>
-          <p className="text-foreground/60 font-body leading-relaxed mt-4 max-w-2xl mx-auto">
+          <p className="text-foreground/60 font-body leading-relaxed mt-3 max-w-2xl mx-auto text-sm md:text-base">
             Every week we shine a light on someone from our community and the mat they chose. This week it's Hudson.
           </p>
         </div>
 
         {/* 4-image gallery grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12">
-          <GallerySlot startIndex={0} />
-          <GallerySlot startIndex={3} />
-          <GallerySlot startIndex={7} />
-          <GallerySlot startIndex={10} />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+          {slots.map((imgIndex, slotIndex) => (
+            <GallerySlot
+              key={slotIndex}
+              currentIndex={imgIndex}
+              onAdvance={() => advance(slotIndex)}
+              delay={1000 + slotIndex * 800}
+            />
+          ))}
         </div>
 
-        {/* Shop Hudson's Mat */}
-        <div className="border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm">
-          <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-center">
-            {/* Product image */}
-            <LocaleLink
-              to={`/product/${PRODUCT_HANDLE}`}
-              className="block relative aspect-square rounded-xl overflow-hidden group"
-            >
-              <GallerySlot startIndex={5} />
-            </LocaleLink>
-
-            {/* Product info + CTA */}
-            <div className="space-y-5">
-              <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 font-body">
+        {/* Shop Hudson's Mat — compact */}
+        <div className="border border-border/40 rounded-2xl p-5 md:p-8 bg-card/30 backdrop-blur-sm">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+            <div className="flex-1 space-y-2">
+              <p className="text-xs tracking-[0.3em] uppercase text-shaman-gold/70 font-body">
                 Hudson's Mat
               </p>
-              <h3 className="font-display text-3xl md:text-4xl font-medium text-foreground">
+              <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 Mandelbrot Dreams
               </h3>
-              <p className="text-foreground/60 font-body leading-relaxed">
-                Hudson is originally from Canada. She's drawn to movement, nature and the people around her — and she chose the Mandelbrot Dreams design for its infinite fractal patterns. For her, it's a reminder that there's always more to discover on the mat.
+              <p className="text-foreground/60 font-body leading-relaxed text-sm md:text-base">
+                Hudson chose Mandelbrot Dreams for its infinite fractal patterns — a reminder that there's always more to discover on the mat.
               </p>
+            </div>
 
-              {/* Shop Now */}
-              <div className="flex items-center flex-row gap-4 pt-2 w-full">
-                <p className="font-display text-3xl text-foreground font-medium">
-                  {price}
-                </p>
-                <LocaleLink
-                  to={`/product/${product?.node.handle}`}
-                  className="px-8"
+            <div className="flex items-center gap-4 shrink-0">
+              <p className="font-display text-2xl md:text-3xl text-foreground font-medium">
+                {price}
+              </p>
+              <LocaleLink to={`/product/${product?.node.handle}`}>
+                <Button
+                  variant="cta"
+                  size="lg"
+                  className="font-body font-medium tracking-wide glow-effect"
+                  disabled={isLoading || !variant}
                 >
-                  <Button
-                    variant="cta"
-                    size="lg"
-                    className="font-body font-medium mx-auto tracking-wide glow-effect"
-                    disabled={isLoading || !variant}
-                  >
-                    I Want This Mat
-                  </Button>
-                </LocaleLink>
-              </div>
+                  I Want This Mat
+                </Button>
+              </LocaleLink>
             </div>
           </div>
         </div>
