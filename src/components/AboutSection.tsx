@@ -27,7 +27,7 @@ const AboutSection = () => {
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
           <p>
-            Hi, we're Charly, Phil and Tym — the small team behind Ensori.
+            Hi, we're Charly, Phil and Tym — the small team behind Unique Yoga Mats.
           </p>
 
           <p>
