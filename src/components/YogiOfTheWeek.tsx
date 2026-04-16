@@ -150,7 +150,7 @@ const YogiOfTheWeek = () => {
               <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground">
                 Mandelbrot Dreams
               </h3>
-              <p className="text-foreground/60 font-body leading-relaxed text-sm md:text-base">
+              <p className="text-muted-foreground font-body leading-relaxed">
                 Hudson chose Mandelbrot Dreams for its infinite fractal patterns — a reminder that there's always more to discover on the mat.
               </p>
             </div>
