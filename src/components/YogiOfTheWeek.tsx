@@ -123,7 +123,7 @@ const YogiOfTheWeek = () => {
             <span className="text-foreground">Unique Yogi </span>
             <span className="text-gradient italic">of the Week</span>
           </h2>
-          <p className="text-foreground/60 font-body leading-relaxed mt-3 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-muted-foreground font-body leading-relaxed mt-3 max-w-2xl mx-auto">
             Every week we shine a light on someone from our community and the mat they chose. This week it's Hudson.
           </p>
         </div>
