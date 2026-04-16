@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
@@ -25,39 +25,52 @@ const images = [
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
 
+/** A single gallery slot that cycles through images at a random interval */
+const GallerySlot = ({ startIndex }: { startIndex: number }) => {
+  const [current, setCurrent] = useState(startIndex % images.length);
+
+  useEffect(() => {
+    const tick = () => {
+      setCurrent((prev) => (prev + 1) % images.length);
+      schedule();
+    };
+    let timeout: ReturnType<typeof setTimeout>;
+    const schedule = () => {
+      timeout = setTimeout(tick, 2500 + Math.random() * 1500);
+    };
+    schedule();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
+      {images.map((img, i) => (
+        <img
+          key={i}
+          src={shopifyImageUrl(img.src, 400)}
+          srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
+          sizes={GALLERY_SIZES}
+          alt={img.alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
+          loading="lazy"
+          decoding="async"
+        />
+      ))}
+    </div>
+  );
+};
+
 const YogiOfTheWeek = () => {
-  const [current, setCurrent] = useState(0);
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [quantity, setQuantity] = useState(1);
   const { addItem, isLoading, setDrawerOpen } = useCartStore();
   const { country } = useLocale();
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
     fetchProductByHandle(PRODUCT_HANDLE, country).then(setProduct);
   }, [country]);
 
   const variant = product?.node.variants.edges[0]?.node;
-  const productImage = product?.node.images.edges[0]?.node;
-
-  const handleAddToCart = async () => {
-    if (!product || !variant) return;
-    await addItem({
-      product,
-      variantId: variant.id,
-      variantTitle: variant.title,
-      price: variant.price,
-      quantity,
-      selectedOptions: variant.selectedOptions || [],
-    }, country);
-    setDrawerOpen(true);
-  };
 
   const price = variant
     ? formatPrice(variant.price)
@@ -80,30 +93,26 @@ const YogiOfTheWeek = () => {
           </p>
         </div>
 
+        {/* 4-image gallery grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12">
+          <GallerySlot startIndex={0} />
+          <GallerySlot startIndex={3} />
+          <GallerySlot startIndex={7} />
+          <GallerySlot startIndex={10} />
+        </div>
+
         {/* Shop Hudson's Mat */}
-        <div className="mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm">
-          <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-start">
+        <div className="border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm">
+          <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-center">
             {/* Product image */}
             <LocaleLink
               to={`/product/${PRODUCT_HANDLE}`}
               className="block relative aspect-square rounded-xl overflow-hidden group"
             >
-              {images.map((img, i) => (
-                <img
-                  key={i}
-                  src={shopifyImageUrl(img.src, 400)}
-                  srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
-                  sizes={GALLERY_SIZES}
-                  alt={img.alt}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[7000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
-                    }`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ))}
+              <GallerySlot startIndex={5} />
             </LocaleLink>
 
-            {/* Product info + add to cart */}
+            {/* Product info + CTA */}
             <div className="space-y-5">
               <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 font-body">
                 Hudson's Mat
