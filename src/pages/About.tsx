@@ -55,7 +55,7 @@ const About = () => {
                 Our mats are designed to be beautiful — genuinely, strikingly beautiful. Artwork that means something. Designs that are emotive, original and unlike anything else you'll find on a yoga mat.
               </p>
               <p className="mb-4">
-                But they also had to feel as good as they look. Soft microfibre suede on top that gets grippier as you warm up, a natural rubber base that stays put, and printed edge-to-edge so the artwork looks exactly as it should. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice.
+                But they also had to feel as good as they look. But they also had to feel as good as they look. Soft suede top that gets grippier as you warm up, a natural rubber base that stays put, and printed edge-to-edge so the artwork looks exactly as it should. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice., a natural rubber base that stays put, and printed edge-to-edge so the artwork looks exactly as it should. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice.
               </p>
               <p>
                 We were fussy about every detail. Our mats had to earn their place.

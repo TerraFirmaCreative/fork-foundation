@@ -54,7 +54,7 @@ const HeroSection = () => {
         </div>
         
         <p className="text-base md:text-[1.35rem] text-muted-foreground/70 font-body whitespace-nowrap">
-          Premium natural rubber · Suede microfibre surface · Non-slip
+          Premium natural rubber · Suede top · Non-slip
         </p>
         <p className="text-base md:text-[1.35rem] text-muted-foreground/70 font-body mt-2">
           Free shipping on all mats
