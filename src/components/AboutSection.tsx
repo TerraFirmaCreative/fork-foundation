@@ -27,19 +27,11 @@ const AboutSection = () => {
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
           <p>
-            Hi, we're Charly, Phil and Tym — the small team behind Unique Yoga Mats.
+            We started Unique Yoga Mats because we believe yoga mats should be genuinely beautiful.
           </p>
 
           <p>
-            Phil started designing beautiful yoga mats using AI a few years back. 
-            We saw what he was creating and that was that.
-          </p>
-
-          <p>
-            Phil is the creative heart of everything — he designs every mat, working 
-            with AI to produce artwork you genuinely won't find anywhere else. Tym is 
-            the technical brain who makes it all actually work. And I'm Charly — I 
-            handle everything in between and make sure your mat arrives at your door.
+            Every design in our collection is an original piece of artwork, unlike anything else out there.
           </p>
 
           <p>
