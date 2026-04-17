@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
+
 
 const HeroSection = () => {
   const scrollToGallery = () =>
