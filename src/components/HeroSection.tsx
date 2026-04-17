@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
+
 
 const HeroSection = () => {
   const scrollToGallery = () =>
@@ -213,43 +213,31 @@ const HeroSection = () => {
 
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
-        {/* Floating logo */}
-        <img
-          src={cosmicIglooLogo}
-          alt="Cosmic Igloo — a warm space in the infinite"
-          className="w-56 sm:w-64 md:w-72 lg:w-80 h-auto animate-fade-in"
-          style={{
-            mixBlendMode: "screen",
-            filter: "drop-shadow(0 0 60px hsla(270, 80%, 60%, 0.55))",
-          }}
-          loading="eager"
-        />
-
         {/* Whisper-line above headline */}
-        <p className="mt-6 text-[0.7rem] sm:text-xs tracking-[0.4em] uppercase text-shaman-gold/70 font-body">
+        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body">
           A warm space in the infinite
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-5 font-display font-medium tracking-tight leading-[1.05] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl">
+        <h1 className="mt-8 font-display font-medium tracking-tight leading-[1.02] text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-4xl">
           <span className="block text-foreground/90">Beautiful</span>
-          <span className="block text-gradient italic -mt-1">
+          <span className="block text-gradient italic -mt-2">
             and grippy
           </span>
-          <span className="block text-foreground/60 italic font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-1">
+          <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
             yoga mats.
           </span>
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground/75 font-body max-w-xl leading-relaxed">
+        <p className="mt-10 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
         {/* Invitation downward — replaces the standard CTA button feel */}
         <button
           onClick={scrollToGallery}
-          className="group mt-8 flex flex-col items-center gap-3 cursor-pointer"
+          className="group mt-12 flex flex-col items-center gap-3 cursor-pointer"
           aria-label="View the collection below"
         >
           <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body">
