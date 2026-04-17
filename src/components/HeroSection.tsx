@@ -211,7 +211,11 @@ const HeroSection = () => {
         <img
           src={cosmicIglooLogo}
           alt="Cosmic Igloo — a warm space in the infinite"
-          className="mx-auto mb-12 w-72 md:w-96 h-auto animate-fade-in drop-shadow-[0_0_40px_hsla(270,70%,60%,0.4)]"
+          className="mx-auto mb-12 w-80 md:w-[28rem] h-auto animate-fade-in"
+          style={{
+            mixBlendMode: "screen",
+            filter: "drop-shadow(0 0 80px hsla(270, 80%, 60%, 0.5))",
+          }}
           loading="eager"
         />
 
