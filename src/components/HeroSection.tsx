@@ -3,13 +3,39 @@ import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center py-24 px-6 overflow-hidden">
-      {/* LAYER 1 — Deep space gradient base */}
+    <section className="relative min-h-[92vh] flex items-center justify-center py-24 px-6 overflow-hidden bg-black">
+      {/* LAYER 1 — True black space base with subtle violet depth */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 90% 70% at 50% 35%, hsla(265, 60%, 22%, 0.55) 0%, hsla(245, 55%, 10%, 0.7) 45%, hsla(240, 60%, 5%, 0.95) 100%)",
+            "radial-gradient(ellipse 90% 70% at 50% 40%, hsla(270, 50%, 12%, 0.55) 0%, hsla(255, 50%, 6%, 0.6) 45%, #000000 100%)",
+        }}
+      />
+
+      {/* LAYER 1b — Dense starfield covering the whole hero */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: [
+            "radial-gradient(1px 1px at 8% 12%, hsla(45, 80%, 85%, 0.9), transparent 60%)",
+            "radial-gradient(1px 1px at 18% 42%, hsla(0, 0%, 100%, 0.7), transparent 60%)",
+            "radial-gradient(1.5px 1.5px at 27% 22%, hsla(270, 70%, 92%, 0.85), transparent 60%)",
+            "radial-gradient(1px 1px at 36% 68%, hsla(0, 0%, 100%, 0.6), transparent 60%)",
+            "radial-gradient(1px 1px at 44% 14%, hsla(45, 80%, 85%, 0.75), transparent 60%)",
+            "radial-gradient(1.5px 1.5px at 53% 84%, hsla(220, 70%, 92%, 0.7), transparent 60%)",
+            "radial-gradient(1px 1px at 62% 32%, hsla(0, 0%, 100%, 0.65), transparent 60%)",
+            "radial-gradient(1px 1px at 71% 58%, hsla(270, 70%, 92%, 0.6), transparent 60%)",
+            "radial-gradient(1.5px 1.5px at 79% 18%, hsla(45, 80%, 85%, 0.8), transparent 60%)",
+            "radial-gradient(1px 1px at 86% 74%, hsla(0, 0%, 100%, 0.55), transparent 60%)",
+            "radial-gradient(1px 1px at 93% 38%, hsla(220, 70%, 92%, 0.65), transparent 60%)",
+            "radial-gradient(1px 1px at 12% 88%, hsla(45, 80%, 85%, 0.6), transparent 60%)",
+            "radial-gradient(1px 1px at 48% 92%, hsla(0, 0%, 100%, 0.55), transparent 60%)",
+            "radial-gradient(1px 1px at 66% 6%, hsla(270, 70%, 92%, 0.6), transparent 60%)",
+          ].join(", "),
+          backgroundSize: "1100px 1100px",
+          backgroundRepeat: "repeat",
+          opacity: 0.95,
         }}
       />
 
