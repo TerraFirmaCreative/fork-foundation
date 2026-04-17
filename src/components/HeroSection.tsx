@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import SacredGeometry, { MandalaDecoration } from "./SacredGeometry";
+import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
 
 const HeroSection = () => {
   return (
@@ -28,6 +29,12 @@ const HeroSection = () => {
       />
       
       <div className="max-w-2xl mx-auto text-center relative z-10">
+        <img
+          src={cosmicIglooLogo}
+          alt="Cosmic Igloo — a warm space in the infinite"
+          className="mx-auto mb-8 w-56 md:w-72 h-auto animate-fade-in"
+          loading="eager"
+        />
         <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-10 font-body">
           Find Your Perfect Mat
         </p>
