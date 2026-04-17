@@ -5,9 +5,10 @@ import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
 const HeroSection = () => {
   return (
     <section className="relative py-28 pb-12 px-6 overflow-hidden">
-      {/* Mystic background */}
+      {/* Cosmic background */}
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
+      <div className="absolute inset-0 starfield opacity-60 pointer-events-none" />
       
       {/* Sacred geometry patterns */}
       <SacredGeometry opacity={0.06} />
@@ -24,7 +25,7 @@ const HeroSection = () => {
         style={{ animationDelay: "4s" }}
       />
       <div 
-        className="floating-orb w-[300px] h-[300px] bottom-0 left-1/3 bg-shaman-teal/08"
+        className="floating-orb w-[300px] h-[300px] bottom-0 left-1/3 bg-shaman-teal/10"
         style={{ animationDelay: "8s" }}
       />
       
@@ -32,12 +33,9 @@ const HeroSection = () => {
         <img
           src={cosmicIglooLogo}
           alt="Cosmic Igloo — a warm space in the infinite"
-          className="mx-auto mb-8 w-56 md:w-72 h-auto animate-fade-in"
+          className="mx-auto mb-10 w-64 md:w-80 h-auto animate-fade-in"
           loading="eager"
         />
-        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-10 font-body">
-          Find Your Perfect Mat
-        </p>
 
         <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
           <span className="text-foreground">Beautiful </span>
