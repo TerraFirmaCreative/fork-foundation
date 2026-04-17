@@ -6,6 +6,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
+import cosmicIglooMark from "@/assets/cosmic-igloo-mark.png";
 
 import {
   DropdownMenu,
@@ -54,29 +55,15 @@ const Header = () => {
 
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
-        <LocaleLink to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div className="w-10 h-10 relative">
-            <svg viewBox="0 0 40 40" className="w-full h-full">
-              <defs>
-                <linearGradient id="expansuraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#6b3d9e" />
-                  <stop offset="60%" stopColor="#c97a2f" />
-                  <stop offset="100%" stopColor="#c8a96e" />
-                </linearGradient>
-              </defs>
-              {/* Outer sacred circle */}
-              <circle cx="20" cy="20" r="18" fill="none" stroke="url(#expansuraGradient)" strokeWidth="0.6" opacity="0.5" />
-              {/* Triangle */}
-              <path d="M20 5 L35 32 L5 32 Z" fill="none" stroke="url(#expansuraGradient)" strokeWidth="0.7" />
-              {/* Inner circle (eye) */}
-              <circle cx="20" cy="22" r="4.5" fill="none" stroke="url(#expansuraGradient)" strokeWidth="0.6" />
-              {/* Pupil dot */}
-              <circle cx="20" cy="22" r="1.5" fill="#c97a2f" />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display text-xl tracking-[0.15em] text-foreground leading-tight uppercase" style={{ fontWeight: 400 }}>Expansura</span>
-          </div>
+        <LocaleLink to="/" className="flex items-center gap-3 hover:opacity-85 transition-opacity" aria-label="Cosmic Igloo — home">
+          <img
+            src={cosmicIglooMark}
+            alt="Cosmic Igloo"
+            className="w-12 h-12 md:w-14 md:h-14 object-contain"
+          />
+          <span className="font-display text-base md:text-lg tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
+            Cosmic Igloo
+          </span>
         </LocaleLink>
 
         {/* Desktop Nav Links */}

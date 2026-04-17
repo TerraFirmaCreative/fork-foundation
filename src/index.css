@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
@@ -12,61 +12,62 @@
 
 @layer base {
   :root {
-    --background: 30 15% 7%;
-    --foreground: 35 20% 88%;
+    /* Cosmic Igloo: deep midnight indigo, violet light, soft starlight gold */
+    --background: 240 45% 6%;
+    --foreground: 250 25% 90%;
 
-    --card: 30 12% 11%;
-    --card-foreground: 35 20% 88%;
+    --card: 245 40% 9%;
+    --card-foreground: 250 25% 90%;
 
-    --popover: 30 12% 11%;
-    --popover-foreground: 35 20% 88%;
+    --popover: 245 40% 9%;
+    --popover-foreground: 250 25% 90%;
 
-    --primary: 28 35% 45%;
-    --primary-foreground: 30 15% 7%;
+    --primary: 270 55% 62%;
+    --primary-foreground: 240 45% 6%;
 
-    --secondary: 160 25% 35%;
-    --secondary-foreground: 35 20% 88%;
+    --secondary: 250 30% 22%;
+    --secondary-foreground: 250 25% 90%;
 
-    --muted: 30 10% 15%;
-    --muted-foreground: 35 18% 68%;
+    --muted: 245 30% 14%;
+    --muted-foreground: 250 18% 70%;
 
-    --accent: 35 50% 50%;
-    --accent-foreground: 30 15% 7%;
+    --accent: 45 70% 65%;
+    --accent-foreground: 240 45% 6%;
 
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 35 20% 92%;
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 250 25% 95%;
 
-    --border: 30 12% 18%;
-    --input: 30 12% 18%;
-    --ring: 28 35% 45%;
+    --border: 250 25% 18%;
+    --input: 250 25% 18%;
+    --ring: 270 55% 62%;
 
     --radius: 1.125rem;
 
-    /* Shamanic palette */
-    --shaman-violet: 280 60% 55%;
-    --shaman-magenta: 320 55% 50%;
-    --shaman-teal: 175 60% 40%;
-    --shaman-gold: 42 85% 55%;
-    --shaman-ember: 15 70% 50%;
-    --shaman-deep: 270 30% 12%;
+    /* Cosmic palette — keep shaman-* token names for backwards compat */
+    --shaman-violet: 270 60% 65%;
+    --shaman-magenta: 285 50% 55%;
+    --shaman-teal: 220 50% 55%;
+    --shaman-gold: 45 75% 65%;
+    --shaman-ember: 280 55% 60%;
+    --shaman-deep: 245 50% 8%;
 
     --gradient-shaman: linear-gradient(135deg, 
-      hsl(280, 60%, 55%) 0%, 
-      hsl(320, 55%, 50%) 35%, 
-      hsl(42, 85%, 55%) 70%,
-      hsl(15, 70%, 50%) 100%);
+      hsl(270, 60%, 65%) 0%, 
+      hsl(285, 50%, 55%) 35%, 
+      hsl(45, 75%, 65%) 75%,
+      hsl(220, 50%, 55%) 100%);
 
     --gradient-mystic: linear-gradient(180deg, 
-      hsl(270, 30%, 8%) 0%, 
-      hsl(280, 25%, 12%) 50%, 
-      hsl(270, 25%, 6%) 100%);
+      hsl(245, 50%, 8%) 0%, 
+      hsl(250, 45%, 11%) 50%, 
+      hsl(240, 45%, 6%) 100%);
 
-    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Cormorant Garamond', Georgia, serif;
 
-    --shadow-soft: 0 4px 24px -4px hsla(30, 20%, 10%, 0.5);
-    --shadow-card: 0 8px 40px -12px hsla(30, 20%, 10%, 0.6);
-    --shadow-glow: 0 0 50px -12px hsla(38, 30%, 50%, 0.25);
+    --shadow-soft: 0 4px 24px -4px hsla(245, 60%, 4%, 0.6);
+    --shadow-card: 0 8px 40px -12px hsla(245, 60%, 4%, 0.7);
+    --shadow-glow: 0 0 60px -12px hsla(270, 60%, 60%, 0.35);
     --chart-1: 45 96% 64%;
     --chart-2: 47 95% 53%;
     --chart-3: 43 96% 56%;
@@ -110,23 +111,23 @@
   }
 
   .dark {
-    --background: 30 15% 7%;
-    --foreground: 35 20% 88%;
-    --card: 30 12% 11%;
-    --card-foreground: 35 20% 88%;
-    --popover: 30 12% 11%;
-    --popover-foreground: 35 20% 88%;
-    --primary: 28 35% 45%;
-    --primary-foreground: 30 15% 7%;
-    --secondary: 160 25% 35%;
-    --secondary-foreground: 35 20% 88%;
-    --muted: 30 10% 15%;
-    --muted-foreground: 35 18% 68%;
-    --accent: 35 50% 50%;
-    --accent-foreground: 30 15% 7%;
-    --border: 30 12% 18%;
-    --input: 30 12% 18%;
-    --ring: 28 35% 45%;
+    --background: 240 45% 6%;
+    --foreground: 250 25% 90%;
+    --card: 245 40% 9%;
+    --card-foreground: 250 25% 90%;
+    --popover: 245 40% 9%;
+    --popover-foreground: 250 25% 90%;
+    --primary: 270 55% 62%;
+    --primary-foreground: 240 45% 6%;
+    --secondary: 250 30% 22%;
+    --secondary-foreground: 250 25% 90%;
+    --muted: 245 30% 14%;
+    --muted-foreground: 250 18% 70%;
+    --accent: 45 70% 65%;
+    --accent-foreground: 240 45% 6%;
+    --border: 250 25% 18%;
+    --input: 250 25% 18%;
+    --ring: 270 55% 62%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 85% 97%;
     --chart-1: 45 96% 64%;
@@ -174,10 +175,10 @@
 @layer components {
   .text-gradient {
     background: linear-gradient(135deg, 
-      hsl(280, 60%, 60%) 0%, 
-      hsl(320, 55%, 55%) 30%,
-      hsl(42, 85%, 60%) 70%,
-      hsl(15, 70%, 55%) 100%);
+      hsl(270, 65%, 72%) 0%, 
+      hsl(285, 55%, 65%) 30%,
+      hsl(45, 80%, 70%) 75%,
+      hsl(220, 55%, 65%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -185,8 +186,8 @@
 
   .text-gradient-warm {
     background: linear-gradient(135deg, 
-      hsl(42, 85%, 60%) 0%, 
-      hsl(320, 55%, 55%) 100%);
+      hsl(45, 80%, 70%) 0%, 
+      hsl(270, 65%, 72%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -220,11 +221,25 @@
 
   .shaman-bg {
     background: 
-      radial-gradient(ellipse at 15% 15%, hsla(280, 60%, 50%, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 85% 25%, hsla(320, 55%, 50%, 0.1) 0%, transparent 45%),
-      radial-gradient(ellipse at 50% 80%, hsla(175, 60%, 40%, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 75% 70%, hsla(42, 85%, 55%, 0.06) 0%, transparent 40%),
-      radial-gradient(ellipse at 20% 60%, hsla(15, 70%, 50%, 0.07) 0%, transparent 45%);
+      radial-gradient(ellipse at 15% 15%, hsla(270, 70%, 45%, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 25%, hsla(285, 55%, 45%, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 85%, hsla(220, 60%, 35%, 0.14) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 70%, hsla(45, 80%, 60%, 0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 20% 60%, hsla(255, 50%, 30%, 0.1) 0%, transparent 50%);
+  }
+
+  /* Subtle starfield for cosmic backgrounds */
+  .starfield {
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, hsla(45, 80%, 80%, 0.6), transparent 60%),
+      radial-gradient(1px 1px at 78% 32%, hsla(270, 70%, 85%, 0.5), transparent 60%),
+      radial-gradient(1px 1px at 33% 72%, hsla(0, 0%, 100%, 0.4), transparent 60%),
+      radial-gradient(1px 1px at 88% 80%, hsla(220, 70%, 85%, 0.5), transparent 60%),
+      radial-gradient(1px 1px at 55% 12%, hsla(0, 0%, 100%, 0.45), transparent 60%),
+      radial-gradient(1px 1px at 22% 55%, hsla(45, 80%, 80%, 0.45), transparent 60%),
+      radial-gradient(1px 1px at 65% 88%, hsla(0, 0%, 100%, 0.4), transparent 60%);
+    background-repeat: repeat;
+    background-size: 600px 600px;
   }
 
   .texture-overlay {
