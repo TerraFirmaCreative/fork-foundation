@@ -2,18 +2,23 @@ import { Button } from "@/components/ui/button";
 import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
 
 const HeroSection = () => {
+  const scrollToGallery = () =>
+    document
+      .getElementById("design-gallery")
+      ?.scrollIntoView({ behavior: "smooth" });
+
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center py-24 px-6 overflow-hidden bg-black">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center">
       {/* LAYER 1 — True black space base with subtle violet depth */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 90% 70% at 50% 40%, hsla(270, 50%, 12%, 0.55) 0%, hsla(255, 50%, 6%, 0.6) 45%, #000000 100%)",
+            "radial-gradient(ellipse 90% 70% at 50% 45%, hsla(270, 50%, 12%, 0.6) 0%, hsla(255, 50%, 6%, 0.65) 45%, #000000 100%)",
         }}
       />
 
-      {/* LAYER 1b — Dense starfield covering the whole hero */}
+      {/* LAYER 1b — Dense starfield */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -63,7 +68,7 @@ const HeroSection = () => {
         style={{ animationDelay: "9s" }}
       />
 
-      {/* LAYER 4 — Far fractal sacred geometry (very faint, large) */}
+      {/* LAYER 4 — Far fractal sacred geometry */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none"
         viewBox="0 0 1000 1000"
@@ -101,7 +106,7 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Mid mandala (medium opacity, slow rotation) */}
+      {/* LAYER 5 — Mid mandala (slow rotation) */}
       <svg
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         width={900}
@@ -144,7 +149,7 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 6 — Inner mandala (closer, brighter, counter-rotating) */}
+      {/* LAYER 6 — Inner mandala (counter-rotating) */}
       <svg
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         width={520}
@@ -185,80 +190,91 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 7 — Soft glow halo behind the logo */}
+      {/* LAYER 7 — Soft glow halo behind logo */}
       <div
-        className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
-          width: 600,
-          height: 600,
+          width: 560,
+          height: 560,
           background:
-            "radial-gradient(circle, hsla(270, 70%, 60%, 0.28) 0%, hsla(285, 60%, 50%, 0.12) 40%, transparent 70%)",
+            "radial-gradient(circle, hsla(270, 70%, 60%, 0.32) 0%, hsla(285, 60%, 50%, 0.14) 40%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
 
-      {/* LAYER 8 — Vignette to deepen edges */}
+      {/* LAYER 8 — Vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, hsla(240, 60%, 4%, 0.6) 100%)",
+            "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 35%, hsla(240, 60%, 4%, 0.7) 100%)",
         }}
       />
 
-      {/* CONTENT */}
-      <div className="max-w-2xl mx-auto text-center relative z-10">
+      {/* CONTENT — artistic centered composition, all above the fold */}
+      <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
+        {/* Floating logo */}
         <img
           src={cosmicIglooLogo}
           alt="Cosmic Igloo — a warm space in the infinite"
-          className="mx-auto mb-12 w-80 md:w-[28rem] h-auto animate-fade-in"
+          className="w-56 sm:w-64 md:w-72 lg:w-80 h-auto animate-fade-in"
           style={{
             mixBlendMode: "screen",
-            filter: "drop-shadow(0 0 80px hsla(270, 80%, 60%, 0.5))",
+            filter: "drop-shadow(0 0 60px hsla(270, 80%, 60%, 0.55))",
           }}
           loading="eager"
         />
 
-        <h1 className="font-display text-4xl md:text-6xl font-medium mb-8 tracking-tight leading-tight">
-          <span className="text-foreground">Beautiful </span>
-          <span className="text-gradient italic">
-            <span className="underline decoration-shaman-gold decoration-2 underline-offset-4">
-              and
-            </span>{" "}
-            grippy
+        {/* Whisper-line above headline */}
+        <p className="mt-6 text-[0.7rem] sm:text-xs tracking-[0.4em] uppercase text-shaman-gold/70 font-body">
+          A warm space in the infinite
+        </p>
+
+        {/* Headline — poetic, layered */}
+        <h1 className="mt-5 font-display font-medium tracking-tight leading-[1.05] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl">
+          <span className="block text-foreground/90">Beautiful</span>
+          <span className="block text-gradient italic -mt-1">
+            and grippy
           </span>
-          <span className="text-foreground/70 italic"> yoga mats.</span>
+          <span className="block text-foreground/60 italic font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-1">
+            yoga mats.
+          </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground/80 mb-14 font-body font-normal max-w-2xl mx-auto leading-[1.8] md:whitespace-nowrap">
-          Designed to inspire and made to perform. Simple as that.
+        {/* Single-line invitation */}
+        <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground/75 font-body max-w-xl leading-relaxed">
+          Designed to inspire. Made to perform.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-          <Button
-            variant="cta"
-            size="xl"
-            className="group font-body font-medium tracking-wide glow-effect"
-            onClick={() =>
-              document
-                .getElementById("design-gallery")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            Explore the Collection
-          </Button>
-        </div>
+        {/* Invitation downward — replaces the standard CTA button feel */}
+        <button
+          onClick={scrollToGallery}
+          className="group mt-8 flex flex-col items-center gap-3 cursor-pointer"
+          aria-label="View the collection below"
+        >
+          <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body">
+            Enter the collection
+          </span>
 
-        <p className="text-base md:text-[1.35rem] text-muted-foreground/70 font-body whitespace-nowrap">
-          Premium natural rubber · Suede top · Non-slip
-        </p>
-        <p className="text-base md:text-[1.35rem] text-muted-foreground/70 font-body mt-2">
-          Free shipping on all mats
-        </p>
-        <p className="text-sm tracking-[0.15em] uppercase text-muted-foreground/40 font-body mt-3">
-          Made in the USA
-        </p>
+          {/* Animated descending line + dot */}
+          <span className="relative flex flex-col items-center">
+            <span className="block w-px h-12 bg-gradient-to-b from-shaman-gold/60 via-shaman-violet/40 to-transparent" />
+            <span className="absolute top-0 w-px h-4 bg-shaman-gold animate-scroll-cue" />
+          </span>
+        </button>
       </div>
+
+      {/* Local keyframes for the scroll cue */}
+      <style>{`
+        @keyframes scroll-cue {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 1; }
+          100% { transform: translateY(48px); opacity: 0; }
+        }
+        .animate-scroll-cue {
+          animation: scroll-cue 2.4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
