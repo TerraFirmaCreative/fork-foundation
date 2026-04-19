@@ -20,9 +20,10 @@ export default {
   				'serif'
   			],
 			body: [
-				'Cormorant Garamond',
-				'Georgia',
-				'serif'
+				'DM Sans',
+				'ui-sans-serif',
+				'system-ui',
+				'sans-serif'
 			],
   			sans: [
   				'ui-sans-serif',
