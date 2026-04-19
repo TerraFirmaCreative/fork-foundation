@@ -13,25 +13,16 @@ const About = () => {
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p>
-              Hi. We're Charly, Phil and Tym, three friends who started Unique Yoga Mats because we believe yoga mats should be genuinely beautiful.
+              Cosmic Igloo began because we believed yoga mats should be genuinely beautiful.
             </p>
             <p>
-              We wanted to create mats that carry original artwork, designs you'd want to leave out.
+              Every design in our collection is an original piece of artwork, created to bring beauty and inspiration to your practice.
             </p>
             <p>
-              Between us we cover the creative, the technical, and everything in between. Every design in our collection is an original piece of artwork, created to bring a little more beauty and inspiration to your practice.
+              Our mats are made to go everywhere with you — a soft suede surface that gets grippier as you warm up, a natural rubber base that stays put, thin enough to carry and supportive enough for daily practice.
             </p>
             <p>
-              But looks aren't everything, of course. Our mats have a soft suede surface on top that gets grippier as you warm up, a natural rubber base that stays put, and printed edge to edge so the artwork looks exactly as it should. At 3mm thick, they're light enough to carry easily but supportive enough for daily practice.
-            </p>
-            <p>
-              We want to make mats we're proud of. Mats that hopefully you won't want to put away!
-            </p>
-            <p>
-              What we envisage is a growing community of people who love our beautiful yoga mats. Hearing where you practice, seeing your mat wherever you are. That means a lot to us. It's early days, but that's where we're headed.
-            </p>
-            <p>
-              Come and be a part of it.
+              We're building a community of people who love our beautiful yoga mats. We'd love to hear about your practice and see your mat, wherever that may be — just say hello.
             </p>
           </div>
         </div>
