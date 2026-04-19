@@ -219,10 +219,11 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-4xl">
-          <span className="block text-foreground/90">Beautiful</span>
-          <span className="block text-gradient italic -mt-1">
-            and grippy
+        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
+          <span className="block">
+            <span className="text-foreground/90">Beautiful</span>{" "}
+            <span className="text-gradient italic underline underline-offset-[0.15em] decoration-[0.04em]">and</span>{" "}
+            <span className="text-gradient italic">grippy</span>
           </span>
           <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
             yoga mats.
