@@ -27,7 +27,7 @@ const Blog = () => {
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             Stories & Insights
           </p>
-          <h1 className="font-display text-3xl md:text-4xl font-medium mb-4 text-foreground">
+          <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Blog
           </h1>
           <p className="text-muted-foreground/80 font-body max-w-xl mx-auto">

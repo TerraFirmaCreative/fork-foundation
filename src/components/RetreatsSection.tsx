@@ -41,7 +41,7 @@ const RetreatsSection = () => {
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             Journey With Us
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-4">
             <span className="text-foreground">Upcoming </span>
             <span className="text-gradient italic">Retreats</span>
           </h2>

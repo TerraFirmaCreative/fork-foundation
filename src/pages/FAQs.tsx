@@ -76,7 +76,7 @@ const FAQs = () => {
       <Header />
       <main className="py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-display text-3xl md:text-4xl font-medium mb-4 text-foreground">
+          <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Frequently Asked Questions
           </h1>
           
