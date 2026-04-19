@@ -66,6 +66,58 @@ const Header = () => {
           </span>
         </LocaleLink>
 
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-10">
+          <button
+            onClick={() => scrollToSection("design-gallery")}
+            className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors"
+            style={{ fontWeight: 500 }}
+          >
+            Shop
+          </button>
+          <button
+            onClick={scrollToHowItWorks}
+            className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors"
+            style={{ fontWeight: 500 }}
+          >
+            How It Works
+          </button>
+          <LocaleLink
+            to="/about"
+            className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors"
+            style={{ fontWeight: 500 }}
+          >
+            About
+          </LocaleLink>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1"
+                style={{ fontWeight: 500 }}
+              >
+                More <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-card border-border/50 z-50">
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/faqs" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">FAQs</LocaleLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/shipping" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Shipping</LocaleLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/refund-policy" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Refund & Returns</LocaleLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/contact" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Contact</LocaleLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/blog" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Blog</LocaleLink>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
         {/* Right Actions */}
         <div className="flex items-center gap-4">
 
