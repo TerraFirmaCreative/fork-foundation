@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "How are the designs created?",
-    answer: "Phil designs every mat, using AI to bring each one to life."
+    answer: "Our designs are developed through a blend of creative direction and digital design tools, allowing us to produce distinctive, detailed artwork that translates beautifully onto our mats."
   },
   {
     question: "Are the mats made to order?",
