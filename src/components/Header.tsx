@@ -109,6 +109,12 @@ const Header = () => {
                 <LocaleLink to="/refund-policy" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Refund & Returns</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
+                <LocaleLink to="/terms" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Terms & Conditions</LocaleLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <LocaleLink to="/privacy-policy" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Privacy Policy</LocaleLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
                 <LocaleLink to="/contact" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Contact</LocaleLink>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
