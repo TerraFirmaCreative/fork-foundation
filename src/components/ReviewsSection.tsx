@@ -47,7 +47,7 @@ const ReviewsSection = () => {
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
             Customer Reviews
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
             <span className="text-foreground">What people are </span>
             <span className="text-gradient italic">saying</span>
           </h2>

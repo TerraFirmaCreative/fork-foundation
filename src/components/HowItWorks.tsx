@@ -89,7 +89,7 @@ const HowItWorks = () => {
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 md:mb-6 font-body">
             Simple Process
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
             <span className="text-foreground">How it </span>
             <span className="text-gradient italic">works</span>
           </h2>
@@ -102,7 +102,7 @@ const HowItWorks = () => {
               className="relative group text-center flex flex-col"
             >
               {/* Step number */}
-              <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
+              <span className="block font-display text-3xl md:text-4xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
 
