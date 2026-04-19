@@ -66,56 +66,6 @@ const Header = () => {
           </span>
         </LocaleLink>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-          <button
-            onClick={() => scrollToSection("design-gallery")}
-            className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
-          >
-            Shop
-          </button>
-          <button
-            onClick={scrollToHowItWorks}
-            className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
-          >
-            How It Works
-          </button>
-          <LocaleLink
-            to="/about"
-            className="text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide"
-          >
-            About
-          </LocaleLink>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-base font-body text-muted-foreground hover:text-foreground transition-colors tracking-wide outline-none">
-              More <ChevronDown className="w-4 h-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-card border-border/50 z-50">
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/faqs" className="cursor-pointer">FAQs</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/refund-policy" className="cursor-pointer">Refund & Returns Policy</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/terms" className="cursor-pointer">Terms & Conditions</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/privacy-policy" className="cursor-pointer">Privacy Policy</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/shipping" className="cursor-pointer">Shipping</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/contact" className="cursor-pointer">Contact</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/blog" className="cursor-pointer">Blog</LocaleLink>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-
         {/* Right Actions */}
         <div className="flex items-center gap-4">
 
