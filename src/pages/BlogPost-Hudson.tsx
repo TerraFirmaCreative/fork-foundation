@@ -77,7 +77,7 @@ const BlogPostHudson = () => {
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             Unique Yogi of the Week
           </p>
-          <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
+          <h1 className="font-display text-3xl md:text-4xl font-medium mb-4 text-foreground">
             Hudson — Margaret River, South West Australia
           </h1>
         </div>

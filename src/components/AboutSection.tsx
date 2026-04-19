@@ -21,7 +21,7 @@ const AboutSection = () => {
           Our Story
         </p>
         
-        <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
+        <h2 className="font-display text-2xl md:text-4xl font-medium mb-10 tracking-tight leading-tight">
 <span className="text-foreground">Three friends. </span><span className="text-gradient italic">One shared idea.</span>
         </h2>
         
