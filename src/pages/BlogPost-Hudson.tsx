@@ -77,7 +77,7 @@ const BlogPostHudson = () => {
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             Unique Yogi of the Week
           </p>
-          <h1 className="font-display text-3xl md:text-4xl font-medium mb-4 text-foreground">
+          <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Hudson — Margaret River, South West Australia
           </h1>
         </div>
@@ -162,7 +162,7 @@ const BlogPostHudson = () => {
               <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 font-body">
                 Hudson's Mat
               </p>
-              <h3 className="font-display text-3xl md:text-4xl font-medium text-foreground">
+              <h3 className="font-display text-4xl md:text-5xl font-medium text-foreground">
                 Mandelbrot Dreams
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">

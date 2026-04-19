@@ -214,33 +214,33 @@ const HeroSection = () => {
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
         {/* Whisper-line above headline */}
-        <p className="text-[0.65rem] sm:text-xs tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
+        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
           A warm space in the infinite
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl">
+        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-4xl">
           <span className="block text-foreground/90">Beautiful</span>
           <span className="block text-gradient italic -mt-1">
             and grippy
           </span>
-          <span className="block text-foreground/60 italic font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2">
+          <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
             yoga mats.
           </span>
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-8 text-sm sm:text-base text-muted-foreground/80 font-body max-w-md leading-relaxed">
+        <p className="mt-8 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
         {/* Invitation downward — replaces the standard CTA button feel */}
         <button
           onClick={scrollToGallery}
-          className="group mt-10 flex flex-col items-center gap-3 cursor-pointer"
+          className="group mt-12 flex flex-col items-center gap-3 cursor-pointer"
           aria-label="View the collection below"
         >
-          <span className="text-[0.6rem] sm:text-[0.65rem] tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body font-light">
+          <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body font-light">
             Enter the collection
           </span>
 
