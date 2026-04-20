@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
 
 const HeroSection = () => {
   const scrollToGallery = () =>
@@ -190,18 +189,6 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 7 — Soft glow halo behind logo */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        style={{
-          width: 560,
-          height: 560,
-          background:
-            "radial-gradient(circle, hsla(270, 70%, 60%, 0.32) 0%, hsla(285, 60%, 50%, 0.14) 40%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-
       {/* LAYER 8 — Vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -211,29 +198,10 @@ const HeroSection = () => {
         }}
       />
 
-      {/* CONTENT — artistic centered composition, all above the fold */}
+      {/* CONTENT */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
-        {/* Logo mark — geodesic dome over flower of life */}
-        <img
-          src={cosmicIglooLogo}
-          alt="Cosmic Igloo — geodesic dome over flower of life"
-          className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto object-contain mb-6 select-none"
-          style={{
-            filter: "drop-shadow(0 0 40px hsla(270, 70%, 60%, 0.35)) drop-shadow(0 0 12px hsla(45, 80%, 65%, 0.25))",
-          }}
-          draggable={false}
-        />
-
-        {/* Whisper-line above headline — matches logo tagline tracking */}
-        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
-          A warm space in the infinite
-        </p>
-
-        {/* Thin gold divider — echoes logo line weight */}
-        <span className="mt-5 block h-px w-24 bg-gradient-to-r from-transparent via-shaman-gold/60 to-transparent" />
-
-        {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
+        {/* Headline */}
+        <h1 className="font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
           <span className="block">
             <span className="text-foreground/90">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -260,40 +228,20 @@ const HeroSection = () => {
           </span>
         </h1>
 
-        {/* Single-line invitation */}
+        {/* Subtitle */}
         <p className="mt-8 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
-        {/* Invitation downward — replaces the standard CTA button feel */}
-        <button
+        {/* CTA */}
+        <Button
           onClick={scrollToGallery}
-          className="group mt-12 flex flex-col items-center gap-3 cursor-pointer"
-          aria-label="View the collection below"
+          size="lg"
+          className="mt-10 bg-gradient-to-r from-shaman-violet to-shaman-magenta text-foreground hover:opacity-90 px-10 py-6 text-base tracking-[0.2em] uppercase font-body"
         >
-          <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body font-light">
-            Enter the collection
-          </span>
-
-          {/* Animated descending line + dot */}
-          <span className="relative flex flex-col items-center">
-            <span className="block w-px h-12 bg-gradient-to-b from-shaman-gold/60 via-shaman-violet/40 to-transparent" />
-            <span className="absolute top-0 w-px h-4 bg-shaman-gold animate-scroll-cue" />
-          </span>
-        </button>
+          Enter the collection
+        </Button>
       </div>
-
-      {/* Local keyframes for the scroll cue */}
-      <style>{`
-        @keyframes scroll-cue {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 1; }
-          100% { transform: translateY(48px); opacity: 0; }
-        }
-        .animate-scroll-cue {
-          animation: scroll-cue 2.4s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 };
