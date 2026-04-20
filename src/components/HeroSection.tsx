@@ -222,7 +222,23 @@ const HeroSection = () => {
         <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
           <span className="block">
             <span className="text-foreground/90">Beautiful</span>{" "}
-            <span className="text-gradient italic underline underline-offset-[0.15em] decoration-[0.04em]">and</span>{" "}
+            <span className="text-gradient italic relative inline-block">
+              and
+              <svg
+                className="absolute left-0 right-0 -bottom-2 w-full"
+                viewBox="0 0 100 12"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2,8 Q50,-2 98,8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>{" "}
             <span className="text-gradient italic">grippy</span>
           </span>
           <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
