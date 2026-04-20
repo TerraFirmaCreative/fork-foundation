@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-
+import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
 
 const HeroSection = () => {
   const scrollToGallery = () =>
@@ -213,10 +213,24 @@ const HeroSection = () => {
 
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
-        {/* Whisper-line above headline */}
+        {/* Logo mark — geodesic dome over flower of life */}
+        <img
+          src={cosmicIglooLogo}
+          alt="Cosmic Igloo — geodesic dome over flower of life"
+          className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto object-contain mb-6 select-none"
+          style={{
+            filter: "drop-shadow(0 0 40px hsla(270, 70%, 60%, 0.35)) drop-shadow(0 0 12px hsla(45, 80%, 65%, 0.25))",
+          }}
+          draggable={false}
+        />
+
+        {/* Whisper-line above headline — matches logo tagline tracking */}
         <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
           A warm space in the infinite
         </p>
+
+        {/* Thin gold divider — echoes logo line weight */}
+        <span className="mt-5 block h-px w-24 bg-gradient-to-r from-transparent via-shaman-gold/60 to-transparent" />
 
         {/* Headline — poetic, layered */}
         <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
