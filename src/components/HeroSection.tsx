@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 
+
 const HeroSection = () => {
   const scrollToGallery = () =>
     document
@@ -189,6 +190,18 @@ const HeroSection = () => {
         </g>
       </svg>
 
+      {/* LAYER 7 — Soft glow halo behind logo */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        style={{
+          width: 560,
+          height: 560,
+          background:
+            "radial-gradient(circle, hsla(270, 70%, 60%, 0.32) 0%, hsla(285, 60%, 50%, 0.14) 40%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+
       {/* LAYER 8 — Vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -198,10 +211,15 @@ const HeroSection = () => {
         }}
       />
 
-      {/* CONTENT */}
+      {/* CONTENT — artistic centered composition, all above the fold */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
-        {/* Headline */}
-        <h1 className="font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
+        {/* Whisper-line above headline */}
+        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
+          A warm space in the infinite
+        </p>
+
+        {/* Headline — poetic, layered */}
+        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
           <span className="block">
             <span className="text-foreground/90">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -228,20 +246,40 @@ const HeroSection = () => {
           </span>
         </h1>
 
-        {/* Subtitle */}
+        {/* Single-line invitation */}
         <p className="mt-8 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
-        {/* CTA */}
-        <Button
+        {/* Invitation downward — replaces the standard CTA button feel */}
+        <button
           onClick={scrollToGallery}
-          size="lg"
-          className="mt-10 bg-gradient-to-r from-shaman-violet to-shaman-magenta text-foreground hover:opacity-90 px-10 py-6 text-base tracking-[0.2em] uppercase font-body"
+          className="group mt-12 flex flex-col items-center gap-3 cursor-pointer"
+          aria-label="View the collection below"
         >
-          Enter the collection
-        </Button>
+          <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body font-light">
+            Enter the collection
+          </span>
+
+          {/* Animated descending line + dot */}
+          <span className="relative flex flex-col items-center">
+            <span className="block w-px h-12 bg-gradient-to-b from-shaman-gold/60 via-shaman-violet/40 to-transparent" />
+            <span className="absolute top-0 w-px h-4 bg-shaman-gold animate-scroll-cue" />
+          </span>
+        </button>
       </div>
+
+      {/* Local keyframes for the scroll cue */}
+      <style>{`
+        @keyframes scroll-cue {
+          0% { transform: translateY(0); opacity: 0; }
+          20% { opacity: 1; }
+          100% { transform: translateY(48px); opacity: 0; }
+        }
+        .animate-scroll-cue {
+          animation: scroll-cue 2.4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };

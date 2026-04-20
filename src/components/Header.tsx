@@ -6,7 +6,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
-import cosmicIglooLogo from "@/assets/cosmic-igloo-logo.png";
+import cosmicIglooMark from "@/assets/cosmic-igloo-mark.png";
 
 import {
   DropdownMenu,
@@ -55,12 +55,15 @@ const Header = () => {
 
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
-        <LocaleLink to="/" className="flex items-center hover:opacity-85 transition-opacity" aria-label="Cosmic Igloo — home">
+        <LocaleLink to="/" className="flex items-center gap-3 hover:opacity-85 transition-opacity" aria-label="Cosmic Igloo — home">
           <img
-            src={cosmicIglooLogo}
+            src={cosmicIglooMark}
             alt="Cosmic Igloo"
-            className="h-14 md:h-16 w-auto object-contain"
+            className="w-12 h-12 md:w-14 md:h-14 object-contain"
           />
+          <span className="font-display text-base md:text-lg tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
+            Cosmic Igloo
+          </span>
         </LocaleLink>
 
         {/* Desktop Navigation */}
