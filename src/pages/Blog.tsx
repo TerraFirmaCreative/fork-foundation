@@ -37,7 +37,7 @@ const Blog = () => {
           </p>
         </div>
 
-        <div className="grid gap-10 relative z-10">
+        <div className="max-w-4xl mx-auto grid gap-10 relative z-10">
           {blogPosts.map((post) => (
             <LocaleLink
               key={post.slug}
@@ -78,7 +78,7 @@ const Blog = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mt-16 relative z-10">
           <p className="text-sm text-muted-foreground/50 font-body">
             More posts coming soon
           </p>
