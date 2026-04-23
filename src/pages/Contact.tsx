@@ -5,8 +5,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-20 px-6">
-        <div className="max-w-3xl mx-auto">
+      <main className="relative py-20 px-6 overflow-hidden">
+        <div className="texture-overlay" />
+        <div className="absolute inset-0 shaman-bg" />
+        <div className="max-w-3xl mx-auto relative z-10">
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Contact
           </h1>
