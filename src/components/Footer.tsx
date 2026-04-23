@@ -63,7 +63,7 @@ const Footer = () => {
                   <circle cx="20" cy="22" r="1.5" fill="#c97a2f" />
                 </svg>
               </div>
-              <span className="font-display text-lg text-foreground">Unique Yoga Mats</span>
+              <span className="font-display text-lg text-foreground">Cosmic Igloo</span>
             </LocaleLink>
           </div>
 
@@ -173,7 +173,7 @@ const Footer = () => {
           </div>
 
           <div className="text-xs text-muted-foreground/40 font-body text-center">
-            <p>© 2026 Unique Yoga Mats. All rights reserved.</p>
+            <p>© 2026 Cosmic Igloo. All rights reserved.</p>
           </div>
         </div>
       </div>
