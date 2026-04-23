@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     question: "My order hasn't arrived — what should I do?",
-    answer: "Drop us a message at hello@cosmicigloo.com and we'll look into it straight away."
+    answer: "Send us a message at hello@cosmicigloo.com and we'll look into it straight away."
   },
   {
     question: "What is your returns policy?",
