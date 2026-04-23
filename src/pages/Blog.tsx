@@ -9,9 +9,9 @@ const blogPosts = [
     title: "Hudson in Margaret River",
     subtitle: "South West Australia",
     excerpt:
-      "Hudson is originally from Canada, but at the moment you'll find her on the other side of the world — travelling slowly through South West Australia.",
+      "Hudson is originally from Canada, but at the moment you'll find her on the other side of the world — traveling slowly through South West Australia.",
     image: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118",
-    imageAlt: "Hudson practising yoga on the beach at Bunker Bay",
+    imageAlt: "Hudson practicing yoga on the beach at Bunker Bay",
     category: "",
     date: "25 February 2026",
   },

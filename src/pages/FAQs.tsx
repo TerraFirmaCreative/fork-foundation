@@ -61,7 +61,7 @@ const faqs = [
     answer: "Because every mat is printed to order, we can't accept returns for change of mind. But if your mat arrives damaged or there's an issue with your order, please contact us within 30 days of delivery and we'll make it right."
   },
   {
-    question: "Will the colours look exactly like they do on screen?",
+    question: "Will the colors look exactly like they do on screen?",
     answer: "We do our best, but slight variations can occur due to screen settings and the printing process. This is normal and doesn't affect the quality of your mat."
   },
   {
