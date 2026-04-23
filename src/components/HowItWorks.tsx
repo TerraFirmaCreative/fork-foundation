@@ -139,10 +139,6 @@ const HowItWorks = () => {
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[calc(100%+0.25rem)] w-[calc(100%-0.5rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
               )}
-              {/* Line before first item */}
-              {index === 0 && (
-                <div className="hidden lg:block absolute top-10 right-[calc(100%+0.25rem)] w-[calc(100%-0.5rem)] h-px bg-gradient-to-l from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
-              )}
             </div>
           ))}
         </div>
