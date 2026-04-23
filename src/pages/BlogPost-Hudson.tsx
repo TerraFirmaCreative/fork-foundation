@@ -71,16 +71,18 @@ const BlogPostHudson = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="max-w-3xl mx-auto px-6 py-20">
+      <main className="relative max-w-3xl mx-auto px-6 py-20 overflow-hidden">
+        <div className="texture-overlay" />
+        <div className="absolute inset-0 shaman-bg" />
         {/* Post header */}
-        <div className="mb-12">
+        <div className="mb-12 relative z-10">
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Hudson — South West Australia
           </h1>
         </div>
 
         {/* Article body with floated image */}
-        <article className="prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg">
+        <article className="prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg relative z-10">
           <div className="relative aspect-[4/3] w-full md:w-1/2 md:float-right md:ml-8 mb-6 rounded-xl overflow-hidden">
             {images.map((img, i) => (
               <img
@@ -114,7 +116,7 @@ const BlogPostHudson = () => {
         </article>
 
         {/* Shop Hudson's Mat */}
-        <div className="mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm">
+        <div className="mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm relative z-10">
           <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-start">
             {/* Product image */}
             <LocaleLink
