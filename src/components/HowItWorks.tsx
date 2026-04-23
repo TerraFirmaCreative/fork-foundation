@@ -43,7 +43,7 @@ const getSteps = (priceLabel: string) => [
     lines: [
       { text: "Your mat has arrived!", bold: "" },
       { text: "Unroll. Breathe. Practice.", bold: "" },
-      { text: "We hope you love it as much as we do.", bold: "" },
+      { text: "We hope you love it as much as we do", bold: "" },
     ],
   },
 ];
