@@ -151,7 +151,7 @@ const YogiOfTheWeek = () => {
                 Mandelbrot Dreams
               </h3>
               <p className="text-muted-foreground font-body leading-relaxed">
-                Hudson chose Mandelbrot Dreams for its infinite fractal patterns — a reminder that there's always more to discover on the mat.
+                Hudson was drawn to this mat the moment she saw it. The infinite fractal patterns mirror her own ever-evolving practice — always changing, always beginning with stillness.
               </p>
             </div>
 
