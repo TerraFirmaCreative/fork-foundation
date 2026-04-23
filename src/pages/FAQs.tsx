@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "What products do you sell?",
-    answer: "Right now, yoga mats. Each mat features one of our original designs, printed edge-to-edge. We plan to expand over time, but for now we're focused on getting the mats absolutely right."
+    answer: "Right now, yoga mats. We plan to expand over time, but for now we're focused on getting the mats absolutely right."
   },
   {
     question: "How are the designs created?",
