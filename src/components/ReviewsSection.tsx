@@ -10,8 +10,8 @@ const reviews = [
   },
   {
     id: 2,
-    name: "Sarah C.",
-    review: "It's comfortable and supportive, especially for longer sessions. There's enough grip without it feeling sticky.",
+    name: "Hudson R.",
+    review: "I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice.",
     date: "1 month ago",
   },
   {
