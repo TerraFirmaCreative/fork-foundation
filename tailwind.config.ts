@@ -20,10 +20,9 @@ export default {
   				'serif'
   			],
 		body: [
-				'Raleway',
-				'ui-sans-serif',
-				'system-ui',
-				'sans-serif'
+				'Cormorant Garamond',
+				'Georgia',
+				'serif'
 			],
   			sans: [
   				'ui-sans-serif',
