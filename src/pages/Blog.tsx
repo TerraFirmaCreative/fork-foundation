@@ -22,10 +22,10 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="relative max-w-4xl mx-auto px-6 py-20 overflow-hidden">
+      <main className="relative px-6 py-20 overflow-hidden">
         <div className="texture-overlay" />
         <div className="absolute inset-0 shaman-bg" />
-        <div className="text-center mb-16 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-16 relative z-10">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
             Stories & Insights
           </p>
