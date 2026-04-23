@@ -74,9 +74,6 @@ const BlogPostHudson = () => {
       <main className="max-w-3xl mx-auto px-6 py-20">
         {/* Post header */}
         <div className="mb-12">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
-            Unique Yogi of the Week
-          </p>
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Hudson — South West Australia
           </h1>
