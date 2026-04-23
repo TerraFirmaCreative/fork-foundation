@@ -140,7 +140,7 @@ const HowItWorks = () => {
 
               {/* Connector line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(100%+0.25rem)] w-[calc(100%-0.5rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
+                <div className="hidden lg:block absolute top-[1.75rem] left-[calc(100%+0.25rem)] w-[calc(100%-0.5rem)] h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent" />
               )}
             </div>
           ))}
