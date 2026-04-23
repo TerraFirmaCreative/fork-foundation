@@ -2,7 +2,7 @@ import { fetchCollectionProducts } from "../src/lib/shopify";
 import path from "path";
 import fs from "fs"
 
-const SITE_URL = "https://uniqueyogamats.com";
+const SITE_URL = "https://cosmicigloo.com";
 
 const STATIC_PATHS = [
   "",
