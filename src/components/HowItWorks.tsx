@@ -10,9 +10,9 @@ const getSteps = (priceLabel: string) => [
     title: "Browse the Collection",
     color: "text-shaman-violet",
     lines: [
-      { text: "24 original designs to choose from", bold: "" },
+      { text: "24 original designs", bold: "" },
       { text: "Natural rubber base", bold: "" },
-      { text: "Suede top", bold: "" },
+      { text: "Suede top surface", bold: "" },
       { text: "Extra grip for your practice", bold: "" },
     ],
   },
@@ -21,8 +21,8 @@ const getSteps = (priceLabel: string) => [
     title: "Place Your Order",
     color: "text-shaman-magenta",
     lines: [
-      { text: `${priceLabel} per mat`, bold: "" },
-      { text: "Delivery included", bold: "" },
+      { text: "$79 per mat", bold: "" },
+      { text: "Free shipping included", bold: "" },
       { text: "No hidden fees", bold: "" },
       { text: "Secure checkout", bold: "" },
     ],
@@ -37,7 +37,7 @@ const getSteps = (priceLabel: string) => [
       { country: "Australia", time: "up to 3 weeks" },
     ],
     lines: [
-      { text: "Every mat is printed to order in Nevada, USA.", bold: "" },
+      { text: "Printed to order in the USA", bold: "" },
     ],
   },
   {
@@ -45,7 +45,8 @@ const getSteps = (priceLabel: string) => [
     title: "Now the Fun Part",
     color: "text-shaman-violet",
     lines: [
-      { text: "Your beautiful new mat has arrived!", bold: "" },
+      { text: "Your mat has arrived!", bold: "" },
+      { text: "Unroll. Breathe. Practice.", bold: "" },
       { text: "We hope you love it as much as we do.", bold: "" },
     ],
   },
