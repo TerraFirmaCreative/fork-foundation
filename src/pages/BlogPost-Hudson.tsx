@@ -71,11 +71,11 @@ const BlogPostHudson = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="relative max-w-3xl mx-auto px-6 py-20 overflow-hidden">
+      <main className="relative px-6 py-20 overflow-hidden">
         <div className="texture-overlay" />
         <div className="absolute inset-0 shaman-bg" />
         {/* Post header */}
-        <div className="mb-12 relative z-10">
+        <div className="max-w-3xl mx-auto mb-12 relative z-10">
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-4 text-foreground">
             Hudson — South West Australia
           </h1>
