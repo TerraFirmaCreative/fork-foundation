@@ -104,7 +104,7 @@ const HowItWorks = () => {
               </span>
 
               {/* Fixed height title area */}
-              <div className="h-auto md:h-[3.5rem] flex flex-col items-center justify-start mb-1 md:mb-0">
+              <div className="h-auto md:h-[3.5rem] flex flex-col items-start justify-start mb-1 md:mb-0">
                 <h3 className={`font-display text-2xl md:text-[1.75rem] font-normal tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
