@@ -15,7 +15,7 @@ const benefits = [
   },
   {
     title: "Edge-to-Edge Print",
-    description: "The full artwork, edge to edge, in stunning detail."
+    description: "The full artwork in stunning detail."
   },
   {
     title: "Lightweight & Durable",
