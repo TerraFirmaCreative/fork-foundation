@@ -20,7 +20,7 @@ export default {
   				'serif'
   			],
 		body: [
-				'Jost',
+				'Raleway',
 				'ui-sans-serif',
 				'system-ui',
 				'sans-serif'
