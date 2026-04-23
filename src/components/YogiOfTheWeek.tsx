@@ -120,7 +120,7 @@ const YogiOfTheWeek = () => {
             Community Spotlight
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-            <span className="text-foreground">Unique Yogi </span>
+            <span className="text-foreground">Cosmic Yogi </span>
             <span className="text-gradient italic">of the Week</span>
           </h2>
           <p className="text-muted-foreground font-body leading-relaxed mt-3 max-w-2xl mx-auto">
