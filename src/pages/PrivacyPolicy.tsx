@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           </p>
 
           <p className="text-lg text-muted-foreground font-body mb-8 leading-relaxed">
-            We respect your privacy and we'll never sell your personal information. This policy explains what we collect, why we collect it, and how we use it. If you have any questions, just get in touch at <strong className="text-foreground">hello@uniqueyogamats.com</strong>.
+            We respect your privacy and we'll never sell your personal information. This policy explains what we collect, why we collect it, and how we use it. If you have any questions, just get in touch at <strong className="text-foreground">hello@cosmicigloo.com</strong>.
           </p>
 
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
@@ -258,7 +258,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy or how we handle your personal information, please contact us at:
               </p>
               <p>
-                <strong className="text-foreground">hello@uniqueyogamats.com</strong>
+                <strong className="text-foreground">hello@cosmicigloo.com</strong>
               </p>
             </section>
           </div>

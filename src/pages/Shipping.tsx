@@ -59,7 +59,7 @@ const Shipping = () => {
                 Questions?
               </h2>
               <p>
-                We're always happy to help — <a href="mailto:hello@uniqueyogamats.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">hello@uniqueyogamats.com</a>
+                We're always happy to help — <a href="mailto:hello@cosmicigloo.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">hello@cosmicigloo.com</a>
               </p>
             </section>
           </div>
