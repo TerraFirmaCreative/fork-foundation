@@ -12,7 +12,7 @@ const blogPosts = [
       "Hudson is originally from Canada, but at the moment you'll find her on the other side of the world — travelling slowly through South West Australia.",
     image: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118",
     imageAlt: "Hudson practising yoga on the beach at Bunker Bay",
-    category: "Unique Yogi of the Week",
+    category: "",
     date: "25 February 2026",
   },
 ];
