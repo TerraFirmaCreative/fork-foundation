@@ -317,7 +317,7 @@ const TermsAndConditions = () => {
                 Questions about these Terms should be sent to:
               </p>
               <p>
-                <strong className="text-foreground">hello@uniqueyogamats.com</strong>
+                <strong className="text-foreground">hello@cosmicigloo.com</strong>
               </p>
             </section>
           </div>

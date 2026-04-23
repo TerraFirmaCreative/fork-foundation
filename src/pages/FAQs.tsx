@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: "Where do you ship?",
-    answer: "We ship worldwide and are continuously expanding our delivery options. Any questions? Get in touch at hello@uniqueyogamats.com."
+    answer: "We ship worldwide and are continuously expanding our delivery options. Any questions? Get in touch at hello@cosmicigloo.com."
   },
   {
     question: "How much does shipping cost?",
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     question: "My order hasn't arrived — what should I do?",
-    answer: "Drop us a message at hello@uniqueyogamats.com and we'll look into it straight away."
+    answer: "Drop us a message at hello@cosmicigloo.com and we'll look into it straight away."
   },
   {
     question: "What is your returns policy?",
@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     question: "How do I get in touch?",
-    answer: "You can reach us at hello@uniqueyogamats.com. We're a small team so we might not always reply instantly, but we do reply — and we're always happy to hear from you."
+    answer: "You can reach us at hello@cosmicigloo.com. We're a small team so we might not always reply instantly, but we do reply — and we're always happy to hear from you."
   }
 ];
 
