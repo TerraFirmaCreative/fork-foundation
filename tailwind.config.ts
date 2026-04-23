@@ -19,8 +19,8 @@ export default {
   				'Georgia',
   				'serif'
   			],
-			body: [
-				'DM Sans',
+		body: [
+				'Jost',
 				'ui-sans-serif',
 				'system-ui',
 				'sans-serif'
