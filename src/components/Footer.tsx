@@ -114,7 +114,7 @@ const Footer = () => {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-muted-foreground/40 text-foreground py-1"
+                className="bg-transparent border-none outline-none text-xs w-full placeholder:text-muted-foreground/40 text-foreground py-1 font-display tracking-wide"
                 required
                 disabled={isSubmitting}
               />
@@ -122,7 +122,7 @@ const Footer = () => {
                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
               </button>
             </form>
-            <p className="text-[11px] text-muted-foreground/40 font-body -mt-4 mb-6">No spam. Unsubscribe anytime.</p>
+            <p className="text-[11px] text-muted-foreground/40 font-display tracking-wide -mt-4 mb-6">No spam. Unsubscribe anytime.</p>
 
           </div>
 
@@ -165,7 +165,7 @@ const Footer = () => {
             ))}
           </div>
 
-          <div className="text-xs text-muted-foreground/40 font-body text-center">
+          <div className="text-xs text-muted-foreground/40 font-display tracking-wide text-center">
             <p>© 2026 Cosmic Igloo. All rights reserved.</p>
           </div>
         </div>
