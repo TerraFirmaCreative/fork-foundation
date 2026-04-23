@@ -163,7 +163,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
     line-height: 1.7;
     font-weight: 400;
     letter-spacing: 0.005em;
