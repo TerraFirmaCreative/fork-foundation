@@ -98,10 +98,13 @@ const HowItWorks = () => {
               key={step.title}
               className="relative group text-left flex flex-col"
             >
-              {/* Step number */}
-              <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
-                {step.number}
-              </span>
+              {/* Step number with line */}
+              <div className="relative">
+                <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700 relative z-10">
+                  {step.number}
+                </span>
+                <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-shaman-violet/30 -translate-y-1/2" style={{ left: '2rem', right: '-2rem' }} />
+              </div>
 
               {/* Fixed height title area */}
               <div className="h-auto md:h-[3.5rem] flex flex-col items-start justify-start mb-1 md:mb-0">
