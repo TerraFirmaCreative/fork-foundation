@@ -112,20 +112,24 @@ const HowItWorks = () => {
 
 
               {step.deliveryLines && (
-                <div className="space-y-1.5 mt-2">
+                <div className="space-y-1 mt-3">
                   {step.deliveryLines.map((dl, i) => (
-                    <p key={i} className="text-sm text-foreground/70 font-body leading-relaxed">
-                      {dl.country}—{dl.time}
-                    </p>
+                    <div key={i} className={`border-l-2 ${step.color.replace('text-', 'border-')} pl-3 py-0.5`}>
+                      <p className="text-sm text-foreground/70 font-body leading-relaxed">
+                        {dl.country}—{dl.time}
+                      </p>
+                    </div>
                   ))}
                 </div>
               )}
 
-              <div className="space-y-1.5 mt-2">
+              <div className="space-y-1 mt-3">
                 {step.lines.map((line, i) => (
-                  <p key={i} className="text-sm text-foreground/70 font-body leading-relaxed">
-                    {line.text}{line.text ? " " : ""}{line.bold}
-                  </p>
+                  <div key={i} className={`border-l-2 ${step.color.replace('text-', 'border-')} pl-3 py-0.5`}>
+                    <p className="text-sm text-foreground/70 font-body leading-relaxed">
+                      {line.text}{line.text ? " " : ""}{line.bold}
+                    </p>
+                  </div>
                 ))}
               </div>
 
