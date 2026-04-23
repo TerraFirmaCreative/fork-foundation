@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://uniqueyogamats.com/sitemap.xml
+Sitemap: https://cosmicigloo.com/sitemap.xml
