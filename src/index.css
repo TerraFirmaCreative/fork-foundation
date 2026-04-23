@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
@@ -63,7 +63,7 @@
       hsl(240, 45%, 6%) 100%);
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Jost', ui-sans-serif, system-ui, sans-serif;
 
     --shadow-soft: 0 4px 24px -4px hsla(245, 60%, 4%, 0.6);
     --shadow-card: 0 8px 40px -12px hsla(245, 60%, 4%, 0.7);
