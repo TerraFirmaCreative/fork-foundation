@@ -34,9 +34,7 @@ const getSteps = (priceLabel: string) => [
       { country: "Europe", time: "around 2 weeks" },
       { country: "Australia", time: "up to 3 weeks" },
     ],
-    lines: [
-      { text: "Printed to order in the USA", bold: "" },
-    ],
+    lines: [],
   },
   {
     number: "04",
