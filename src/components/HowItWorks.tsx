@@ -42,7 +42,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "Your mat has arrived!", bold: "" },
-      { text: "Unroll. Breathe. Practice.", bold: "" },
+      { text: "Unroll. Breathe. Practice", bold: "" },
       { text: "We hope you love it as much as we do", bold: "" },
     ],
   },
