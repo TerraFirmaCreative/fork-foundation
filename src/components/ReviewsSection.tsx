@@ -68,7 +68,7 @@ const ReviewsSection = () => {
                 </div>
               </div>
               
-              <p className="font-display text-lg text-foreground/90 italic leading-relaxed mb-8">
+              <p className="font-display text-lg text-foreground/90 leading-relaxed mb-8">
                 "{review.review}"
               </p>
               
