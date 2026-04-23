@@ -63,7 +63,7 @@ const Footer = () => {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="col-span-1">
-              <h4 className="text-sm font-medium text-foreground/70 mb-4 font-body tracking-wide">{category}</h4>
+              <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground/70 mb-4" style={{ fontWeight: 500 }}>{category}</h4>
               <ul className="space-y-2">
                 {links.map((link) => {
                   const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy", "Contact": "/contact", "Shipping": "/shipping", "Terms & Conditions": "/terms", "Privacy Policy": "/privacy-policy" };
@@ -73,15 +73,15 @@ const Footer = () => {
                   return (
                     <li key={link}>
                       {to ? (
-                        <LocaleLink to={to} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                        <LocaleLink to={to} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </LocaleLink>
                       ) : sectionId ? (
-                        <button onClick={() => scrollToSection(sectionId)} className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                        <button onClick={() => scrollToSection(sectionId)} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </button>
                       ) : (
-                        <a href="#" className="text-sm text-muted-foreground/50 hover:text-foreground transition-colors font-body">
+                        <a href="#" className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </a>
                       )}
@@ -94,8 +94,8 @@ const Footer = () => {
 
           {/* Subscribe Column */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-sm font-medium text-foreground/70 mb-2 font-body tracking-wide uppercase">Subscribe</h4>
-            <p className="text-sm text-muted-foreground/60 mb-4 font-body">Early access. New designs. Community stories.</p>
+            <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground/70 mb-2" style={{ fontWeight: 500 }}>Subscribe</h4>
+            <p className="text-xs text-muted-foreground/60 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
             <form className="flex items-center border-b border-foreground/20 pb-1 mb-6 max-w-xs" onSubmit={async (e) => {
               e.preventDefault();
               if (isSubmitting || !email) return;
