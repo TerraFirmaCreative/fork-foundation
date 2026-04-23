@@ -102,7 +102,6 @@ const HowItWorks = () => {
               <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
-              <div className="w-full h-px bg-gradient-to-r from-shaman-violet/30 via-shaman-magenta/20 to-transparent mb-2 md:mb-4" />
 
               {/* Fixed height title area */}
               <div className="h-auto md:h-[3.5rem] flex flex-col items-start justify-start mb-1 md:mb-0">
