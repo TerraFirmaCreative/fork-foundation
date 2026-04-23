@@ -52,7 +52,7 @@ const Footer = () => {
               <img
                 src={cosmicIglooMark}
                 alt="Cosmic Igloo"
-                className="w-10 h-10 object-contain"
+                className="w-7 h-7 object-contain"
               />
               <span className="font-display text-base tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
                 Cosmic Igloo
