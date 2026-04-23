@@ -78,7 +78,7 @@ const Blog = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 relative z-10">
           <p className="text-sm text-muted-foreground/50 font-body">
             More posts coming soon
           </p>
