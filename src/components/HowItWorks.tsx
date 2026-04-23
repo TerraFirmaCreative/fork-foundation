@@ -114,10 +114,10 @@ const HowItWorks = () => {
 
 
               {step.deliveryLines && (
-                <div className="space-y-3 mt-3">
+                <div className="space-y-2 mt-3">
                   {step.deliveryLines.map((dl, i) => (
                     <div key={i} className="flex gap-3">
-                      <div className="w-0.5 h-4 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                      <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
                       <p className="text-[19px] text-foreground/70 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
@@ -126,10 +126,10 @@ const HowItWorks = () => {
                 </div>
               )}
 
-              <div className="space-y-3 mt-3">
+              <div className="space-y-2 mt-3">
                 {step.lines.map((line, i) => (
                   <div key={i} className="flex gap-3">
-                    <div className="w-0.5 h-4 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                    <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
                     <p className="text-[19px] text-foreground/70 font-body leading-relaxed whitespace-nowrap">
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
