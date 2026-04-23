@@ -160,7 +160,7 @@ const BlogPostHudson = () => {
                 Mandelbrot Dreams
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">
-                Hudson chose this design for its infinite, fractal patterns — a reminder that growth on the mat never stops.
+                Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice.
               </p>
               <p className="font-display text-3xl text-foreground font-medium">
                 {price}
