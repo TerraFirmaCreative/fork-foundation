@@ -14,7 +14,7 @@ const About = () => {
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p>
-              Unique Yoga Mats began because we believe yoga mats should be genuinely beautiful.
+              Cosmic Igloo began because we believe yoga mats should be genuinely beautiful.
             </p>
             <p>
               Every design in our collection is an original piece of artwork, created to bring beauty and inspiration to your practice.

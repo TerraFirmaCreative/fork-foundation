@@ -9,7 +9,7 @@ import {
 
 const faqs = [
   {
-    question: "What is Unique Yoga Mats?",
+    question: "What is Cosmic Igloo?",
     answer: "We're an online store selling beautifully designed yoga mats, printed to order and delivered straight to your door."
   },
   {

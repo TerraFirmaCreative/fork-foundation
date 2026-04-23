@@ -27,7 +27,7 @@ const AboutSection = () => {
         
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
           <p>
-            We started Unique Yoga Mats because we believe yoga mats should be genuinely beautiful.
+            We started Cosmic Igloo because we believe yoga mats should be genuinely beautiful.
           </p>
 
           <p>
