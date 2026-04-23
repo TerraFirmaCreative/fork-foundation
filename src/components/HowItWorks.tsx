@@ -13,7 +13,6 @@ const getSteps = (priceLabel: string) => [
       { text: "24 original designs", bold: "" },
       { text: "Natural rubber base", bold: "" },
       { text: "Suede top surface", bold: "" },
-      { text: "Extra grip for your practice", bold: "" },
     ],
   },
   {
@@ -23,7 +22,6 @@ const getSteps = (priceLabel: string) => [
     lines: [
       { text: `${priceLabel} per mat`, bold: "" },
       { text: "Free shipping included", bold: "" },
-      { text: "No hidden fees", bold: "" },
       { text: "Secure checkout", bold: "" },
     ],
   },
@@ -36,9 +34,7 @@ const getSteps = (priceLabel: string) => [
       { country: "Europe", time: "around 2 weeks" },
       { country: "Australia", time: "up to 3 weeks" },
     ],
-    lines: [
-      { text: "Printed to order in the USA", bold: "" },
-    ],
+    lines: [],
   },
   {
     number: "04",
