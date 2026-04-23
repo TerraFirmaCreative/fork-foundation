@@ -31,7 +31,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-gold",
     deliveryLines: [
       { country: "USA", time: "around 1 week" },
-      { country: "Europe", time: "around 2 weeks" },
+      { country: "UK/Europe", time: "around 2 weeks" },
       { country: "Australia", time: "up to 3 weeks" },
     ],
     lines: [],
