@@ -11,7 +11,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "24 original designs", bold: "" },
-      { text: "Super grippy suede top surface", bold: "" },
+      { text: "Suede top surface", bold: "" },
       { text: "Natural rubber base", bold: "" },
     ],
   },
