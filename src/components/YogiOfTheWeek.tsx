@@ -74,7 +74,7 @@ const GallerySlot = ({
     };
     let timeout: ReturnType<typeof setTimeout>;
     const schedule = () => {
-      timeout = setTimeout(tick, 2500 + Math.random() * 1500);
+      timeout = setTimeout(tick, 5000 + Math.random() * 3000);
     };
     timeout = setTimeout(tick, delay);
     return () => clearTimeout(timeout);
