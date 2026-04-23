@@ -63,7 +63,7 @@
       hsl(240, 45%, 6%) 100%);
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Cormorant Garamond', Georgia, serif;
 
     --shadow-soft: 0 4px 24px -4px hsla(245, 60%, 4%, 0.6);
     --shadow-card: 0 8px 40px -12px hsla(245, 60%, 4%, 0.7);
