@@ -100,25 +100,19 @@ const BlogPostHudson = () => {
           </div>
 
           <p>
-            Hudson is originally from Canada, but right now you'll find her on the other side of the world — travelling slowly through South West Australia.
+            Hey there! My name is Hudson. I was born and raised in Vancouver, Canada, and currently reside in the serene south west of Australia.
           </p>
           <p className="mt-6">
-            She's currently based in Margaret River, a stunning coastal region of ancient forests, limestone cliffs and long stretches of open beach.
+            My practice is always changing, but the meaning remains the same. A slice of paradise regardless of my external world. As long as I have my mat, I can drop back into my body, find inner alignment and peace in the chaos.
           </p>
           <p className="mt-6">
-            She's been rolling out her mat at ocean lookouts and in quiet pockets of bushland just outside town — practising with the sound of waves in the distance and the wind moving through the trees.
+            As I am constantly evolving, so does my practice. It can be whatever you need it to be that day. A yoga mat is so much more than the name depicts. A magic carpet of solus, where we have the space to connect with whatever requires attention. Mind, body, spirit. I oscillate from quiet meditation to rogue movement and dance. Whatever flow my body desires that day. However, it always starts with stillness.
           </p>
 
           <div className="clear-both" />
 
-          <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground pt-8">
-            Her Mat: Mandelbrot Dreams
-          </h2>
           <p className="mt-6">
-            Hudson chose Mandelbrot Dreams — a design she describes as "anchoring without being heavy." It's intricate and expansive, with layers that draw you in the longer you look at it.
-          </p>
-          <p className="mt-6">
-            For Hudson, travel means constant change — new time zones, new surroundings, new routines. Having a mat that feels familiar wherever she lays it down has become part of her ritual. A small, grounding constant in ever-shifting places.
+            I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice. Hearing that "love" and "light" were key inspirations behind the design comes as no surprise. I am thrilled to continue my yoga journey and evolving my practice with this very unique yoga mat.
           </p>
         </article>
 
