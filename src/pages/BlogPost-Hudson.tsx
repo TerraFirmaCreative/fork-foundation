@@ -160,7 +160,7 @@ const BlogPostHudson = () => {
                 Mandelbrot Dreams
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">
-                Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice.
+                <em>"Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice."</em>
               </p>
               <p className="font-display text-3xl text-foreground font-medium">
                 {price}
