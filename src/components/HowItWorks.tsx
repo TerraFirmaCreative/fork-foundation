@@ -96,7 +96,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative group text-center flex flex-col"
+              className="relative group text-left flex flex-col"
             >
               {/* Step number */}
               <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
