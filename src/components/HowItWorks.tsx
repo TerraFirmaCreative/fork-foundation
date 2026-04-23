@@ -21,7 +21,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-magenta",
     lines: [
       { text: `${priceLabel} per mat`, bold: "" },
-      { text: "Free shipping included", bold: "" },
+      { text: "Free worldwide shipping", bold: "" },
       { text: "Secure checkout", bold: "" },
     ],
   },
