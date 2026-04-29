@@ -40,7 +40,7 @@ const MatBenefits = () => {
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
-            The Mat
+            The Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium mb-4 tracking-tight leading-tight">
             <span className="text-foreground">Beautiful design.</span>
