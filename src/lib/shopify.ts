@@ -295,6 +295,20 @@ const CART_LINES_REMOVE_MUTATION = `
   }
 `;
 
+const VARIANTS_BY_IDS_QUERY = `
+  query GetVariantsByIds($ids: [ID!]!, $country: CountryCode) @inContext(country: $country) {
+    nodes(ids: $ids) {
+      ... on ProductVariant {
+        id
+        price {
+          amount
+          currencyCode
+        }
+      }
+    }
+  }
+`;
+
 function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
@@ -343,7 +357,7 @@ export async function createShopifyCart(item: CartItem, country = "US"): Promise
   return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId, cost: cart.cost };
 }
 
-export async function updateCartBuyerIdentity(cartId: string, country = "US"): Promise<{ success: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
+export async function updateCartBuyerIdentity(cartId: string, country = "US"): Promise<{ success: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } }, lines?: Array<{ id: string; merchandise: { id: string } }> }> {
   const data = await storefrontApiRequest(CART_BUYER_IDENTITY_UPDATE_MUTATION, {
     cartId: cartId,
     buyerIdentity: {
@@ -356,7 +370,25 @@ export async function updateCartBuyerIdentity(cartId: string, country = "US"): P
     return { success: false };
   }
 
-  return { success: true, cost: data?.data?.cartBuyerIdentityUpdate?.cart.cost }
+  return { success: true, cost: data?.data?.cartBuyerIdentityUpdate?.cart.cost, lines: data?.data?.cartBuyerIdentityUpdate?.cart.lines?.edges?.map((edge: { node: { id: string; merchandise: { id: string } } }) => edge.node) }
+}
+
+export async function getVariantPrices(variantIds: string[], country = "US"): Promise<Record<string, { amount: string; currencyCode: string }> | null> {
+  const data = await storefrontApiRequest(VARIANTS_BY_IDS_QUERY, {
+    ids: variantIds,
+    country: country
+  });
+
+  if (!data?.data?.nodes) return null;
+
+  const priceMap: Record<string, { amount: string; currencyCode: string }> = {};
+  data.data.nodes.forEach((variant: { id: string; price: { amount: string; currencyCode: string } }) => {
+    if (variant && variant.price) {
+      priceMap[variant.id] = variant.price;
+    }
+  });
+
+  return priceMap;
 }
 
 export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {

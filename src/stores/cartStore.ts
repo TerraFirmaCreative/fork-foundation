@@ -9,6 +9,7 @@ import {
   updateShopifyCartLine,
   removeLineFromShopifyCart,
   updateCartBuyerIdentity,
+  getVariantPrices,
 } from '@/lib/shopify';
 
 export type { CartItem } from '@/lib/shopify';
@@ -44,7 +45,7 @@ export const useCartStore = create<CartStore>()(
       setDrawerOpen: (open) => set({ isDrawerOpen: open }),
 
       updateLocale: async (country: string) => {
-        const { cartId } = get();
+        const { cartId, items } = get();
 
         set({ isLoading: true });
         try {
@@ -57,6 +58,21 @@ export const useCartStore = create<CartStore>()(
                 currencyCode: result.cost?.totalAmount.currencyCode
               }
             });
+
+            // Fetch variant prices in the new locale
+            if (items.length > 0) {
+              const variantIds = items.map(item => item.variantId);
+              const priceMap = await getVariantPrices(variantIds, country);
+
+              if (priceMap) {
+                set({
+                  items: items.map(item => ({
+                    ...item,
+                    price: priceMap[item.variantId] || item.price
+                  }))
+                });
+              }
+            }
           }
 
           return;
