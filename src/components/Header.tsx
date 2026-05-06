@@ -67,24 +67,24 @@ const Header = () => {
         </LocaleLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           <button
             onClick={() => scrollToSection("design-gallery")}
-            className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors"
+            className="font-display text-xs tracking-[0.24em] uppercase text-foreground/80 hover:text-foreground transition-colors"
             style={{ fontWeight: 500 }}
           >
             Shop
           </button>
           <button
             onClick={scrollToHowItWorks}
-            className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors"
+            className="font-display text-xs tracking-[0.24em] uppercase text-foreground/80 hover:text-foreground transition-colors"
             style={{ fontWeight: 500 }}
           >
             How It Works
           </button>
           <LocaleLink
             to="/about"
-            className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors"
+            className="font-display text-xs tracking-[0.24em] uppercase text-foreground/80 hover:text-foreground transition-colors"
             style={{ fontWeight: 500 }}
           >
             About
@@ -92,10 +92,10 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
-                className="font-display text-sm tracking-[0.28em] uppercase text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1"
+                className="font-display text-xs tracking-[0.24em] uppercase text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1"
                 style={{ fontWeight: 500 }}
               >
-                More <ChevronDown className="w-3.5 h-3.5" />
+                More <ChevronDown className="w-3 h-3" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-card border-border/50 z-50">
