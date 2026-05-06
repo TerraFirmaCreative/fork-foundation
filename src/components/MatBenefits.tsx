@@ -7,7 +7,7 @@ const benefits = [
   },
   {
     title: "Suede Top",
-    description: "Soft underfoot and gets grippier as you warm up — exactly when you need it most."
+    description: "Soft underfoot and gets grippier as you warm up."
   },
   {
     title: "Balanced Thickness",
