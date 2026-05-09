@@ -1,96 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cosmic Igloo: deep midnight indigo, violet light, soft starlight gold */
+    --background: 240 45% 6%;
+    --foreground: 250 25% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 245 40% 9%;
+    --card-foreground: 250 25% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 245 40% 9%;
+    --popover-foreground: 250 25% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 270 55% 62%;
+    --primary-foreground: 240 45% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 250 30% 22%;
+    --secondary-foreground: 250 25% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 245 30% 14%;
+    --muted-foreground: 250 18% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 70% 65%;
+    --accent-foreground: 240 45% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 250 25% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 250 25% 18%;
+    --input: 250 25% 18%;
+    --ring: 270 55% 62%;
 
-    --radius: 0.5rem;
+    --radius: 1.125rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Cosmic palette — keep shaman-* token names for backwards compat */
+    --shaman-violet: 270 60% 65%;
+    --shaman-magenta: 285 50% 55%;
+    --shaman-teal: 220 50% 55%;
+    --shaman-gold: 45 75% 65%;
+    --shaman-ember: 280 55% 60%;
+    --shaman-deep: 245 50% 8%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --gradient-shaman: linear-gradient(135deg, 
+      hsl(270, 60%, 65%) 0%, 
+      hsl(285, 50%, 55%) 35%, 
+      hsl(45, 75%, 65%) 75%,
+      hsl(220, 50%, 55%) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    --gradient-mystic: linear-gradient(180deg, 
+      hsl(245, 50%, 8%) 0%, 
+      hsl(250, 45%, 11%) 50%, 
+      hsl(240, 45%, 6%) 100%);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Cormorant Garamond', Georgia, serif;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --shadow-soft: 0 4px 24px -4px hsla(245, 60%, 4%, 0.6);
+    --shadow-card: 0 8px 40px -12px hsla(245, 60%, 4%, 0.7);
+    --shadow-glow: 0 0 60px -12px hsla(270, 60%, 60%, 0.35);
+    --chart-1: 45 96% 64%;
+    --chart-2: 47 95% 53%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 37 92% 50%;
+    --chart-5: 24 5% 44%;
+    --sidebar: 60 9% 97%;
+    --sidebar-foreground: 24 9% 10%;
+    --sidebar-primary: 37 92% 50%;
+    --sidebar-primary-foreground: 47 100% 96%;
+    --sidebar-accent: 24 5% 44%;
+    --sidebar-accent-foreground: 60 9% 97%;
+    --sidebar-border: 23 5% 82%;
+    --sidebar-ring: 37 92% 50%;
+    --font-sans: 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-serif: 'Source Serif Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
+    --terra-clay: 18 30% 42%;
+    --terra-sage: 140 18% 38%;
+    --terra-sand: 38 30% 60%;
+    --terra-stone: 30 8% 45%;
+    --terra-moss: 95 15% 35%;
+    --terra-earth: 25 20% 12%;
+    --gradient-terra: linear-gradient(135deg, 
+      hsl(18, 30%, 42%) 0%, 
+      hsl(38, 30%, 55%) 50%,
+      hsl(140, 18%, 38%) 100%);
+    --gradient-earth: linear-gradient(180deg, 
+      hsl(30, 15%, 6%) 0%, 
+      hsl(28, 18%, 10%) 50%, 
+      hsl(30, 15%, 7%) 100%);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 240 45% 6%;
+    --foreground: 250 25% 90%;
+    --card: 245 40% 9%;
+    --card-foreground: 250 25% 90%;
+    --popover: 245 40% 9%;
+    --popover-foreground: 250 25% 90%;
+    --primary: 270 55% 62%;
+    --primary-foreground: 240 45% 6%;
+    --secondary: 250 30% 22%;
+    --secondary-foreground: 250 25% 90%;
+    --muted: 245 30% 14%;
+    --muted-foreground: 250 18% 70%;
+    --accent: 45 70% 65%;
+    --accent-foreground: 240 45% 6%;
+    --border: 250 25% 18%;
+    --input: 250 25% 18%;
+    --ring: 270 55% 62%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 85% 97%;
+    --chart-1: 45 96% 64%;
+    --chart-2: 48 96% 76%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 37 92% 50%;
+    --chart-5: 33 5% 32%;
+    --sidebar: 12 6% 15%;
+    --sidebar-foreground: 60 9% 97%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 20 91% 14%;
+    --sidebar-accent: 47 95% 53%;
+    --sidebar-accent-foreground: 25 83% 14%;
+    --sidebar-border: 33 5% 32%;
+    --sidebar-ring: 43 96% 56%;
+    --radius: 1.125rem;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   }
 }
 
@@ -101,5 +162,190 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: 1.1875rem;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 0%, hsla(270, 65%, 25%, 0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 15%, hsla(285, 55%, 22%, 0.28) 0%, transparent 55%),
+      radial-gradient(ellipse 90% 70% at 50% 50%, hsla(255, 50%, 18%, 0.25) 0%, transparent 65%),
+      radial-gradient(ellipse 75% 55% at 15% 85%, hsla(220, 55%, 20%, 0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 90% 95%, hsla(280, 50%, 22%, 0.25) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+
+  /* Global starfield layer behind everything */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(1px 1px at 8% 12%, hsla(45, 80%, 85%, 0.5), transparent 60%),
+      radial-gradient(1px 1px at 24% 38%, hsla(0, 0%, 100%, 0.35), transparent 60%),
+      radial-gradient(1.5px 1.5px at 42% 18%, hsla(270, 70%, 90%, 0.45), transparent 60%),
+      radial-gradient(1px 1px at 58% 62%, hsla(0, 0%, 100%, 0.3), transparent 60%),
+      radial-gradient(1px 1px at 72% 28%, hsla(45, 80%, 85%, 0.4), transparent 60%),
+      radial-gradient(1.5px 1.5px at 88% 72%, hsla(220, 70%, 90%, 0.4), transparent 60%),
+      radial-gradient(1px 1px at 12% 78%, hsla(0, 0%, 100%, 0.35), transparent 60%),
+      radial-gradient(1px 1px at 36% 92%, hsla(270, 70%, 90%, 0.3), transparent 60%),
+      radial-gradient(1px 1px at 64% 82%, hsla(45, 80%, 85%, 0.35), transparent 60%),
+      radial-gradient(1px 1px at 92% 48%, hsla(0, 0%, 100%, 0.3), transparent 60%);
+    background-size: 900px 900px;
+    background-repeat: repeat;
+    opacity: 0.7;
+  }
+
+  /* Ensure main content sits above the starfield */
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, 
+      hsl(270, 65%, 72%) 0%, 
+      hsl(285, 55%, 65%) 30%,
+      hsl(45, 80%, 70%) 75%,
+      hsl(220, 55%, 65%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, 
+      hsl(45, 80%, 70%) 0%, 
+      hsl(270, 65%, 72%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--card), var(--card)) padding-box,
+                var(--gradient-shaman) border-box;
+  }
+
+  .glow-effect {
+    position: relative;
+  }
+
+  .glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-shaman);
+    border-radius: inherit;
+    opacity: 0.3;
+    filter: blur(16px);
+    z-index: -1;
+    transition: opacity 0.4s ease;
+  }
+
+  .glow-effect:hover::before {
+    opacity: 0.5;
+  }
+
+  .shaman-bg {
+    background: 
+      radial-gradient(ellipse at 15% 15%, hsla(270, 70%, 45%, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 25%, hsla(285, 55%, 45%, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 85%, hsla(220, 60%, 35%, 0.14) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 70%, hsla(45, 80%, 60%, 0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 20% 60%, hsla(255, 50%, 30%, 0.1) 0%, transparent 50%);
+  }
+
+  /* Subtle starfield for cosmic backgrounds */
+  .starfield {
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, hsla(45, 80%, 80%, 0.6), transparent 60%),
+      radial-gradient(1px 1px at 78% 32%, hsla(270, 70%, 85%, 0.5), transparent 60%),
+      radial-gradient(1px 1px at 33% 72%, hsla(0, 0%, 100%, 0.4), transparent 60%),
+      radial-gradient(1px 1px at 88% 80%, hsla(220, 70%, 85%, 0.5), transparent 60%),
+      radial-gradient(1px 1px at 55% 12%, hsla(0, 0%, 100%, 0.45), transparent 60%),
+      radial-gradient(1px 1px at 22% 55%, hsla(45, 80%, 80%, 0.45), transparent 60%),
+      radial-gradient(1px 1px at 65% 88%, hsla(0, 0%, 100%, 0.4), transparent 60%);
+    background-repeat: repeat;
+    background-size: 600px 600px;
+  }
+
+  .texture-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+  }
+
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float-orb 12s ease-in-out infinite;
+  }
+
+  @keyframes float-orb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(20px, -15px) scale(1.05); }
+    66% { transform: translate(-15px, 12px) scale(0.95); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+  }
+
+  @keyframes mandala-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  @keyframes mandala-spin-reverse {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(-360deg); }
+  }
+
+  /* Sacred geometry pattern */
+  .sacred-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%239C92AC' stroke-opacity='0.05'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
   }
 }
