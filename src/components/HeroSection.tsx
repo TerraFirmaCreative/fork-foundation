@@ -219,7 +219,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.15] pb-4 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
+        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
           <span className="block">
             <span className="text-foreground/90">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -239,7 +239,9 @@ const HeroSection = () => {
                 />
               </svg>
             </span>{" "}
-            <span className="text-gradient italic">grippy</span>
+            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
+              grippy
+            </span>
           </span>
           <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
             yoga mats.
