@@ -4,8 +4,8 @@ import { FractalGrid } from "./SacredGeometry";
 const reviews = [
   {
     id: 1,
-    name: "David M.",
-    review: "The design really is beautiful. It's one of the main reasons I chose this mat, and it still feels special every time I use it.",
+    name: "Philippa W.",
+    review: "I love my Whale yoga mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring.",
     date: "3 weeks ago",
   },
   {
@@ -16,8 +16,8 @@ const reviews = [
   },
   {
     id: 3,
-    name: "Marcus W.",
-    review: "It feels like a well-made mat that's been thought through. I use it a lot and it still looks great.",
+    name: "Clare W.",
+    review: "A high quality, beautifully made yoga mat. Came with a handy carry strap. The vibrant pattern comes alive in the sunshine, which makes practising yoga a joy. Would highly recommend this mat.",
     date: "2 months ago",
   },
   {
