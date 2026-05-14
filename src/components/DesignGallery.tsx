@@ -29,7 +29,7 @@ const DesignGallery = () => {
     <section id="design-gallery" className="hero-gradient pt-20 md:pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         {loading ? (
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 md:gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
             {Array.from({ length: 24 }).map((_, i) => (
               <Skeleton key={i} className="w-full aspect-[1/3] rounded-xl" />
             ))}
