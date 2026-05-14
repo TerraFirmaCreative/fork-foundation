@@ -46,7 +46,7 @@ const DesignGallery = () => {
                 <LocaleLink
                   to={`/product/${product.node.handle}`}
                   key={product.node.id}
-                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block"
+                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block bg-black"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
