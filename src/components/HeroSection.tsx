@@ -299,5 +299,9 @@ const HeroSection = () => {
         .enter-cta-shimmer { animation: enter-cta-shimmer 4.5s ease-in-out infinite; }
         .enter-cta-arrow { animation: enter-cta-bob 2.4s ease-in-out infinite; }
       `}</style>
+    </section>
+  );
+};
 
 export default HeroSection;
+
