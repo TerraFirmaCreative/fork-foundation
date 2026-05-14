@@ -108,16 +108,22 @@ const HeroSection = () => {
 
       {/* LAYER 5 — Flower of Life (slow spin + slow grow) */}
       <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        style={{ animation: "flower-grow 60s ease-in-out infinite" }}
+        className="absolute left-1/2 top-1/2 pointer-events-none"
+        style={{
+          width: 900,
+          height: 900,
+          marginLeft: -450,
+          marginTop: -450,
+          animation: "flower-grow 60s ease-in-out infinite",
+        }}
       >
         <svg
-          width={900}
-          height={900}
+          width="100%"
+          height="100%"
           viewBox="-100 -100 200 200"
           style={{
             opacity: 0.13,
-            animation: "mandala-spin 240s linear infinite",
+            animation: "flower-spin 240s linear infinite",
             transformOrigin: "center",
           }}
         >
@@ -132,17 +138,14 @@ const HeroSection = () => {
             {(() => {
               const r = 20;
               const centers: Array<[number, number]> = [[0, 0]];
-              // inner ring (6)
               for (let i = 0; i < 6; i++) {
                 const a = (i * 60 * Math.PI) / 180;
                 centers.push([r * Math.cos(a), r * Math.sin(a)]);
               }
-              // second ring axials (6) at distance 2r
               for (let i = 0; i < 6; i++) {
                 const a = (i * 60 * Math.PI) / 180;
                 centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
               }
-              // second ring diagonals (6) at distance r*sqrt(3)
               const d = r * Math.sqrt(3);
               for (let i = 0; i < 6; i++) {
                 const a = ((i * 60 + 30) * Math.PI) / 180;
@@ -152,7 +155,6 @@ const HeroSection = () => {
                 <circle key={i} cx={cx} cy={cy} r={r} />
               ));
             })()}
-            {/* enclosing circles */}
             <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
             <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
           </g>
