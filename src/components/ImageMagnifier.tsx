@@ -68,13 +68,13 @@ const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
     >
-      <img {...props} className={cn(`relative z-[2] h-full w-full object-cover`)} onLoad={(e) => { props.onLoad?.(e); }} />
+      <img {...props} className={cn(`relative z-[2] h-full w-full object-contain`)} onLoad={(e) => { props.onLoad?.(e); }} />
       {placeholderUrl && (
         <img
           src={placeholderUrl}
           alt=""
           aria-hidden
-          className={cn("absolute top-0 object-cover z-[1] h-full w-full")}
+          className={cn("absolute top-0 left-0 object-contain z-[1] h-full w-full")}
         />
       )}
       <div
