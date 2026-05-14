@@ -166,7 +166,7 @@ const HeroSection = () => {
           className="absolute inset-0"
           style={{
             animation: "flower-fractal 28s linear infinite",
-            animationDelay: "-14s, -120s",
+            animationDelay: "-14s",
             transformOrigin: "center",
           }}
         >
