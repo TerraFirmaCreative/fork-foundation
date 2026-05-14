@@ -106,24 +106,24 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Flower of Life (slow spin + slow grow) */}
+      {/* LAYER 5 — Flower of Life (fractal-style infinite expansion) */}
       <div
         className="absolute left-1/2 top-1/2 pointer-events-none"
         style={{
-          width: 900,
-          height: 900,
-          marginLeft: -450,
-          marginTop: -450,
-          animation: "flower-grow 60s ease-in-out infinite",
+          width: 1400,
+          height: 1400,
+          marginLeft: -700,
+          marginTop: -700,
         }}
       >
+        {/* Two staggered layers create a seamless ever-expanding loop */}
         <svg
           width="100%"
           height="100%"
           viewBox="-100 -100 200 200"
+          className="absolute inset-0"
           style={{
-            opacity: 0.13,
-            animation: "flower-spin 240s linear infinite",
+            animation: "flower-fractal 28s linear infinite",
             transformOrigin: "center",
           }}
         >
@@ -134,6 +134,43 @@ const HeroSection = () => {
               <stop offset="100%" stopColor="hsl(270, 70%, 70%)" stopOpacity="0.7" />
             </radialGradient>
           </defs>
+          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
+            {(() => {
+              const r = 20;
+              const centers: Array<[number, number]> = [[0, 0]];
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([r * Math.cos(a), r * Math.sin(a)]);
+              }
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
+              }
+              const d = r * Math.sqrt(3);
+              for (let i = 0; i < 6; i++) {
+                const a = ((i * 60 + 30) * Math.PI) / 180;
+                centers.push([d * Math.cos(a), d * Math.sin(a)]);
+              }
+              return centers.map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r={r} />
+              ));
+            })()}
+            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
+            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
+          </g>
+        </svg>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="-100 -100 200 200"
+          className="absolute inset-0"
+          style={{
+            animation: "flower-fractal 28s linear infinite",
+            animationDelay: "-14s",
+            transformOrigin: "center",
+          }}
+        >
+          <use href="#folGradient" />
           <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
             {(() => {
               const r = 20;
