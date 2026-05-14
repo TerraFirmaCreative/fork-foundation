@@ -106,48 +106,58 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Mid mandala (slow rotation) */}
-      <svg
+      {/* LAYER 5 — Flower of Life (slow spin + slow grow) */}
+      <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        width={900}
-        height={900}
-        viewBox="0 0 200 200"
-        style={{
-          opacity: 0.09,
-          animation: "mandala-spin 180s linear infinite",
-        }}
+        style={{ animation: "flower-grow 60s ease-in-out infinite" }}
       >
-        <defs>
-          <linearGradient id="midMandala" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(270, 70%, 70%)" />
-            <stop offset="50%" stopColor="hsl(285, 60%, 60%)" />
-            <stop offset="100%" stopColor="hsl(45, 75%, 70%)" />
-          </linearGradient>
-        </defs>
-        <g
-          transform="translate(100, 100)"
-          stroke="url(#midMandala)"
-          fill="none"
-          strokeWidth="0.4"
+        <svg
+          width={900}
+          height={900}
+          viewBox="-100 -100 200 200"
+          style={{
+            opacity: 0.13,
+            animation: "mandala-spin 240s linear infinite",
+            transformOrigin: "center",
+          }}
         >
-          {Array.from({ length: 24 }).map((_, i) => {
-            const angle = (i * 15 * Math.PI) / 180;
-            return (
-              <ellipse
-                key={i}
-                cx={50 * Math.cos(angle)}
-                cy={50 * Math.sin(angle)}
-                rx="22"
-                ry="10"
-                transform={`rotate(${i * 15})`}
-              />
-            );
-          })}
-          {[30, 50, 70, 90].map((r) => (
-            <circle key={r} cx="0" cy="0" r={r} />
-          ))}
-        </g>
-      </svg>
+          <defs>
+            <radialGradient id="folGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="hsl(45, 80%, 75%)" stopOpacity="1" />
+              <stop offset="60%" stopColor="hsl(285, 60%, 65%)" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="hsl(270, 70%, 70%)" stopOpacity="0.7" />
+            </radialGradient>
+          </defs>
+          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
+            {(() => {
+              const r = 20;
+              const centers: Array<[number, number]> = [[0, 0]];
+              // inner ring (6)
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([r * Math.cos(a), r * Math.sin(a)]);
+              }
+              // second ring axials (6) at distance 2r
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
+              }
+              // second ring diagonals (6) at distance r*sqrt(3)
+              const d = r * Math.sqrt(3);
+              for (let i = 0; i < 6; i++) {
+                const a = ((i * 60 + 30) * Math.PI) / 180;
+                centers.push([d * Math.cos(a), d * Math.sin(a)]);
+              }
+              return centers.map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r={r} />
+              ));
+            })()}
+            {/* enclosing circles */}
+            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
+            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
+          </g>
+        </svg>
+      </div>
 
       {/* LAYER 6 — Inner mandala (counter-rotating) */}
       <svg
