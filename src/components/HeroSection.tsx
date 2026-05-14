@@ -256,14 +256,15 @@ const HeroSection = () => {
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="group mt-12 relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_30px_-10px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_45px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer"
+          className="enter-cta group mt-12 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
           aria-label="View the collection below"
         >
-          <span className="text-xs sm:text-sm tracking-[0.35em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
+          <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
+          <span className="relative text-[0.7rem] sm:text-xs tracking-[0.32em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
             Enter the collection
           </span>
           <svg
-            className="w-4 h-4 text-shaman-gold group-hover:text-foreground group-hover:translate-y-0.5 transition-all duration-500"
+            className="relative w-3.5 h-3.5 text-shaman-gold group-hover:text-foreground transition-colors duration-500 enter-cta-arrow"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -287,9 +288,20 @@ const HeroSection = () => {
         .animate-scroll-cue {
           animation: scroll-cue 2.4s ease-in-out infinite;
         }
+        @keyframes enter-cta-shimmer {
+          0% { transform: translateX(-100%); }
+          60%, 100% { transform: translateX(100%); }
+        }
+        @keyframes enter-cta-bob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(2px); }
+        }
+        .enter-cta-shimmer { animation: enter-cta-shimmer 4.5s ease-in-out infinite; }
+        .enter-cta-arrow { animation: enter-cta-bob 2.4s ease-in-out infinite; }
       `}</style>
     </section>
   );
 };
 
 export default HeroSection;
+
