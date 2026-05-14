@@ -123,7 +123,7 @@ const HeroSection = () => {
           viewBox="-100 -100 200 200"
           className="absolute inset-0"
           style={{
-            animation: "flower-fractal 28s linear infinite, flower-spin 240s linear infinite",
+            animation: "flower-fractal 28s linear infinite",
             transformOrigin: "center",
           }}
         >
@@ -165,7 +165,7 @@ const HeroSection = () => {
           viewBox="-100 -100 200 200"
           className="absolute inset-0"
           style={{
-            animation: "flower-fractal 28s linear infinite, flower-spin 240s linear infinite",
+            animation: "flower-fractal 28s linear infinite",
             animationDelay: "-14s, -120s",
             transformOrigin: "center",
           }}
