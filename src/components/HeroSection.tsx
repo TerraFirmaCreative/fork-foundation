@@ -253,22 +253,28 @@ const HeroSection = () => {
           Designed to inspire. Made to perform.
         </p>
 
-        {/* Invitation downward — replaces the standard CTA button feel */}
+        {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="group mt-12 flex flex-col items-center gap-3 cursor-pointer"
+          className="group mt-12 relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_30px_-10px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_45px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer"
           aria-label="View the collection below"
         >
-          <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body font-light">
+          <span className="text-xs sm:text-sm tracking-[0.35em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
             Enter the collection
           </span>
-
-          {/* Animated descending line + dot */}
-          <span className="relative flex flex-col items-center">
-            <span className="block w-px h-12 bg-gradient-to-b from-shaman-gold/60 via-shaman-violet/40 to-transparent" />
-            <span className="absolute top-0 w-px h-4 bg-shaman-gold animate-scroll-cue" />
-          </span>
+          <svg
+            className="w-4 h-4 text-shaman-gold group-hover:text-foreground group-hover:translate-y-0.5 transition-all duration-500"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
         </button>
+
       </div>
 
       {/* Local keyframes for the scroll cue */}
