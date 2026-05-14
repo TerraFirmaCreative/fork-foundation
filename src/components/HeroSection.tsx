@@ -159,6 +159,43 @@ const HeroSection = () => {
             <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
           </g>
         </svg>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="-100 -100 200 200"
+          className="absolute inset-0"
+          style={{
+            animation: "flower-fractal 28s linear infinite, flower-spin 240s linear infinite",
+            animationDelay: "-14s, -120s",
+            transformOrigin: "center",
+          }}
+        >
+          <use href="#folGradient" />
+          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
+            {(() => {
+              const r = 20;
+              const centers: Array<[number, number]> = [[0, 0]];
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([r * Math.cos(a), r * Math.sin(a)]);
+              }
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
+              }
+              const d = r * Math.sqrt(3);
+              for (let i = 0; i < 6; i++) {
+                const a = ((i * 60 + 30) * Math.PI) / 180;
+                centers.push([d * Math.cos(a), d * Math.sin(a)]);
+              }
+              return centers.map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r={r} />
+              ));
+            })()}
+            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
+            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
+          </g>
+        </svg>
       </div>
 
       {/* LAYER 6 — Inner mandala (counter-rotating) */}
