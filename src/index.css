@@ -336,6 +336,16 @@
     to { transform: translate(-50%, -50%) rotate(-360deg); }
   }
 
+  @keyframes flower-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes flower-grow {
+    0%, 100% { transform: scale(0.85); }
+    50% { transform: scale(1.08); }
+  }
+
   /* Sacred geometry pattern */
   .sacred-pattern {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%239C92AC' stroke-opacity='0.05'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
