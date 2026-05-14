@@ -106,24 +106,24 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Flower of Life (slow spin + slow grow) */}
+      {/* LAYER 5 — Flower of Life (fractal-style infinite expansion) */}
       <div
         className="absolute left-1/2 top-1/2 pointer-events-none"
         style={{
-          width: 900,
-          height: 900,
-          marginLeft: -450,
-          marginTop: -450,
-          animation: "flower-grow 60s ease-in-out infinite",
+          width: 1400,
+          height: 1400,
+          marginLeft: -700,
+          marginTop: -700,
         }}
       >
+        {/* Two staggered layers create a seamless ever-expanding loop */}
         <svg
           width="100%"
           height="100%"
           viewBox="-100 -100 200 200"
+          className="absolute inset-0"
           style={{
-            opacity: 0.13,
-            animation: "flower-spin 240s linear infinite",
+            animation: "flower-fractal 28s linear infinite, flower-spin 240s linear infinite",
             transformOrigin: "center",
           }}
         >
