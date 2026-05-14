@@ -39,7 +39,7 @@ const DesignGallery = () => {
         ) : products.length === 0 ? (
           <p className="text-center text-muted-foreground py-12">No products found in the "Home" collection.</p>
         ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 md:gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
             {products.map((product, index) => {
               const image = product.node.images.edges[0]?.node;
               return (
