@@ -324,7 +324,7 @@ const ProductDetail = () => {
 
         {/* Customer Reviews — full width, below mat & info */}
         <div className="mt-10 border-t border-border/50 pt-8">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col items-center text-center mb-6 gap-2">
             <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
               Customer Reviews
             </h2>
