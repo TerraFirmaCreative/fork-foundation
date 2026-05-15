@@ -15,6 +15,14 @@ import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } f
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
 
+const productReviews = [
+  { id: 1, name: "Philippa W.", rating: 5, date: "3 weeks ago", review: "I love my mat. The bright colours are uplifting and calming at the same time. Comfortable and a good long length." },
+  { id: 2, name: "Hudson R.", rating: 5, date: "1 month ago", review: "Drawn to it the moment I saw the design. Incredible feel, great texture, grip, and thickness." },
+  { id: 3, name: "Clare W.", rating: 5, date: "2 months ago", review: "High quality and beautifully made. The vibrant pattern comes alive in the sunshine. Highly recommend." },
+  { id: 4, name: "Emma J.", rating: 5, date: "3 months ago", review: "A simple design done beautifully. I still get comments on it." },
+  { id: 5, name: "Marcus T.", rating: 4, date: "4 months ago", review: "Beautiful artwork and the grip is solid even in hot yoga. Worth every cent." },
+];
+
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
