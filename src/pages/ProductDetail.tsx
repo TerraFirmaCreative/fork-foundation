@@ -284,9 +284,9 @@ const ProductDetail = () => {
 };
 
 const SpecItem = ({ icon, text }: { icon: React.ReactNode; text: string }) => (
-  <div className="flex items-center gap-3 text-muted-foreground">
-    <span className="text-foreground/70">{icon}</span>
-    <span className="text-sm font-body">{text}</span>
+  <div className="flex items-center gap-3 text-foreground/90">
+    <span className="text-foreground/80">{icon}</span>
+    <span className="font-body font-medium leading-relaxed">{text}</span>
   </div>
 );
 
