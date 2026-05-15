@@ -267,12 +267,14 @@ const ProductDetail = () => {
               </p>
             </div>
 
-            <LocaleLink
-              to="/about"
-              className="text-shaman-gold hover:underline text-sm mt-5 font-body"
+            <button
+              type="button"
+              onClick={() => document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              className="group inline-flex items-center gap-2 mt-5 text-shaman-gold font-body font-medium text-base hover:text-shaman-gold/80 transition-colors self-start"
             >
-              Learn more about our mats...
-            </LocaleLink>
+              <span className="border-b border-shaman-gold/40 group-hover:border-shaman-gold pb-0.5">See full mat specs &amp; materials</span>
+              <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+            </button>
           </div>
         </div>
 
