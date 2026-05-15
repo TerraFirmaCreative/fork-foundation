@@ -73,7 +73,7 @@ const Contact = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="mt-10 space-y-5 rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm p-6 md:p-8"
+            className="mt-10 space-y-5"
             noValidate
           >
             <div className="space-y-2">
