@@ -277,38 +277,48 @@ const ProductDetail = () => {
         </div>
 
         {/* Specs + Delivery — full width, side by side under the mat */}
-        <div className="mt-16 border-t border-border/50 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+        <div className="mt-16 border-t border-border/50 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0">
           {/* Specifications */}
-          <div>
+          <div className="md:pr-12">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
             <h3 className="font-display text-lg text-foreground font-semibold mb-5">Specifications</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-              <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
-              <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
-              <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
-              <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (~1.8kg / 64oz)" />
-              <SpecItem icon={<Ruler className="w-5 h-5" />} text={'Dimensions 178cm x 66cm (70" x 26")'} />
-              <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
-              <SpecItem icon={<Weight className="w-5 h-5" />} text="Weight ~1800g" />
-            </div>
+            <ul className="space-y-3 font-body text-foreground/90">
+              {[
+                { icon: <Layers className="w-4 h-4" />, text: "Suede Top" },
+                { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
+                { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
+                { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
+                { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
+                { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
+                { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
+              ].map((s, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
+                  <span className="font-medium leading-relaxed">{s.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Delivery */}
-          <div>
-            <h3 className="font-display text-lg text-shaman-gold font-semibold mb-5">Delivery</h3>
+          <div className="md:pl-12 md:border-l md:border-border/40">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
+            <h3 className="font-display text-lg text-foreground font-semibold mb-5">Delivery</h3>
             <ul className="space-y-3 font-body text-foreground/90">
-              <li className="flex items-start gap-3">
-                <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
-                <span>USA — around 1 week</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
-                <span>UK / Europe — around 2 weeks</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
-                <span>Australia — up to 3 weeks</span>
-              </li>
+              {[
+                "USA — around 1 week",
+                "UK / Europe — around 2 weeks",
+                "Australia — up to 3 weeks",
+              ].map((d, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
+                  <span className="font-medium leading-relaxed">{d}</span>
+                </li>
+              ))}
             </ul>
+            <p className="mt-5 text-sm font-body italic text-muted-foreground/80">
+              Ships from Nevada, USA
+            </p>
           </div>
         </div>
 
