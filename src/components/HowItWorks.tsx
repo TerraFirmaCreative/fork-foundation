@@ -20,7 +20,7 @@ const getSteps = (priceLabel: string) => [
     title: "Place Your Order",
     color: "text-shaman-magenta",
     lines: [
-      { text: `${priceLabel} per mat`, bold: "" },
+      { text: `${priceLabel} per mat`, bold: "", highlight: true },
       { text: "Free worldwide shipping", bold: "" },
       { text: "Secure checkout", bold: "" },
     ],
@@ -30,9 +30,9 @@ const getSteps = (priceLabel: string) => [
     title: "Delivery",
     color: "text-shaman-gold",
     deliveryLines: [
-      { country: "USA", time: "around 1 week" },
-      { country: "UK/Europe", time: "around 2 weeks" },
-      { country: "Australia", time: "up to 3 weeks" },
+      { country: "USA", time: "about 1 week" },
+      { country: "UK/Europe", time: "about 2 weeks" },
+      { country: "Australia", time: "about 2-3 weeks" },
     ],
     lines: [],
   },
