@@ -4,7 +4,7 @@ import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather } from "lucide-react";
+import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
