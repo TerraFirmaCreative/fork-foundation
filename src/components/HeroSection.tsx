@@ -292,7 +292,7 @@ const HeroSection = () => {
               grippy
             </span>
           </span>
-          <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
+          <span className="block text-gradient font-display font-medium tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mt-2 leading-[1.15] pb-[0.12em]">
             yoga mats.
           </span>
         </h1>
