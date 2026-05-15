@@ -207,6 +207,13 @@ const ProductDetail = () => {
               </Button>
             </div>
 
+            {/* Description */}
+            {product.node.description && (
+              <p className="text-muted-foreground font-body leading-relaxed mt-8 border-t border-border/50 pt-8">
+                {product.node.description}
+              </p>
+            )}
+
             {/* Customer Reviews */}
             <div className="mt-8 border-t border-border/50 pt-8">
               <div className="flex items-center justify-between mb-4">
@@ -230,7 +237,7 @@ const ProductDetail = () => {
                         </div>
                         <div>
                           <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
-                          <p className="text-[10px] text-muted-foreground/60 font-body">{r.date}</p>
+                          <p className="text-[10px] text-muted-foreground/60 font-body">{r.location} · {r.date}</p>
                         </div>
                       </div>
                       <div className="flex gap-0.5">
@@ -246,13 +253,6 @@ const ProductDetail = () => {
                 ))}
               </div>
             </div>
-
-            {/* Description */}
-            {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-8 border-t border-border/50 pt-8">
-                {product.node.description}
-              </p>
-            )}
 
             {/* Specifications */}
             <div className="mt-8 border-t border-border/50 pt-8">
