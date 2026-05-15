@@ -332,26 +332,6 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        {/* How it works strip */}
-        <div className="mt-10 border-t border-b border-border/40 py-8">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-shaman-gold/70 font-body text-center mb-6">
-            Made to Order
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { n: "01", title: "You choose", desc: "Pick the design that speaks to your practice.", color: "text-shaman-violet" },
-              { n: "02", title: "We print it", desc: "Your mat is individually printed and inspected in our studio.", color: "text-shaman-magenta" },
-              { n: "03", title: "It arrives", desc: "Rolled, strapped, and ready for your first session.", color: "text-shaman-gold" },
-            ].map((s) => (
-              <div key={s.n} className="flex flex-col items-center md:items-start text-center md:text-left">
-                <span className="font-display text-2xl text-foreground/30 mb-2">{s.n}</span>
-                <h4 className={`font-display text-lg font-medium mb-1 ${s.color}`}>{s.title}</h4>
-                <p className="font-body text-sm text-foreground/75 leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Customer Reviews — full width, below mat & info */}
         <div className="mt-10 border-t border-border/50 pt-8">
           <div className="flex flex-col items-center text-center mb-6 gap-2">
