@@ -132,7 +132,7 @@ const ProductDetail = () => {
           <span className="text-sm">Back to shop</span>
         </LocaleLink>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left: Image Gallery */}
           <div className="flex gap-4">
             {/* Thumbnails */}
@@ -254,7 +254,7 @@ const ProductDetail = () => {
 
             {/* Description */}
             {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-8 border-t border-border/50 pt-8">
+              <p className="text-muted-foreground font-body leading-relaxed mt-6 border-t border-border/50 pt-6">
                 {product.node.description}
               </p>
             )}
@@ -269,7 +269,7 @@ const ProductDetail = () => {
 
             <LocaleLink
               to="/about"
-              className="text-shaman-gold hover:underline text-sm mt-8 font-body"
+              className="text-shaman-gold hover:underline text-sm mt-5 font-body"
             >
               Learn more about our mats...
             </LocaleLink>
@@ -277,12 +277,12 @@ const ProductDetail = () => {
         </div>
 
         {/* Specs + Delivery — full width, side by side under the mat */}
-        <div className="mt-16 border-t border-border/50 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0">
+        <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
           {/* Specifications */}
           <div className="md:pr-12">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-5">Specifications</h3>
-            <ul className="space-y-3 font-body text-foreground/90">
+            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
+            <ul className="space-y-2 font-body text-foreground/90">
               {[
                 { icon: <Layers className="w-4 h-4" />, text: "Suede Top" },
                 { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
@@ -303,8 +303,8 @@ const ProductDetail = () => {
           {/* Delivery */}
           <div className="md:pl-12 md:border-l md:border-border/40">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-5">Delivery</h3>
-            <ul className="space-y-3 font-body text-foreground/90">
+            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
+            <ul className="space-y-2 font-body text-foreground/90">
               {[
                 "USA — around 1 week",
                 "UK / Europe — around 2 weeks",
@@ -323,7 +323,7 @@ const ProductDetail = () => {
         </div>
 
         {/* Customer Reviews — full width, below mat & info */}
-        <div className="mt-20 border-t border-border/50 pt-12">
+        <div className="mt-10 border-t border-border/50 pt-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
               Customer Reviews
