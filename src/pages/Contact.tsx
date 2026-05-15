@@ -123,7 +123,7 @@ const Contact = () => {
             </div>
 
             <Button type="submit" variant="hero" size="lg" disabled={submitting} className="w-full sm:w-auto">
-              {submitting ? "Sending…" : "Send message"}
+              {submitting ? "Sending…" : "Let's connect"}
             </Button>
           </form>
         </div>
