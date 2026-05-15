@@ -199,6 +199,46 @@ const ProductDetail = () => {
               </Button>
             </div>
 
+            {/* Customer Reviews */}
+            <div className="mt-8 border-t border-border/50 pt-8">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-lg text-foreground font-semibold">Customer Reviews</h3>
+                <div className="flex items-center gap-1.5">
+                  <Star className="w-3.5 h-3.5 fill-shaman-gold text-shaman-gold" />
+                  <span className="text-sm font-body text-foreground/80">4.9</span>
+                  <span className="text-xs font-body text-muted-foreground">(12)</span>
+                </div>
+              </div>
+              <div className="max-h-80 overflow-y-auto pr-2 space-y-3 scrollbar-thin">
+                {productReviews.map((r) => (
+                  <div
+                    key={r.id}
+                    className="p-4 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-colors"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                          <span className="text-xs font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
+                          <p className="text-[10px] text-muted-foreground/60 font-body">{r.date}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {[...Array(r.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-shaman-gold/80 text-shaman-gold/80" />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="font-display text-sm text-foreground/85 italic leading-relaxed">
+                      "{r.review}"
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Description */}
             {product.node.description && (
               <p className="text-muted-foreground font-body leading-relaxed mt-8 border-t border-border/50 pt-8">
