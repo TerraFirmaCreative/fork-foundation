@@ -11,7 +11,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "24 original designs", bold: "" },
-      { text: "Suede top surface", bold: "" },
+      { text: "Suede microfibre surface", bold: "" },
       { text: "Natural rubber base", bold: "" },
     ],
   },
@@ -118,7 +118,7 @@ const HowItWorks = () => {
                   {step.deliveryLines.map((dl, i) => (
                     <div key={i} className="flex gap-3">
                       <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                      <p className="text-[16px] text-foreground/70 font-body leading-relaxed">
+                      <p className="text-[17px] md:text-[18px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
                     </div>
@@ -130,7 +130,7 @@ const HowItWorks = () => {
                 {step.lines.map((line, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                    <p className="text-[16px] text-foreground/70 font-body leading-relaxed whitespace-nowrap">
+                    <p className="text-[17px] md:text-[18px] text-foreground/90 font-body leading-relaxed whitespace-nowrap">
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
                   </div>
