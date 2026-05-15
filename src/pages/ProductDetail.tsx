@@ -277,9 +277,9 @@ const ProductDetail = () => {
         </div>
 
         {/* Specs + Delivery — full width, side by side under the mat */}
-        <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
+        <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Specifications */}
-          <div className="md:pr-12">
+          <div className="lg:px-4">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
             <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
             <ul className="space-y-2 font-body text-foreground/90">
@@ -301,7 +301,7 @@ const ProductDetail = () => {
           </div>
 
           {/* Delivery */}
-          <div className="md:pl-12 md:border-l md:border-border/40">
+          <div>
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
             <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
             <ul className="space-y-2 font-body text-foreground/90">
