@@ -147,16 +147,26 @@ const ProductDetail = () => {
                       : "border-transparent opacity-60 hover:opacity-90"
                       }`}
                   >
-                    <ThumbhashImage
-                      thumbhash={img.node.thumbhash}
-                      src={shopifyImageUrl(img.node.url, 80)}
-                      srcSet={shopifySrcSet(img.node.url, [80, 160])}
-                      sizes={THUMBNAIL_SIZES}
-                      alt={img.node.altText || `Thumbnail ${i + 1}`}
-                      className="w-full h-full object-contain aspect-[2/3]"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {img.kind === "shopify" ? (
+                      <ThumbhashImage
+                        thumbhash={img.thumbhash}
+                        src={shopifyImageUrl(img.url, 80)}
+                        srcSet={shopifySrcSet(img.url, [80, 160])}
+                        sizes={THUMBNAIL_SIZES}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-contain aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <img
+                        src={img.src}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-cover aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
                   </button>
                 ))}
               </div>
@@ -165,14 +175,22 @@ const ProductDetail = () => {
             {/* Main Image */}
             <div className="flex flex-col rounded-xl overflow-hidden bg-muted/20 w-full items-center p-4">
               {images[selectedImageIndex] ? (
-                <ImageMagnifier
-                  thumbhash={images[selectedImageIndex].node.thumbhash}
-                  src={shopifyImageUrl(images[selectedImageIndex].node.url, 800)}
-                  srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
-                  sizes={PRODUCT_MAIN_SIZES}
-                  alt={images[selectedImageIndex].node.altText || product.node.title}
-                  className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
-                />
+                images[selectedImageIndex].kind === "shopify" ? (
+                  <ImageMagnifier
+                    thumbhash={(images[selectedImageIndex] as any).thumbhash}
+                    src={shopifyImageUrl((images[selectedImageIndex] as any).url, 800)}
+                    srcSet={shopifySrcSet((images[selectedImageIndex] as any).url, [400, 600, 800, 1200])}
+                    sizes={PRODUCT_MAIN_SIZES}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
+                  />
+                ) : (
+                  <ImageMagnifier
+                    src={(images[selectedImageIndex] as any).src}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
+                  />
+                )
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
                   No image available
