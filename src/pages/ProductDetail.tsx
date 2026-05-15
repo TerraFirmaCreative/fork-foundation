@@ -221,9 +221,10 @@ const ProductDetail = () => {
                 <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
                 <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
                 <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
-                <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (64oz)" />
-                <SpecItem icon={<Ruler className="w-5 h-5" />} text='Dimensions 70"x26"' />
+                <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (~1.8kg / 64oz)" />
+                <SpecItem icon={<Ruler className="w-5 h-5" />} text={'Dimensions 178cm x 66cm (70" x 26")'} />
                 <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
+                <SpecItem icon={<Weight className="w-5 h-5" />} text="Weight ~1800g" />
               </div>
             </div>
 
