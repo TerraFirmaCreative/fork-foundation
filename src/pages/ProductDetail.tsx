@@ -214,6 +214,19 @@ const ProductDetail = () => {
               </p>
             )}
 
+            {/* Specifications */}
+            <div className="mt-8 border-t border-border/50 pt-8">
+              <h3 className="font-display text-lg text-foreground font-semibold mb-4">Specifications</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
+                <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
+                <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
+                <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (64oz)" />
+                <SpecItem icon={<Ruler className="w-5 h-5" />} text='Dimensions 70"x26"' />
+                <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
+              </div>
+            </div>
+
             {/* Customer Reviews */}
             <div className="mt-8 border-t border-border/50 pt-8">
               <div className="flex items-center justify-between mb-4">
@@ -251,19 +264,6 @@ const ProductDetail = () => {
                     </p>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Specifications */}
-            <div className="mt-8 border-t border-border/50 pt-8">
-              <h3 className="font-display text-lg text-foreground font-semibold mb-4">Specifications</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
-                <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
-                <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
-                <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (64oz)" />
-                <SpecItem icon={<Ruler className="w-5 h-5" />} text='Dimensions 70"x26"' />
-                <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
               </div>
             </div>
 
