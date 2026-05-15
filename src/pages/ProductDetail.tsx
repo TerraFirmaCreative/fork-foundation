@@ -14,6 +14,16 @@ import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
+import whaleMat1 from "@/assets/whale-mat-1.png";
+import whaleMat2 from "@/assets/whale-mat-2.png";
+import whaleMat3 from "@/assets/whale-mat-3.png";
+import whaleMat4 from "@/assets/whale-mat-4.png";
+
+const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
+  "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy": [
+    whaleMat1, whaleMat2, whaleMat3, whaleMat4,
+  ],
+};
 
 const productReviews = [
   { id: 1, name: "Philippa W.", location: "Byron Bay, AU", rating: 5, date: "3 weeks ago", review: "I love my mat. The bright colours are uplifting and calming at the same time. Comfortable and a good long length." },
@@ -61,7 +71,24 @@ const ProductDetail = () => {
     setDrawerOpen(true);
   };
 
-  const images = product?.node.images.edges || [];
+  const shopifyImages = product?.node.images.edges || [];
+  const extras = (handle && EXTRA_PRODUCT_IMAGES[handle]) || [];
+  type GalleryItem =
+    | { kind: "shopify"; url: string; thumbhash?: string | null; alt?: string }
+    | { kind: "local"; src: string; alt?: string };
+  const images: GalleryItem[] = [
+    ...shopifyImages.map((e) => ({
+      kind: "shopify" as const,
+      url: e.node.url,
+      thumbhash: e.node.thumbhash,
+      alt: e.node.altText || product?.node.title,
+    })),
+    ...extras.map((src, i) => ({
+      kind: "local" as const,
+      src,
+      alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
+    })),
+  ];
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
@@ -120,16 +147,26 @@ const ProductDetail = () => {
                       : "border-transparent opacity-60 hover:opacity-90"
                       }`}
                   >
-                    <ThumbhashImage
-                      thumbhash={img.node.thumbhash}
-                      src={shopifyImageUrl(img.node.url, 80)}
-                      srcSet={shopifySrcSet(img.node.url, [80, 160])}
-                      sizes={THUMBNAIL_SIZES}
-                      alt={img.node.altText || `Thumbnail ${i + 1}`}
-                      className="w-full h-full object-contain aspect-[2/3]"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {img.kind === "shopify" ? (
+                      <ThumbhashImage
+                        thumbhash={img.thumbhash}
+                        src={shopifyImageUrl(img.url, 80)}
+                        srcSet={shopifySrcSet(img.url, [80, 160])}
+                        sizes={THUMBNAIL_SIZES}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-contain aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <img
+                        src={img.src}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-cover aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
                   </button>
                 ))}
               </div>
@@ -138,14 +175,22 @@ const ProductDetail = () => {
             {/* Main Image */}
             <div className="flex flex-col rounded-xl overflow-hidden bg-muted/20 w-full items-center p-4">
               {images[selectedImageIndex] ? (
-                <ImageMagnifier
-                  thumbhash={images[selectedImageIndex].node.thumbhash}
-                  src={shopifyImageUrl(images[selectedImageIndex].node.url, 800)}
-                  srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
-                  sizes={PRODUCT_MAIN_SIZES}
-                  alt={images[selectedImageIndex].node.altText || product.node.title}
-                  className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
-                />
+                images[selectedImageIndex].kind === "shopify" ? (
+                  <ImageMagnifier
+                    thumbhash={(images[selectedImageIndex] as any).thumbhash}
+                    src={shopifyImageUrl((images[selectedImageIndex] as any).url, 800)}
+                    srcSet={shopifySrcSet((images[selectedImageIndex] as any).url, [400, 600, 800, 1200])}
+                    sizes={PRODUCT_MAIN_SIZES}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
+                  />
+                ) : (
+                  <ImageMagnifier
+                    src={(images[selectedImageIndex] as any).src}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
+                  />
+                )
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
                   No image available
