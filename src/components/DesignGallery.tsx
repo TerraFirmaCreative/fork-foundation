@@ -5,6 +5,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
+import GalleryMagnifier from "@/components/GalleryMagnifier";
 
 const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -50,16 +51,21 @@ const DesignGallery = () => {
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
-                    <ThumbhashImage
-                      thumbhash={image.thumbhash}
-                      src={shopifyImageUrl(image.url, 400)}
-                      srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
-                      sizes={GALLERY_SIZES}
-                      alt={image.altText || product.node.title}
-                      className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <GalleryMagnifier
+                      zoomSrc={shopifyImageUrl(image.url, 1600)}
+                      className="block w-full"
+                    >
+                      <ThumbhashImage
+                        thumbhash={image.thumbhash}
+                        src={shopifyImageUrl(image.url, 400)}
+                        srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
+                        sizes={GALLERY_SIZES}
+                        alt={image.altText || product.node.title}
+                        className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </GalleryMagnifier>
                   ) : (
                     <div className="w-full aspect-[1/3] bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-xs">No image</span>
