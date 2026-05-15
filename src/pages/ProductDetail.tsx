@@ -268,9 +268,9 @@ const ProductDetail = () => {
             </div>
 
             {/* Specifications */}
-            <div className="mt-8 border-t border-border/50 pt-8">
-              <h3 className="font-display text-lg text-foreground font-semibold mb-4">Specifications</h3>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="mt-10 border-t border-border/50 pt-8">
+              <h3 className="font-display text-lg text-foreground font-semibold mb-5">Specifications</h3>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
                 <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
                 <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
                 <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
@@ -281,52 +281,73 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            {/* Customer Reviews */}
-            <div className="mt-8 border-t border-border/50 pt-8">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-display text-lg text-foreground font-semibold">Customer Reviews</h3>
-                <div className="flex items-center gap-1.5">
-                  <Star className="w-3.5 h-3.5 fill-shaman-gold text-shaman-gold" />
-                  <span className="text-sm font-body text-foreground/80">4.9</span>
-                  <span className="text-xs font-body text-muted-foreground">(12)</span>
-                </div>
-              </div>
-              <div className="max-h-80 overflow-y-auto pr-2 space-y-3 scrollbar-thin">
-                {productReviews.map((r) => (
-                  <div
-                    key={r.id}
-                    className="p-4 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-colors"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
-                          <span className="text-xs font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
-                          <p className="text-[10px] text-muted-foreground/60 font-body">{r.location} · {r.date}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-0.5">
-                        {[...Array(r.rating)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-shaman-gold/80 text-shaman-gold/80" />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="font-display text-sm text-foreground/85 italic leading-relaxed">
-                      "{r.review}"
-                    </p>
-                  </div>
-                ))}
-              </div>
+            {/* Delivery */}
+            <div className="mt-10 border-t border-border/50 pt-8">
+              <h3 className="font-display text-lg text-shaman-gold font-semibold mb-5">Delivery</h3>
+              <ul className="space-y-3 font-body text-foreground/90">
+                <li className="flex items-start gap-3">
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
+                  <span>USA — around 1 week</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
+                  <span>UK / Europe — around 2 weeks</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
+                  <span>Australia — up to 3 weeks</span>
+                </li>
+              </ul>
             </div>
 
             <LocaleLink
               to="/about"
-              className="text-shaman-gold hover:underline text-sm mt-6 font-body"
+              className="text-shaman-gold hover:underline text-sm mt-8 font-body"
             >
               Learn more about our mats...
             </LocaleLink>
+          </div>
+        </div>
+
+        {/* Customer Reviews — full width, below mat & info */}
+        <div className="mt-20 border-t border-border/50 pt-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
+              Customer Reviews
+            </h2>
+            <div className="flex items-center gap-2">
+              <Star className="w-4 h-4 fill-shaman-gold text-shaman-gold" />
+              <span className="text-sm font-body text-foreground/80">4.9</span>
+              <span className="text-xs font-body text-muted-foreground">from 12 reviews</span>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {productReviews.map((r) => (
+              <div
+                key={r.id}
+                className="p-5 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                      <span className="text-xs font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
+                      <p className="text-[11px] text-muted-foreground/60 font-body">{r.location} · {r.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(r.rating)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-shaman-gold/80 text-shaman-gold/80" />
+                    ))}
+                  </div>
+                </div>
+                <p className="font-display text-base text-foreground/85 italic leading-relaxed">
+                  "{r.review}"
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
