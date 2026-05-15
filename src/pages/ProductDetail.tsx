@@ -4,7 +4,7 @@ import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather } from "lucide-react";
+import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -14,6 +14,14 @@ import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
+
+const productReviews = [
+  { id: 1, name: "Philippa W.", rating: 5, date: "3 weeks ago", review: "I love my mat. The bright colours are uplifting and calming at the same time. Comfortable and a good long length." },
+  { id: 2, name: "Hudson R.", rating: 5, date: "1 month ago", review: "Drawn to it the moment I saw the design. Incredible feel, great texture, grip, and thickness." },
+  { id: 3, name: "Clare W.", rating: 5, date: "2 months ago", review: "High quality and beautifully made. The vibrant pattern comes alive in the sunshine. Highly recommend." },
+  { id: 4, name: "Emma J.", rating: 5, date: "3 months ago", review: "A simple design done beautifully. I still get comments on it." },
+  { id: 5, name: "Marcus T.", rating: 4, date: "4 months ago", review: "Beautiful artwork and the grip is solid even in hot yoga. Worth every cent." },
+];
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -158,6 +166,17 @@ const ProductDetail = () => {
               </p>
             )}
 
+            {/* Rating Summary */}
+            <div className="flex items-center gap-2 mt-3">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-shaman-gold text-shaman-gold" />
+                ))}
+              </div>
+              <span className="text-sm font-body text-foreground/80">4.9</span>
+              <span className="text-sm font-body text-muted-foreground">from 12 reviews</span>
+            </div>
+
             {/* Quantity + Add to Cart */}
             <div className="flex items-center gap-4 mt-6">
               <div className="flex items-center border border-border rounded-lg">
@@ -186,6 +205,46 @@ const ProductDetail = () => {
               >
                 {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Add to Cart"}
               </Button>
+            </div>
+
+            {/* Customer Reviews */}
+            <div className="mt-8 border-t border-border/50 pt-8">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-lg text-foreground font-semibold">Customer Reviews</h3>
+                <div className="flex items-center gap-1.5">
+                  <Star className="w-3.5 h-3.5 fill-shaman-gold text-shaman-gold" />
+                  <span className="text-sm font-body text-foreground/80">4.9</span>
+                  <span className="text-xs font-body text-muted-foreground">(12)</span>
+                </div>
+              </div>
+              <div className="max-h-80 overflow-y-auto pr-2 space-y-3 scrollbar-thin">
+                {productReviews.map((r) => (
+                  <div
+                    key={r.id}
+                    className="p-4 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-colors"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                          <span className="text-xs font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
+                          <p className="text-[10px] text-muted-foreground/60 font-body">{r.date}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {[...Array(r.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-shaman-gold/80 text-shaman-gold/80" />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="font-display text-sm text-foreground/85 italic leading-relaxed">
+                      "{r.review}"
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Description */}
