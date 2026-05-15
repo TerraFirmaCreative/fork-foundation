@@ -284,7 +284,7 @@ const ProductDetail = () => {
             <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
-                { icon: <Layers className="w-4 h-4" />, text: "Suede Top" },
+                { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
                 { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
                 { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
                 { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },

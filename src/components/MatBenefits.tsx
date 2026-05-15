@@ -7,7 +7,7 @@ const benefits = [
     tag: "NON-SLIP",
   },
   {
-    title: "Microfibre Suede Top",
+    title: "Suede Microfibre Surface",
     description: "Soft underfoot and gets grippier as you warm up — sweat activates the surface.",
     tag: "GRIP IMPROVES WITH USE",
   },
