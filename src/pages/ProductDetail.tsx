@@ -281,8 +281,8 @@ const ProductDetail = () => {
           {/* Specifications */}
           <div className="md:pr-12">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-5">Specifications</h3>
-            <ul className="space-y-3 font-body text-foreground/90">
+            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
+            <ul className="space-y-2 font-body text-foreground/90">
               {[
                 { icon: <Layers className="w-4 h-4" />, text: "Suede Top" },
                 { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
@@ -303,8 +303,8 @@ const ProductDetail = () => {
           {/* Delivery */}
           <div className="md:pl-12 md:border-l md:border-border/40">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-5">Delivery</h3>
-            <ul className="space-y-3 font-body text-foreground/90">
+            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
+            <ul className="space-y-2 font-body text-foreground/90">
               {[
                 "USA — around 1 week",
                 "UK / Europe — around 2 weeks",
