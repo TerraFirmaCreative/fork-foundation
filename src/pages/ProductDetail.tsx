@@ -267,45 +267,48 @@ const ProductDetail = () => {
               </p>
             </div>
 
-            {/* Specifications */}
-            <div className="mt-10 border-t border-border/50 pt-8">
-              <h3 className="font-display text-lg text-foreground font-semibold mb-5">Specifications</h3>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-                <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
-                <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
-                <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
-                <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (~1.8kg / 64oz)" />
-                <SpecItem icon={<Ruler className="w-5 h-5" />} text={'Dimensions 178cm x 66cm (70" x 26")'} />
-                <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
-                <SpecItem icon={<Weight className="w-5 h-5" />} text="Weight ~1800g" />
-              </div>
-            </div>
-
-            {/* Delivery */}
-            <div className="mt-10 border-t border-border/50 pt-8">
-              <h3 className="font-display text-lg text-shaman-gold font-semibold mb-5">Delivery</h3>
-              <ul className="space-y-3 font-body text-foreground/90">
-                <li className="flex items-start gap-3">
-                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
-                  <span>USA — around 1 week</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
-                  <span>UK / Europe — around 2 weeks</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
-                  <span>Australia — up to 3 weeks</span>
-                </li>
-              </ul>
-            </div>
-
             <LocaleLink
               to="/about"
               className="text-shaman-gold hover:underline text-sm mt-8 font-body"
             >
               Learn more about our mats...
             </LocaleLink>
+          </div>
+        </div>
+
+        {/* Specs + Delivery — full width, side by side under the mat */}
+        <div className="mt-16 border-t border-border/50 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+          {/* Specifications */}
+          <div>
+            <h3 className="font-display text-lg text-foreground font-semibold mb-5">Specifications</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
+              <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
+              <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
+              <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (~1.8kg / 64oz)" />
+              <SpecItem icon={<Ruler className="w-5 h-5" />} text={'Dimensions 178cm x 66cm (70" x 26")'} />
+              <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
+              <SpecItem icon={<Weight className="w-5 h-5" />} text="Weight ~1800g" />
+            </div>
+          </div>
+
+          {/* Delivery */}
+          <div>
+            <h3 className="font-display text-lg text-shaman-gold font-semibold mb-5">Delivery</h3>
+            <ul className="space-y-3 font-body text-foreground/90">
+              <li className="flex items-start gap-3">
+                <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
+                <span>USA — around 1 week</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
+                <span>UK / Europe — around 2 weeks</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full" />
+                <span>Australia — up to 3 weeks</span>
+              </li>
+            </ul>
           </div>
         </div>
 
