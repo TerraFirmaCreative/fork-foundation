@@ -4,7 +4,7 @@ import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star } from "lucide-react";
+import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -267,19 +267,21 @@ const ProductDetail = () => {
               </p>
             </div>
 
-            <LocaleLink
-              to="/about"
-              className="text-shaman-gold hover:underline text-sm mt-5 font-body"
+            <button
+              type="button"
+              onClick={() => document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              className="group inline-flex items-center gap-2 mt-5 text-shaman-gold font-body font-medium text-base hover:text-shaman-gold/80 transition-colors self-start"
             >
-              Learn more about our mats...
-            </LocaleLink>
+              <span className="border-b border-shaman-gold/40 group-hover:border-shaman-gold pb-0.5">See full mat specs &amp; materials</span>
+              <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+            </button>
           </div>
         </div>
 
         {/* Specs + Delivery — full width, side by side under the mat */}
         <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Specifications */}
-          <div className="lg:px-4">
+          <div id="specifications" className="lg:px-4 scroll-mt-24">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
             <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
             <ul className="space-y-2 font-body text-foreground/90">
@@ -291,6 +293,7 @@ const ProductDetail = () => {
                 { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
                 { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
                 { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
+                { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
               ].map((s, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
@@ -306,19 +309,46 @@ const ProductDetail = () => {
             <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
-                "USA — around 1 week",
-                "UK / Europe — around 2 weeks",
-                "Australia — up to 3 weeks",
+                { text: "USA — around 1 week" },
+                { text: "UK / Europe — around 2 weeks" },
+                { text: "Australia — up to 3 weeks", note: "Each mat is printed to order in the USA — crafted individually for you." },
               ].map((d, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
-                  <span className="font-medium leading-relaxed">{d}</span>
+                  <div>
+                    <span className="font-medium leading-relaxed block">{d.text}</span>
+                    {d.note && (
+                      <span className="block text-xs italic text-muted-foreground/70 mt-1 leading-relaxed">
+                        {d.note}
+                      </span>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
             <p className="mt-5 text-sm font-body italic text-muted-foreground/80">
               Ships from Nevada, USA
             </p>
+          </div>
+        </div>
+
+        {/* How it works strip */}
+        <div className="mt-10 border-t border-b border-border/40 py-8">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-shaman-gold/70 font-body text-center mb-6">
+            Made to Order
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { n: "01", title: "You choose", desc: "Pick the design that speaks to your practice.", color: "text-shaman-violet" },
+              { n: "02", title: "We print it", desc: "Your mat is individually printed and inspected in our studio.", color: "text-shaman-magenta" },
+              { n: "03", title: "It arrives", desc: "Rolled, strapped, and ready for your first session.", color: "text-shaman-gold" },
+            ].map((s) => (
+              <div key={s.n} className="flex flex-col items-center md:items-start text-center md:text-left">
+                <span className="font-display text-2xl text-foreground/30 mb-2">{s.n}</span>
+                <h4 className={`font-display text-lg font-medium mb-1 ${s.color}`}>{s.title}</h4>
+                <p className="font-body text-sm text-foreground/75 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
