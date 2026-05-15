@@ -5,6 +5,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
+import GalleryMagnifier from "@/components/GalleryMagnifier";
 
 const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
