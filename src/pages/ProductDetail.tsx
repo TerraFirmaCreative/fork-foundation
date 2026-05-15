@@ -71,7 +71,24 @@ const ProductDetail = () => {
     setDrawerOpen(true);
   };
 
-  const images = product?.node.images.edges || [];
+  const shopifyImages = product?.node.images.edges || [];
+  const extras = (handle && EXTRA_PRODUCT_IMAGES[handle]) || [];
+  type GalleryItem =
+    | { kind: "shopify"; url: string; thumbhash?: string | null; alt?: string }
+    | { kind: "local"; src: string; alt?: string };
+  const images: GalleryItem[] = [
+    ...shopifyImages.map((e) => ({
+      kind: "shopify" as const,
+      url: e.node.url,
+      thumbhash: e.node.thumbhash,
+      alt: e.node.altText || product?.node.title,
+    })),
+    ...extras.map((src, i) => ({
+      kind: "local" as const,
+      src,
+      alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
+    })),
+  ];
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
