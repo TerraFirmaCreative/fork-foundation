@@ -9,15 +9,15 @@ import photo8 from "@/assets/community/photo-8.jpeg";
 
 const photos = [
   // Row 1 — beach / grass / beach / grass
-  { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center" },
-  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center" },
-  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 15%" },
-  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center" },
+  { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center bottom" },
+  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center bottom" },
+  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 20%" },
+  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center bottom" },
   // Row 2 — beach / grass / beach / grass
-  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center" },
-  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center" },
-  { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat", position: "center" },
-  { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset", position: "center" },
+  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center bottom" },
+  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center bottom" },
+  { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat", position: "center bottom" },
+  { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset", position: "center bottom" },
 ];
 
 const CommunityRow = () => {
@@ -33,7 +33,7 @@ const CommunityRow = () => {
         </h2>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mb-10 flex justify-center">
+      <div className="hidden">
         <button
           onClick={() => {
             const el = document.getElementById("design-gallery");
