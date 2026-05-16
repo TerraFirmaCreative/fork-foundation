@@ -16,6 +16,7 @@ import hudson5 from "@/assets/hudson/hudson-5.jpeg";
 import hudson6 from "@/assets/hudson/hudson-6.jpeg";
 import hudson7 from "@/assets/hudson/hudson-7.jpeg";
 import hudson8 from "@/assets/hudson/hudson-8.jpeg";
+import { formatPrice } from "@/lib/utils";
 
 // Mixed beach/forest for visual rhythm
 const galleryPhotos = [
