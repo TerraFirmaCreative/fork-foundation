@@ -89,9 +89,7 @@ const GallerySlot = ({
       {images.map((img, i) => (
         <img
           key={i}
-          src={shopifyImageUrl(img.src, 400)}
-          srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
-          sizes={GALLERY_SIZES}
+          src={img.src}
           alt={img.alt}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === currentIndex ? "opacity-100" : "opacity-0"}`}
           loading="lazy"
