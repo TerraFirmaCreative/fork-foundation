@@ -8,24 +8,32 @@ import { useCartStore } from "@/stores/cartStore";
 import { useLocale } from "@/lib/i18n";
 import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
-
+import hudson1 from "@/assets/hudson/hudson-1.jpeg";
+import hudson2 from "@/assets/hudson/hudson-2.jpeg";
+import hudson3 from "@/assets/hudson/hudson-3.jpeg";
+import hudson4 from "@/assets/hudson/hudson-4.jpeg";
+import hudson5 from "@/assets/hudson/hudson-5.jpeg";
+import hudson6 from "@/assets/hudson/hudson-6.jpeg";
+import hudson7 from "@/assets/hudson/hudson-7.jpeg";
+import hudson8 from "@/assets/hudson/hudson-8.jpeg";
 import { formatPrice } from "@/lib/utils";
 
-const images = [
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118", alt: "Hudson practicing yoga on the beach at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-2.jpg?v=1773738117", alt: "Hudson in downward dog at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-3.webp?v=1773738118", alt: "Yoga mat on the sand with sun flare at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-4.webp?v=1773738118", alt: "Hudson in triangle pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-5.webp?v=1773738118", alt: "Hudson in forward fold on the beach" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-6.webp?v=1773738118", alt: "Hudson in plank pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-7.webp?v=1773738118", alt: "Hudson in warrior pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-8.webp?v=1773738118", alt: "Hudson in downward dog at sunset" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-9.webp?v=1773738118", alt: "Hudson in cobra pose on the beach" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-10.webp?v=1773738118", alt: "Hudson in crescent lunge at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-11.webp?v=1773738118", alt: "Hudson in low lunge reaching up" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-12.jpg?v=1773738118", alt: "Hudson in child's pose on the sand" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-13.jpg?v=1773738117", alt: "Hudson standing on her mat by the ocean" },
+// Mixed beach/forest for visual rhythm
+const galleryPhotos = [
+  // Row 1 — beach / forest / beach / forest
+  { src: hudson1, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
+  { src: hudson5, alt: "Cosmic Igloo mat laid out on the forest floor" },
+  { src: hudson3, alt: "Hudson in warrior pose with arms wide on the beach" },
+  { src: hudson8, alt: "Hudson in a supported headstand in the forest" },
+  // Row 2 — forest / beach / forest / beach
+  { src: hudson6, alt: "Hudson resting in child's pose in the forest" },
+  { src: hudson2, alt: "Hudson in a seated twist on her mat at the beach" },
+  { src: hudson7, alt: "Hudson in pigeon pose on the forest floor" },
+  { src: hudson4, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
+
+const images = galleryPhotos;
+
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
 
@@ -81,23 +89,27 @@ const BlogPostHudson = () => {
           </h1>
         </div>
 
-        {/* Article body with floated image */}
-        <article className="max-w-3xl mx-auto prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg relative z-10">
-          <div className="relative aspect-[4/3] w-full md:w-1/2 md:float-right md:ml-8 mb-6 rounded-xl overflow-hidden">
-            {images.map((img, i) => (
-              <img
-                key={i}
-                src={shopifyImageUrl(img.src, 400)}
-                srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
-                sizes={GALLERY_SIZES}
-                alt={img.alt}
-                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
-                loading={i === 0 ? "eager" : "lazy"}
-                decoding="async"
-              />
+        {/* Full-width photo grid — 2 rows of 4 */}
+        <div className="relative z-10 -mx-6 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full bg-background">
+            {galleryPhotos.map((p, i) => (
+              <div key={i} className="group relative aspect-[3/4] overflow-hidden">
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading={i < 4 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-shaman-gold/0 group-hover:ring-shaman-gold/40 transition-all duration-500" />
+              </div>
             ))}
           </div>
+        </div>
 
+        {/* Article body */}
+        <article className="max-w-3xl mx-auto prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg relative z-10">
           <p>
             Hey there! My name is Hudson. I was born and raised in Vancouver, Canada, and currently reside in the serene south west of Australia.
           </p>
@@ -107,13 +119,11 @@ const BlogPostHudson = () => {
           <p className="mt-6">
             As I am constantly evolving, so does my practice. It can be whatever you need it to be that day. A yoga mat is so much more than the name depicts. A magic carpet of solus, where we have the space to connect with whatever requires attention. Mind, body, spirit. I oscillate from quiet meditation to rogue movement and dance. Whatever flow my body desires that day. However, it always starts with stillness.
           </p>
-
-          <div className="clear-both" />
-
           <p className="mt-6">
             I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice. Hearing that "love" and "light" were key inspirations behind the design comes as no surprise. I am thrilled to continue my yoga journey and evolving my practice with this very unique yoga mat.
           </p>
         </article>
+
 
         {/* Shop Hudson's Mat */}
         <div className="max-w-3xl mx-auto mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm relative z-10">
