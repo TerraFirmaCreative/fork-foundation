@@ -310,7 +310,7 @@ const HeroSection = () => {
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-8 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
+        <p className="mt-8 text-base sm:text-lg md:text-xl text-foreground/85 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
