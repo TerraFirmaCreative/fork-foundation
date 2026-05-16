@@ -8,14 +8,16 @@ import photo7 from "@/assets/community/photo-7.jpeg";
 import photo8 from "@/assets/community/photo-8.jpeg";
 
 const photos = [
-  { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat" },
-  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach" },
-  { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat" },
-  { src: photo4, alt: "Headstand on a mandala yoga mat in the park" },
-  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat" },
-  { src: photo8, alt: "Yogi greeting the sunrise on the beach" },
-  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour" },
-  { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset" },
+  // Row 1 — beach / grass / beach / grass
+  { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center" },
+  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center" },
+  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 75%" },
+  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center" },
+  // Row 2 — beach / grass / beach / grass
+  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center" },
+  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center" },
+  { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat", position: "center" },
+  { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset", position: "center" },
 ];
 
 const CommunityRow = () => {
@@ -42,6 +44,7 @@ const CommunityRow = () => {
               alt={p.alt}
               loading="lazy"
               decoding="async"
+              style={{ objectPosition: p.position }}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
