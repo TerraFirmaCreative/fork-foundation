@@ -153,7 +153,7 @@ const YogiOfTheWeek = () => {
               key={slotIndex}
               currentIndex={imgIndex}
               onAdvance={() => advance(slotIndex)}
-              delay={1000 + slotIndex * 800}
+              delay={1500 + slotIndex * 1700}
             />
           ))}
         </div>
