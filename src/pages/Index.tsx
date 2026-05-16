@@ -8,6 +8,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import AboutSection from "@/components/AboutSection";
 import AffiliateSection from "@/components/AffiliateSection";
 import YogiOfTheWeek from "@/components/YogiOfTheWeek";
+import CommunityRow from "@/components/CommunityRow";
 
 import Footer from "@/components/Footer";
 
@@ -20,9 +21,10 @@ const Index = () => {
       <HowItWorks />
       <LifestyleGallery />
       <MatBenefits />
+      <CommunityRow />
+      <ReviewsSection />
       <YogiOfTheWeek />
       <AffiliateSection />
-      <ReviewsSection />
       <AboutSection />
 
       <Footer />
