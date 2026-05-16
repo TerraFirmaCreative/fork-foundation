@@ -8,16 +8,16 @@ import photo7 from "@/assets/community/photo-7.jpeg";
 import photo8 from "@/assets/community/photo-8.jpeg";
 
 const photos = [
-  // Row 1 — beach / grass / beach / grass
-  { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center bottom" },
-  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center bottom" },
-  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 20%" },
-  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center bottom" },
-  // Row 2 — beach / grass / beach / grass
-  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center bottom" },
-  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center bottom" },
-  { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat", position: "center bottom" },
-  { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset", position: "center bottom" },
+  // Row 1
+  { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center 60%" },
+  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center 55%" },
+  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 25%" },
+  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center 55%" },
+  // Row 2
+  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center 55%" },
+  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center 55%" },
+  { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat", position: "center 55%" },
+  { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset", position: "center 55%" },
 ];
 
 const CommunityRow = () => {
