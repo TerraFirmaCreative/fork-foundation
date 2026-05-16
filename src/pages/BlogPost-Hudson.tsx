@@ -89,23 +89,27 @@ const BlogPostHudson = () => {
           </h1>
         </div>
 
-        {/* Article body with floated image */}
-        <article className="max-w-3xl mx-auto prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg relative z-10">
-          <div className="relative aspect-[4/3] w-full md:w-1/2 md:float-right md:ml-8 mb-6 rounded-xl overflow-hidden">
-            {images.map((img, i) => (
-              <img
-                key={i}
-                src={shopifyImageUrl(img.src, 400)}
-                srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
-                sizes={GALLERY_SIZES}
-                alt={img.alt}
-                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
-                loading={i === 0 ? "eager" : "lazy"}
-                decoding="async"
-              />
+        {/* Full-width photo grid — 2 rows of 4 */}
+        <div className="relative z-10 -mx-6 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full bg-background">
+            {galleryPhotos.map((p, i) => (
+              <div key={i} className="group relative aspect-[3/4] overflow-hidden">
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading={i < 4 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-shaman-gold/0 group-hover:ring-shaman-gold/40 transition-all duration-500" />
+              </div>
             ))}
           </div>
+        </div>
 
+        {/* Article body */}
+        <article className="max-w-3xl mx-auto prose-custom text-foreground/75 font-body leading-relaxed text-base md:text-lg relative z-10">
           <p>
             Hey there! My name is Hudson. I was born and raised in Vancouver, Canada, and currently reside in the serene south west of Australia.
           </p>
@@ -115,13 +119,11 @@ const BlogPostHudson = () => {
           <p className="mt-6">
             As I am constantly evolving, so does my practice. It can be whatever you need it to be that day. A yoga mat is so much more than the name depicts. A magic carpet of solus, where we have the space to connect with whatever requires attention. Mind, body, spirit. I oscillate from quiet meditation to rogue movement and dance. Whatever flow my body desires that day. However, it always starts with stillness.
           </p>
-
-          <div className="clear-both" />
-
           <p className="mt-6">
             I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice. Hearing that "love" and "light" were key inspirations behind the design comes as no surprise. I am thrilled to continue my yoga journey and evolving my practice with this very unique yoga mat.
           </p>
         </article>
+
 
         {/* Shop Hudson's Mat */}
         <div className="max-w-3xl mx-auto mt-16 border border-border/40 rounded-2xl p-6 md:p-10 bg-card/30 backdrop-blur-sm relative z-10">
