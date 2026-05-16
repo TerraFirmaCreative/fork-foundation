@@ -4,12 +4,16 @@ import photo3 from "@/assets/community/photo-3.jpeg";
 import photo4 from "@/assets/community/photo-4.jpeg";
 import photo5 from "@/assets/community/photo-5.jpeg";
 import photo6 from "@/assets/community/photo-6.jpeg";
+import photo7 from "@/assets/community/photo-7.jpeg";
+import photo8 from "@/assets/community/photo-8.jpeg";
 
 const photos = [
   { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat" },
   { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach" },
   { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat" },
   { src: photo4, alt: "Headstand on a mandala yoga mat in the park" },
+  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat" },
+  { src: photo8, alt: "Yogi greeting the sunrise on the beach" },
   { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour" },
   { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset" },
 ];
@@ -27,7 +31,7 @@ const CommunityRow = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-0 w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full bg-background">
         {photos.map((p, i) => (
           <div
             key={i}
