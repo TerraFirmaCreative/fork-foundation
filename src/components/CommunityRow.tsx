@@ -11,7 +11,7 @@ const photos = [
   // Row 1 — beach / grass / beach / grass
   { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center" },
   { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center" },
-  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 75%" },
+  { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 15%" },
   { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center" },
   // Row 2 — beach / grass / beach / grass
   { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center" },
