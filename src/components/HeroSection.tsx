@@ -260,17 +260,29 @@ const HeroSection = () => {
         }}
       />
 
+      {/* Readability scrim — darkens busy backdrop behind text for dim phone screens */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[5] md:hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 95% 60% at 50% 55%, hsla(240, 60%, 3%, 0.55) 0%, hsla(240, 60%, 3%, 0.35) 50%, transparent 80%)",
+        }}
+      />
+
       {/* CONTENT — artistic centered composition, all above the fold */}
-      <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
+      <div
+        className="relative z-10 w-full px-6 flex flex-col items-center text-center"
+        style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
+      >
         {/* Whisper-line above headline */}
-        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
+        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold font-body font-light">
           A warm space in the infinite
         </p>
 
         {/* Headline — poetic, layered */}
         <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
           <span className="block">
-            <span className="text-foreground/90">Beautiful</span>{" "}
+            <span className="text-foreground">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
               and
               <svg
@@ -298,7 +310,7 @@ const HeroSection = () => {
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-8 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
+        <p className="mt-8 text-base sm:text-lg md:text-xl text-foreground/85 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
