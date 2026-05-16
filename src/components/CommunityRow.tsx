@@ -1,11 +1,11 @@
-import photo1 from "@/assets/community/photo-1.jpeg";
-import photo2 from "@/assets/community/photo-2.jpeg";
-import photo3 from "@/assets/community/photo-3.jpeg";
-import photo4 from "@/assets/community/photo-4.jpeg";
-import photo5 from "@/assets/community/photo-5.jpeg";
-import photo6 from "@/assets/community/photo-6.jpeg";
-import photo7 from "@/assets/community/photo-7.jpeg";
-import photo8 from "@/assets/community/photo-8.jpeg";
+import photo1 from "@/assets/community/photo-1.webp";
+import photo2 from "@/assets/community/photo-2.webp";
+import photo3 from "@/assets/community/photo-3.webp";
+import photo4 from "@/assets/community/photo-4.webp";
+import photo5 from "@/assets/community/photo-5.webp";
+import photo6 from "@/assets/community/photo-6.webp";
+import photo7 from "@/assets/community/photo-7.webp";
+import photo8 from "@/assets/community/photo-8.webp";
 
 const photos = [
   // Row 1

@@ -6,14 +6,14 @@ import { useLocale } from "@/lib/i18n";
 import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
 import { formatPrice } from "@/lib/utils";
-import hudson1 from "@/assets/hudson/hudson-1.jpeg";
-import hudson2 from "@/assets/hudson/hudson-2.jpeg";
-import hudson3 from "@/assets/hudson/hudson-3.jpeg";
-import hudson4 from "@/assets/hudson/hudson-4.jpeg";
-import hudson5 from "@/assets/hudson/hudson-5.jpeg";
-import hudson6 from "@/assets/hudson/hudson-6.jpeg";
-import hudson7 from "@/assets/hudson/hudson-7.jpeg";
-import hudson8 from "@/assets/hudson/hudson-8.jpeg";
+import hudson1 from "@/assets/hudson/hudson-1.webp";
+import hudson2 from "@/assets/hudson/hudson-2.webp";
+import hudson3 from "@/assets/hudson/hudson-3.webp";
+import hudson4 from "@/assets/hudson/hudson-4.webp";
+import hudson5 from "@/assets/hudson/hudson-5.webp";
+import hudson6 from "@/assets/hudson/hudson-6.webp";
+import hudson7 from "@/assets/hudson/hudson-7.webp";
+import hudson8 from "@/assets/hudson/hudson-8.webp";
 
 const images = [
   // Mixed beach/forest for visual rhythm
