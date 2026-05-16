@@ -71,6 +71,8 @@ const GallerySlot = ({
   onAdvance: () => void;
   delay: number;
 }) => {
+  // Each slot drifts with its own rhythm so the four panels feel like they're dancing,
+  // never flipping in unison and never feeling abrupt.
   useEffect(() => {
     const tick = () => {
       onAdvance();
@@ -78,24 +80,38 @@ const GallerySlot = ({
     };
     let timeout: ReturnType<typeof setTimeout>;
     const schedule = () => {
-      timeout = setTimeout(tick, 5000 + Math.random() * 3000);
+      // 6–10s irregular cadence per slot — long enough that the crossfade fully resolves
+      timeout = setTimeout(tick, 6000 + Math.random() * 4000);
     };
     timeout = setTimeout(tick, delay);
     return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
-      {images.map((img, i) => (
-        <img
-          key={i}
-          src={img.src}
-          alt={img.alt}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === currentIndex ? "opacity-100" : "opacity-0"}`}
-          loading="lazy"
-          decoding="async"
-        />
-      ))}
+    <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-card/40">
+      {images.map((img, i) => {
+        const active = i === currentIndex;
+        return (
+          <img
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            style={{
+              transitionProperty: "opacity, transform, filter",
+              transitionDuration: "2600ms, 9000ms, 2600ms",
+              transitionTimingFunction:
+                "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
+            }}
+            className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
+              active
+                ? "opacity-100 scale-105 blur-0"
+                : "opacity-0 scale-100 blur-[2px]"
+            }`}
+            loading="lazy"
+            decoding="async"
+          />
+        );
+      })}
     </div>
   );
 };
@@ -137,7 +153,7 @@ const YogiOfTheWeek = () => {
               key={slotIndex}
               currentIndex={imgIndex}
               onAdvance={() => advance(slotIndex)}
-              delay={1000 + slotIndex * 800}
+              delay={1500 + slotIndex * 1700}
             />
           ))}
         </div>
