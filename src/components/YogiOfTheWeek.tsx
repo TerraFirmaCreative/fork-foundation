@@ -6,21 +6,25 @@ import { useLocale } from "@/lib/i18n";
 import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
 import { formatPrice } from "@/lib/utils";
+import hudson1 from "@/assets/hudson/hudson-1.jpeg";
+import hudson2 from "@/assets/hudson/hudson-2.jpeg";
+import hudson3 from "@/assets/hudson/hudson-3.jpeg";
+import hudson4 from "@/assets/hudson/hudson-4.jpeg";
+import hudson5 from "@/assets/hudson/hudson-5.jpeg";
+import hudson6 from "@/assets/hudson/hudson-6.jpeg";
+import hudson7 from "@/assets/hudson/hudson-7.jpeg";
+import hudson8 from "@/assets/hudson/hudson-8.jpeg";
 
 const images = [
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118", alt: "Hudson practicing yoga on the beach at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-2.jpg?v=1773738117", alt: "Hudson in downward dog at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-3.webp?v=1773738118", alt: "Yoga mat on the sand with sun flare at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-4.webp?v=1773738118", alt: "Hudson in triangle pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-5.webp?v=1773738118", alt: "Hudson in forward fold on the beach" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-6.webp?v=1773738118", alt: "Hudson in plank pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-7.webp?v=1773738118", alt: "Hudson in warrior pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-8.webp?v=1773738118", alt: "Hudson in downward dog at sunset" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-9.webp?v=1773738118", alt: "Hudson in cobra pose on the beach" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-10.webp?v=1773738118", alt: "Hudson in crescent lunge at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-11.webp?v=1773738118", alt: "Hudson in low lunge reaching up" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-12.jpg?v=1773738118", alt: "Hudson in child's pose on the sand" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-13.jpg?v=1773738117", alt: "Hudson standing on her mat by the ocean" },
+  // Mixed beach/forest for visual rhythm
+  { src: hudson1, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
+  { src: hudson5, alt: "Cosmic Igloo mat laid out on the forest floor" },
+  { src: hudson3, alt: "Hudson in warrior pose with arms wide on the beach" },
+  { src: hudson8, alt: "Hudson in a supported headstand in the forest" },
+  { src: hudson6, alt: "Hudson resting in child's pose in the forest" },
+  { src: hudson2, alt: "Hudson in a seated twist on her mat at the beach" },
+  { src: hudson7, alt: "Hudson in pigeon pose on the forest floor" },
+  { src: hudson4, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
