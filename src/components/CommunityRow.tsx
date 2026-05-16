@@ -34,7 +34,7 @@ const CommunityRow = () => {
       </div>
 
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full bg-background">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-[85%] mx-auto bg-background">
         {photos.map((p, i) => (
           <div
             key={i}
