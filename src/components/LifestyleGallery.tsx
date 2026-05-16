@@ -15,7 +15,7 @@ const images = [
 const LifestyleGallery = () => {
   return (
     <section className="relative overflow-hidden px-6 py-1">
-      <div className="max-w-6xl mx-auto w-[87%] columns-2 md:columns-4 gap-1">
+      <div className="max-w-6xl mx-auto w-[79%] columns-2 md:columns-4 gap-1">
         {images.map((image, index) => (
           <div
             key={index}
