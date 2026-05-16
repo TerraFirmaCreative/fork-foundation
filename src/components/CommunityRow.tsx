@@ -53,36 +53,6 @@ const CommunityRow = () => {
           </div>
         ))}
       </div>
-
-      <div className="max-w-7xl mx-auto px-6 mt-6 flex flex-wrap justify-between items-center gap-4">
-        {[0, 1, 2].map((idx) => (
-          <button
-            key={idx}
-            onClick={() => {
-              const el = document.getElementById("design-gallery");
-              el?.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
-            className="enter-cta group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
-            aria-label="Add a mat to your cart"
-          >
-            <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
-            <span className="relative text-[0.7rem] sm:text-xs tracking-[0.32em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
-              Add to cart
-            </span>
-            <svg
-              className="relative w-3.5 h-3.5 text-shaman-gold group-hover:text-foreground transition-colors duration-500 enter-cta-arrow"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-          </button>
-        ))}
-      </div>
     </section>
   );
 };
