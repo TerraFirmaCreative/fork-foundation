@@ -6,21 +6,25 @@ import { useLocale } from "@/lib/i18n";
 import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
 import { formatPrice } from "@/lib/utils";
+import hudson1 from "@/assets/hudson/hudson-1.webp";
+import hudson2 from "@/assets/hudson/hudson-2.webp";
+import hudson3 from "@/assets/hudson/hudson-3.webp";
+import hudson4 from "@/assets/hudson/hudson-4.webp";
+import hudson5 from "@/assets/hudson/hudson-5.webp";
+import hudson6 from "@/assets/hudson/hudson-6.webp";
+import hudson7 from "@/assets/hudson/hudson-7.webp";
+import hudson8 from "@/assets/hudson/hudson-8.webp";
 
 const images = [
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-1.webp?v=1773738118", alt: "Hudson practicing yoga on the beach at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-2.jpg?v=1773738117", alt: "Hudson in downward dog at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-3.webp?v=1773738118", alt: "Yoga mat on the sand with sun flare at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-4.webp?v=1773738118", alt: "Hudson in triangle pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-5.webp?v=1773738118", alt: "Hudson in forward fold on the beach" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-6.webp?v=1773738118", alt: "Hudson in plank pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-7.webp?v=1773738118", alt: "Hudson in warrior pose at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-8.webp?v=1773738118", alt: "Hudson in downward dog at sunset" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-9.webp?v=1773738118", alt: "Hudson in cobra pose on the beach" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-10.webp?v=1773738118", alt: "Hudson in crescent lunge at Bunker Bay" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-11.webp?v=1773738118", alt: "Hudson in low lunge reaching up" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-12.jpg?v=1773738118", alt: "Hudson in child's pose on the sand" },
-  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/hudson-13.jpg?v=1773738117", alt: "Hudson standing on her mat by the ocean" },
+  // Mixed beach/forest for visual rhythm
+  { src: hudson1, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
+  { src: hudson5, alt: "Cosmic Igloo mat laid out on the forest floor" },
+  { src: hudson3, alt: "Hudson in warrior pose with arms wide on the beach" },
+  { src: hudson8, alt: "Hudson in a supported headstand in the forest" },
+  { src: hudson6, alt: "Hudson resting in child's pose in the forest" },
+  { src: hudson2, alt: "Hudson in a seated twist on her mat at the beach" },
+  { src: hudson7, alt: "Hudson in pigeon pose on the forest floor" },
+  { src: hudson4, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
@@ -67,6 +71,8 @@ const GallerySlot = ({
   onAdvance: () => void;
   delay: number;
 }) => {
+  // Each slot drifts with its own rhythm so the four panels feel like they're dancing,
+  // never flipping in unison and never feeling abrupt.
   useEffect(() => {
     const tick = () => {
       onAdvance();
@@ -74,26 +80,38 @@ const GallerySlot = ({
     };
     let timeout: ReturnType<typeof setTimeout>;
     const schedule = () => {
-      timeout = setTimeout(tick, 5000 + Math.random() * 3000);
+      // 6–10s irregular cadence per slot — long enough that the crossfade fully resolves
+      timeout = setTimeout(tick, 6000 + Math.random() * 4000);
     };
     timeout = setTimeout(tick, delay);
     return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
-      {images.map((img, i) => (
-        <img
-          key={i}
-          src={shopifyImageUrl(img.src, 400)}
-          srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
-          sizes={GALLERY_SIZES}
-          alt={img.alt}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === currentIndex ? "opacity-100" : "opacity-0"}`}
-          loading="lazy"
-          decoding="async"
-        />
-      ))}
+    <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-card/40">
+      {images.map((img, i) => {
+        const active = i === currentIndex;
+        return (
+          <img
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            style={{
+              transitionProperty: "opacity, transform, filter",
+              transitionDuration: "2600ms, 9000ms, 2600ms",
+              transitionTimingFunction:
+                "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
+            }}
+            className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
+              active
+                ? "opacity-100 scale-105 blur-0"
+                : "opacity-0 scale-100 blur-[2px]"
+            }`}
+            loading="lazy"
+            decoding="async"
+          />
+        );
+      })}
     </div>
   );
 };
@@ -135,7 +153,7 @@ const YogiOfTheWeek = () => {
               key={slotIndex}
               currentIndex={imgIndex}
               onAdvance={() => advance(slotIndex)}
-              delay={1000 + slotIndex * 800}
+              delay={1500 + slotIndex * 1700}
             />
           ))}
         </div>

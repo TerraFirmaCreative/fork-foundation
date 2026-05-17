@@ -106,48 +106,97 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Mid mandala (slow rotation) */}
-      <svg
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        width={900}
-        height={900}
-        viewBox="0 0 200 200"
+      {/* LAYER 5 — Flower of Life (fractal-style infinite expansion) */}
+      <div
+        className="absolute left-1/2 top-1/2 pointer-events-none"
         style={{
-          opacity: 0.09,
-          animation: "mandala-spin 180s linear infinite",
+          width: 1400,
+          height: 1400,
+          marginLeft: -700,
+          marginTop: -700,
         }}
       >
-        <defs>
-          <linearGradient id="midMandala" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(270, 70%, 70%)" />
-            <stop offset="50%" stopColor="hsl(285, 60%, 60%)" />
-            <stop offset="100%" stopColor="hsl(45, 75%, 70%)" />
-          </linearGradient>
-        </defs>
-        <g
-          transform="translate(100, 100)"
-          stroke="url(#midMandala)"
-          fill="none"
-          strokeWidth="0.4"
+        {/* Two staggered layers create a seamless ever-expanding loop */}
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="-100 -100 200 200"
+          className="absolute inset-0"
+          style={{
+            animation: "flower-fractal 28s linear infinite",
+            transformOrigin: "center",
+          }}
         >
-          {Array.from({ length: 24 }).map((_, i) => {
-            const angle = (i * 15 * Math.PI) / 180;
-            return (
-              <ellipse
-                key={i}
-                cx={50 * Math.cos(angle)}
-                cy={50 * Math.sin(angle)}
-                rx="22"
-                ry="10"
-                transform={`rotate(${i * 15})`}
-              />
-            );
-          })}
-          {[30, 50, 70, 90].map((r) => (
-            <circle key={r} cx="0" cy="0" r={r} />
-          ))}
-        </g>
-      </svg>
+          <defs>
+            <radialGradient id="folGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="hsl(45, 80%, 75%)" stopOpacity="1" />
+              <stop offset="60%" stopColor="hsl(285, 60%, 65%)" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="hsl(270, 70%, 70%)" stopOpacity="0.7" />
+            </radialGradient>
+          </defs>
+          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
+            {(() => {
+              const r = 20;
+              const centers: Array<[number, number]> = [[0, 0]];
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([r * Math.cos(a), r * Math.sin(a)]);
+              }
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
+              }
+              const d = r * Math.sqrt(3);
+              for (let i = 0; i < 6; i++) {
+                const a = ((i * 60 + 30) * Math.PI) / 180;
+                centers.push([d * Math.cos(a), d * Math.sin(a)]);
+              }
+              return centers.map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r={r} />
+              ));
+            })()}
+            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
+            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
+          </g>
+        </svg>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="-100 -100 200 200"
+          className="absolute inset-0"
+          style={{
+            animation: "flower-fractal 28s linear infinite",
+            animationDelay: "-14s",
+            transformOrigin: "center",
+          }}
+        >
+          <use href="#folGradient" />
+          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
+            {(() => {
+              const r = 20;
+              const centers: Array<[number, number]> = [[0, 0]];
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([r * Math.cos(a), r * Math.sin(a)]);
+              }
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
+              }
+              const d = r * Math.sqrt(3);
+              for (let i = 0; i < 6; i++) {
+                const a = ((i * 60 + 30) * Math.PI) / 180;
+                centers.push([d * Math.cos(a), d * Math.sin(a)]);
+              }
+              return centers.map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r={r} />
+              ));
+            })()}
+            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
+            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
+          </g>
+        </svg>
+      </div>
 
       {/* LAYER 6 — Inner mandala (counter-rotating) */}
       <svg
@@ -211,17 +260,29 @@ const HeroSection = () => {
         }}
       />
 
+      {/* Readability scrim — darkens busy backdrop behind text for dim phone screens */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[5] md:hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 95% 60% at 50% 55%, hsla(240, 60%, 3%, 0.55) 0%, hsla(240, 60%, 3%, 0.35) 50%, transparent 80%)",
+        }}
+      />
+
       {/* CONTENT — artistic centered composition, all above the fold */}
-      <div className="relative z-10 w-full px-6 flex flex-col items-center text-center">
+      <div
+        className="relative z-10 w-full px-6 flex flex-col items-center text-center"
+        style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
+      >
         {/* Whisper-line above headline */}
-        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold/75 font-body font-light">
+        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold font-body font-light">
           A warm space in the infinite
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.05] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl">
+        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
           <span className="block">
-            <span className="text-foreground/90">Beautiful</span>{" "}
+            <span className="text-foreground">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
               and
               <svg
@@ -239,34 +300,43 @@ const HeroSection = () => {
                 />
               </svg>
             </span>{" "}
-            <span className="text-gradient italic">grippy</span>
+            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
+              grippy
+            </span>
           </span>
-          <span className="block text-foreground/60 italic font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-3">
+          <span className="block text-gradient font-display font-medium tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mt-2 leading-[1.15] pb-[0.12em]">
             yoga mats.
           </span>
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-8 text-base sm:text-lg md:text-xl text-muted-foreground/80 font-body max-w-xl leading-relaxed">
+        <p className="mt-8 text-base sm:text-lg md:text-xl text-foreground/85 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
-        {/* Invitation downward — replaces the standard CTA button feel */}
+        {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="group mt-12 flex flex-col items-center gap-3 cursor-pointer"
+          className="enter-cta group mt-12 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
           aria-label="View the collection below"
         >
-          <span className="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-foreground/70 group-hover:text-shaman-gold transition-colors duration-500 font-body font-light">
-            Enter the collection
+          <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
+          <span className="relative text-[0.7rem] sm:text-xs tracking-[0.32em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
+            Find your mat
           </span>
-
-          {/* Animated descending line + dot */}
-          <span className="relative flex flex-col items-center">
-            <span className="block w-px h-12 bg-gradient-to-b from-shaman-gold/60 via-shaman-violet/40 to-transparent" />
-            <span className="absolute top-0 w-px h-4 bg-shaman-gold animate-scroll-cue" />
-          </span>
+          <svg
+            className="relative w-3.5 h-3.5 text-shaman-gold group-hover:text-foreground transition-colors duration-500 enter-cta-arrow"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
         </button>
+
       </div>
 
       {/* Local keyframes for the scroll cue */}
@@ -279,9 +349,20 @@ const HeroSection = () => {
         .animate-scroll-cue {
           animation: scroll-cue 2.4s ease-in-out infinite;
         }
+        @keyframes enter-cta-shimmer {
+          0% { transform: translateX(-100%); }
+          60%, 100% { transform: translateX(100%); }
+        }
+        @keyframes enter-cta-bob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(2px); }
+        }
+        .enter-cta-shimmer { animation: enter-cta-shimmer 4.5s ease-in-out infinite; }
+        .enter-cta-arrow { animation: enter-cta-bob 2.4s ease-in-out infinite; }
       `}</style>
     </section>
   );
 };
 
 export default HeroSection;
+

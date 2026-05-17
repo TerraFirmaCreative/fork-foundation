@@ -224,6 +224,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
   }
 
   .text-gradient-warm {
@@ -332,6 +334,23 @@
   @keyframes mandala-spin-reverse {
     from { transform: translate(-50%, -50%) rotate(0deg); }
     to { transform: translate(-50%, -50%) rotate(-360deg); }
+  }
+
+  @keyframes flower-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes flower-fractal {
+    0%   { transform: scale(0.25) rotate(0deg);   opacity: 0; }
+    15%  { opacity: 0.16; }
+    85%  { opacity: 0.16; }
+    100% { transform: scale(3.2) rotate(40deg);   opacity: 0; }
+  }
+
+  @keyframes flower-grow {
+    0%, 100% { transform: scale(0.85); }
+    50% { transform: scale(1.08); }
   }
 
   /* Sacred geometry pattern */

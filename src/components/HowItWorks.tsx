@@ -11,7 +11,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "24 original designs", bold: "" },
-      { text: "Suede top surface", bold: "" },
+      { text: "Suede microfibre surface", bold: "" },
       { text: "Natural rubber base", bold: "" },
     ],
   },
@@ -20,7 +20,7 @@ const getSteps = (priceLabel: string) => [
     title: "Place Your Order",
     color: "text-shaman-magenta",
     lines: [
-      { text: `${priceLabel} per mat`, bold: "" },
+      { text: `${priceLabel} per mat`, bold: "", highlight: true },
       { text: "Free worldwide shipping", bold: "" },
       { text: "Secure checkout", bold: "" },
     ],
@@ -30,9 +30,9 @@ const getSteps = (priceLabel: string) => [
     title: "Delivery",
     color: "text-shaman-gold",
     deliveryLines: [
-      { country: "USA", time: "around 1 week" },
-      { country: "UK/Europe", time: "around 2 weeks" },
-      { country: "Australia", time: "up to 3 weeks" },
+      { country: "USA", time: "about 1 week" },
+      { country: "UK/Europe", time: "about 2 weeks" },
+      { country: "Australia", time: "about 2-3 weeks" },
     ],
     lines: [],
   },
@@ -98,7 +98,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative group text-left flex flex-col"
+              className="relative group text-center md:text-left flex flex-col items-center md:items-start"
             >
               {/* Step number */}
               <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
@@ -106,7 +106,7 @@ const HowItWorks = () => {
               </span>
 
               {/* Fixed height title area */}
-              <div className="h-auto md:h-[3.5rem] flex flex-col items-start justify-start mb-1 md:mb-0">
+              <div className="h-auto md:h-[3.5rem] flex flex-col items-center md:items-start justify-start mb-1 md:mb-0">
                 <h3 className={`font-display text-2xl md:text-[1.75rem] font-normal tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
@@ -116,9 +116,9 @@ const HowItWorks = () => {
               {step.deliveryLines && (
                 <div className="space-y-2 mt-3">
                   {step.deliveryLines.map((dl, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-3 justify-center md:justify-start">
                       <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                      <p className="text-[16px] text-foreground/70 font-body leading-relaxed">
+                      <p className="text-[17px] md:text-[18px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
                     </div>
@@ -128,9 +128,9 @@ const HowItWorks = () => {
 
               <div className="space-y-2 mt-3">
                 {step.lines.map((line, i) => (
-                  <div key={i} className="flex gap-3">
+                  <div key={i} className="flex gap-3 justify-center md:justify-start">
                     <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                    <p className="text-[16px] text-foreground/70 font-body leading-relaxed whitespace-nowrap">
+                    <p className={`text-[17px] md:text-[18px] font-body leading-relaxed whitespace-nowrap ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
                   </div>

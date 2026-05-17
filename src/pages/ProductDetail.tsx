@@ -4,7 +4,7 @@ import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather } from "lucide-react";
+import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -14,6 +14,24 @@ import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
+import whaleMat1 from "@/assets/whale-mat-1.png";
+import whaleMat2 from "@/assets/whale-mat-2.png";
+import whaleMat3 from "@/assets/whale-mat-3.png";
+import whaleMat4 from "@/assets/whale-mat-4.png";
+
+const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
+  "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy": [
+    whaleMat1, whaleMat2, whaleMat3, whaleMat4,
+  ],
+};
+
+const productReviews = [
+  { id: 1, name: "Philippa W.", location: "Byron Bay, AU", rating: 5, date: "3 weeks ago", review: "I love my mat. The bright colours are uplifting and calming at the same time. Comfortable and a good long length." },
+  { id: 2, name: "Hudson R.", location: "Margaret River, AU", rating: 5, date: "1 month ago", review: "Drawn to it the moment I saw the design. Incredible feel, great texture, grip, and thickness." },
+  { id: 3, name: "Clare W.", location: "Auckland, NZ", rating: 5, date: "2 months ago", review: "High quality and beautifully made. The vibrant pattern comes alive in the sunshine. Highly recommend." },
+  { id: 4, name: "Emma J.", location: "Brooklyn, NY", rating: 5, date: "3 months ago", review: "A simple design done beautifully. I still get comments on it." },
+  { id: 5, name: "Marcus T.", location: "Ubud, ID", rating: 4, date: "4 months ago", review: "Beautiful artwork and the grip is solid even in hot yoga. Worth every cent." },
+];
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -53,7 +71,24 @@ const ProductDetail = () => {
     setDrawerOpen(true);
   };
 
-  const images = product?.node.images.edges || [];
+  const shopifyImages = product?.node.images.edges || [];
+  const extras = (handle && EXTRA_PRODUCT_IMAGES[handle]) || [];
+  type GalleryItem =
+    | { kind: "shopify"; url: string; thumbhash?: string | null; alt?: string }
+    | { kind: "local"; src: string; alt?: string };
+  const images: GalleryItem[] = [
+    ...shopifyImages.map((e) => ({
+      kind: "shopify" as const,
+      url: e.node.url,
+      thumbhash: e.node.thumbhash,
+      alt: e.node.altText || product?.node.title,
+    })),
+    ...extras.map((src, i) => ({
+      kind: "local" as const,
+      src,
+      alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
+    })),
+  ];
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
@@ -97,7 +132,7 @@ const ProductDetail = () => {
           <span className="text-sm">Back to shop</span>
         </LocaleLink>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left: Image Gallery */}
           <div className="flex gap-4">
             {/* Thumbnails */}
@@ -112,16 +147,26 @@ const ProductDetail = () => {
                       : "border-transparent opacity-60 hover:opacity-90"
                       }`}
                   >
-                    <ThumbhashImage
-                      thumbhash={img.node.thumbhash}
-                      src={shopifyImageUrl(img.node.url, 80)}
-                      srcSet={shopifySrcSet(img.node.url, [80, 160])}
-                      sizes={THUMBNAIL_SIZES}
-                      alt={img.node.altText || `Thumbnail ${i + 1}`}
-                      className="w-full h-full object-cover aspect-[2/3]"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {img.kind === "shopify" ? (
+                      <ThumbhashImage
+                        thumbhash={img.thumbhash}
+                        src={shopifyImageUrl(img.url, 80)}
+                        srcSet={shopifySrcSet(img.url, [80, 160])}
+                        sizes={THUMBNAIL_SIZES}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-contain aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <img
+                        src={img.src}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-cover aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
                   </button>
                 ))}
               </div>
@@ -130,14 +175,22 @@ const ProductDetail = () => {
             {/* Main Image */}
             <div className="flex flex-col rounded-xl overflow-hidden bg-muted/20 w-full items-center p-4">
               {images[selectedImageIndex] ? (
-                <ImageMagnifier
-                  thumbhash={images[selectedImageIndex].node.thumbhash}
-                  src={shopifyImageUrl(images[selectedImageIndex].node.url, 800)}
-                  srcSet={shopifySrcSet(images[selectedImageIndex].node.url, [400, 600, 800, 1200])}
-                  sizes={PRODUCT_MAIN_SIZES}
-                  alt={images[selectedImageIndex].node.altText || product.node.title}
-                  className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
-                />
+                images[selectedImageIndex].kind === "shopify" ? (
+                  <ImageMagnifier
+                    thumbhash={(images[selectedImageIndex] as any).thumbhash}
+                    src={shopifyImageUrl((images[selectedImageIndex] as any).url, 800)}
+                    srcSet={shopifySrcSet((images[selectedImageIndex] as any).url, [400, 600, 800, 1200])}
+                    sizes={PRODUCT_MAIN_SIZES}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
+                  />
+                ) : (
+                  <ImageMagnifier
+                    src={(images[selectedImageIndex] as any).src}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
+                  />
+                )
               ) : (
                 <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
                   No image available
@@ -157,6 +210,17 @@ const ProductDetail = () => {
                 {formatPrice(price)}
               </p>
             )}
+
+            {/* Rating Summary */}
+            <div className="flex items-center gap-2 mt-3">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-shaman-gold text-shaman-gold" />
+                ))}
+              </div>
+              <span className="text-sm font-body text-foreground/80">4.9</span>
+              <span className="text-sm font-body text-muted-foreground">from 12 reviews</span>
+            </div>
 
             {/* Quantity + Add to Cart */}
             <div className="flex items-center gap-4 mt-6">
@@ -190,30 +254,123 @@ const ProductDetail = () => {
 
             {/* Description */}
             {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-8 border-t border-border/50 pt-8">
+              <p className="text-muted-foreground font-body leading-relaxed mt-6 border-t border-border/50 pt-6">
                 {product.node.description}
               </p>
             )}
 
-            {/* Specifications */}
-            <div className="mt-8 border-t border-border/50 pt-8">
-              <h3 className="font-display text-lg text-foreground font-semibold mb-4">Specifications</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <SpecItem icon={<Layers className="w-5 h-5" />} text="Suede Top" />
-                <SpecItem icon={<CircleDot className="w-5 h-5" />} text="Natural Rubber Bottom" />
-                <SpecItem icon={<Maximize className="w-5 h-5" />} text="Edge-to-Edge Print" />
-                <SpecItem icon={<Feather className="w-5 h-5" />} text="Lightweight (64oz)" />
-                <SpecItem icon={<Ruler className="w-5 h-5" />} text='Dimensions 70"x26"' />
-                <SpecItem icon={<Weight className="w-5 h-5" />} text="3mm thick" />
-              </div>
+            {/* Free Carry Strap */}
+            <div className="mt-6 flex items-center gap-3 p-4 rounded-md bg-shaman-gold/5 border border-shaman-gold/20">
+              <span className="text-shaman-gold text-lg">✦</span>
+              <p className="font-body text-foreground/90">
+                Includes a <span className="font-semibold text-shaman-gold">free carry strap</span> with every mat.
+              </p>
             </div>
 
-            <LocaleLink
-              to="/about"
-              className="text-shaman-gold hover:underline text-sm mt-6 font-body"
+            <button
+              type="button"
+              onClick={() => document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              className="group inline-flex items-center gap-2 mt-5 text-shaman-gold font-body font-medium text-base hover:text-shaman-gold/80 transition-colors self-start"
             >
-              Learn more about our mats...
-            </LocaleLink>
+              <span className="border-b border-shaman-gold/40 group-hover:border-shaman-gold pb-0.5">See full mat specs &amp; materials</span>
+              <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Specs + Delivery — full width, side by side under the mat */}
+        <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Specifications */}
+          <div id="specifications" className="lg:px-4 scroll-mt-24">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
+            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
+            <ul className="space-y-2 font-body text-foreground/90">
+              {[
+                { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
+                { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
+                { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
+                { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
+                { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
+                { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
+                { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
+                { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
+              ].map((s, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
+                  <span className="font-medium leading-relaxed">{s.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Delivery */}
+          <div>
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
+            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
+            <ul className="space-y-2 font-body text-foreground/90">
+              {[
+                { text: "USA — around 1 week" },
+                { text: "UK / Europe — around 2 weeks" },
+                { text: "Australia — up to 3 weeks", note: "Each mat is printed to order in the USA — crafted individually for you." },
+              ].map((d, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
+                  <div>
+                    <span className="font-medium leading-relaxed block">{d.text}</span>
+                    {d.note && (
+                      <span className="block text-xs italic text-muted-foreground/70 mt-1 leading-relaxed">
+                        {d.note}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm font-body italic text-muted-foreground/80">
+              Ships from Nevada, USA
+            </p>
+          </div>
+        </div>
+
+        {/* Customer Reviews — full width, below mat & info */}
+        <div className="mt-10 border-t border-border/50 pt-8">
+          <div className="flex flex-col items-center text-center mb-6 gap-2">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
+              Customer Reviews
+            </h2>
+            <div className="flex items-center gap-2">
+              <Star className="w-4 h-4 fill-shaman-gold text-shaman-gold" />
+              <span className="text-sm font-body text-foreground/80">4.9</span>
+              <span className="text-xs font-body text-muted-foreground">from 12 reviews</span>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {productReviews.map((r) => (
+              <div
+                key={r.id}
+                className="p-5 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                      <span className="text-xs font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
+                      <p className="text-[11px] text-muted-foreground/60 font-body">{r.location} · {r.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(r.rating)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-shaman-gold/80 text-shaman-gold/80" />
+                    ))}
+                  </div>
+                </div>
+                <p className="font-display text-base text-foreground/85 italic leading-relaxed">
+                  "{r.review}"
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -224,9 +381,9 @@ const ProductDetail = () => {
 };
 
 const SpecItem = ({ icon, text }: { icon: React.ReactNode; text: string }) => (
-  <div className="flex items-center gap-3 text-muted-foreground">
-    <span className="text-foreground/70">{icon}</span>
-    <span className="text-sm font-body">{text}</span>
+  <div className="flex items-center gap-3 text-foreground/90">
+    <span className="text-foreground/80">{icon}</span>
+    <span className="font-body font-medium leading-relaxed">{text}</span>
   </div>
 );
 

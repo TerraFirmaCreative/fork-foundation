@@ -5,6 +5,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
+import GalleryMagnifier from "@/components/GalleryMagnifier";
 
 const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -29,7 +30,7 @@ const DesignGallery = () => {
     <section id="design-gallery" className="hero-gradient pt-20 md:pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         {loading ? (
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 md:gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
             {Array.from({ length: 24 }).map((_, i) => (
               <Skeleton key={i} className="w-full aspect-[1/3] rounded-xl" />
             ))}
@@ -39,33 +40,38 @@ const DesignGallery = () => {
         ) : products.length === 0 ? (
           <p className="text-center text-muted-foreground py-12">No products found in the "Home" collection.</p>
         ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 md:gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
             {products.map((product, index) => {
               const image = product.node.images.edges[0]?.node;
               return (
                 <LocaleLink
                   to={`/product/${product.node.handle}`}
                   key={product.node.id}
-                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block"
+                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block bg-black"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
-                    <ThumbhashImage
-                      thumbhash={image.thumbhash}
-                      src={shopifyImageUrl(image.url, 400)}
-                      srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
-                      sizes={GALLERY_SIZES}
-                      alt={image.altText || product.node.title}
-                      className="w-full aspect-[0.37076674277] object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <GalleryMagnifier
+                      zoomSrc={shopifyImageUrl(image.url, 1600)}
+                      className="block w-full"
+                    >
+                      <ThumbhashImage
+                        thumbhash={image.thumbhash}
+                        src={shopifyImageUrl(image.url, 400)}
+                        srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
+                        sizes={GALLERY_SIZES}
+                        alt={image.altText || product.node.title}
+                        className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </GalleryMagnifier>
                   ) : (
                     <div className="w-full aspect-[1/3] bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-xs">No image</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </LocaleLink>
               );
             })}

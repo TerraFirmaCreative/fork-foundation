@@ -94,9 +94,9 @@ const Footer = () => {
 
           {/* Subscribe Column */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground/70 mb-2" style={{ fontWeight: 500 }}>Subscribe</h4>
-            <p className="text-xs text-muted-foreground/60 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
-            <form className="flex items-center border-b border-foreground/20 pb-1 mb-6 max-w-xs" onSubmit={async (e) => {
+            <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h4>
+            <p className="text-xs text-foreground/70 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
+            <form className="flex items-center border border-foreground/30 hover:border-foreground/50 focus-within:border-shaman-gold/60 rounded-md bg-background/30 px-3 py-1 mb-3 max-w-xs transition-colors" onSubmit={async (e) => {
               e.preventDefault();
               if (isSubmitting || !email) return;
               setIsSubmitting(true);
@@ -111,18 +111,18 @@ const Footer = () => {
             }}>
               <input
                 type="email"
-                placeholder="Email address"
+                placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent border-none outline-none text-xs w-full placeholder:text-muted-foreground/40 text-foreground py-1 font-display tracking-wide"
+                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/50 text-foreground py-1.5 font-display tracking-wide"
                 required
                 disabled={isSubmitting}
               />
-              <button type="submit" disabled={isSubmitting} className="w-8 h-8 rounded-full bg-secondary/10 hover:bg-secondary/20 flex items-center justify-center transition-colors text-foreground/80 flex-shrink-0 ml-2">
+              <button type="submit" disabled={isSubmitting} aria-label="Subscribe" className="w-8 h-8 rounded-full bg-shaman-violet/20 hover:bg-shaman-gold/30 hover:text-shaman-gold flex items-center justify-center transition-colors text-foreground flex-shrink-0 ml-2">
                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
               </button>
             </form>
-            <p className="text-[11px] text-muted-foreground/40 font-display tracking-wide -mt-4 mb-6">No spam. Unsubscribe anytime.</p>
+            <p className="text-[11px] text-foreground/50 font-display tracking-wide mb-6">No spam. Unsubscribe anytime.</p>
 
           </div>
 
