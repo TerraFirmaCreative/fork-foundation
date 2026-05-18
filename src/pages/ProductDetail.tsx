@@ -246,9 +246,10 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
-                className="atc-button relative overflow-hidden w-full sm:w-auto sm:px-10 h-[52px] bg-shaman-gold text-background hover:bg-shaman-gold/90 font-body font-medium tracking-wide text-base shadow-[0_8px_24px_-8px_hsl(var(--shaman-gold)/0.6)]"
+                variant="conversion"
+                className="w-full sm:w-auto"
               >
-                <span className="relative z-10">
+                <span>
                   {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Add to Cart"}
                 </span>
               </Button>
@@ -256,23 +257,6 @@ const ProductDetail = () => {
             <p className="mt-3 text-[12px] text-muted-foreground font-body">
               Secure checkout · Made to order · Free carry strap included
             </p>
-            <style>{`
-              @keyframes atc-shimmer {
-                0% { transform: translateX(-100%); }
-                100% { transform: translateX(100%); }
-              }
-              .atc-button::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 60%;
-                height: 100%;
-                background: linear-gradient(110deg, transparent 0%, hsl(0 0% 100% / 0.45) 50%, transparent 100%);
-                animation: atc-shimmer 1.2s ease-out 1 forwards;
-                pointer-events: none;
-              }
-            `}</style>
 
             {/* Description */}
             {product.node.description && (
