@@ -47,9 +47,11 @@ const CommunityRow = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-[85%] mx-auto bg-background">
         {photos.map((p, i) => (
-          <div
+          <LocaleLink
             key={i}
-            className="group relative aspect-[3/4] overflow-hidden"
+            to={`/product/${FEATURED_PRODUCT_HANDLE}`}
+            className="group relative aspect-[3/4] overflow-hidden block"
+            aria-label={`Shop ${p.alt}`}
           >
             <img
               src={p.src}
@@ -61,7 +63,7 @@ const CommunityRow = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
             <div className="absolute inset-0 ring-1 ring-inset ring-shaman-gold/0 group-hover:ring-shaman-gold/40 transition-all duration-500" />
-          </div>
+          </LocaleLink>
         ))}
       </div>
     </section>
