@@ -6,6 +6,9 @@ import photo5 from "@/assets/community/photo-5.webp";
 import photo6 from "@/assets/community/photo-6.webp";
 import photo7 from "@/assets/community/photo-7.webp";
 import photo8 from "@/assets/community/photo-8.webp";
+import LocaleLink from "@/components/LocaleLink";
+
+const FEATURED_PRODUCT_HANDLE = "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy";
 
 const allPhotos = [
   { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center 60%" },
