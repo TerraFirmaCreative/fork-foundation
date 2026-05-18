@@ -6,6 +6,9 @@ import photo5 from "@/assets/community/photo-5.webp";
 import photo6 from "@/assets/community/photo-6.webp";
 import photo7 from "@/assets/community/photo-7.webp";
 import photo8 from "@/assets/community/photo-8.webp";
+import LocaleLink from "@/components/LocaleLink";
+
+const FEATURED_PRODUCT_HANDLE = "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy";
 
 const allPhotos = [
   { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center 60%" },
@@ -44,9 +47,11 @@ const CommunityRow = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-[85%] mx-auto bg-background">
         {photos.map((p, i) => (
-          <div
+          <LocaleLink
             key={i}
-            className="group relative aspect-[3/4] overflow-hidden"
+            to={`/product/${FEATURED_PRODUCT_HANDLE}`}
+            className="group relative aspect-[3/4] overflow-hidden block"
+            aria-label={`Shop ${p.alt}`}
           >
             <img
               src={p.src}
@@ -58,7 +63,7 @@ const CommunityRow = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
             <div className="absolute inset-0 ring-1 ring-inset ring-shaman-gold/0 group-hover:ring-shaman-gold/40 transition-all duration-500" />
-          </div>
+          </LocaleLink>
         ))}
       </div>
     </section>
