@@ -324,7 +324,7 @@ const ProductDetail = () => {
                   <div>
                     <span className="font-medium leading-relaxed block">{d.text}</span>
                     {d.note && (
-                      <span className="block text-xs italic text-muted-foreground/70 mt-1 leading-relaxed">
+                      <span className="block text-sm italic text-muted-foreground/70 mt-1 leading-relaxed">
                         {d.note}
                       </span>
                     )}
