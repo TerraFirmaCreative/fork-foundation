@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-card/50 hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "btn-conversion",
-        cta: "btn-conversion",
-        conversion: "btn-conversion",
+        hero: "btn-conversion !h-[52px] !px-8 !rounded-full",
+        cta: "btn-conversion !h-[52px] !px-8 !rounded-full",
+        conversion: "btn-conversion !h-[52px] !px-8 !rounded-full",
         nav: "text-muted-foreground hover:text-foreground font-medium bg-transparent",
       },
       size: {
