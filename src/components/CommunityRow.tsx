@@ -7,18 +7,26 @@ import photo6 from "@/assets/community/photo-6.webp";
 import photo7 from "@/assets/community/photo-7.webp";
 import photo8 from "@/assets/community/photo-8.webp";
 
-const photos = [
-  // Row 1
+const allPhotos = [
   { src: photo1, alt: "Yogi in meditation pose at sunset on Cosmic Igloo mat", position: "center 60%" },
-  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center 55%" },
   { src: photo2, alt: "Yogi smiling on a vibrant mandala yoga mat at the beach", position: "center 25%" },
-  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center 55%" },
-  // Row 2
-  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center 55%" },
-  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center 55%" },
   { src: photo3, alt: "Seated meditation facing the ocean on a Cosmic Igloo mat", position: "center 55%" },
+  { src: photo4, alt: "Headstand on a mandala yoga mat in the park", position: "center 55%" },
+  { src: photo5, alt: "Backbend on a vibrant red mandala mat at golden hour", position: "center 55%" },
   { src: photo6, alt: "Yogi carrying her rolled Cosmic Igloo mat at sunset", position: "center 55%" },
+  { src: photo7, alt: "Headstand in the park with sun flare on Cosmic Igloo mat", position: "center 55%" },
+  { src: photo8, alt: "Yogi greeting the sunrise on the beach", position: "center 55%" },
 ];
+
+// Fisher-Yates shuffle, runs once per page load
+const photos = (() => {
+  const arr = [...allPhotos];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+})();
 
 const CommunityRow = () => {
   return (
