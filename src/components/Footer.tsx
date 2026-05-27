@@ -8,6 +8,7 @@ import { subscribeToNewsletter } from "@/lib/shopify";
 import { toast } from "sonner";
 import { ArrowRight, Loader2 } from "lucide-react";
 import cosmicIglooMark from "@/assets/cosmic-igloo-mark.png";
+import { supabase } from "@/integrations/supabase/client";
 
 const Footer = () => {
   const navigate = useLocaleNavigate();
