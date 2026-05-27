@@ -36,15 +36,43 @@ const Contact = () => {
 
     try {
       const id = crypto.randomUUID();
-      const { error } = await supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-confirmation",
-          recipientEmail: result.data.email,
-          idempotencyKey: `contact-confirm-${id}`,
-          templateData: { name: result.data.name, message: result.data.message },
-        },
-      });
-      if (error) throw error;
+
+      // 1. Persist submission (so we have a record even if email fails)
+      const { error: insertError } = await supabase
+        .from("contact_submissions")
+        .insert({ id, name: result.data.name, email: result.data.email, message: result.data.message });
+      if (insertError) throw insertError;
+
+      const submittedAt = new Date().toLocaleString("en-GB", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        timeZone: "UTC",
+      }) + " UTC";
+
+      // 2. Send confirmation to the visitor + notification to hello@cosmicigloo.com
+      await Promise.all([
+        supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "contact-confirmation",
+            recipientEmail: result.data.email,
+            idempotencyKey: `contact-confirm-${id}`,
+            templateData: { name: result.data.name, message: result.data.message },
+          },
+        }),
+        supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "contact-notification",
+            recipientEmail: "hello@cosmicigloo.com",
+            idempotencyKey: `contact-notify-${id}`,
+            templateData: {
+              name: result.data.name,
+              email: result.data.email,
+              message: result.data.message,
+              submittedAt,
+            },
+          },
+        }),
+      ]);
 
       toast({
         title: "Message sent",
