@@ -61,7 +61,7 @@ const DesignGallery = () => {
                         srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
                         sizes={GALLERY_SIZES}
                         alt={image.altText || product.node.title}
-                        className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
+                        className="w-full aspect-[0.37076674277] object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
