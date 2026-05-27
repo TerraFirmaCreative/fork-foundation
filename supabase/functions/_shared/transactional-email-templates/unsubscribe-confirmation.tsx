@@ -34,8 +34,10 @@ export const template = {
   component: UnsubscribeConfirmationEmail,
   subject: `You've been unsubscribed from ${SITE_NAME}`,
   displayName: 'Unsubscribe confirmation (customer)',
+  skipUnsubscribe: true,
   previewData: {},
 } satisfies TemplateEntry
+
 
 const main = {
   backgroundColor: '#ffffff',
