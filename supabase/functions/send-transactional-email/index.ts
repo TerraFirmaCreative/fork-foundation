@@ -169,9 +169,19 @@ Deno.serve(async (req) => {
   }
 
 
-  // 3. Get or create unsubscribe token (one token per email address)
+  // 3. Get or create unsubscribe token (one token per email address).
+   // Templates flagged `skipUnsubscribe` (admin alerts, unsubscribe-confirmation)
+   // bypass this entirely — a working unsubscribe link isn't meaningful for
+   // them, and the customer's token will already be marked used by the time
+   // the confirmation email is queued, which would otherwise block the send.
   const normalizedEmail = effectiveRecipient.toLowerCase()
   let unsubscribeToken: string
+
+  if (template.skipUnsubscribe) {
+    // Throwaway token; not persisted. If clicked, it simply won't validate.
+    unsubscribeToken = generateToken()
+  } else {
+
 
   // Check for existing token for this email
   const { data: existingToken, error: tokenLookupError } = await supabase
@@ -285,6 +295,8 @@ Deno.serve(async (req) => {
       }
     )
   }
+  }
+
 
   // 4. Render React Email template to HTML and plain text
   const html = await renderAsync(

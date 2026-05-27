@@ -41,11 +41,13 @@ export const template = {
   subject: (data) => `Unsubscribe: ${data?.email || 'subscriber'}`,
   displayName: 'Unsubscribe notification (admin)',
   to: 'hello@cosmicigloo.com',
+  skipUnsubscribe: true,
   previewData: {
     email: 'jane@example.com',
     unsubscribedAt: '27 May 2026, 16:15 UTC',
   },
 } satisfies TemplateEntry
+
 
 const main = {
   backgroundColor: '#ffffff',
