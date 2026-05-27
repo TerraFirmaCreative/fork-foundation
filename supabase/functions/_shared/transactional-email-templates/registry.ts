@@ -7,7 +7,12 @@ export interface TemplateEntry {
   to?: string
   displayName?: string
   previewData?: Record<string, any>
+  /** Skip unsubscribe-token lookup/creation. Use for admin alerts and
+   *  unsubscribe-confirmation emails where a working unsubscribe link
+   *  is not meaningful and may collide with already-used tokens. */
+  skipUnsubscribe?: boolean
 }
+
 
 import { template as contactConfirmation } from './contact-confirmation.tsx'
 import { template as contactNotification } from './contact-notification.tsx'
