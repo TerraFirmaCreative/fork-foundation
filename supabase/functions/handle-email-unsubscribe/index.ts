@@ -103,6 +103,17 @@ Deno.serve(async (req) => {
     return jsonResponse({ success: false, reason: 'already_unsubscribed' })
   }
 
+  // Send confirmation email to the customer BEFORE adding to suppression list
+  // (otherwise the send-transactional-email suppression check would block it).
+  // Fire-and-forget — don't block the unsubscribe flow on email delivery.
+  supabase.functions.invoke('send-transactional-email', {
+    body: {
+      templateName: 'unsubscribe-confirmation',
+      recipientEmail: tokenRecord.email,
+      idempotencyKey: `unsubscribe-confirm-${tokenRecord.id}`,
+    },
+  }).catch((err) => console.error('Failed to send unsubscribe confirmation', err))
+
   // Add email to suppressed list (upsert to handle duplicates)
   const { error: suppressError } = await supabase
     .from('suppressed_emails')
@@ -118,6 +129,7 @@ Deno.serve(async (req) => {
     })
     return jsonResponse({ error: 'Failed to process unsubscribe' }, 500)
   }
+
 
   console.log('Email unsubscribed', { email: tokenRecord.email })
 
