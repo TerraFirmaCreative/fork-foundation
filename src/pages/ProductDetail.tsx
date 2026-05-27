@@ -26,11 +26,10 @@ const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
 };
 
 const productReviews = [
-  { id: 1, name: "Philippa W.", location: "Byron Bay, AU", rating: 5, date: "3 weeks ago", review: "I love my mat. The bright colours are uplifting and calming at the same time. Comfortable and a good long length." },
-  { id: 2, name: "Hudson R.", location: "Margaret River, AU", rating: 5, date: "1 month ago", review: "Drawn to it the moment I saw the design. Incredible feel, great texture, grip, and thickness." },
-  { id: 3, name: "Clare W.", location: "Auckland, NZ", rating: 5, date: "2 months ago", review: "High quality and beautifully made. The vibrant pattern comes alive in the sunshine. Highly recommend." },
-  { id: 4, name: "Emma J.", location: "Brooklyn, NY", rating: 5, date: "3 months ago", review: "A simple design done beautifully. I still get comments on it." },
-  { id: 5, name: "Marcus T.", location: "Ubud, ID", rating: 4, date: "4 months ago", review: "Beautiful artwork and the grip is solid even in hot yoga. Worth every cent." },
+  { id: 1, name: "Philippa W.", date: "3 weeks ago", review: "I love my Whale yoga mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring." },
+  { id: 2, name: "Hudson R.", date: "1 month ago", review: "I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice." },
+  { id: 3, name: "Clare W.", date: "2 months ago", review: "A high quality, beautifully made yoga mat. Came with a handy carry strap. The vibrant pattern comes alive in the sunshine, which makes practising yoga a joy. Would highly recommend this mat." },
+  { id: 4, name: "Emma J.", date: "3 months ago", review: "It's a simple design, but it's done beautifully. I still get comments on it." },
 ];
 
 const ProductDetail = () => {
@@ -350,31 +349,35 @@ const ProductDetail = () => {
               <span className="text-xs font-body text-muted-foreground">from 12 reviews</span>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {productReviews.map((r) => (
               <div
                 key={r.id}
-                className="p-5 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-colors"
+                className="group p-8 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-all duration-500"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
-                      <span className="text-xs font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-foreground font-body leading-tight">{r.name}</p>
-                      <p className="text-[11px] text-muted-foreground/60 font-body">{r.location} · {r.date}</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-0.5">
-                    {[...Array(r.rating)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-shaman-gold/80 text-shaman-gold/80" />
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-shaman-gold/80 text-shaman-gold/80" />
                     ))}
                   </div>
                 </div>
-                <p className="font-display text-base text-foreground/85 italic leading-relaxed">
+
+                <p className="font-display text-lg text-foreground/90 italic leading-relaxed mb-8">
                   "{r.review}"
                 </p>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                      <span className="text-sm font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground font-body">{r.name}</p>
+                      <p className="text-xs text-muted-foreground/40 font-body">{r.date}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
