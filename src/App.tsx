@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import BlogPostHudson from "./pages/BlogPost-Hudson";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
+import Unsubscribe from "./pages/Unsubscribe";
 import ScrollToTop from "./components/ScrollToTop";
 import LocaleRedirect from "./components/LocaleRedirect";
 import LocaleLayout from "./components/LocaleLayout";
@@ -66,6 +67,9 @@ const App = () => (
           <Route path="/subscribe/thank-you" element={<LocaleRedirect />} />
           <Route path="/blog" element={<LocaleRedirect />} />
           <Route path="/blog/hudson-in-margaret-river" element={<LocaleRedirect />} />
+
+          {/* Unsubscribe page (not locale-prefixed — linked from emails) */}
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
