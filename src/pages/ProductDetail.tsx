@@ -26,11 +26,10 @@ const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
 };
 
 const productReviews = [
-  { id: 1, name: "Philippa W.", location: "Byron Bay, AU", rating: 5, date: "3 weeks ago", review: "I love my mat. The bright colours are uplifting and calming at the same time. Comfortable and a good long length." },
-  { id: 2, name: "Hudson R.", location: "Margaret River, AU", rating: 5, date: "1 month ago", review: "Drawn to it the moment I saw the design. Incredible feel, great texture, grip, and thickness." },
-  { id: 3, name: "Clare W.", location: "Auckland, NZ", rating: 5, date: "2 months ago", review: "High quality and beautifully made. The vibrant pattern comes alive in the sunshine. Highly recommend." },
-  { id: 4, name: "Emma J.", location: "Brooklyn, NY", rating: 5, date: "3 months ago", review: "A simple design done beautifully. I still get comments on it." },
-  { id: 5, name: "Marcus T.", location: "Ubud, ID", rating: 4, date: "4 months ago", review: "Beautiful artwork and the grip is solid even in hot yoga. Worth every cent." },
+  { id: 1, name: "Philippa W.", date: "3 weeks ago", review: "I love my Whale yoga mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring." },
+  { id: 2, name: "Hudson R.", date: "1 month ago", review: "I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice." },
+  { id: 3, name: "Clare W.", date: "2 months ago", review: "A high quality, beautifully made yoga mat. Came with a handy carry strap. The vibrant pattern comes alive in the sunshine, which makes practising yoga a joy. Would highly recommend this mat." },
+  { id: 4, name: "Emma J.", date: "3 months ago", review: "It's a simple design, but it's done beautifully. I still get comments on it." },
 ];
 
 const ProductDetail = () => {
