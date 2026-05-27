@@ -482,9 +482,9 @@ export async function subscribeToNewsletter(email: string): Promise<{ success: b
       throw new Error(data.errors.map((e: { message: string }) => e.message).join(', '));
     }
 
-    const userErrors = data?.data?.customerCreate?.customerUserErrors || [];
+    const userErrors = data?.data?.customerEmailMarketingSubscribe?.customerUserErrors || [];
     if (userErrors.length > 0) {
-      // If customer already exists, treat as success (they're already subscribed)
+      // If customer already exists / is already subscribed, treat as success
       if (userErrors[0].code === 'TAKEN' || userErrors[0].code === 'CUSTOMER_DISABLED') {
         return { success: true };
       }
