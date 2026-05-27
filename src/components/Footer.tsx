@@ -100,10 +100,20 @@ const Footer = () => {
               e.preventDefault();
               if (isSubmitting || !email) return;
               setIsSubmitting(true);
-              const result = await subscribeToNewsletter(email);
+              const submittedEmail = email;
+              const result = await subscribeToNewsletter(submittedEmail);
               setIsSubmitting(false);
               if (result.success) {
                 setEmail("");
+                // Fire-and-forget welcome email (idempotent on the email address)
+                const idempotencyKey = `newsletter-welcome-${submittedEmail.toLowerCase()}`;
+                supabase.functions.invoke('send-transactional-email', {
+                  body: {
+                    templateName: 'newsletter-welcome',
+                    recipientEmail: submittedEmail,
+                    idempotencyKey,
+                  },
+                }).catch((err) => console.error('Welcome email failed:', err));
                 navigate("/subscribe/thank-you");
               } else {
                 toast.error(result.error || "Failed to subscribe. Please try again.");
