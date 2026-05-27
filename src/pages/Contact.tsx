@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Please enter your name").max(100),
@@ -19,7 +20,7 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(form);
     if (!result.success) {
@@ -33,18 +34,32 @@ const Contact = () => {
     setErrors({});
     setSubmitting(true);
 
-    const subject = encodeURIComponent(`Contact form — ${result.data.name}`);
-    const body = encodeURIComponent(
-      `${result.data.message}\n\n— ${result.data.name}\n${result.data.email}`,
-    );
-    window.location.href = `mailto:hello@cosmicigloo.com?subject=${subject}&body=${body}`;
+    try {
+      const id = crypto.randomUUID();
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-confirmation",
+          recipientEmail: result.data.email,
+          idempotencyKey: `contact-confirm-${id}`,
+          templateData: { name: result.data.name, message: result.data.message },
+        },
+      });
+      if (error) throw error;
 
-    toast({
-      title: "Opening your email app",
-      description: "Your message is ready to send. We'll reply as soon as we can.",
-    });
-    setForm({ name: "", email: "", message: "" });
-    setSubmitting(false);
+      toast({
+        title: "Message sent",
+        description: "Thanks — we've sent a confirmation to your inbox and will reply within 1–2 business days.",
+      });
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      toast({
+        title: "Couldn't send your message",
+        description: "Please try again or email hello@cosmicigloo.com directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
