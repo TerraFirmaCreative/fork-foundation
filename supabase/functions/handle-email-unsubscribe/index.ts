@@ -121,5 +121,19 @@ Deno.serve(async (req) => {
 
   console.log('Email unsubscribed', { email: tokenRecord.email })
 
+  // Fire-and-forget admin notification email
+  const unsubscribedAt = new Date().toUTCString()
+  supabase.functions.invoke('send-transactional-email', {
+    body: {
+      templateName: 'unsubscribe-notification',
+      recipientEmail: 'hello@cosmicigloo.com',
+      idempotencyKey: `unsubscribe-notify-${tokenRecord.id}`,
+      templateData: {
+        email: tokenRecord.email,
+        unsubscribedAt,
+      },
+    },
+  }).catch((err) => console.error('Failed to send unsubscribe notification', err))
+
   return jsonResponse({ success: true })
 })
