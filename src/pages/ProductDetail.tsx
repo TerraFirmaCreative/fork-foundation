@@ -210,16 +210,6 @@ const ProductDetail = () => {
               </p>
             )}
 
-            {/* Rating Summary */}
-            <div className="flex items-center gap-2 mt-3">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-shaman-gold text-shaman-gold" />
-                ))}
-              </div>
-              <span className="text-sm font-body text-foreground/80">4.9</span>
-              <span className="text-sm font-body text-muted-foreground">from 12 reviews</span>
-            </div>
 
             {/* Quantity + Add to Cart */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
