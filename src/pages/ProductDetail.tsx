@@ -343,11 +343,6 @@ const ProductDetail = () => {
             <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
               Customer Reviews
             </h2>
-            <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 fill-shaman-gold text-shaman-gold" />
-              <span className="text-sm font-body text-foreground/80">4.9</span>
-              <span className="text-xs font-body text-muted-foreground">from 12 reviews</span>
-            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {productReviews.map((r) => (
