@@ -274,119 +274,76 @@ const HeroSection = () => {
         }}
       />
 
-      {/* CONTENT — split: poetic copy left, real-people mosaic right */}
+      {/* CONTENT — artistic centered composition, all above the fold */}
       <div
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
+        className="relative z-10 w-full px-6 flex flex-col items-center text-center"
         style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
       >
-        {/* LEFT — Headline + CTA */}
-        <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-          {/* Whisper-line above headline */}
-          <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold font-body font-light">
-            A warm space in the infinite
-          </p>
+        {/* Whisper-line above headline */}
+        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold font-body font-light">
+          A warm space in the infinite
+        </p>
 
-          {/* Headline — poetic, layered */}
-          <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-4 text-5xl sm:text-6xl md:text-7xl lg:text-[4.75rem] xl:text-[5.5rem] overflow-visible">
-            <span className="block">
-              <span className="text-foreground">Beautiful</span>{" "}
-              <span className="text-gradient italic relative inline-block">
-                and
-                <svg
-                  className="absolute left-0 right-0 -bottom-2 w-full"
-                  viewBox="0 0 100 12"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2,8 Q50,-2 98,8"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>{" "}
-              <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
-                grippy
-              </span>
+        {/* Headline — poetic, layered */}
+        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
+          <span className="block">
+            <span className="text-foreground">Beautiful</span>{" "}
+            <span className="text-gradient italic relative inline-block">
+              and
+              <svg
+                className="absolute left-0 right-0 -bottom-2 w-full"
+                viewBox="0 0 100 12"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2,8 Q50,-2 98,8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>{" "}
+            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
+              grippy
             </span>
-            <span className="block text-gradient font-display font-medium tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[4.75rem] xl:text-[5.5rem] mt-2 leading-[1.15] pb-[0.12em]">
-              yoga mats.
-            </span>
-          </h1>
+          </span>
+          <span className="block text-gradient font-display font-medium tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mt-2 leading-[1.15] pb-[0.12em]">
+            yoga mats.
+          </span>
+        </h1>
 
-          {/* Single-line invitation */}
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-foreground/85 font-body max-w-xl leading-relaxed">
-            Designed to inspire. Made to perform.
-          </p>
+        {/* Single-line invitation */}
+        <p className="mt-8 text-base sm:text-lg md:text-xl text-foreground/85 font-body max-w-xl leading-relaxed">
+          Designed to inspire. Made to perform.
+        </p>
 
-          {/* CTA button */}
-          <button
-            onClick={scrollToGallery}
-            className="enter-cta group mt-10 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
-            aria-label="View the collection below"
+        {/* CTA button */}
+        <button
+          onClick={scrollToGallery}
+          className="enter-cta group mt-12 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+          aria-label="View the collection below"
+        >
+          <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
+          <span className="relative text-[0.7rem] sm:text-xs tracking-[0.32em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
+            Find your mat
+          </span>
+          <svg
+            className="relative w-3.5 h-3.5 text-shaman-gold group-hover:text-foreground transition-colors duration-500 enter-cta-arrow"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
-            <span className="relative text-[0.7rem] sm:text-xs tracking-[0.32em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
-              Find your mat
-            </span>
-            <svg
-              className="relative w-3.5 h-3.5 text-shaman-gold group-hover:text-foreground transition-colors duration-500 enter-cta-arrow"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-          </button>
-        </div>
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </button>
 
-        {/* RIGHT — Real-people mosaic (3 columns, vertical drift) */}
-        <div className="lg:col-span-6 w-full">
-          <div className="relative h-[440px] sm:h-[520px] lg:h-[600px] overflow-hidden mosaic-mask">
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 h-full">
-              {[0, 1, 2].map((col) => (
-                <div
-                  key={col}
-                  className="flex flex-col gap-3 sm:gap-4 mosaic-col"
-                  style={{
-                    animation: `mosaic-drift-${col % 2 === 0 ? "up" : "down"} ${28 + col * 4}s linear infinite`,
-                    paddingTop: col === 1 ? "2.5rem" : "0",
-                  }}
-                >
-                  {/* duplicate the tiles for seamless loop */}
-                  {[...heroTiles, ...heroTiles].map((tile, i) => {
-                    const tileIndex = (col * 3 + i) % heroTiles.length;
-                    const actual = heroTiles[tileIndex];
-                    return (
-                      <div
-                        key={`${col}-${i}`}
-                        className="relative overflow-hidden rounded-2xl border border-shaman-gold/15 shadow-[0_8px_30px_-12px_hsl(240_60%_3%/0.8)] group"
-                        style={{ aspectRatio: i % 2 === 0 ? "3 / 4" : "4 / 5" }}
-                      >
-                        <img
-                          src={shopifyImageUrl(actual.src, 500)}
-                          srcSet={shopifySrcSet(actual.src, [300, 500, 700])}
-                          sizes="(min-width: 1024px) 16vw, 30vw"
-                          alt={actual.alt}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          loading="eager"
-                          decoding="async"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
+
 
       {/* Local keyframes for the scroll cue */}
       <style>{`
