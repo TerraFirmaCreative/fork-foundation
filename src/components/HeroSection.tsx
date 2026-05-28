@@ -1,4 +1,19 @@
 import { Button } from "@/components/ui/button";
+import { shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
+
+// Curated lifestyle shots — real people, real practice
+const heroTiles = [
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-1.webp?v=1773738118", alt: "Yoga pose in nature" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-2.webp?v=1773738118", alt: "Warrior pose on mat" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-4.webp?v=1773738118", alt: "Forward fold yoga pose" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-5.webp?v=1773738117", alt: "Upward dog pose" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-7.webp?v=1773738118", alt: "Standing forward bend" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-6.webp?v=1773738117", alt: "Hand on colorful mat" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-3.webp?v=1773738117", alt: "Hand detail on mat" },
+  { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-8.webp?v=1773738118", alt: "Foot detail on mat" },
+];
+
+
 
 
 const HeroSection = () => {
