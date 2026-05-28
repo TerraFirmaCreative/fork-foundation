@@ -356,27 +356,12 @@ const HeroSection = () => {
           animation: scroll-cue 2.4s ease-in-out infinite;
         }
 
-        @keyframes mosaic-drift-up {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
-        }
-        @keyframes mosaic-drift-down {
-          0% { transform: translateY(-50%); }
-          100% { transform: translateY(0); }
-        }
-        .mosaic-mask {
-          -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .mosaic-col { animation: none !important; }
-        }
-
-
+        @keyframes enter-cta-shimmer {
           0% { transform: translateX(-100%); }
           60%, 100% { transform: translateX(100%); }
         }
         @keyframes enter-cta-bob {
+
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(2px); }
         }
