@@ -48,6 +48,7 @@ export const template = {
   subject: (data) => `New contact form: ${data?.name || 'submission'}`,
   displayName: 'Contact form notification (admin)',
   to: 'hello@cosmicigloo.com',
+  skipUnsubscribe: true,
   previewData: {
     name: 'Jane Doe',
     email: 'jane@example.com',
