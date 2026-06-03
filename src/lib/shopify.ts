@@ -1,12 +1,12 @@
 import { toast } from "sonner";
 
-const SHOPIFY_API_VERSION = '2025-01';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = 'e38601-2.myshopify.com';
+const SHOPIFY_API_VERSION = "2026-01";
+const SHOPIFY_STORE_PERMANENT_DOMAIN = "e38601-2.myshopify.com";
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '7dc3a3eb2f66fb19af18f3317e9e7d59';
+const SHOPIFY_STOREFRONT_TOKEN = "7dc3a3eb2f66fb19af18f3317e9e7d59";
 
-const CUSTOM_SHOPIFY_STOREFRONT_TOKEN = '14dbe478bb1d983b3b5369681203acf3'; //Legacy app
-const UNSTABLE_SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/unstable/graphql.json`
+const CUSTOM_SHOPIFY_STOREFRONT_TOKEN = "14dbe478bb1d983b3b5369681203acf3"; //Legacy app
+const UNSTABLE_SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/unstable/graphql.json`;
 
 export interface ShopifyProduct {
   node: {
@@ -55,10 +55,10 @@ export interface ShopifyProduct {
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
+      "Content-Type": "application/json",
+      "X-Shopify-Storefront-Access-Token": SHOPIFY_STOREFRONT_TOKEN,
     },
     body: JSON.stringify({ query, variables }),
   });
@@ -77,7 +77,7 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
   const data = await response.json();
 
   if (data.errors) {
-    throw new Error(`Shopify API error: ${data.errors.map((e: { message: string }) => e.message).join(', ')}`);
+    throw new Error(`Shopify API error: ${data.errors.map((e: { message: string }) => e.message).join(", ")}`);
   }
 
   return data;
@@ -312,7 +312,7 @@ const VARIANTS_BY_IDS_QUERY = `
 function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
-    url.searchParams.set('channel', 'online_store');
+    url.searchParams.set("channel", "online_store");
     return url.toString();
   } catch {
     return checkoutUrl;
@@ -320,7 +320,9 @@ function formatCheckoutUrl(checkoutUrl: string): string {
 }
 
 function isCartNotFoundError(userErrors: Array<{ field: string[] | null; message: string }>): boolean {
-  return userErrors.some(e => e.message.toLowerCase().includes('cart not found') || e.message.toLowerCase().includes('does not exist'));
+  return userErrors.some(
+    (e) => e.message.toLowerCase().includes("cart not found") || e.message.toLowerCase().includes("does not exist"),
+  );
 }
 
 export interface CartItem {
@@ -333,18 +335,26 @@ export interface CartItem {
   selectedOptions: Array<{ name: string; value: string }>;
 }
 
-export async function createShopifyCart(item: CartItem, country = "US"): Promise<{ cartId: string; checkoutUrl: string; lineId: string, cost: { totalAmount: { amount: string, currencyCode: string } } } | null> {
+export async function createShopifyCart(
+  item: CartItem,
+  country = "US",
+): Promise<{
+  cartId: string;
+  checkoutUrl: string;
+  lineId: string;
+  cost: { totalAmount: { amount: string; currencyCode: string } };
+} | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: {
       lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
       buyerIdentity: {
-        countryCode: country
-      }
+        countryCode: country,
+      },
     },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
-    console.error('Cart creation failed:', data.data.cartCreate.userErrors);
+    console.error("Cart creation failed:", data.data.cartCreate.userErrors);
     return null;
   }
 
@@ -357,26 +367,42 @@ export async function createShopifyCart(item: CartItem, country = "US"): Promise
   return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId, cost: cart.cost };
 }
 
-export async function updateCartBuyerIdentity(cartId: string, country = "US"): Promise<{ success: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } }, lines?: Array<{ id: string; merchandise: { id: string } }> }> {
+export async function updateCartBuyerIdentity(
+  cartId: string,
+  country = "US",
+): Promise<{
+  success: boolean;
+  cost?: { totalAmount: { amount: string; currencyCode: string } };
+  lines?: Array<{ id: string; merchandise: { id: string } }>;
+}> {
   const data = await storefrontApiRequest(CART_BUYER_IDENTITY_UPDATE_MUTATION, {
     cartId: cartId,
     buyerIdentity: {
-      countryCode: country
-    }
-  })
+      countryCode: country,
+    },
+  });
 
   if (data?.data?.cartBuyerIdentityUpdate?.userErrors.length > 0) {
-    console.error('Cart identity update failed:', data.data.cartBuyerIdentityUpdate.userErrors);
+    console.error("Cart identity update failed:", data.data.cartBuyerIdentityUpdate.userErrors);
     return { success: false };
   }
 
-  return { success: true, cost: data?.data?.cartBuyerIdentityUpdate?.cart.cost, lines: data?.data?.cartBuyerIdentityUpdate?.cart.lines?.edges?.map((edge: { node: { id: string; merchandise: { id: string } } }) => edge.node) }
+  return {
+    success: true,
+    cost: data?.data?.cartBuyerIdentityUpdate?.cart.cost,
+    lines: data?.data?.cartBuyerIdentityUpdate?.cart.lines?.edges?.map(
+      (edge: { node: { id: string; merchandise: { id: string } } }) => edge.node,
+    ),
+  };
 }
 
-export async function getVariantPrices(variantIds: string[], country = "US"): Promise<Record<string, { amount: string; currencyCode: string }> | null> {
+export async function getVariantPrices(
+  variantIds: string[],
+  country = "US",
+): Promise<Record<string, { amount: string; currencyCode: string }> | null> {
   const data = await storefrontApiRequest(VARIANTS_BY_IDS_QUERY, {
     ids: variantIds,
-    country: country
+    country: country,
   });
 
   if (!data?.data?.nodes) return null;
@@ -391,7 +417,15 @@ export async function getVariantPrices(variantIds: string[], country = "US"): Pr
   return priceMap;
 }
 
-export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
+export async function addLineToShopifyCart(
+  cartId: string,
+  item: CartItem,
+): Promise<{
+  success: boolean;
+  lineId?: string;
+  cartNotFound?: boolean;
+  cost?: { totalAmount: { amount: string; currencyCode: string } };
+}> {
   const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
     cartId,
     lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
@@ -400,16 +434,26 @@ export async function addLineToShopifyCart(cartId: string, item: CartItem): Prom
   const userErrors = data?.data?.cartLinesAdd?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) {
-    console.error('Add line failed:', userErrors);
+    console.error("Add line failed:", userErrors);
     return { success: false };
   }
 
   const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
-  const newLine = lines.find((l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId);
+  const newLine = lines.find(
+    (l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId,
+  );
   return { success: true, lineId: newLine?.node?.id, cost: data?.data?.cartLinesAdd?.cart.cost };
 }
 
-export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
+export async function updateShopifyCartLine(
+  cartId: string,
+  lineId: string,
+  quantity: number,
+): Promise<{
+  success: boolean;
+  cartNotFound?: boolean;
+  cost?: { totalAmount: { amount: string; currencyCode: string } };
+}> {
   const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, {
     cartId,
     lines: [{ id: lineId, quantity }],
@@ -418,13 +462,20 @@ export async function updateShopifyCartLine(cartId: string, lineId: string, quan
   const userErrors = data?.data?.cartLinesUpdate?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) {
-    console.error('Update line failed:', userErrors);
+    console.error("Update line failed:", userErrors);
     return { success: false };
   }
   return { success: true, cost: data?.data?.cartLinesUpdate?.cart.cost };
 }
 
-export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; cartNotFound?: boolean, cost?: { totalAmount: { amount: string, currencyCode: string } } }> {
+export async function removeLineFromShopifyCart(
+  cartId: string,
+  lineId: string,
+): Promise<{
+  success: boolean;
+  cartNotFound?: boolean;
+  cost?: { totalAmount: { amount: string; currencyCode: string } };
+}> {
   const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, {
     cartId,
     lineIds: [lineId],
@@ -433,7 +484,7 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
   const userErrors = data?.data?.cartLinesRemove?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) {
-    console.error('Remove line failed:', userErrors);
+    console.error("Remove line failed:", userErrors);
     return { success: false };
   }
   return { success: true, cost: data?.data?.cartLinesRemove?.cart.cost };
@@ -459,15 +510,15 @@ const CUSTOMER_SUBSCRIBE = `
 export async function subscribeToNewsletter(email: string): Promise<{ success: boolean; error?: string }> {
   try {
     const response = await fetch(UNSTABLE_SHOPIFY_STOREFRONT_URL, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': CUSTOM_SHOPIFY_STOREFRONT_TOKEN,
+        "Content-Type": "application/json",
+        "X-Shopify-Storefront-Access-Token": CUSTOM_SHOPIFY_STOREFRONT_TOKEN,
       },
       body: JSON.stringify({
         query: CUSTOMER_SUBSCRIBE,
         variables: {
-          email: email
+          email: email,
         },
       }),
     });
@@ -479,13 +530,13 @@ export async function subscribeToNewsletter(email: string): Promise<{ success: b
     const data = await response.json();
 
     if (data.errors) {
-      throw new Error(data.errors.map((e: { message: string }) => e.message).join(', '));
+      throw new Error(data.errors.map((e: { message: string }) => e.message).join(", "));
     }
 
     const userErrors = data?.data?.customerEmailMarketingSubscribe?.customerUserErrors || [];
     if (userErrors.length > 0) {
       // If customer already exists / is already subscribed, treat as success
-      if (userErrors[0].code === 'TAKEN' || userErrors[0].code === 'CUSTOMER_DISABLED') {
+      if (userErrors[0].code === "TAKEN" || userErrors[0].code === "CUSTOMER_DISABLED") {
         return { success: true };
       }
       return { success: false, error: userErrors[0].message };
@@ -493,7 +544,7 @@ export async function subscribeToNewsletter(email: string): Promise<{ success: b
 
     return { success: true };
   } catch (err) {
-    console.error('Newsletter subscribe error:', err);
-    return { success: false, error: 'Something went wrong. Please try again.' };
+    console.error("Newsletter subscribe error:", err);
+    return { success: false, error: "Something went wrong. Please try again." };
   }
 }
