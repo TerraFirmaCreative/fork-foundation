@@ -15,17 +15,22 @@ const About = () => {
           </h1>
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
+            <p className="text-foreground italic">A warm space in the infinite.</p>
             <p>
-              Cosmic Igloo began because we believe yoga mats should be genuinely beautiful.
+              That's what we believe our mats should be, a place of beauty and intention amongst the chaos.
             </p>
             <p>
-              Every design in our collection is an original piece of artwork, created to bring beauty and inspiration to your practice.
+              Cosmic Igloo was born from a simple belief: that the one thing we stare at for an entire practice should be genuinely, arrestingly beautiful. Beautiful enough to actually move you.
             </p>
             <p>
-              Our mats are made to go everywhere with you — a soft suede surface that gets grippier as you warm up, a natural rubber base that stays put, thin enough to carry and supportive enough for daily practice.
+              Every design in our collection is an original work of art, created to carry meaning, provoke feeling and elevate our practice.
             </p>
             <p>
-              We're building a community of people who love our beautiful yoga mats. We'd love to hear about your practice and see your mat, wherever that may be — <LocaleLink to="/contact" className="underline underline-offset-4 text-foreground hover:text-primary transition-colors">just say hello</LocaleLink>.
+              Our mats are built to go everywhere we go. A suede microfibre surface that gets grippier as we warm up. A natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
+            </p>
+            <p className="text-foreground">Made to order. Made for us.</p>
+            <p>
+              We're building a community of people who want to be inspired every time they unroll their mat. If that's you, <LocaleLink to="/#design-gallery" className="underline underline-offset-4 text-foreground hover:text-primary transition-colors">come find yours</LocaleLink>.
             </p>
           </div>
         </div>
