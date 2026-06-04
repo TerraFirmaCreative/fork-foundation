@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -92,6 +93,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Cosmic Igloo — We're Here to Help"
+        description="Question about your order or our yoga mats? Send us a message or email hello@cosmicigloo.com — we reply within 1–2 business days."
+        path="/contact"
+      />
       <Header />
       <main className="relative py-20 px-6 overflow-hidden">
         <div className="texture-overlay" />

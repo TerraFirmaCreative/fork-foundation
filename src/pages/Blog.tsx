@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LocaleLink from "@/components/LocaleLink";
@@ -20,6 +21,11 @@ const blogPosts = [
 const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Blog — Cosmic Igloo Yoga Community"
+        description="Stories from yogis around the world: where they practice, the mats they chose, and the journeys behind their daily flow."
+        path="/blog"
+      />
       <Header />
 
       <main className="relative px-6 py-20 overflow-hidden">

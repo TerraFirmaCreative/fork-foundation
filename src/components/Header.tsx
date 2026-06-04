@@ -129,7 +129,7 @@ const Header = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" size="icon" aria-label="Change language and region" className="text-muted-foreground hover:text-foreground">
                 <Globe className="w-5 h-5" />
               </Button>
             </DropdownMenuTrigger>
@@ -150,7 +150,7 @@ const Header = () => {
           {/* Mobile Hamburger */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" size="icon" aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} className="md:hidden text-muted-foreground hover:text-foreground">
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </Button>
             </SheetTrigger>

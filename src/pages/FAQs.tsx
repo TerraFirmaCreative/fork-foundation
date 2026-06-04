@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -71,8 +72,23 @@ const faqs = [
 ];
 
 const FAQs = () => {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="FAQs — Cosmic Igloo Yoga Mats"
+        description="Answers about our made-to-order yoga mats: materials, sizing, production time, shipping, returns, and care."
+        path="/faqs"
+        jsonLd={faqJsonLd}
+      />
       <Header />
       <main className="relative py-20 px-6 overflow-hidden">
         <div className="texture-overlay" />

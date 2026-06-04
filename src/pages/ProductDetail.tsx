@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { toast } from "sonner";
 import ImageMagnifier from "@/components/ImageMagnifier";
 import LocaleLink from "@/components/LocaleLink";
@@ -123,6 +124,32 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${product.node.title} — Cosmic Igloo`}
+        description={(product.node.description || "Premium made-to-order yoga mat with original artwork.").slice(0, 160)}
+        path={`/product/${product.node.handle}`}
+        type="product"
+        image={shopifyImages[0]?.node.url}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.node.title,
+          description: product.node.description,
+          image: shopifyImages.map((e) => e.node.url),
+          brand: { "@type": "Brand", name: "Cosmic Igloo" },
+          offers: price
+            ? {
+                "@type": "Offer",
+                price: price.amount,
+                priceCurrency: price.currencyCode,
+                availability: variant?.availableForSale
+                  ? "https://schema.org/InStock"
+                  : "https://schema.org/OutOfStock",
+                url: `https://cosmicigloo.com/product/${product.node.handle}`,
+              }
+            : undefined,
+        }}
+      />
       <Header />
 
       <div className="max-w-6xl mx-auto px-6 py-8">
@@ -217,6 +244,7 @@ const ProductDetail = () => {
                 <Button
                   variant="ghost"
                   size="icon"
+                  aria-label="Decrease quantity"
                   className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 >
@@ -226,6 +254,7 @@ const ProductDetail = () => {
                 <Button
                   variant="ghost"
                   size="icon"
+                  aria-label="Increase quantity"
                   className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => q + 1)}
                 >
@@ -278,7 +307,7 @@ const ProductDetail = () => {
           {/* Specifications */}
           <div id="specifications" className="lg:px-4 scroll-mt-24">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
                 { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
@@ -301,7 +330,7 @@ const ProductDetail = () => {
           {/* Delivery */}
           <div>
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h2>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
                 { text: "USA — around 1 week" },

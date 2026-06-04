@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -77,6 +78,22 @@ const BlogPostHudson = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Hudson in South West Australia — Cosmic Igloo Blog"
+        description="A Canadian yogi practising slow travel through Margaret River — the places, the poses, and the mat that comes with her."
+        path="/blog/hudson-in-margaret-river"
+        type="article"
+        image={hudson1}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Hudson in South West Australia",
+          image: [hudson1],
+          author: { "@type": "Person", name: "Hudson R." },
+          publisher: { "@type": "Organization", name: "Cosmic Igloo" },
+          datePublished: "2026-02-25",
+        }}
+      />
       <Header />
 
       <main className="relative px-6 py-20 overflow-hidden">
