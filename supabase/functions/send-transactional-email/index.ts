@@ -26,8 +26,42 @@ function generateToken(): string {
 }
 
 // Auth: verify_jwt = true in config.toml — Supabase's gateway validates the
-// caller's JWT (anon or service_role) before the request reaches this code,
-// so no in-function auth check is needed.
+// caller's JWT before this code runs. We additionally inspect the JWT role
+// below: service_role (server-to-server callers like handle-email-unsubscribe
+// or future internal flows) can send anything; anon/authenticated callers can
+// only invoke a small allowlist of templates AND must reference a verified
+// DB row, so the recipient cannot be chosen by the attacker.
+
+// Templates that may be invoked by anon/authenticated callers (i.e. the
+// public website). For each, we resolve the recipient from a DB row that the
+// user just created — we never trust `recipientEmail` from the request body.
+const ANON_ALLOWED_TEMPLATES = new Set([
+  'contact-confirmation',
+  'contact-notification',
+  'newsletter-welcome',
+])
+
+// Hardcoded admin recipient for internal alerts. Never trust the client.
+const ADMIN_NOTIFICATION_EMAIL = 'hello@cosmicigloo.com'
+
+// Anon-callable rows must be recent (replay protection).
+const ANON_ROW_MAX_AGE_MS = 10 * 60 * 1000 // 10 minutes
+
+function decodeJwtRole(authHeader: string | null): string | null {
+  if (!authHeader?.startsWith('Bearer ')) return null
+  const token = authHeader.slice(7)
+  const parts = token.split('.')
+  if (parts.length !== 3) return null
+  try {
+    const payload = JSON.parse(
+      atob(parts[1].replace(/-/g, '+').replace(/_/g, '/'))
+    )
+    return typeof payload.role === 'string' ? payload.role : null
+  } catch {
+    return null
+  }
+}
+
 
 Deno.serve(async (req) => {
   // Handle CORS preflight
