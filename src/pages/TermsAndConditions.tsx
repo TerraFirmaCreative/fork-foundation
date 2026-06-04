@@ -21,7 +21,7 @@ const TermsAndConditions = () => {
           </h1>
           
           <p className="text-sm text-muted-foreground/70 font-body mb-8 italic">
-            Last updated: February 2026
+            Last updated: June 4, 2026
           </p>
 
           <p className="text-lg text-muted-foreground font-body mb-8 leading-relaxed">
@@ -252,7 +252,7 @@ const TermsAndConditions = () => {
                 Where liability cannot be excluded, it is limited to the maximum extent permitted by law.
               </p>
               <p>
-                Nothing in these Terms limits or excludes your rights under applicable consumer protection laws.
+                Nothing in these Terms limits or excludes your rights under applicable consumer protection laws, including the Australian Consumer Law.
               </p>
             </section>
 

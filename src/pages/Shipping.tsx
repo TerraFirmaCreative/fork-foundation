@@ -37,10 +37,10 @@ const Shipping = () => {
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
                 Delivery
               </h2>
-              <ul className="space-y-1 list-disc list-inside mb-4">
-                <li><strong className="text-foreground">USA</strong> — around 1 week</li>
-                <li><strong className="text-foreground">Europe & UK</strong> — around 2 weeks</li>
-                <li><strong className="text-foreground">Australia</strong> — up to 3 weeks</li>
+              <ul className="space-y-2 mb-4">
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">USA</strong> — around 1 week</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Europe & UK</strong> — around 2 weeks</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Australia</strong> — up to 3 weeks</span></li>
               </ul>
               <p className="mb-4">
                 Delivery times can vary slightly depending on your location, but most orders arrive within these windows. As soon as your mat is on its way, you'll receive tracking details so you can follow it to your door.
@@ -55,10 +55,23 @@ const Shipping = () => {
                 International Orders
               </h2>
               <p className="mb-4">
-                As our mats are made in the USA and shipped worldwide, some countries may apply local import taxes on arrival. For deliveries to the UK, EU or Canada, your parcel may be subject to local import taxes such as VAT or GST, along with a small carrier handling fee.
+                As our mats are made in the USA and shipped worldwide, some countries may apply local import taxes on arrival.
               </p>
+              <ul className="space-y-2 mb-4">
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span><strong className="text-foreground">UK, EU & Canada</strong> — your parcel may be subject to local import taxes such as VAT or GST, along with a small carrier handling fee.</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span><strong className="text-foreground">Australia</strong> — orders may attract GST or import charges on arrival, depending on the order value and current thresholds.</span></li>
+              </ul>
               <p>
                 These charges are set by your local customs authority and aren't something we're able to control. If you're unsure about import regulations in your country, it's worth checking with your local customs office before ordering.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
+                Lost or delayed parcels
+              </h2>
+              <p>
+                If your tracking hasn't updated or your order hasn't arrived within the expected window, contact us at <a href="mailto:hello@cosmicigloo.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">hello@cosmicigloo.com</a> and we'll help track it down.
               </p>
             </section>
 
