@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LocaleLink from "@/components/LocaleLink";
@@ -5,6 +6,11 @@ import LocaleLink from "@/components/LocaleLink";
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Cosmic Igloo — Our Story & Craft"
+        description="The story behind Cosmic Igloo: original artwork, suede microfibre tops, natural rubber bases, and yoga mats made to order with intention."
+        path="/about"
+      />
       <Header />
       <main className="relative py-20 px-6 overflow-hidden">
         <div className="texture-overlay" />

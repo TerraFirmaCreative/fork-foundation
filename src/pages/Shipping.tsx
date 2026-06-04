@@ -1,9 +1,15 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Shipping = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Shipping & Delivery — Cosmic Igloo"
+        description="Delivery times by region for our made-to-order yoga mats: around 1 week to the USA, 2 weeks to UK/Europe, up to 3 weeks to Australia."
+        path="/shipping"
+      />
       <Header />
       <main className="relative py-20 px-6 overflow-hidden">
         <div className="texture-overlay" />
