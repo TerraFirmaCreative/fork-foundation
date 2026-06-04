@@ -252,7 +252,7 @@ const TermsAndConditions = () => {
                 Where liability cannot be excluded, it is limited to the maximum extent permitted by law.
               </p>
               <p>
-                Nothing in these Terms limits or excludes your rights under applicable consumer protection laws.
+                Nothing in these Terms limits or excludes your rights under applicable consumer protection laws, including the Australian Consumer Law.
               </p>
             </section>
 
