@@ -1,0 +1,23 @@
+# Cosmic Igloo
+
+> Premium made-to-order yoga mats with original artwork — suede microfibre top, natural rubber base, printed and shipped from the USA.
+
+## Pages
+
+- [Home](/): Shop the collection of made-to-order yoga mats.
+- [About](/about): Our story, materials, and how each mat is made.
+- [How it works](/#how-it-works): The process from order to delivery.
+- [FAQs](/faqs): Common questions about mats, shipping, and care.
+- [Shipping](/shipping): Delivery times and regions.
+- [Refund & Returns](/refund-policy): Policy for made-to-order items.
+- [Contact](/contact): Get in touch.
+- [Blog](/blog): Stories from yogis in our community.
+
+## Blog
+
+- [Hudson in South West Australia](/blog/hudson-in-margaret-river): A yogi's slow travel through Margaret River.
+
+## Optional
+
+- [Terms & Conditions](/terms)
+- [Privacy Policy](/privacy-policy)
