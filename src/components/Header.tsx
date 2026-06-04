@@ -99,27 +99,19 @@ const Header = () => {
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-card border-border/50 z-50">
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/faqs" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">FAQs</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/shipping" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Shipping</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/refund-policy" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Refund & Returns</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/terms" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Terms & Conditions</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/privacy-policy" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Privacy Policy</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/contact" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Contact</LocaleLink>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <LocaleLink to="/blog" className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">Blog</LocaleLink>
-              </DropdownMenuItem>
+              {[
+                { to: "/faqs", label: "FAQs" },
+                { to: "/shipping", label: "Shipping" },
+                { to: "/refund-policy", label: "Refund & Returns" },
+                { to: "/terms", label: "Terms & Conditions" },
+                { to: "/privacy-policy", label: "Privacy Policy" },
+                { to: "/contact", label: "Contact" },
+                { to: "/blog", label: "Blog" },
+              ].map((item) => (
+                <DropdownMenuItem key={item.to} asChild className="focus:bg-transparent data-[highlighted]:bg-transparent focus:text-primary data-[highlighted]:text-primary">
+                  <LocaleLink to={item.to} className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">{item.label}</LocaleLink>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
