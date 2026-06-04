@@ -51,13 +51,16 @@ const Contact = () => {
       }) + " UTC";
 
       // 2. Send confirmation to the visitor + notification to hello@cosmicigloo.com
+      // Recipients are re-resolved server-side from the contact_submissions row
+      // (referenced by submissionId) to prevent abuse — values passed here are
+      // hints only and may be overridden by the edge function.
       await Promise.all([
         supabase.functions.invoke("send-transactional-email", {
           body: {
             templateName: "contact-confirmation",
             recipientEmail: result.data.email,
             idempotencyKey: `contact-confirm-${id}`,
-            templateData: { name: result.data.name, message: result.data.message },
+            templateData: { submissionId: id },
           },
         }),
         supabase.functions.invoke("send-transactional-email", {
@@ -65,15 +68,11 @@ const Contact = () => {
             templateName: "contact-notification",
             recipientEmail: "hello@cosmicigloo.com",
             idempotencyKey: `contact-notify-${id}`,
-            templateData: {
-              name: result.data.name,
-              email: result.data.email,
-              message: result.data.message,
-              submittedAt,
-            },
+            templateData: { submissionId: id },
           },
         }),
       ]);
+
 
       toast({
         title: "Message sent",
