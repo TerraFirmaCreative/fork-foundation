@@ -21,7 +21,7 @@ const TermsAndConditions = () => {
           </h1>
           
           <p className="text-sm text-muted-foreground/70 font-body mb-8 italic">
-            Last updated: February 2026
+            Last updated: June 4, 2026
           </p>
 
           <p className="text-lg text-muted-foreground font-body mb-8 leading-relaxed">
