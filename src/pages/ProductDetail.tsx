@@ -217,6 +217,7 @@ const ProductDetail = () => {
                 <Button
                   variant="ghost"
                   size="icon"
+                  aria-label="Decrease quantity"
                   className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 >
@@ -226,6 +227,7 @@ const ProductDetail = () => {
                 <Button
                   variant="ghost"
                   size="icon"
+                  aria-label="Increase quantity"
                   className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => q + 1)}
                 >
@@ -278,7 +280,7 @@ const ProductDetail = () => {
           {/* Specifications */}
           <div id="specifications" className="lg:px-4 scroll-mt-24">
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h3>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
                 { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
@@ -301,7 +303,7 @@ const ProductDetail = () => {
           {/* Delivery */}
           <div>
             <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
-            <h3 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h3>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h2>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
                 { text: "USA — around 1 week" },
