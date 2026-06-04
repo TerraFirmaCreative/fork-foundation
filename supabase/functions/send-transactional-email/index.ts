@@ -134,10 +134,95 @@ Deno.serve(async (req) => {
     )
   }
 
-  // Resolve effective recipient: template-level `to` takes precedence over
-  // the caller-provided recipientEmail. This allows notification templates
-  // to always send to a fixed address (e.g., site owner from env var).
-  const effectiveRecipient = template.to || recipientEmail
+  // Create Supabase client with service role (bypasses RLS) — needed below
+  // to verify the recipient against trusted DB rows.
+  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
+  // === Anti-abuse: recipient verification for public (anon) callers ===
+  // The anon key is intentionally public, so any visitor can call this
+  // function with a valid JWT. Without this guard, an attacker could send
+  // branded emails to arbitrary addresses. For non-service_role callers, we
+  // ignore `recipientEmail` from the request body and resolve the address
+  // from a recently created DB row that the user must reference.
+  const callerRole = decodeJwtRole(req.headers.get('Authorization'))
+  const isTrustedCaller = callerRole === 'service_role'
+
+  let effectiveRecipient: string | undefined = template.to || recipientEmail
+
+  if (!isTrustedCaller) {
+    if (!ANON_ALLOWED_TEMPLATES.has(templateName)) {
+      console.warn('Anon caller attempted disallowed template', { templateName, callerRole })
+      return new Response(
+        JSON.stringify({ error: 'Template not allowed for this caller' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const cutoffIso = new Date(Date.now() - ANON_ROW_MAX_AGE_MS).toISOString()
+
+    if (templateName === 'contact-confirmation' || templateName === 'contact-notification') {
+      const submissionId = templateData?.submissionId ?? templateData?.submission_id
+      if (typeof submissionId !== 'string' || submissionId.length === 0) {
+        return new Response(
+          JSON.stringify({ error: 'templateData.submissionId is required' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+      const { data: row, error: rowError } = await supabase
+        .from('contact_submissions')
+        .select('email, name, message, created_at')
+        .eq('id', submissionId)
+        .gte('created_at', cutoffIso)
+        .maybeSingle()
+
+      if (rowError || !row) {
+        console.warn('Contact submission not found or too old', { submissionId, rowError })
+        return new Response(
+          JSON.stringify({ error: 'Submission not found' }),
+          { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+
+      // Force trusted values; ignore anything the client sent.
+      if (templateName === 'contact-confirmation') {
+        effectiveRecipient = row.email
+        templateData = { name: row.name, message: row.message }
+      } else {
+        // contact-notification → site owner only.
+        effectiveRecipient = ADMIN_NOTIFICATION_EMAIL
+        templateData = {
+          name: row.name,
+          email: row.email,
+          message: row.message,
+          submittedAt: new Date(row.created_at as string).toISOString(),
+        }
+      }
+    } else if (templateName === 'newsletter-welcome') {
+      const subscriberId = templateData?.subscriberId ?? templateData?.subscriber_id
+      if (typeof subscriberId !== 'string' || subscriberId.length === 0) {
+        return new Response(
+          JSON.stringify({ error: 'templateData.subscriberId is required' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+      const { data: row, error: rowError } = await supabase
+        .from('newsletter_subscribers')
+        .select('email, created_at')
+        .eq('id', subscriberId)
+        .gte('created_at', cutoffIso)
+        .maybeSingle()
+
+      if (rowError || !row) {
+        console.warn('Newsletter subscriber not found or too old', { subscriberId, rowError })
+        return new Response(
+          JSON.stringify({ error: 'Subscriber not found' }),
+          { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+      effectiveRecipient = row.email
+      templateData = {}
+    }
+  }
 
   if (!effectiveRecipient) {
     return new Response(
@@ -151,8 +236,7 @@ Deno.serve(async (req) => {
     )
   }
 
-  // Create Supabase client with service role (bypasses RLS)
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
 
   // 2. Check suppression list (fail-closed: if we can't verify, don't send)
   // Skip suppression check for admin notification templates (those with a
