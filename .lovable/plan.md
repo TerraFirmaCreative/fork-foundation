@@ -1,29 +1,36 @@
-# Disconnect Shopify → Remix → Reconnect
+# Replace Privacy Policy
 
-You're currently in Plan mode (read-only), so I can't run the disconnect action from here. Approve this plan and I'll switch to Build mode and do step 1 immediately.
+Rewrite `src/pages/PrivacyPolicy.tsx` with the Shopify-provided text you pasted, formatted to match the existing site styling (same `<SEO>`, `Header`, `Footer`, `font-display` headings, `font-body` paragraphs, bullet styling with shaman-color dots, and the existing `shaman-bg` / `texture-overlay` background).
 
-## Step 1 — I disconnect Shopify from this project
-- I run the `shopify--disconnect_store` action.
-- This only removes the Lovable ↔ Shopify API link.
-- Your Shopify store, products, orders, themes, and the live site at `uniqueyogamats.com` are **not** affected.
-- The preview here will temporarily stop loading live products/prices/cart — that's expected.
+## Content changes
+- **Last updated:** June 4, 2026
+- **Business address:** Level 2/179 St Georges Terrace, Perth WA 6000 (used in the Contact section)
+- **Contact email:** hello@cosmicigloo.com (kept)
+- Full body text replaced verbatim with the Shopify policy you provided, organized into sections:
+  1. Intro (2 paragraphs)
+  2. Personal Information We Collect or Process (+ bullet list)
+  3. Personal Information Sources (+ bullet list)
+  4. How We Use Your Personal Information (+ bullet list)
+  5. How We Disclose Personal Information (+ bullet list)
+  6. Relationship with Shopify
+  7. Third Party Websites and Links
+  8. Children's Data
+  9. Security and Retention of Your Information
+  10. Your Rights and Choices (+ bullets, + UK/EEA subsection)
+  11. Complaints
+  12. International Transfers
+  13. Changes to This Privacy Policy
+  14. Contact (email + Perth address)
 
-## Step 2 — You remix the project
-Once I confirm Shopify is disconnected:
-- Click the project name (top left) → Settings → **Remix this project**, **or**
-- From the dashboard, three-dot menu (⋯) on the project card → **Remix**.
+## Links
+- "Shopify Consumer Privacy Policy" → https://www.shopify.com/legal/privacy/customers
+- "Shopify Privacy Portal" → https://privacy.shopify.com/en
+- "Global Privacy Control" → https://globalprivacycontrol.org/
+- EEA supervisory authorities → https://www.edpb.europa.eu/about-edpb/about-edpb/members_en
+- "opt-out of those uses here" → https://privacy.shopify.com/en (Shopify's portal handles the sale/share opt-out)
 
-The remix becomes your independent design playground. Shopify stays disconnected there — just use it for visual/layout experiments.
+## Scope
+- Only `src/pages/PrivacyPolicy.tsx` is touched. No other files reference the business address, so nothing else needs syncing.
+- SEO meta (title/description/canonical) stays as-is.
 
-## Step 3 — I reconnect Shopify on this (original) project
-After you confirm the remix was created, tell me **"reconnect Shopify"** and I will:
-- Trigger the Shopify connect flow (`shopify--connect_shopify_account`) — you'll do a quick auth in a popup.
-- Verify products, pricing, and cart are loading again on this project.
-- Your team and `uniqueyogamats.com` are back to normal — total downtime is just the few minutes between steps 1 and 3.
-
-## Later — porting designs across
-When something in the remix looks great, message me here with: *"In my remix, the [section] looks good — bring it across"* and I'll port the code into this project without touching the Shopify wiring.
-
----
-
-Approve this plan and I'll start with Step 1 (disconnect).
+Approve and I'll switch to build mode and apply the edit.
