@@ -15,6 +15,8 @@ const STATIC_PATHS = [
   "/shipping",
   "/blog",
   "/blog/hudson-in-margaret-river",
+  "/subscribe/thank-you",
+  "/unsubscribe",
 ];
 
 async function generateSitemap() {
