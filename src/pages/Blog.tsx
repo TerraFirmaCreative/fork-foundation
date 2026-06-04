@@ -43,7 +43,7 @@ const Blog = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid gap-10 relative z-10">
+        <div className="max-w-2xl mx-auto grid gap-10 relative z-10">
           {blogPosts.map((post) => (
             <LocaleLink
               key={post.slug}
