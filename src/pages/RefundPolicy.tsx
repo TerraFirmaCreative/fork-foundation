@@ -1,9 +1,15 @@
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const RefundPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Refund & Returns Policy — Cosmic Igloo"
+        description="Every mat is made to order. If yours arrives damaged or incorrect, contact us within 30 days and we'll make it right."
+        path="/refund-policy"
+      />
       <Header />
       <main className="relative py-20 px-6 overflow-hidden">
         <div className="texture-overlay" />

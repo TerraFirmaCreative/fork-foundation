@@ -1,10 +1,16 @@
 import LocaleLink from "@/components/LocaleLink";
+import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const TermsAndConditions = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Terms & Conditions — Cosmic Igloo"
+        description="The terms that govern your use of cosmicigloo.com and any orders placed through our site."
+        path="/terms"
+      />
       <Header />
       <main className="relative py-20 px-6 overflow-hidden">
         <div className="texture-overlay" />
