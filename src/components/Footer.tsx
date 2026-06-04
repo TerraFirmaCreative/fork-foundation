@@ -106,16 +106,26 @@ const Footer = () => {
               setIsSubmitting(false);
               if (result.success) {
                 setEmail("");
-                // Fire-and-forget welcome email (idempotent on the email address)
-                const idempotencyKey = `newsletter-welcome-${submittedEmail.toLowerCase()}`;
-                supabase.functions.invoke('send-transactional-email', {
-                  body: {
-                    templateName: 'newsletter-welcome',
-                    recipientEmail: submittedEmail,
-                    idempotencyKey,
-                  },
-                }).catch((err) => console.error('Welcome email failed:', err));
+                // Record the subscription so the edge function can verify the
+                // recipient against a real DB row (prevents email-spam abuse).
+                const { data: subRow } = await supabase
+                  .from('newsletter_subscribers')
+                  .insert({ email: submittedEmail })
+                  .select('id')
+                  .single();
+                if (subRow?.id) {
+                  const idempotencyKey = `newsletter-welcome-${submittedEmail.toLowerCase()}`;
+                  supabase.functions.invoke('send-transactional-email', {
+                    body: {
+                      templateName: 'newsletter-welcome',
+                      recipientEmail: submittedEmail,
+                      idempotencyKey,
+                      templateData: { subscriberId: subRow.id },
+                    },
+                  }).catch((err) => console.error('Welcome email failed:', err));
+                }
                 navigate("/subscribe/thank-you");
+
               } else {
                 toast.error(result.error || "Failed to subscribe. Please try again.");
               }
