@@ -109,14 +109,27 @@ const Contact = () => {
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              If you have a question about your order, our products, or anything else, drop us a line below or email us directly at{" "}
-              <a
-                href="mailto:hello@cosmicigloo.com"
-                className="text-foreground font-medium hover:text-shaman-violet transition-colors"
-              >
-                hello@cosmicigloo.com
-              </a>
-              .
+              We'd love to hear from you. For any questions about your order, our products, or anything else, drop us a line below or get in touch directly:
+            </p>
+            <ul className="space-y-2">
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
+                <span>
+                  <strong className="text-foreground">Email:</strong>{" "}
+                  <a href="mailto:hello@cosmicigloo.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">
+                    hello@cosmicigloo.com
+                  </a>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
+                <span>
+                  <strong className="text-foreground">Address:</strong> Level 2/179 St Georges Terrace, Perth WA 6000, Australia
+                </span>
+              </li>
+            </ul>
+            <p className="text-sm text-muted-foreground/70">
+              We aim to respond within 2 business days.
             </p>
           </div>
 
