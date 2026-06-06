@@ -18,6 +18,7 @@ import hudson6 from "@/assets/hudson/hudson-6.webp";
 import hudson7 from "@/assets/hudson/hudson-7.webp";
 import hudson8 from "@/assets/hudson/hudson-8.webp";
 import { formatPrice } from "@/lib/utils";
+import { trackAddToCart } from "@/lib/analytics";
 
 // Mixed beach/forest for visual rhythm
 const galleryPhotos = [
@@ -69,6 +70,13 @@ const BlogPostHudson = () => {
       quantity,
       selectedOptions: variant.selectedOptions || [],
     }, country);
+    trackAddToCart({
+      itemId: variant.id,
+      itemName: product.node.title,
+      price: parseFloat(variant.price.amount),
+      currency: variant.price.currencyCode,
+      quantity,
+    });
     setDrawerOpen(true);
   };
 

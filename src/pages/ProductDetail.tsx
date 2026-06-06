@@ -15,6 +15,7 @@ import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
+import { trackAddToCart } from "@/lib/analytics";
 import whaleMat1 from "@/assets/whale-mat-1.png";
 import whaleMat2 from "@/assets/whale-mat-2.png";
 import whaleMat3 from "@/assets/whale-mat-3.png";
@@ -67,6 +68,13 @@ const ProductDetail = () => {
       quantity,
       selectedOptions: variant.selectedOptions || [],
     }, country);
+    trackAddToCart({
+      itemId: variant.id,
+      itemName: product.node.title,
+      price: parseFloat(variant.price.amount),
+      currency: variant.price.currencyCode,
+      quantity,
+    });
     toast.success("Added to cart", { position: "top-center" });
     setDrawerOpen(true);
   };
