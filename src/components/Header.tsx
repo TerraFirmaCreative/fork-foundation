@@ -6,7 +6,6 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
-import cosmicIglooMark from "@/assets/cosmic-igloo-mark-v2.png";
 
 import {
   DropdownMenu,
@@ -16,6 +15,48 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useCartStore } from "@/stores/cartStore";
+
+const LogoMark = () => {
+  const petals = Array.from({ length: 6 }, (_, index) => {
+    const angle = (Math.PI / 3) * index;
+    return {
+      x: 32 + Math.cos(angle) * 10,
+      y: 32 + Math.sin(angle) * 10,
+    };
+  });
+
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 64 64"
+      className="w-12 h-12 md:w-14 md:h-14 shrink-0 text-shaman-gold"
+      fill="none"
+    >
+      <g stroke="currentColor" strokeWidth="0.65" opacity="0.72">
+        <circle cx="32" cy="32" r="10" />
+        {petals.map((petal, index) => (
+          <circle key={index} cx={petal.x} cy={petal.y} r="10" />
+        ))}
+        <circle cx="32" cy="32" r="22" opacity="0.48" />
+        <circle cx="32" cy="32" r="27" opacity="0.28" />
+        {Array.from({ length: 12 }, (_, index) => {
+          const angle = (Math.PI / 6) * index;
+          return (
+            <line
+              key={index}
+              x1={32 + Math.cos(angle) * 6}
+              y1={32 + Math.sin(angle) * 6}
+              x2={32 + Math.cos(angle) * 27}
+              y2={32 + Math.sin(angle) * 27}
+              opacity="0.25"
+            />
+          );
+        })}
+      </g>
+      <circle cx="32" cy="32" r="2.2" fill="currentColor" opacity="0.9" />
+    </svg>
+  );
+};
 
 const Header = () => {
   const localeNavigate = useLocaleNavigate();
@@ -56,11 +97,7 @@ const Header = () => {
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
         <LocaleLink to="/" className="flex items-center gap-3 hover:opacity-85 transition-opacity" aria-label="Cosmic Igloo — home">
-          <img
-            src={cosmicIglooMark}
-            alt="Cosmic Igloo"
-            className="w-12 h-12 md:w-14 md:h-14 object-contain"
-          />
+          <LogoMark />
           <span className="font-display text-base md:text-lg tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
             Cosmic Igloo
           </span>
