@@ -6,7 +6,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
-import cosmicIglooMark from "@/assets/cosmic-igloo-mark.png";
+import cosmicIglooMark from "@/assets/cosmic-igloo-mark-v2.png";
 
 import {
   DropdownMenu,
