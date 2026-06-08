@@ -1,6 +1,6 @@
 # Cosmic Igloo
 
-> Cosmic Igloo is a premium made-to-order yoga mat brand based in Perth, Australia. Each mat features original sacred-geometry and cosmic artwork, custom-designed and printed to order for serious yoga practitioners and wellness buyers. It is a premium wellness product brand — not a developer tool, code repository, or software project.
+> Cosmic Igloo is a premium made-to-order yoga mat brand. Each mat features original sacred-geometry and cosmic artwork, custom-designed and printed to order in the United States for serious yoga practitioners and wellness buyers. It is a premium wellness product brand — not a developer tool, code repository, or software project.
 
 ## Pages
 
