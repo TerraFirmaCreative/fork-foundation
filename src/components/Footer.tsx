@@ -7,8 +7,8 @@ import { useState } from "react";
 import { subscribeToNewsletter } from "@/lib/shopify";
 import { toast } from "sonner";
 import { ArrowRight, Loader2 } from "lucide-react";
-import cosmicIglooMark from "@/assets/cosmic-igloo-mark.png";
 import { supabase } from "@/integrations/supabase/client";
+import LogoMark from "@/components/LogoMark";
 
 const Footer = () => {
   const navigate = useLocaleNavigate();
@@ -50,11 +50,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
             <LocaleLink to="/" className="flex items-center gap-3 mb-4 hover:opacity-85 transition-opacity">
-              <img
-                src={cosmicIglooMark}
-                alt="Cosmic Igloo"
-                className="w-7 h-7 object-contain"
-              />
+              <LogoMark className="w-7 h-7" />
               <span className="font-display text-base tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
                 Cosmic Igloo
               </span>
