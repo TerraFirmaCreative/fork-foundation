@@ -73,6 +73,7 @@ const BlogPostHudson = () => {
     trackAddToCart({
       itemId: variant.id,
       itemName: product.node.title,
+      itemVariant: variant.title,
       price: parseFloat(variant.price.amount),
       currency: variant.price.currencyCode,
       quantity,
