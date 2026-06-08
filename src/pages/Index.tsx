@@ -17,8 +17,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Cosmic Igloo — Premium Made-to-Order Yoga Mats"
-        description="Original artwork yoga mats, printed to order. Suede microfibre top, natural rubber base, free carry strap with every mat. Ships worldwide from the USA."
+        title="Cosmic Igloo — Custom Sacred Geometry Yoga Mats"
+        description="Premium made-to-order yoga mats featuring original sacred-geometry and cosmic art. Custom-designed for serious practitioners. Designed in Perth, ships worldwide."
         path="/"
       />
       <Header />
