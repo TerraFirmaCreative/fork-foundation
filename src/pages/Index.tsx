@@ -22,16 +22,18 @@ const Index = () => {
         path="/"
       />
       <Header />
-      <HeroSection />
-      <DesignGallery />
-      <HowItWorks />
-      <LifestyleGallery />
-      <MatBenefits />
-      <CommunityRow />
-      <ReviewsSection />
-      <YogiOfTheWeek />
-      <AffiliateSection />
-      <AboutSection />
+      <main>
+        <HeroSection />
+        <DesignGallery />
+        <HowItWorks />
+        <LifestyleGallery />
+        <MatBenefits />
+        <CommunityRow />
+        <ReviewsSection />
+        <YogiOfTheWeek />
+        <AffiliateSection />
+        <AboutSection />
+      </main>
 
       <Footer />
     </div>

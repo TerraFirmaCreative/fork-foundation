@@ -275,10 +275,16 @@ const ProductDetail = () => {
                 disabled={isLoading || !variant?.availableForSale}
                 variant="conversion"
                 className="w-full sm:w-auto"
+                aria-label="Add to cart"
               >
-                <span>
-                  {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Add to Cart"}
-                </span>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                    <span className="sr-only">Adding to cart</span>
+                  </>
+                ) : (
+                  <span>Add to Cart</span>
+                )}
               </Button>
             </div>
             <p className="mt-3 text-[12px] text-muted-foreground font-body">
