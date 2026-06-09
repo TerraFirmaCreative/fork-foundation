@@ -29,7 +29,7 @@ const DesignGallery = () => {
   return (
     <section id="design-gallery" className="hero-gradient pt-20 md:pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-14">
+        <div className="text-center mb-10 md:mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 md:mb-6 font-body">
             Your Mat
           </p>
