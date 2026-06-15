@@ -208,7 +208,7 @@ const ProductDetail = () => {
             )}
 
             {/* Main Image */}
-            <div className="flex flex-col rounded-xl overflow-hidden bg-muted/20 w-full items-center p-4">
+            <div className="flex flex-col rounded-xl overflow-hidden bg-black w-full items-center p-4">
               {images[selectedImageIndex] ? (
                 images[selectedImageIndex].kind === "shopify" ? (
                   <ImageMagnifier
