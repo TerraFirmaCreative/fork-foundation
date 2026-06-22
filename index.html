@@ -9,15 +9,33 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon-512.png" />
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNLBHNGSJ6"></script>
+    <!-- Font preconnect + non-render-blocking load (display=swap on every face) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" /></noscript>
+
+    <!-- Google Analytics (GA4) — deferred until after page interactive -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      // Disable automatic page_view; SPA route changes are tracked manually.
       gtag('config', 'G-QNLBHNGSJ6', { send_page_view: false });
+      if (typeof window !== 'undefined') {
+        const loadGA = () => {
+          if (window.__gaLoaded) return; window.__gaLoaded = true;
+          const s = document.createElement('script');
+          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QNLBHNGSJ6';
+          document.head.appendChild(s);
+        };
+        if (document.readyState === 'complete') setTimeout(loadGA, 1500);
+        else window.addEventListener('load', () => setTimeout(loadGA, 1500), { once: true });
+      }
     </script>
+    <!-- /GA4 -->
 
     <title>Cosmic Igloo — Custom Sacred Geometry Yoga Mats</title>
     <meta name="description" content="Premium made-to-order yoga mats with original sacred-geometry and cosmic art. Custom-designed for serious practitioners. Printed and shipped from the US." />
