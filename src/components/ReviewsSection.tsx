@@ -22,8 +22,8 @@ const reviews = [
   },
   {
     id: 4,
-    name: "Emma J.",
-    review: "It's a simple design, but it's done beautifully. I still get comments on it.",
+    name: "Kata S.",
+    review: "I've been using the Cosmic Igloo yoga mat daily in my yoga classes for several months now. I was initially drawn to its beautiful design—the pattern really spoke to me, and even now, every time I unroll it before a class, it fills me with joy.\n\nThe quality of the mat is flawless. It doesn't slip or stretch, and it lies perfectly flat on the floor. It feels stable and supportive throughout every practice.\n\nFor me, it has become more than just a yoga mat—it's a safe space and brings a true \"arriving home\" feeling the moment I step onto it.",
     date: "3 months ago",
   },
 ];

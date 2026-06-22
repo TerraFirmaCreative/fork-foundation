@@ -31,7 +31,7 @@ const productReviews = [
   { id: 1, name: "Philippa W.", date: "3 weeks ago", review: "I love my Whale yoga mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring." },
   { id: 2, name: "Hudson R.", date: "1 month ago", review: "I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice." },
   { id: 3, name: "Clare W.", date: "2 months ago", review: "A high quality, beautifully made yoga mat. Came with a handy carry strap. The vibrant pattern comes alive in the sunshine, which makes practising yoga a joy. Would highly recommend this mat." },
-  { id: 4, name: "Emma J.", date: "3 months ago", review: "It's a simple design, but it's done beautifully. I still get comments on it." },
+  { id: 4, name: "Kata S.", date: "3 months ago", review: "I've been using the Cosmic Igloo yoga mat daily in my yoga classes for several months now. I was initially drawn to its beautiful design—the pattern really spoke to me, and even now, every time I unroll it before a class, it fills me with joy.\n\nThe quality of the mat is flawless. It doesn't slip or stretch, and it lies perfectly flat on the floor. It feels stable and supportive throughout every practice.\n\nFor me, it has become more than just a yoga mat—it's a safe space and brings a true \"arriving home\" feeling the moment I step onto it." },
 ];
 
 const ProductDetail = () => {
