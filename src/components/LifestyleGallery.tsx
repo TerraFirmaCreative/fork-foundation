@@ -26,6 +26,8 @@ const LifestyleGallery = () => {
               alt={image.alt}
               srcSet={shopifySrcSet(image.src, [150, 300, 450, 600])}
               sizes={GALLERY_SIZES}
+              width="400"
+              height="600"
               className="w-full h-auto transition-transform duration-700 hover:scale-105"
               loading="lazy"
               decoding="async"
