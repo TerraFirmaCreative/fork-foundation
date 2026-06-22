@@ -39,7 +39,7 @@ const Blog = () => {
             Blog
           </h1>
           <p className="text-muted-foreground/80 font-body whitespace-nowrap">
-            Stories from our community — where they practice and the mat they chose.
+            Stories from our community.
           </p>
         </div>
 
