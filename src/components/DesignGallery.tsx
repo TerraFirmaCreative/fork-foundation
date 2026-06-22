@@ -70,8 +70,11 @@ const DesignGallery = () => {
                         srcSet={shopifySrcSet(image.url, [150, 300, 450, 600])}
                         sizes={GALLERY_SIZES}
                         alt={image.altText || product.node.title}
+                        width={400}
+                        height={1079}
                         className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
+                        loading={index < 3 ? "eager" : "lazy"}
+                        fetchPriority={index < 3 ? "high" : "auto"}
                         decoding="async"
                       />
                     </GalleryMagnifier>
