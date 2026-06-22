@@ -17,7 +17,7 @@ const About = () => {
         <div className="absolute inset-0 shaman-bg" />
         <div className="max-w-3xl mx-auto relative z-10">
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-8 text-foreground">
-            Our Story
+            About
           </h1>
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
