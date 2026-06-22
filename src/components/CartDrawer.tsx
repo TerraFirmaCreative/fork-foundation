@@ -26,7 +26,7 @@ export const CartDrawer = () => {
   return (
     <Sheet open={isDrawerOpen} onOpenChange={setDrawerOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
+        <Button variant="ghost" size="icon" aria-label={`Shopping cart, ${totalItems} item${totalItems === 1 ? "" : "s"}`} className="relative text-muted-foreground hover:text-foreground">
           <ShoppingCart className="w-5 h-5" />
           {totalItems > 0 && (
             <Badge className="absolute -top-1 -right-1 h-4 w-4 rounded-full p-0 flex items-center justify-center text-[10px] bg-gradient-to-r from-shaman-violet to-shaman-magenta text-white border-0">
