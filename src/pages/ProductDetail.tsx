@@ -16,10 +16,10 @@ import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } f
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
-import whaleMat1 from "@/assets/whale-mat-1.png";
-import whaleMat2 from "@/assets/whale-mat-2.png";
-import whaleMat3 from "@/assets/whale-mat-3.png";
-import whaleMat4 from "@/assets/whale-mat-4.png";
+import whaleMat1 from "@/assets/whale-mat-1.webp";
+import whaleMat2 from "@/assets/whale-mat-2.webp";
+import whaleMat3 from "@/assets/whale-mat-3.webp";
+import whaleMat4 from "@/assets/whale-mat-4.webp";
 
 const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
   "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy": [
