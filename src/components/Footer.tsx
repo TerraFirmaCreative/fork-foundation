@@ -70,15 +70,15 @@ const Footer = () => {
                   return (
                     <li key={link}>
                       {to ? (
-                        <LocaleLink to={to} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
+                        <LocaleLink to={to} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </LocaleLink>
                       ) : sectionId ? (
-                        <button onClick={() => scrollToSection(sectionId)} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
+                        <button onClick={() => scrollToSection(sectionId)} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </button>
                       ) : (
-                        <a href="#" className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
+                        <a href="#" className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </a>
                       )}
