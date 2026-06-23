@@ -100,26 +100,33 @@ const GallerySlot = ({
       {images.map((img, i) => {
         const active = i === currentIndex;
         return (
-          <img
-            key={i}
-            src={img.src}
-            alt={img.alt}
-            width={600}
-            height={800}
-            style={{
-              transitionProperty: "opacity, transform, filter",
-              transitionDuration: "2600ms, 9000ms, 2600ms",
-              transitionTimingFunction:
-                "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
-            }}
-            className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
-              active
-                ? "opacity-100 scale-105 blur-0"
-                : "opacity-0 scale-100 blur-[2px]"
-            }`}
-            loading="lazy"
-            decoding="async"
-          />
+          <picture key={i}>
+            {img.pic.sources.avif && (
+              <source type="image/avif" srcSet={img.pic.sources.avif} sizes={SIZES} />
+            )}
+            {img.pic.sources.webp && (
+              <source type="image/webp" srcSet={img.pic.sources.webp} sizes={SIZES} />
+            )}
+            <img
+              src={img.pic.img.src}
+              alt={img.alt}
+              width={img.pic.img.w}
+              height={img.pic.img.h}
+              style={{
+                transitionProperty: "opacity, transform, filter",
+                transitionDuration: "2600ms, 9000ms, 2600ms",
+                transitionTimingFunction:
+                  "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+              className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
+                active
+                  ? "opacity-100 scale-105 blur-0"
+                  : "opacity-0 scale-100 blur-[2px]"
+              }`}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         );
       })}
     </div>
