@@ -22,12 +22,12 @@ const LifestyleGallery = () => {
             className="relative overflow-hidden mb-1 break-inside-avoid"
           >
             <img
-              src={shopifyImageUrl(image.src, 400)}
+              src={shopifyImageUrl(image.src, 500)}
               alt={image.alt}
-              srcSet={shopifySrcSet(image.src, [150, 300, 450, 600])}
-              sizes={GALLERY_SIZES}
-              width="400"
-              height="600"
+              srcSet={shopifySrcSet(image.src, [300, 500, 700, 1000])}
+              sizes="(min-width: 768px) 21vw, 42vw"
+              width="500"
+              height="750"
               className="w-full h-auto transition-transform duration-700 hover:scale-105"
               loading="lazy"
               decoding="async"
