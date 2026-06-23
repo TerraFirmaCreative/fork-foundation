@@ -15,22 +15,31 @@
     <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-latin-italic.woff2" crossorigin />
 
 
-    <!-- Google Analytics (GA4) — deferred until after page interactive -->
+    <!-- Google Analytics (GA4) — fully deferred: loads on first user interaction
+         or 6s after window load, whichever comes first. Never competes with LCP. -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QNLBHNGSJ6', { send_page_view: false });
-      if (typeof window !== 'undefined') {
-        const loadGA = () => {
-          if (window.__gaLoaded) return; window.__gaLoaded = true;
-          const s = document.createElement('script');
-          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QNLBHNGSJ6';
+      window.gtag = function(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-QNLBHNGSJ6', { send_page_view: false });
+      (function(){
+        var loaded = false;
+        function loadGA(){
+          if (loaded) return; loaded = true;
+          cleanup();
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QNLBHNGSJ6';
           document.head.appendChild(s);
-        };
-        if (document.readyState === 'complete') setTimeout(loadGA, 1500);
-        else window.addEventListener('load', () => setTimeout(loadGA, 1500), { once: true });
-      }
+        }
+        var events = ['pointerdown','keydown','touchstart','scroll'];
+        function onEvt(){ loadGA(); }
+        function cleanup(){ events.forEach(function(e){ window.removeEventListener(e, onEvt, { passive: true }); }); }
+        events.forEach(function(e){ window.addEventListener(e, onEvt, { passive: true, once: true }); });
+        function onLoad(){ setTimeout(loadGA, 6000); }
+        if (document.readyState === 'complete') onLoad();
+        else window.addEventListener('load', onLoad, { once: true });
+      })();
     </script>
     <!-- /GA4 -->
 
