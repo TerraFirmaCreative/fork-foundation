@@ -99,6 +99,17 @@ const ProductDetail = () => {
       alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
     })),
   ];
+
+  // Auto-cycle gallery: linger 5s on the mat (first image), then advance every 3s.
+  // Stops permanently once the user clicks a thumbnail.
+  useEffect(() => {
+    if (userInteracted || images.length <= 1) return;
+    const delay = selectedImageIndex === 0 ? 5000 : 3000;
+    const t = setTimeout(() => {
+      setSelectedImageIndex((i) => (i + 1) % images.length);
+    }, delay);
+    return () => clearTimeout(t);
+  }, [selectedImageIndex, userInteracted, images.length]);
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
