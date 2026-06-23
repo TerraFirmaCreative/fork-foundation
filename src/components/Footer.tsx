@@ -139,7 +139,7 @@ const Footer = () => {
                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
               </button>
             </form>
-            <p className="text-[11px] text-foreground/50 font-display tracking-wide mb-6">No spam. Unsubscribe anytime.</p>
+            <p className="text-[11px] text-foreground/75 font-display tracking-wide mb-6">No spam. Unsubscribe anytime.</p>
 
           </div>
 
