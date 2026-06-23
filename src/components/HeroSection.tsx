@@ -204,9 +204,9 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* LAYER 6 — Inner mandala (counter-rotating) */}
+      {/* LAYER 6 — Inner mandala (counter-rotating; desktop only) */}
       <svg
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
         width={520}
         height={520}
         viewBox="0 0 200 200"
