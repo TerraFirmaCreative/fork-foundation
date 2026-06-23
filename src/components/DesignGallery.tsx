@@ -93,12 +93,12 @@ const DesignGallery = () => {
                     >
                       <ThumbhashImage
                         thumbhash={image.thumbhash}
-                        src={shopifyImageUrl(image.url, 400)}
-                        srcSet={shopifySrcSet(image.url, [200, 300, 400, 600])}
-                        sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, 32vw"
+                        src={shopifyImageUrl(image.url, 240)}
+                        srcSet={shopifySrcSet(image.url, [140, 200, 260, 360, 480])}
+                        sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, 30vw"
                         alt={image.altText || product.node.title}
-                        width={400}
-                        height={1079}
+                        width={240}
+                        height={647}
                         className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
                         loading={index < 3 ? "eager" : "lazy"}
                         fetchPriority={index < 3 ? "high" : "auto"}
