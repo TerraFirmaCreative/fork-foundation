@@ -49,27 +49,28 @@ const HeroSection = () => {
         }}
       />
 
-      {/* LAYER 2 — Distant violet nebula */}
+      {/* LAYER 2 — Distant violet nebula (static; hidden on mobile to save full-screen blur repaint) */}
       <div
-        className="absolute inset-0 pointer-events-none animate-pulse-glow"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "radial-gradient(ellipse 60% 45% at 22% 28%, hsla(275, 70%, 45%, 0.35) 0%, transparent 60%), radial-gradient(ellipse 55% 40% at 78% 65%, hsla(290, 60%, 40%, 0.28) 0%, transparent 60%)",
           filter: "blur(20px)",
+          opacity: 0.45,
         }}
       />
 
-      {/* LAYER 3 — Soft floating orbs */}
+      {/* LAYER 3 — Soft floating orbs (desktop only; blur(80px) on huge layers is too heavy on mobile) */}
       <div
-        className="floating-orb w-[700px] h-[700px] -top-40 -left-40 bg-shaman-violet/20"
+        className="floating-orb w-[700px] h-[700px] -top-40 -left-40 bg-shaman-violet/20 hidden md:block motion-reduce:animate-none"
         style={{ animationDelay: "0s" }}
       />
       <div
-        className="floating-orb w-[500px] h-[500px] top-1/3 -right-32 bg-shaman-magenta/15"
+        className="floating-orb w-[500px] h-[500px] top-1/3 -right-32 bg-shaman-magenta/15 hidden md:block motion-reduce:animate-none"
         style={{ animationDelay: "5s" }}
       />
       <div
-        className="floating-orb w-[420px] h-[420px] bottom-0 left-1/4 bg-shaman-teal/12"
+        className="floating-orb w-[420px] h-[420px] bottom-0 left-1/4 bg-shaman-teal/12 hidden md:block motion-reduce:animate-none"
         style={{ animationDelay: "9s" }}
       />
 
