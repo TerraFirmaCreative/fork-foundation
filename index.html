@@ -45,6 +45,30 @@
     </script>
     <!-- /GA4 -->
 
+    <!-- Microsoft Clarity — deferred (first interaction or 6s after load) to protect LCP -->
+    <script>
+      (function(){
+        var loaded = false;
+        function loadClarity(){
+          if (loaded) return; loaded = true;
+          cleanup();
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "xbj5of4i9a");
+        }
+        var events = ['pointerdown','keydown','touchstart','scroll'];
+        function onEvt(){ loadClarity(); }
+        function cleanup(){ events.forEach(function(e){ window.removeEventListener(e, onEvt, { passive: true }); }); }
+        events.forEach(function(e){ window.addEventListener(e, onEvt, { passive: true, once: true }); });
+        function onLoad(){ setTimeout(loadClarity, 6000); }
+        if (document.readyState === 'complete') onLoad();
+        else window.addEventListener('load', onLoad, { once: true });
+      })();
+    </script>
+    <!-- /Clarity -->
+
     <title>Cosmic Igloo — Custom Sacred Geometry Yoga Mats</title>
     <meta name="description" content="Premium made-to-order yoga mats with original sacred-geometry and cosmic art. Custom-designed for serious practitioners. Printed and shipped from the US." />
     <meta name="author" content="Cosmic Igloo" />
