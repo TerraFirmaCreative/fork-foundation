@@ -112,9 +112,9 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Flower of Life (fractal-style infinite expansion) */}
+      {/* LAYER 5 — Flower of Life (desktop only; two 1400×1400 SVG layers w/ infinite scale+rotate) */}
       <div
-        className="absolute left-1/2 top-1/2 pointer-events-none"
+        className="absolute left-1/2 top-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
         style={{
           width: 1400,
           height: 1400,
