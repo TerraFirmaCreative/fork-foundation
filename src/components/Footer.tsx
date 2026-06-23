@@ -131,7 +131,7 @@ const Footer = () => {
                 placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/50 text-foreground py-1.5 font-display tracking-wide"
+                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/70 text-foreground py-1.5 font-display tracking-wide"
                 required
                 disabled={isSubmitting}
               />
