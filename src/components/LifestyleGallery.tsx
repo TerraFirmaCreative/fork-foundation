@@ -24,7 +24,7 @@ const LifestyleGallery = () => {
             <img
               src={shopifyImageUrl(image.src, 500)}
               alt={image.alt}
-              srcSet={shopifySrcSet(image.src, [300, 500, 700, 1000])}
+              srcSet={shopifySrcSet(image.src, [300, 500, 700])}
               sizes="(min-width: 768px) 21vw, 42vw"
               width="500"
               height="750"
