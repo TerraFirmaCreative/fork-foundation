@@ -39,6 +39,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [userInteracted, setUserInteracted] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
@@ -98,6 +99,17 @@ const ProductDetail = () => {
       alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
     })),
   ];
+
+  // Auto-cycle gallery: linger 5s on the mat (first image), then advance every 3s.
+  // Stops permanently once the user clicks a thumbnail.
+  useEffect(() => {
+    if (userInteracted || images.length <= 1) return;
+    const delay = selectedImageIndex === 0 ? 5000 : 3000;
+    const t = setTimeout(() => {
+      setSelectedImageIndex((i) => (i + 1) % images.length);
+    }, delay);
+    return () => clearTimeout(t);
+  }, [selectedImageIndex, userInteracted, images.length]);
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
@@ -204,7 +216,7 @@ const ProductDetail = () => {
                 {images.map((img, i) => (
                   <button
                     key={i}
-                    onClick={() => setSelectedImageIndex(i)}
+                    onClick={() => { setSelectedImageIndex(i); setUserInteracted(true); }}
                     className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${i === selectedImageIndex
                       ? "border-shaman-gold opacity-100"
                       : "border-transparent opacity-60 hover:opacity-90"
