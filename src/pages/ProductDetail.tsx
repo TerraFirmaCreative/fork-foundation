@@ -216,7 +216,7 @@ const ProductDetail = () => {
                 {images.map((img, i) => (
                   <button
                     key={i}
-                    onClick={() => setSelectedImageIndex(i)}
+                    onClick={() => { setSelectedImageIndex(i); setUserInteracted(true); }}
                     className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${i === selectedImageIndex
                       ? "border-shaman-gold opacity-100"
                       : "border-transparent opacity-60 hover:opacity-90"
