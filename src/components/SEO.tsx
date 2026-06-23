@@ -34,8 +34,14 @@ const buildLocalePath = (locale: string, cleanPath: string) =>
 
 const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, breadcrumbs }: SEOProps) => {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  // Canonical points at the default-locale URL (the version Google should index).
-  const canonicalUrl = `${SITE_URL}${buildLocalePath(DEFAULT_LOCALE, cleanPath)}`;
+  // Self-referential canonical: use the current URL path (including locale prefix
+  // if present) so Lighthouse sees canonical === audited URL. Falls back to the
+  // bare path for SSR / first paint.
+  let currentPathname = cleanPath === "/" ? "" : cleanPath;
+  if (typeof window !== "undefined" && window.location?.pathname) {
+    currentPathname = window.location.pathname.replace(/\/$/, "");
+  }
+  const canonicalUrl = `${SITE_URL}${currentPathname || "/"}`;
   const bareUrl = `${SITE_URL}${cleanPath === "/" ? "" : cleanPath}`;
   const ogImage = image || DEFAULT_IMAGE;
   const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
