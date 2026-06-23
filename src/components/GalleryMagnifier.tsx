@@ -39,7 +39,7 @@ const GalleryMagnifier = ({
 
   // Lazy-fetch the high-res zoom image only on first hover, never on touch.
   useEffect(() => {
-    if (!supportsHover || (!prefetch && !active) || zoomLoaded) return;
+    if (!supportsHover || (!prefetch && !active && !containerRef.current) || zoomLoaded) return;
     const img = new Image();
     img.src = zoomSrc;
     img.onload = () => setZoomLoaded(true);
