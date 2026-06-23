@@ -6,25 +6,33 @@ import { useLocale } from "@/lib/i18n";
 import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
 import { formatPrice } from "@/lib/utils";
-import hudson1 from "@/assets/hudson/hudson-1.webp";
-import hudson2 from "@/assets/hudson/hudson-2.webp";
-import hudson3 from "@/assets/hudson/hudson-3.webp";
-import hudson4 from "@/assets/hudson/hudson-4.webp";
-import hudson5 from "@/assets/hudson/hudson-5.webp";
-import hudson6 from "@/assets/hudson/hudson-6.webp";
-import hudson7 from "@/assets/hudson/hudson-7.webp";
-import hudson8 from "@/assets/hudson/hudson-8.webp";
+import hudson1 from "@/assets/hudson/hudson-1.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson2 from "@/assets/hudson/hudson-2.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson3 from "@/assets/hudson/hudson-3.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson4 from "@/assets/hudson/hudson-4.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson5 from "@/assets/hudson/hudson-5.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson6 from "@/assets/hudson/hudson-6.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson7 from "@/assets/hudson/hudson-7.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson8 from "@/assets/hudson/hudson-8.webp?w=300;500;800&format=avif;webp&as=picture";
 
-const images = [
-  // Mixed beach/forest for visual rhythm
-  { src: hudson1, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
-  { src: hudson5, alt: "Cosmic Igloo mat laid out on the forest floor" },
-  { src: hudson3, alt: "Hudson in warrior pose with arms wide on the beach" },
-  { src: hudson8, alt: "Hudson in a supported headstand in the forest" },
-  { src: hudson6, alt: "Hudson resting in child's pose in the forest" },
-  { src: hudson2, alt: "Hudson in a seated twist on her mat at the beach" },
-  { src: hudson7, alt: "Hudson in pigeon pose on the forest floor" },
-  { src: hudson4, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
+type Picture = {
+  sources: Record<string, string>;
+  img: { src: string; w: number; h: number };
+};
+
+// On mobile we render 2 columns inside px-6 page padding → ~46vw per tile.
+// At md+ we switch to 4 columns inside max-w-5xl → ~22vw, capped.
+const SIZES = "(min-width: 1024px) 240px, (min-width: 768px) 22vw, 46vw";
+
+const images: { pic: Picture; alt: string }[] = [
+  { pic: hudson1 as unknown as Picture, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
+  { pic: hudson5 as unknown as Picture, alt: "Cosmic Igloo mat laid out on the forest floor" },
+  { pic: hudson3 as unknown as Picture, alt: "Hudson in warrior pose with arms wide on the beach" },
+  { pic: hudson8 as unknown as Picture, alt: "Hudson in a supported headstand in the forest" },
+  { pic: hudson6 as unknown as Picture, alt: "Hudson resting in child's pose in the forest" },
+  { pic: hudson2 as unknown as Picture, alt: "Hudson in a seated twist on her mat at the beach" },
+  { pic: hudson7 as unknown as Picture, alt: "Hudson in pigeon pose on the forest floor" },
+  { pic: hudson4 as unknown as Picture, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
 
 const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
@@ -92,26 +100,33 @@ const GallerySlot = ({
       {images.map((img, i) => {
         const active = i === currentIndex;
         return (
-          <img
-            key={i}
-            src={img.src}
-            alt={img.alt}
-            width={600}
-            height={800}
-            style={{
-              transitionProperty: "opacity, transform, filter",
-              transitionDuration: "2600ms, 9000ms, 2600ms",
-              transitionTimingFunction:
-                "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
-            }}
-            className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
-              active
-                ? "opacity-100 scale-105 blur-0"
-                : "opacity-0 scale-100 blur-[2px]"
-            }`}
-            loading="lazy"
-            decoding="async"
-          />
+          <picture key={i}>
+            {img.pic.sources.avif && (
+              <source type="image/avif" srcSet={img.pic.sources.avif} sizes={SIZES} />
+            )}
+            {img.pic.sources.webp && (
+              <source type="image/webp" srcSet={img.pic.sources.webp} sizes={SIZES} />
+            )}
+            <img
+              src={img.pic.img.src}
+              alt={img.alt}
+              width={img.pic.img.w}
+              height={img.pic.img.h}
+              style={{
+                transitionProperty: "opacity, transform, filter",
+                transitionDuration: "2600ms, 9000ms, 2600ms",
+                transitionTimingFunction:
+                  "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+              className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
+                active
+                  ? "opacity-100 scale-105 blur-0"
+                  : "opacity-0 scale-100 blur-[2px]"
+              }`}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         );
       })}
     </div>
