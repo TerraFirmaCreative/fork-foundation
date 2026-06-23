@@ -68,7 +68,7 @@ const DesignGallery = () => {
                         thumbhash={image.thumbhash}
                         src={shopifyImageUrl(image.url, 400)}
                         srcSet={shopifySrcSet(image.url, [200, 400, 600, 800, 1200])}
-                        sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, 33vw"
+                        sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, calc((100vw - 4rem) / 3)"
                         alt={image.altText || product.node.title}
                         width={400}
                         height={1079}
