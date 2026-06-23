@@ -139,6 +139,10 @@ const ProductDetail = () => {
         path={`/product/${product.node.handle}`}
         type="product"
         image={shopifyImages[0]?.node.url}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: product.node.title, path: `/product/${product.node.handle}` },
+        ]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Product",
@@ -146,6 +150,17 @@ const ProductDetail = () => {
           description: product.node.description,
           image: shopifyImages.map((e) => e.node.url),
           brand: { "@type": "Brand", name: "Cosmic Igloo" },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5",
+            reviewCount: String(productReviews.length),
+          },
+          review: productReviews.map((r) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: r.name },
+            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            reviewBody: r.review,
+          })),
           offers: price
             ? {
                 "@type": "Offer",

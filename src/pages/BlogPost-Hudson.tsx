@@ -93,14 +93,33 @@ const BlogPostHudson = () => {
         path="/blog/hudson-in-margaret-river"
         type="article"
         image={hudson1}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: "Hudson in South West Australia", path: "/blog/hudson-in-margaret-river" },
+        ]}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "Article",
+          "@type": "BlogPosting",
           headline: "Hudson in South West Australia",
+          description:
+            "A Canadian yogi practising slow travel through Margaret River — the places, the poses, and the mat that comes with her.",
           image: [hudson1],
           author: { "@type": "Person", name: "Hudson R." },
-          publisher: { "@type": "Organization", name: "Cosmic Igloo" },
+          publisher: {
+            "@type": "Organization",
+            name: "Cosmic Igloo",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://cosmicigloo.com/favicon.ico",
+            },
+          },
           datePublished: "2026-02-25",
+          dateModified: "2026-02-25",
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": "https://cosmicigloo.com/en-US/blog/hudson-in-margaret-river",
+          },
         }}
       />
       <Header />
