@@ -15,6 +15,8 @@ const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [mountAll, setMountAll] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
   const { country } = useLocale();
 
   useEffect(() => {
@@ -29,6 +31,27 @@ const DesignGallery = () => {
         setLoading(false);
       });
   }, [country]);
+
+  useEffect(() => {
+    if (mountAll || loading || products.length <= INITIAL_TILES) return;
+    const el = sentinelRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setMountAll(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setMountAll(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [mountAll, loading, products.length]);
+
 
   return (
     <section id="design-gallery" className="hero-gradient pt-20 md:pt-12 pb-12 px-6">
