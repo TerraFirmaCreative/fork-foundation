@@ -83,7 +83,7 @@ const HowItWorks = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-10 md:mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 md:mb-6 font-body">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
             Simple Process
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">

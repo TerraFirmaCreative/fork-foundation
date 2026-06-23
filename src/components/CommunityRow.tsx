@@ -35,7 +35,7 @@ const CommunityRow = () => {
   return (
     <section className="relative pt-12 md:pt-16 pb-6 md:pb-8 px-0 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-3 font-body">
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-3 font-body">
           Our Community
         </p>
         <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">

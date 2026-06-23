@@ -58,7 +58,7 @@ const MatBenefits = () => {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-4 font-body">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 font-body">
             The Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium mb-4 tracking-tight leading-tight">
@@ -108,7 +108,7 @@ const MatBenefits = () => {
               <div className="font-display text-2xl md:text-3xl font-medium text-foreground leading-none mb-2">
                 {stat.value}
               </div>
-              <div className="text-[10px] tracking-[0.2em] uppercase text-shaman-gold/70 font-body">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-shaman-gold/85 font-body">
                 {stat.label}
               </div>
             </div>
