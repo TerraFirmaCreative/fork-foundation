@@ -56,6 +56,8 @@ const CommunityRow = () => {
             <img
               src={p.src}
               alt={p.alt}
+              width={450}
+              height={800}
               loading="lazy"
               decoding="async"
               style={{ objectPosition: p.position }}
