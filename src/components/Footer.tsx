@@ -91,8 +91,8 @@ const Footer = () => {
 
           {/* Subscribe Column */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h4>
-            <p className="text-xs text-foreground/70 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
+            <h3 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h3>
+            <p className="text-xs text-foreground/85 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
             <form className="flex items-center border border-foreground/30 hover:border-foreground/50 focus-within:border-shaman-gold/60 rounded-md bg-background/30 px-3 py-1 mb-3 max-w-xs transition-colors" onSubmit={async (e) => {
               e.preventDefault();
               if (isSubmitting || !email) return;
