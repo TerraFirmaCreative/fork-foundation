@@ -74,9 +74,9 @@ const HeroSection = () => {
         style={{ animationDelay: "9s" }}
       />
 
-      {/* LAYER 4 — Far fractal sacred geometry */}
+      {/* LAYER 4 — Far fractal sacred geometry (desktop only) */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
         viewBox="0 0 1000 1000"
         preserveAspectRatio="xMidYMid slice"
         style={{ opacity: 0.06 }}
