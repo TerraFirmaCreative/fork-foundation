@@ -147,31 +147,44 @@ const ProductDetail = () => {
           "@context": "https://schema.org",
           "@type": "Product",
           name: product.node.title,
-          description: product.node.description,
-          image: shopifyImages.map((e) => e.node.url),
+          description: product.node.description || "Premium made-to-order yoga mat with original artwork.",
+          image: shopifyImages.length > 0
+            ? shopifyImages.map((e) => e.node.url)
+            : ["https://cosmicigloo.com/favicon-512.png"],
+          sku: variant?.id || product.node.handle,
           brand: { "@type": "Brand", name: "Cosmic Igloo" },
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5",
+            bestRating: "5",
+            worstRating: "1",
             reviewCount: String(productReviews.length),
           },
           review: productReviews.map((r) => ({
             "@type": "Review",
             author: { "@type": "Person", name: r.name },
-            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "5",
+              bestRating: "5",
+              worstRating: "1",
+            },
             reviewBody: r.review,
           })),
-          offers: price
+          ...(price
             ? {
-                "@type": "Offer",
-                price: price.amount,
-                priceCurrency: price.currencyCode,
-                availability: variant?.availableForSale
-                  ? "https://schema.org/InStock"
-                  : "https://schema.org/OutOfStock",
-                url: `https://cosmicigloo.com/product/${product.node.handle}`,
+                offers: {
+                  "@type": "Offer",
+                  price: price.amount,
+                  priceCurrency: price.currencyCode,
+                  availability: variant?.availableForSale
+                    ? "https://schema.org/InStock"
+                    : "https://schema.org/OutOfStock",
+                  url: `https://cosmicigloo.com/en-US/product/${product.node.handle}`,
+                  itemCondition: "https://schema.org/NewCondition",
+                },
               }
-            : undefined,
+            : {}),
         }}
       />
       <Header />
