@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCollectionProducts, ShopifyProduct } from "@/lib/shopify";
 import LocaleLink from "@/components/LocaleLink";
@@ -6,6 +6,10 @@ import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import GalleryMagnifier from "@/components/GalleryMagnifier";
+
+// Mount the first row eagerly; defer the rest until they're about to scroll into view.
+const INITIAL_TILES = 6;
+
 
 const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
