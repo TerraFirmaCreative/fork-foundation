@@ -18,4 +18,22 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        // Split heavy vendor libs into long-cacheable chunks so the home page
+        // doesn't ship Radix/Query/icons for every user.
+        manualChunks: (id) => {
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("react-dom") || id.includes("/react/") || id.includes("scheduler")) return "react-vendor";
+          if (id.includes("@radix-ui")) return "radix-vendor";
+          if (id.includes("@tanstack/react-query")) return "query-vendor";
+          if (id.includes("lucide-react")) return "icons-vendor";
+          if (id.includes("react-router")) return "router-vendor";
+          return undefined;
+        },
+      },
+    },
+  },
 }));
