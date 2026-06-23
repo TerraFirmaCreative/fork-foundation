@@ -90,6 +90,7 @@ const DesignGallery = () => {
                     <GalleryMagnifier
                       zoomSrc={shopifyImageUrl(image.url, 1600)}
                       className="block w-full"
+                      prefetch={index < 6}
                     >
                       <ThumbhashImage
                         thumbhash={image.thumbhash}

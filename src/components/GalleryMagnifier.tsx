@@ -9,6 +9,7 @@ interface GalleryMagnifierProps {
   className?: string;
   lensSize?: number;
   zoom?: number;
+  prefetch?: boolean
 }
 
 const GalleryMagnifier = ({
@@ -17,6 +18,7 @@ const GalleryMagnifier = ({
   className,
   lensSize = 160,
   zoom = 2.4,
+  prefetch = false
 }: GalleryMagnifierProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
@@ -37,7 +39,7 @@ const GalleryMagnifier = ({
 
   // Lazy-fetch the high-res zoom image only on first hover, never on touch.
   useEffect(() => {
-    if (!supportsHover || !active || zoomLoaded) return;
+    if (!supportsHover || (!prefetch && !active) || zoomLoaded) return;
     const img = new Image();
     img.src = zoomSrc;
     img.onload = () => setZoomLoaded(true);
@@ -76,7 +78,7 @@ const GalleryMagnifier = ({
       onMouseLeave={() => setActive(false)}
     >
       {children}
-      {supportsHover && (
+      {supportsHover && zoomLoaded && (
         <div
           aria-hidden
           className={cn(
