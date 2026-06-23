@@ -96,6 +96,8 @@ const GallerySlot = ({
             key={i}
             src={img.src}
             alt={img.alt}
+            width={600}
+            height={800}
             style={{
               transitionProperty: "opacity, transform, filter",
               transitionDuration: "2600ms, 9000ms, 2600ms",

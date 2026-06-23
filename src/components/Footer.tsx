@@ -60,7 +60,7 @@ const Footer = () => {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="col-span-1">
-              <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground/70 mb-4" style={{ fontWeight: 500 }}>{category}</h4>
+              <h3 className="text-xs font-display tracking-[0.28em] uppercase text-foreground/90 mb-4" style={{ fontWeight: 500 }}>{category}</h3>
               <ul className="space-y-2">
                 {links.map((link) => {
                   const linkMap: Record<string, string> = { "About": "/about", "FAQ": "/faqs", "Returns": "/refund-policy", "Contact": "/contact", "Shipping": "/shipping", "Terms & Conditions": "/terms", "Privacy Policy": "/privacy-policy" };
@@ -70,15 +70,15 @@ const Footer = () => {
                   return (
                     <li key={link}>
                       {to ? (
-                        <LocaleLink to={to} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
+                        <LocaleLink to={to} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </LocaleLink>
                       ) : sectionId ? (
-                        <button onClick={() => scrollToSection(sectionId)} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
+                        <button onClick={() => scrollToSection(sectionId)} className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </button>
                       ) : (
-                        <a href="#" className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
+                        <a href="#" className="text-xs font-display tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors" style={{ fontWeight: 500 }}>
                           {link}
                         </a>
                       )}
@@ -91,8 +91,8 @@ const Footer = () => {
 
           {/* Subscribe Column */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h4>
-            <p className="text-xs text-foreground/70 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
+            <h3 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h3>
+            <p className="text-xs text-foreground/85 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
             <form className="flex items-center border border-foreground/30 hover:border-foreground/50 focus-within:border-shaman-gold/60 rounded-md bg-background/30 px-3 py-1 mb-3 max-w-xs transition-colors" onSubmit={async (e) => {
               e.preventDefault();
               if (isSubmitting || !email) return;
@@ -131,7 +131,7 @@ const Footer = () => {
                 placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/50 text-foreground py-1.5 font-display tracking-wide"
+                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/70 text-foreground py-1.5 font-display tracking-wide"
                 required
                 disabled={isSubmitting}
               />
@@ -139,7 +139,7 @@ const Footer = () => {
                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
               </button>
             </form>
-            <p className="text-[11px] text-foreground/50 font-display tracking-wide mb-6">No spam. Unsubscribe anytime.</p>
+            <p className="text-[11px] text-foreground/75 font-display tracking-wide mb-6">No spam. Unsubscribe anytime.</p>
 
           </div>
 
@@ -182,7 +182,7 @@ const Footer = () => {
             ))}
           </div>
 
-          <div className="text-xs text-muted-foreground/40 font-display tracking-wide text-center">
+          <div className="text-xs text-muted-foreground font-display tracking-wide text-center">
             <p>© 2026 Cosmic Igloo. All rights reserved.</p>
           </div>
         </div>
