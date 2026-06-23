@@ -77,7 +77,7 @@ const DesignGallery = () => {
           <p className="text-center text-muted-foreground py-12">No products found in the "Home" collection.</p>
         ) : (
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
-            {products.map((product, index) => {
+            {(mountAll ? products : products.slice(0, INITIAL_TILES)).map((product, index) => {
               const image = product.node.images.edges[0]?.node;
               return (
                 <LocaleLink
@@ -114,6 +114,9 @@ const DesignGallery = () => {
                 </LocaleLink>
               );
             })}
+            {!mountAll && products.length > INITIAL_TILES && (
+              <div ref={sentinelRef} className="col-span-full h-1" aria-hidden="true" />
+            )}
           </div>
         )}
       </div>
