@@ -66,20 +66,21 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" className="relative py-16 md:py-24 px-6 overflow-hidden">
       <div className="texture-overlay" />
-      <div className="absolute inset-0 shaman-bg" />
+      <div className="absolute inset-0 shaman-bg">
+        {/* Fractal grid background */}
+        <FractalGrid />
 
-      {/* Fractal grid background */}
-      <FractalGrid />
+        {/* Subtle orbs */}
+        <div
+          className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/06"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
+          style={{ animationDelay: "5s" }}
+        />
+      </div>
 
-      {/* Subtle orbs */}
-      <div
-        className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/08"
-        style={{ animationDelay: "2s" }}
-      />
-      <div
-        className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
-        style={{ animationDelay: "5s" }}
-      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-10 md:mb-20">
