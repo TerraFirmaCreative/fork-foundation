@@ -1,17 +1,25 @@
+import { lazy, Suspense } from "react";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import DesignGallery from "@/components/DesignGallery";
-import HowItWorks from "@/components/HowItWorks";
-import LifestyleGallery from "@/components/LifestyleGallery";
-import MatBenefits from "@/components/MatBenefits";
-import ReviewsSection from "@/components/ReviewsSection";
-import AboutSection from "@/components/AboutSection";
-import AffiliateSection from "@/components/AffiliateSection";
-import YogiOfTheWeek from "@/components/YogiOfTheWeek";
-import CommunityRow from "@/components/CommunityRow";
+import LazyMount from "@/components/LazyMount";
 
-import Footer from "@/components/Footer";
+// Below-the-fold sections — code-split AND mount-deferred via IntersectionObserver.
+// This keeps initial JS and image requests focused on the hero, improving LCP.
+const HowItWorks = lazy(() => import("@/components/HowItWorks"));
+const LifestyleGallery = lazy(() => import("@/components/LifestyleGallery"));
+const MatBenefits = lazy(() => import("@/components/MatBenefits"));
+const CommunityRow = lazy(() => import("@/components/CommunityRow"));
+const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
+const YogiOfTheWeek = lazy(() => import("@/components/YogiOfTheWeek"));
+const AffiliateSection = lazy(() => import("@/components/AffiliateSection"));
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+const SectionFallback = ({ h = 400 }: { h?: number }) => (
+  <div style={{ minHeight: h }} aria-hidden="true" />
+);
 
 const Index = () => {
   return (
@@ -25,17 +33,61 @@ const Index = () => {
       <main>
         <HeroSection />
         <DesignGallery />
-        <HowItWorks />
-        <LifestyleGallery />
-        <MatBenefits />
-        <CommunityRow />
-        <ReviewsSection />
-        <YogiOfTheWeek />
-        <AffiliateSection />
-        <AboutSection />
+
+        <LazyMount minHeight={500}>
+          <Suspense fallback={<SectionFallback h={500} />}>
+            <HowItWorks />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={600}>
+          <Suspense fallback={<SectionFallback h={600} />}>
+            <LifestyleGallery />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={500}>
+          <Suspense fallback={<SectionFallback h={500} />}>
+            <MatBenefits />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={600}>
+          <Suspense fallback={<SectionFallback h={600} />}>
+            <CommunityRow />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={500}>
+          <Suspense fallback={<SectionFallback h={500} />}>
+            <ReviewsSection />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={500}>
+          <Suspense fallback={<SectionFallback h={500} />}>
+            <YogiOfTheWeek />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={400}>
+          <Suspense fallback={<SectionFallback h={400} />}>
+            <AffiliateSection />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={500}>
+          <Suspense fallback={<SectionFallback h={500} />}>
+            <AboutSection />
+          </Suspense>
+        </LazyMount>
       </main>
 
-      <Footer />
+      <LazyMount minHeight={400}>
+        <Suspense fallback={<SectionFallback h={400} />}>
+          <Footer />
+        </Suspense>
+      </LazyMount>
     </div>
   );
 };

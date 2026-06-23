@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCollectionProducts, ShopifyProduct } from "@/lib/shopify";
 import LocaleLink from "@/components/LocaleLink";
@@ -7,10 +7,16 @@ import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils"
 import ThumbhashImage from "@/components/ThumbhashImage";
 import GalleryMagnifier from "@/components/GalleryMagnifier";
 
+// Mount the first row eagerly; defer the rest until they're about to scroll into view.
+const INITIAL_TILES = 6;
+
+
 const DesignGallery = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [mountAll, setMountAll] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
   const { country } = useLocale();
 
   useEffect(() => {
@@ -25,6 +31,27 @@ const DesignGallery = () => {
         setLoading(false);
       });
   }, [country]);
+
+  useEffect(() => {
+    if (mountAll || loading || products.length <= INITIAL_TILES) return;
+    const el = sentinelRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setMountAll(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setMountAll(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [mountAll, loading, products.length]);
+
 
   return (
     <section id="design-gallery" className="hero-gradient pt-20 md:pt-12 pb-12 px-6">
@@ -50,7 +77,7 @@ const DesignGallery = () => {
           <p className="text-center text-muted-foreground py-12">No products found in the "Home" collection.</p>
         ) : (
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
-            {products.map((product, index) => {
+            {(mountAll ? products : products.slice(0, INITIAL_TILES)).map((product, index) => {
               const image = product.node.images.edges[0]?.node;
               return (
                 <LocaleLink
@@ -87,6 +114,9 @@ const DesignGallery = () => {
                 </LocaleLink>
               );
             })}
+            {!mountAll && products.length > INITIAL_TILES && (
+              <div ref={sentinelRef} className="col-span-full h-1" aria-hidden="true" />
+            )}
           </div>
         )}
       </div>
