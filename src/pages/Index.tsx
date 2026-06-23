@@ -34,57 +34,59 @@ const Index = () => {
         <HeroSection />
         <DesignGallery />
 
-        <LazyMount minHeight={500}>
-          <Suspense fallback={<SectionFallback h={500} />}>
+        {/* minHeight values are calibrated to actual rendered mobile heights
+            so the swap from placeholder → mounted content causes ~0 CLS. */}
+        <LazyMount minHeight={1100}>
+          <Suspense fallback={<SectionFallback h={1100} />}>
             <HowItWorks />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={600}>
-          <Suspense fallback={<SectionFallback h={600} />}>
+        <LazyMount minHeight={1020}>
+          <Suspense fallback={<SectionFallback h={1020} />}>
             <LifestyleGallery />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={500}>
-          <Suspense fallback={<SectionFallback h={500} />}>
+        <LazyMount minHeight={1700}>
+          <Suspense fallback={<SectionFallback h={1700} />}>
             <MatBenefits />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={600}>
-          <Suspense fallback={<SectionFallback h={600} />}>
+        <LazyMount minHeight={1050}>
+          <Suspense fallback={<SectionFallback h={1050} />}>
             <CommunityRow />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={500}>
-          <Suspense fallback={<SectionFallback h={500} />}>
+        <LazyMount minHeight={900}>
+          <Suspense fallback={<SectionFallback h={900} />}>
             <ReviewsSection />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={500}>
-          <Suspense fallback={<SectionFallback h={500} />}>
+        <LazyMount minHeight={700}>
+          <Suspense fallback={<SectionFallback h={700} />}>
             <YogiOfTheWeek />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={400}>
-          <Suspense fallback={<SectionFallback h={400} />}>
+        <LazyMount minHeight={500}>
+          <Suspense fallback={<SectionFallback h={500} />}>
             <AffiliateSection />
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={500}>
-          <Suspense fallback={<SectionFallback h={500} />}>
+        <LazyMount minHeight={700}>
+          <Suspense fallback={<SectionFallback h={700} />}>
             <AboutSection />
           </Suspense>
         </LazyMount>
       </main>
 
-      <LazyMount minHeight={400}>
-        <Suspense fallback={<SectionFallback h={400} />}>
+      <LazyMount minHeight={600}>
+        <Suspense fallback={<SectionFallback h={600} />}>
           <Footer />
         </Suspense>
       </LazyMount>
