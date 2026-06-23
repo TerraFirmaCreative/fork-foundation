@@ -49,33 +49,34 @@ const HeroSection = () => {
         }}
       />
 
-      {/* LAYER 2 — Distant violet nebula */}
+      {/* LAYER 2 — Distant violet nebula (static; hidden on mobile to save full-screen blur repaint) */}
       <div
-        className="absolute inset-0 pointer-events-none animate-pulse-glow"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "radial-gradient(ellipse 60% 45% at 22% 28%, hsla(275, 70%, 45%, 0.35) 0%, transparent 60%), radial-gradient(ellipse 55% 40% at 78% 65%, hsla(290, 60%, 40%, 0.28) 0%, transparent 60%)",
           filter: "blur(20px)",
+          opacity: 0.45,
         }}
       />
 
-      {/* LAYER 3 — Soft floating orbs */}
+      {/* LAYER 3 — Soft floating orbs (desktop only; blur(80px) on huge layers is too heavy on mobile) */}
       <div
-        className="floating-orb w-[700px] h-[700px] -top-40 -left-40 bg-shaman-violet/20"
+        className="floating-orb w-[700px] h-[700px] -top-40 -left-40 bg-shaman-violet/20 hidden md:block motion-reduce:animate-none"
         style={{ animationDelay: "0s" }}
       />
       <div
-        className="floating-orb w-[500px] h-[500px] top-1/3 -right-32 bg-shaman-magenta/15"
+        className="floating-orb w-[500px] h-[500px] top-1/3 -right-32 bg-shaman-magenta/15 hidden md:block motion-reduce:animate-none"
         style={{ animationDelay: "5s" }}
       />
       <div
-        className="floating-orb w-[420px] h-[420px] bottom-0 left-1/4 bg-shaman-teal/12"
+        className="floating-orb w-[420px] h-[420px] bottom-0 left-1/4 bg-shaman-teal/12 hidden md:block motion-reduce:animate-none"
         style={{ animationDelay: "9s" }}
       />
 
-      {/* LAYER 4 — Far fractal sacred geometry */}
+      {/* LAYER 4 — Far fractal sacred geometry (desktop only) */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
         viewBox="0 0 1000 1000"
         preserveAspectRatio="xMidYMid slice"
         style={{ opacity: 0.06 }}
@@ -111,9 +112,9 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Flower of Life (fractal-style infinite expansion) */}
+      {/* LAYER 5 — Flower of Life (desktop only; two 1400×1400 SVG layers w/ infinite scale+rotate) */}
       <div
-        className="absolute left-1/2 top-1/2 pointer-events-none"
+        className="absolute left-1/2 top-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
         style={{
           width: 1400,
           height: 1400,
@@ -203,9 +204,9 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* LAYER 6 — Inner mandala (counter-rotating) */}
+      {/* LAYER 6 — Inner mandala (counter-rotating; desktop only) */}
       <svg
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
         width={520}
         height={520}
         viewBox="0 0 200 200"
