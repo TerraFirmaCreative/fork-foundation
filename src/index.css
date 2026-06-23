@@ -318,13 +318,6 @@
     pointer-events: none;
   }
 
-  .floating-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: float-orb 12s ease-in-out infinite;
-  }
-
   @keyframes float-orb {
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(20px, -15px) scale(1.05); }
@@ -366,10 +359,10 @@
   }
 
   @keyframes flower-fractal {
-    0%   { transform: scale(0.25) rotate(0deg);   opacity: 0; }
+    0%   { transform: scale(0.25) rotate(0deg) translateZ(0);   opacity: 0; }
     15%  { opacity: 0.16; }
     85%  { opacity: 0.16; }
-    100% { transform: scale(3.2) rotate(40deg);   opacity: 0; }
+    100% { transform: scale(2.0) rotate(40deg) translateZ(0);   opacity: 0; }
   }
 
   @keyframes flower-grow {

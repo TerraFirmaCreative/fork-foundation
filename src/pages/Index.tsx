@@ -32,7 +32,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <DesignGallery />
+        {/* <DesignGallery /> */}
 
         {/* minHeight values are calibrated to actual rendered mobile heights
             so the swap from placeholder → mounted content causes ~0 CLS. */}

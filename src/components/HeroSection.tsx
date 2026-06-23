@@ -19,59 +19,32 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 90% 70% at 50% 45%, hsla(270, 50%, 12%, 0.6) 0%, hsla(255, 50%, 6%, 0.65) 45%, #000000 100%)",
+            "radial-gradient(ellipse 90% 70% at 50% 45%, hsla(270, 50%, 12%, 0.6) 0%, hsla(255, 50%, 6%, 0.45) 45%, #000000 100%)",
         }}
       />
 
-      {/* LAYER 1b — Dense starfield */}
+      {/* LAYER 3 — Soft floating orbs (desktop only; radial-gradient instead of blur for better perf) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute hidden md:block pointer-events-none motion-reduce:hidden aspect-square"
         style={{
-          backgroundImage: [
-            "radial-gradient(1px 1px at 8% 12%, hsla(45, 80%, 85%, 0.9), transparent 60%)",
-            "radial-gradient(1px 1px at 18% 42%, hsla(0, 0%, 100%, 0.7), transparent 60%)",
-            "radial-gradient(1.5px 1.5px at 27% 22%, hsla(270, 70%, 92%, 0.85), transparent 60%)",
-            "radial-gradient(1px 1px at 36% 68%, hsla(0, 0%, 100%, 0.6), transparent 60%)",
-            "radial-gradient(1px 1px at 44% 14%, hsla(45, 80%, 85%, 0.75), transparent 60%)",
-            "radial-gradient(1.5px 1.5px at 53% 84%, hsla(220, 70%, 92%, 0.7), transparent 60%)",
-            "radial-gradient(1px 1px at 62% 32%, hsla(0, 0%, 100%, 0.65), transparent 60%)",
-            "radial-gradient(1px 1px at 71% 58%, hsla(270, 70%, 92%, 0.6), transparent 60%)",
-            "radial-gradient(1.5px 1.5px at 79% 18%, hsla(45, 80%, 85%, 0.8), transparent 60%)",
-            "radial-gradient(1px 1px at 86% 74%, hsla(0, 0%, 100%, 0.55), transparent 60%)",
-            "radial-gradient(1px 1px at 93% 38%, hsla(220, 70%, 92%, 0.65), transparent 60%)",
-            "radial-gradient(1px 1px at 12% 88%, hsla(45, 80%, 85%, 0.6), transparent 60%)",
-            "radial-gradient(1px 1px at 48% 92%, hsla(0, 0%, 100%, 0.55), transparent 60%)",
-            "radial-gradient(1px 1px at 66% 6%, hsla(270, 70%, 92%, 0.6), transparent 60%)",
-          ].join(", "),
-          backgroundSize: "1100px 1100px",
-          backgroundRepeat: "repeat",
-          opacity: 0.95,
-        }}
-      />
-
-      {/* LAYER 2 — Distant violet nebula (static; hidden on mobile to save full-screen blur repaint) */}
-      <div
-        className="absolute inset-0 pointer-events-none hidden md:block"
-        style={{
+          width: "100%",
+          top: "33.333%",
+          right: -128,
+          transform: "translateY(-50%)",
           background:
-            "radial-gradient(ellipse 60% 45% at 22% 28%, hsla(275, 70%, 45%, 0.35) 0%, transparent 60%), radial-gradient(ellipse 55% 40% at 78% 65%, hsla(290, 60%, 40%, 0.28) 0%, transparent 60%)",
-          filter: "blur(20px)",
-          opacity: 0.45,
+            "radial-gradient(ellipse 50% 50% at 50% 50%, hsla(285, 50%, 55%, 0.24) 0%, hsla(285, 50%, 55%, 0.06) 50%, transparent 100%)",
+          animation: "float-orb 12s ease-in-out infinite",
+          }}
+      />
+      <div
+        className="absolute hidden md:block pointer-events-none motion-reduce:hidden aspect-square"
+        style={{
+          width: "100%",
+          bottom: 0,
+          left: "25%",
+          background:
+            "radial-gradient(ellipse 50% 50% at 50% 50%, hsla(220, 50%, 55%, 0.2) 0%, hsla(220, 50%, 55%, 0.05) 50%, transparent 100%)",
         }}
-      />
-
-      {/* LAYER 3 — Soft floating orbs (desktop only; blur(80px) on huge layers is too heavy on mobile) */}
-      <div
-        className="floating-orb w-[700px] h-[700px] -top-40 -left-40 bg-shaman-violet/20 hidden md:block motion-reduce:animate-none"
-        style={{ animationDelay: "0s" }}
-      />
-      <div
-        className="floating-orb w-[500px] h-[500px] top-1/3 -right-32 bg-shaman-magenta/15 hidden md:block motion-reduce:animate-none"
-        style={{ animationDelay: "5s" }}
-      />
-      <div
-        className="floating-orb w-[420px] h-[420px] bottom-0 left-1/4 bg-shaman-teal/12 hidden md:block motion-reduce:animate-none"
-        style={{ animationDelay: "9s" }}
       />
 
       {/* LAYER 4 — Far fractal sacred geometry (desktop only) */}
@@ -121,63 +94,26 @@ const HeroSection = () => {
           marginLeft: -700,
           marginTop: -700,
         }}
-      >
-        {/* Two staggered layers create a seamless ever-expanding loop */}
+      />
+      {/* Two staggered layers create a seamless ever-expanding loop */}
         <svg
           width="100%"
           height="100%"
           viewBox="-100 -100 200 200"
           className="absolute inset-0"
           style={{
-            animation: "flower-fractal 28s linear infinite",
+            // animation: "flower-fractal 28s linear infinite",
+            // animationDelay: "-14s",
             transformOrigin: "center",
+            borderWidth: 1,
+            borderColor: "red"
           }}
         >
-          <defs>
-            <radialGradient id="folGradient" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="hsl(45, 80%, 75%)" stopOpacity="1" />
-              <stop offset="60%" stopColor="hsl(285, 60%, 65%)" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="hsl(270, 70%, 70%)" stopOpacity="0.7" />
-            </radialGradient>
-          </defs>
-          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
-            {(() => {
-              const r = 20;
-              const centers: Array<[number, number]> = [[0, 0]];
-              for (let i = 0; i < 6; i++) {
-                const a = (i * 60 * Math.PI) / 180;
-                centers.push([r * Math.cos(a), r * Math.sin(a)]);
-              }
-              for (let i = 0; i < 6; i++) {
-                const a = (i * 60 * Math.PI) / 180;
-                centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
-              }
-              const d = r * Math.sqrt(3);
-              for (let i = 0; i < 6; i++) {
-                const a = ((i * 60 + 30) * Math.PI) / 180;
-                centers.push([d * Math.cos(a), d * Math.sin(a)]);
-              }
-              return centers.map(([cx, cy], i) => (
-                <circle key={i} cx={cx} cy={cy} r={r} />
-              ));
-            })()}
-            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
-            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
-          </g>
-        </svg>
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="-100 -100 200 200"
-          className="absolute inset-0"
-          style={{
+          
+          <g stroke="hsl(285, 60%, 65%)" fill="none" strokeWidth="0.2" style={{
             animation: "flower-fractal 28s linear infinite",
             animationDelay: "-14s",
-            transformOrigin: "center",
-          }}
-        >
-          <use href="#folGradient" />
-          <g stroke="url(#folGradient)" fill="none" strokeWidth="0.4">
+          }}>
             {(() => {
               const r = 20;
               const centers: Array<[number, number]> = [[0, 0]];
@@ -198,14 +134,12 @@ const HeroSection = () => {
                 <circle key={i} cx={cx} cy={cy} r={r} />
               ));
             })()}
-            <circle cx="0" cy="0" r="60" strokeWidth="0.5" />
+            <circle cx="0" cy="0" r="60" strokeWidth="0.3" />
             <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
           </g>
         </svg>
-      </div>
-
       {/* LAYER 6 — Inner mandala (counter-rotating; desktop only) */}
-      <svg
+      {/*<svg
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
         width={520}
         height={520}
