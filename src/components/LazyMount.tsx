@@ -16,7 +16,7 @@ interface LazyMountProps {
  */
 const LazyMount = ({
   children,
-  rootMargin = "600px 0px",
+  rootMargin = "1800px 0px",
   minHeight = 400,
   className,
 }: LazyMountProps) => {
