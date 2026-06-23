@@ -343,16 +343,6 @@
     animation: shimmer 4s linear infinite;
   }
 
-  @keyframes mandala-spin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-  }
-
-  @keyframes mandala-spin-reverse {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(-360deg); }
-  }
-
   @keyframes flower-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

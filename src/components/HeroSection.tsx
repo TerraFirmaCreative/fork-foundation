@@ -13,17 +13,20 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center">
-      {/* LAYER 1 — True black space base with subtle violet depth */}
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden flex items-center justify-center"
+      style={{
+          background: "radial-gradient(circle, hsla(270, 70%, 60%, 0.82) 0%, hsla(285, 60%, 50%, 0.14) 40%, transparent 80%)",
+      }}
+    >
+      {/* Vignette */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none"
         style={{
-          background:
-            "radial-gradient(ellipse 90% 70% at 50% 45%, hsla(270, 50%, 12%, 0.6) 0%, hsla(255, 50%, 6%, 0.45) 45%, #000000 100%)",
+          background: "radial-gradient(ellipse 90% 70% at 50% 45%, hsla(270, 50%, 12%, 0.6) 0%, hsla(255, 50%, 6%, 0.45) 45%, #000000 100%)",
         }}
       />
 
-      {/* LAYER 3 — Soft floating orbs (desktop only; radial-gradient instead of blur for better perf) */}
+      {/* Soft floating orbs (desktop only;) */}
       <div
         className="absolute hidden md:block pointer-events-none motion-reduce:hidden aspect-square"
         style={{
@@ -56,9 +59,9 @@ const HeroSection = () => {
       >
         <defs>
           <radialGradient id="fractalFade" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="hsl(270, 70%, 75%)" stopOpacity="1" />
-            <stop offset="70%" stopColor="hsl(270, 70%, 75%)" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="hsl(270, 70%, 75%)" stopOpacity="0" />
+            <stop offset="0%" stopColor="hsl(270, 70%, 90%)" stopOpacity="1" />
+            <stop offset="90%" stopColor="hsl(270, 70%, 90%)" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="hsl(270, 70%, 90%)" stopOpacity="0" />
           </radialGradient>
         </defs>
         <g
@@ -86,15 +89,7 @@ const HeroSection = () => {
       </svg>
 
       {/* LAYER 5 — Flower of Life (desktop only; two 1400×1400 SVG layers w/ infinite scale+rotate) */}
-      <div
-        className="absolute left-1/2 top-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
-        style={{
-          width: 1400,
-          height: 1400,
-          marginLeft: -700,
-          marginTop: -700,
-        }}
-      />
+
       {/* Two staggered layers create a seamless ever-expanding loop */}
         <svg
           width="100%"
@@ -105,23 +100,22 @@ const HeroSection = () => {
             // animation: "flower-fractal 28s linear infinite",
             // animationDelay: "-14s",
             transformOrigin: "center",
-            borderWidth: 1,
-            borderColor: "red"
           }}
         >
           
-          <g stroke="hsl(285, 60%, 65%)" fill="none" strokeWidth="0.2" style={{
+          <g stroke="hsl(285, 60%, 65%)" fill="none" strokeWidth="0.4" style={{
             animation: "flower-fractal 28s linear infinite",
             animationDelay: "-14s",
+            willChange: "opacity scale"
           }}>
             {(() => {
               const r = 20;
               const centers: Array<[number, number]> = [[0, 0]];
-              for (let i = 0; i < 6; i++) {
+              for (let i = 0; i < 3; i++) {
                 const a = (i * 60 * Math.PI) / 180;
                 centers.push([r * Math.cos(a), r * Math.sin(a)]);
               }
-              for (let i = 0; i < 6; i++) {
+              for (let i = 0; i < 3; i++) {
                 const a = (i * 60 * Math.PI) / 180;
                 centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
               }
@@ -137,77 +131,27 @@ const HeroSection = () => {
             <circle cx="0" cy="0" r="60" strokeWidth="0.3" />
             <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
           </g>
+
+          <g stroke="hsl(285, 60%, 65%)" fill="none" strokeWidth="0.4" style={{
+            animation: "flower-fractal 28s linear infinite",
+            animationDelay: "0s",
+            willChange: "opacity scale"
+          }}>
+            {(() => {
+              const r = 20;
+              const centers: Array<[number, number]> = [[0, 0]];
+              for (let i = 0; i < 6; i++) {
+                const a = (i * 60 * Math.PI) / 180;
+                centers.push([r * Math.cos(a), r * Math.sin(a)]);
+              }
+              return centers.map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r={r} />
+              ));
+            })()}
+            <circle cx="0" cy="0" r="60" strokeWidth="0.3" />
+            <circle cx="0" cy="0" r="64" strokeWidth="0.3" opacity="0.6" />
+          </g>
         </svg>
-      {/* LAYER 6 — Inner mandala (counter-rotating; desktop only) */}
-      {/*<svg
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block motion-reduce:hidden"
-        width={520}
-        height={520}
-        viewBox="0 0 200 200"
-        style={{
-          opacity: 0.14,
-          animation: "mandala-spin-reverse 240s linear infinite",
-        }}
-      >
-        <defs>
-          <linearGradient id="innerMandala" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(45, 80%, 75%)" />
-            <stop offset="100%" stopColor="hsl(270, 70%, 75%)" />
-          </linearGradient>
-        </defs>
-        <g
-          transform="translate(100, 100)"
-          stroke="url(#innerMandala)"
-          fill="none"
-          strokeWidth="0.3"
-        >
-          {[20, 35, 55, 80].map((r) => (
-            <circle key={r} cx="0" cy="0" r={r} />
-          ))}
-          {Array.from({ length: 12 }).map((_, i) => {
-            const angle = (i * 30 * Math.PI) / 180;
-            return (
-              <line
-                key={i}
-                x1={20 * Math.cos(angle)}
-                y1={20 * Math.sin(angle)}
-                x2={80 * Math.cos(angle)}
-                y2={80 * Math.sin(angle)}
-              />
-            );
-          })}
-        </g>
-      </svg>
-
-      {/* LAYER 7 — Soft glow halo behind logo */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        style={{
-          width: 560,
-          height: 560,
-          background:
-            "radial-gradient(circle, hsla(270, 70%, 60%, 0.32) 0%, hsla(285, 60%, 50%, 0.14) 40%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-
-      {/* LAYER 8 — Vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 35%, hsla(240, 60%, 4%, 0.7) 100%)",
-        }}
-      />
-
-      {/* Readability scrim — darkens busy backdrop behind text for dim phone screens */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[5] md:hidden"
-        style={{
-          background:
-            "radial-gradient(ellipse 95% 60% at 50% 55%, hsla(240, 60%, 3%, 0.55) 0%, hsla(240, 60%, 3%, 0.35) 50%, transparent 80%)",
-        }}
-      />
 
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div
