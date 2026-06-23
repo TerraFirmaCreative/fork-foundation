@@ -10,7 +10,7 @@ const AffiliateSection = () => {
       <MandalaDecoration className="-top-32 -left-32" size={400} />
       
       <div className="max-w-3xl mx-auto relative z-10 text-center">
-        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-6 font-body">
           Partner With Us
         </p>
         <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-6">

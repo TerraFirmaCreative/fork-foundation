@@ -44,7 +44,7 @@ const ReviewsSection = () => {
       
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-6 font-body">
             Customer Reviews
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">

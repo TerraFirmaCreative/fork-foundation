@@ -25,7 +25,7 @@ const AboutSection = () => {
       />
 
       <div className="max-w-3xl mx-auto relative z-10 text-center">
-        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/70 mb-6 font-body">
+        <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-6 font-body">
           Our Story
         </p>
 
