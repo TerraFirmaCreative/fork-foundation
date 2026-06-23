@@ -182,7 +182,7 @@ const Footer = () => {
             ))}
           </div>
 
-          <div className="text-xs text-muted-foreground/40 font-display tracking-wide text-center">
+          <div className="text-xs text-muted-foreground font-display tracking-wide text-center">
             <p>© 2026 Cosmic Igloo. All rights reserved.</p>
           </div>
         </div>
