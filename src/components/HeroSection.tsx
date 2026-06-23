@@ -50,7 +50,7 @@ const HeroSection = () => {
         }}
       />
 
-      {/* LAYER 4 — Far fractal sacred geometry (desktop only) */}
+      {/* Background grid */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
         viewBox="0 0 1000 1000"
@@ -88,14 +88,13 @@ const HeroSection = () => {
         </g>
       </svg>
 
-      {/* LAYER 5 — Flower of Life (desktop only; two 1400×1400 SVG layers w/ infinite scale+rotate) */}
 
       {/* Two staggered layers create a seamless ever-expanding loop */}
         <svg
           width="100%"
           height="100%"
           viewBox="-100 -100 200 200"
-          className="absolute inset-0"
+          className="absolute inset-0 hidden md:block"
           style={{
             // animation: "flower-fractal 28s linear infinite",
             // animationDelay: "-14s",
