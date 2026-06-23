@@ -79,59 +79,88 @@ const GallerySlot = ({
   onAdvance: () => void;
   delay: number;
 }) => {
-  // Each slot drifts with its own rhythm so the four panels feel like they're dancing,
-  // never flipping in unison and never feeling abrupt.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const [prevIndex, setPrevIndex] = useState(currentIndex);
+  const [showPrev, setShowPrev] = useState(false);
+
+  // Only schedule rotation when the slot is on-screen and motion is allowed.
   useEffect(() => {
-    const tick = () => {
-      onAdvance();
-      schedule();
-    };
-    let timeout: ReturnType<typeof setTimeout>;
-    const schedule = () => {
-      // 6–10s irregular cadence per slot — long enough that the crossfade fully resolves
-      timeout = setTimeout(tick, 6000 + Math.random() * 4000);
-    };
-    timeout = setTimeout(tick, delay);
-    return () => clearTimeout(timeout);
+    const el = containerRef.current;
+    if (!el) return;
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { rootMargin: "200px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!visible) return;
+    let timeout: ReturnType<typeof setTimeout>;
+    const schedule = (ms: number) => {
+      timeout = setTimeout(() => {
+        onAdvance();
+        schedule(6000 + Math.random() * 4000);
+      }, ms);
+    };
+    schedule(delay);
+    return () => clearTimeout(timeout);
+  }, [visible, onAdvance, delay]);
+
+  // Crossfade: keep the previous image mounted briefly until the new one fades in.
+  useEffect(() => {
+    if (currentIndex === prevIndex) return;
+    setShowPrev(true);
+    const t = setTimeout(() => {
+      setPrevIndex(currentIndex);
+      setShowPrev(false);
+    }, 900);
+    return () => clearTimeout(t);
+  }, [currentIndex, prevIndex]);
+
+  const renderImg = (idx: number, active: boolean) => {
+    const img = images[idx];
+    return (
+      <picture key={`${idx}-${active}`}>
+        {img.pic.sources.avif && (
+          <source type="image/avif" srcSet={img.pic.sources.avif} sizes={SIZES} />
+        )}
+        {img.pic.sources.webp && (
+          <source type="image/webp" srcSet={img.pic.sources.webp} sizes={SIZES} />
+        )}
+        <img
+          src={img.pic.img.src}
+          alt={img.alt}
+          width={img.pic.img.w}
+          height={img.pic.img.h}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ease-out ${
+            active ? "opacity-100" : "opacity-0"
+          }`}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    );
+  };
+
   return (
-    <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-card/40">
-      {images.map((img, i) => {
-        const active = i === currentIndex;
-        return (
-          <picture key={i}>
-            {img.pic.sources.avif && (
-              <source type="image/avif" srcSet={img.pic.sources.avif} sizes={SIZES} />
-            )}
-            {img.pic.sources.webp && (
-              <source type="image/webp" srcSet={img.pic.sources.webp} sizes={SIZES} />
-            )}
-            <img
-              src={img.pic.img.src}
-              alt={img.alt}
-              width={img.pic.img.w}
-              height={img.pic.img.h}
-              style={{
-                transitionProperty: "opacity, transform, filter",
-                transitionDuration: "2600ms, 9000ms, 2600ms",
-                transitionTimingFunction:
-                  "cubic-bezier(0.4, 0, 0.2, 1), linear, cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-              className={`absolute inset-0 w-full h-full object-cover will-change-[opacity,transform] ${
-                active
-                  ? "opacity-100 scale-105 blur-0"
-                  : "opacity-0 scale-100 blur-[2px]"
-              }`}
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        );
-      })}
+    <div
+      ref={containerRef}
+      className="relative aspect-[3/4] rounded-xl overflow-hidden bg-card/40"
+    >
+      {showPrev && prevIndex !== currentIndex && renderImg(prevIndex, false)}
+      {renderImg(currentIndex, true)}
     </div>
   );
 };
+
 
 const YogiOfTheWeek = () => {
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
