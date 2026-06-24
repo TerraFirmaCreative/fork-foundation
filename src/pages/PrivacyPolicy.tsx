@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
               <ul className="space-y-2">
                 <li className="flex items-start gap-3"><Bullet /><span><strong className="text-foreground">Contact details</strong> including your name, address, billing address, shipping address, phone number, and email address.</span></li>
                 <li className="flex items-start gap-3"><Bullet /><span><strong className="text-foreground">Financial information</strong> including credit card, debit card, and financial account numbers, payment card information, financial account information, transaction details, form of payment, payment confirmation and other payment details.</span></li>
-                <li className="flex items-start gap-3"><Bullet /><span><strong className="text-foreground">Account information</strong> including your username, password, security questions, preferences and settings.</span></li>
+                
                 <li className="flex items-start gap-3"><Bullet /><span><strong className="text-foreground">Transaction information</strong> including the items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel and your past transactions.</span></li>
                 <li className="flex items-start gap-3"><Bullet /><span><strong className="text-foreground">Communications with us</strong> including the information you include in communications with us, for example, when sending a customer support inquiry.</span></li>
                 <li className="flex items-start gap-3"><Bullet /><span><strong className="text-foreground">Device information</strong> including information about your device, browser, or network connection, your IP address, and other unique identifiers.</span></li>
