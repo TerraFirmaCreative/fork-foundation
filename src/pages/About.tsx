@@ -36,7 +36,7 @@ const About = () => {
             </p>
             <p className="text-foreground">Made to order. Made for us.</p>
             <p>
-              We're building a community of people who want to be inspired every time they unroll their mat. If that's you, <LocaleLink to="/#design-gallery" className="underline underline-offset-4 text-foreground hover:text-primary transition-colors">come find yours</LocaleLink>.
+              We're building a community of people who want to be inspired every time they unroll their mat. If that's you, <LocaleLink to="/#design-gallery" className="underline underline-offset-4 text-shaman-violet hover:text-shaman-violet/80 transition-colors">come find yours</LocaleLink>.
             </p>
           </div>
         </div>

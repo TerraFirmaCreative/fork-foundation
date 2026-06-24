@@ -133,7 +133,7 @@ const TermsAndConditions = () => {
                 Product descriptions and pricing are subject to change at any time without notice. We reserve the right to discontinue any product at any time. Any offer made on this Site is void where prohibited.
               </p>
               <p>
-                Returns and refunds are handled in accordance with our <LocaleLink to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
+                Returns and refunds are handled in accordance with our <LocaleLink to="/refund-policy" className="text-shaman-violet font-semibold hover:text-shaman-violet/80 transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
               </p>
             </section>
 
@@ -152,7 +152,7 @@ const TermsAndConditions = () => {
                 You agree to provide current, complete, and accurate purchase and account information and to promptly update your details so we can complete transactions and contact you as required.
               </p>
               <p>
-                For more information, please review our <LocaleLink to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
+                For more information, please review our <LocaleLink to="/refund-policy" className="text-shaman-violet font-semibold hover:text-shaman-violet/80 transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
               </p>
             </section>
 
@@ -204,7 +204,7 @@ const TermsAndConditions = () => {
                 Section 10 – Personal Information
               </h2>
               <p>
-                Your submission of personal information through the Site is governed by our <LocaleLink to="/privacy-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Privacy Policy</LocaleLink>.
+                Your submission of personal information through the Site is governed by our <LocaleLink to="/privacy-policy" className="text-shaman-violet font-semibold hover:text-shaman-violet/80 transition-colors underline underline-offset-2">Privacy Policy</LocaleLink>.
               </p>
             </section>
 
