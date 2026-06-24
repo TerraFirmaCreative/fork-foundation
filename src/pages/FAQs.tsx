@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Are the mats made to order?",
-    answer: "Yes — every mat is printed specifically for you once you place your order. No excess stock, no waste, and nothing sitting in a warehouse. Every mat is made fresh, just for you."
+    answer: "Yes. Every mat is printed specifically for you once you place your order. No excess stock, no waste, and nothing sitting in a warehouse. Every mat is made fresh, just for you."
   },
   {
     question: "What are the mats made from?",
