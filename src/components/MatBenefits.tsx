@@ -23,7 +23,7 @@ const benefits = [
   },
   {
     title: "Lightweight & Rollable",
-    description: "1.76kg — light enough to carry anywhere, tough enough for daily practice.",
+    description: "1.76kg Light enough to carry anywhere, tough enough for daily practice.",
     tag: "1.76KG",
   },
   {
