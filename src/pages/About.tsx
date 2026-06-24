@@ -17,7 +17,7 @@ const About = () => {
         <div className="absolute inset-0 shaman-bg" />
         <div className="max-w-3xl mx-auto relative z-10">
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
-            <p className="font-display italic text-shaman-gold text-2xl md:text-3xl">A warm space in the infinite.</p>
+            <p className="font-display italic text-shaman-gold text-xl md:text-2xl">A warm space in the infinite.</p>
             <p>
               That's what we believe our mats should be, a place of beauty and intention amongst the chaos.
             </p>
