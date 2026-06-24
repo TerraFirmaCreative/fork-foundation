@@ -35,7 +35,7 @@ const RefundPolicy = () => {
                 To be eligible for a return, the item needs to be unused, in its original condition and packaging where possible, and accompanied by proof of purchase.
               </p>
               <p>
-                Please don't send anything back without contacting us first — returns sent without prior approval won't be accepted.
+                Please don't send anything back without contacting us first. Returns sent without prior approval won't be accepted.
               </p>
             </section>
 
