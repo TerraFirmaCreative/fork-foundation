@@ -88,7 +88,7 @@ const Unsubscribe = () => {
           )}
           {status === "error" && (
             <p className="text-muted-foreground font-body">
-              Something went wrong. Please try again or email hello@cosmicigloo.com.
+              Something went wrong. Please try again or email <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>.
             </p>
           )}
         </div>
