@@ -8,7 +8,7 @@ const benefits = [
   },
   {
     title: "Suede Microfibre Surface",
-    description: "Soft underfoot and gets grippier as you warm up — sweat activates the surface.",
+    description: "Soft underfoot and gets grippier as you warm up. Sweat activates the surface.",
     tag: "GRIP IMPROVES WITH USE",
   },
   {
