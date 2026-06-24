@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     question: "How do I get in touch?",
-    answer: "You can reach us at hello@cosmicigloo.com. We're a small team so we might not always reply instantly, but we do reply — and we're always happy to hear from you."
+    answer: "You can reach us at hello@cosmicigloo.com. We're a small team so we might not always reply instantly. But we do reply, and we're always happy to hear from you."
   }
 ];
 
