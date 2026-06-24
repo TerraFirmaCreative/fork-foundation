@@ -148,7 +148,7 @@ const PrivacyPolicy = () => {
                 Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee "perfect security." In addition, any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information to us.
               </p>
               <p>
-                How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, to provide you with Services, comply with legal obligations, resolve disputes or enforce other applicable contracts and policies.
+                How long we retain your personal information depends on different factors, such as whether we need the information to provide you with Services, comply with legal obligations, resolve disputes or enforce other applicable contracts and policies.
               </p>
             </section>
 
