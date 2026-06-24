@@ -86,7 +86,7 @@ const RefundPolicy = () => {
                 <strong className="text-foreground">Caring for your mat:</strong> To keep your mat performing:
               </p>
               <ul className="space-y-2 mb-4">
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Wipe the top with a damp cloth and mild soap, or machine wash cold on a gentle cycle — no fabric softener or bleach.</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Wipe the top with a damp cloth and mild soap, or machine wash cold on a gentle cycle. No fabric softener or bleach.</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Air dry flat or hang to dry; never tumble dry.</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Avoid oils, lotions, and alcohol-based sprays, which reduce the microfibre's grip.</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Keep the rubber base out of direct sunlight and extreme heat, and don't leave your mat in a hot car.</span></li>
