@@ -49,7 +49,7 @@ const AboutSection = () => {
               to="/about"
               className="text-shaman-violet hover:text-shaman-violet/80 underline underline-offset-4 transition-colors"
             >
-              Read our full story →
+              About us →
             </LocaleLink>
           </p>
         </div>
