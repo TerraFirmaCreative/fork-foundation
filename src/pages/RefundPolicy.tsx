@@ -29,7 +29,7 @@ const RefundPolicy = () => {
                 If there's a problem with your order
               </h2>
               <p className="mb-4">
-                Please contact us within 30 days of receiving your mat at <strong className="text-foreground">hello@cosmicigloo.com</strong>. Include a photo of the issue so we can see what's happened, and we'll take it from there.
+                Please contact us within 30 days of receiving your mat at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>. Include a photo of the issue so we can see what's happened, and we'll take it from there.
               </p>
               <p className="mb-4">
                 To be eligible for a return, the item needs to be unused, in its original condition and packaging where possible, and accompanied by proof of purchase.
@@ -53,7 +53,7 @@ const RefundPolicy = () => {
                 Refunds
               </h2>
               <p>
-                If a refund is approved, it'll be issued to your original payment method within <strong className="text-foreground">10 business days</strong>. If more than <strong className="text-foreground">15 business days</strong> have passed since we approved your refund and you haven't received it, please drop us a line at <strong className="text-foreground">hello@cosmicigloo.com</strong>.
+                If a refund is approved, it'll be issued to your original payment method within <strong className="text-foreground">10 business days</strong>. If more than <strong className="text-foreground">15 business days</strong> have passed since we approved your refund and you haven't received it, please drop us a line at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>.
               </p>
             </section>
 
@@ -71,7 +71,7 @@ const RefundPolicy = () => {
                 Warranty & Care
               </h2>
               <p className="mb-4">
-                We warrant Cosmic Igloo mats against manufacturing defects for <strong className="text-foreground">30 days from the date of purchase</strong>. If a defect appears, contact us at <strong className="text-foreground">hello@cosmicigloo.com</strong> with your order number and photos, and we'll repair, replace, or refund at our discretion.
+                We warrant Cosmic Igloo mats against manufacturing defects for <strong className="text-foreground">30 days from the date of purchase</strong>. If a defect appears, contact us at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a> with your order number and photos, and we'll repair, replace, or refund at our discretion.
               </p>
               <p className="mb-3 text-foreground font-medium">What's not covered:</p>
               <ul className="space-y-2 mb-6">
