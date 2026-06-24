@@ -115,7 +115,7 @@ const Contact = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
                 <span>
                   <strong className="text-foreground">Email:</strong>{" "}
-                  <a href="mailto:hello@cosmicigloo.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">
+                  <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
                     hello@cosmicigloo.com
                   </a>
                 </span>
