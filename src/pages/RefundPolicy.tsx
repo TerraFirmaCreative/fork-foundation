@@ -102,7 +102,7 @@ const RefundPolicy = () => {
                 Sale and discounted items
               </h2>
               <p>
-                Discounts and promotional pricing don't change this policy. Sale and discount-code orders are covered for faults, damage, or incorrect items, but — like all our made-to-order items — aren't eligible for change-of-mind returns.
+                Discounts and promotional pricing don't change this policy. Sale and discount-code orders are covered for faults, damage, or incorrect items, but (like all our made-to-order items) aren't eligible for change-of-mind returns.
               </p>
             </section>
 
