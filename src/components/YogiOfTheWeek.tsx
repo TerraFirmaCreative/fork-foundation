@@ -101,18 +101,23 @@ const GallerySlot = ({
     return () => io.disconnect();
   }, []);
 
+  // Keep latest onAdvance in a ref so the scheduler effect doesn't re-run
+  // (and reset its timer) on every parent re-render.
+  const onAdvanceRef = useRef(onAdvance);
+  onAdvanceRef.current = onAdvance;
+
   useEffect(() => {
     if (!visible) return;
     let timeout: ReturnType<typeof setTimeout>;
     const schedule = (ms: number) => {
       timeout = setTimeout(() => {
-        onAdvance();
+        onAdvanceRef.current();
         schedule(6000 + Math.random() * 4000);
       }, ms);
     };
     schedule(delay);
     return () => clearTimeout(timeout);
-  }, [visible, onAdvance, delay]);
+  }, [visible, delay]);
 
   // Crossfade: keep the previous image mounted briefly until the new one fades in.
   useEffect(() => {
