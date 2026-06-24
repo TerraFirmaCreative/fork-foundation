@@ -94,7 +94,7 @@ const HeroSection = () => {
           width="100%"
           height="100%"
           viewBox="-100 -100 200 200"
-          className="absolute inset-0 hidden md:block"
+          className="absolute inset-0"
           style={{
             // animation: "flower-fractal 28s linear infinite",
             // animationDelay: "-14s",
