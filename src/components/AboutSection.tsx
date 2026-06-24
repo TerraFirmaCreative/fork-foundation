@@ -47,7 +47,7 @@ const AboutSection = () => {
             We'd love you to join our little community.{" "}
             <LocaleLink
               to="/about"
-              className="text-shaman-gold hover:text-shaman-gold/80 underline underline-offset-4 transition-colors"
+              className="text-shaman-violet hover:text-shaman-violet/80 underline underline-offset-4 transition-colors"
             >
               Read our full story →
             </LocaleLink>
