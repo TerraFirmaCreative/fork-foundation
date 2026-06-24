@@ -105,7 +105,16 @@ const FAQs = () => {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="font-body text-muted-foreground whitespace-pre-line">
-                  {faq.answer}
+                  {faq.answer.split("hello@cosmicigloo.com").map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
+                          hello@cosmicigloo.com
+                        </a>
+                      )}
+                    </span>
+                  ))}
                 </AccordionContent>
               </AccordionItem>
             ))}
