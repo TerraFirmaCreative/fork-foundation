@@ -35,7 +35,7 @@ const TermsAndConditions = () => {
                 Overview
               </h2>
               <p className="mb-4">
-                This website is operated by <strong className="text-foreground">Cosmic Igloo</strong>. Throughout the Site, the terms "we", "us", and "our" refer to Cosmic Igloo. Cosmic Igloo offers this website, including all information, tools, and services available from <strong className="text-foreground">cosmicigloo.com</strong> (the "Site") to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+                This website is operated by Cosmic Igloo. Throughout the Site, the terms "we", "us", and "our" refer to Cosmic Igloo. Cosmic Igloo offers this website, including all information, tools, and services available from cosmicigloo.com (the "Site") to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
               </p>
               <p className="mb-4">
                 By visiting our Site and/or purchasing something from us, you engage in our "Service" and agree to be bound by the following Terms & Conditions ("Terms"), including any additional terms and policies referenced herein and/or available by hyperlink. These Terms apply to all users of the Site, including browsers and customers.
@@ -47,7 +47,7 @@ const TermsAndConditions = () => {
                 We reserve the right to update, change, or replace any part of these Terms by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the Site following the posting of any changes constitutes acceptance of those changes.
               </p>
               <p>
-                Our online store is powered by <strong className="text-foreground">Shopify Inc.</strong>, which provides us with the e-commerce platform that enables us to sell our products and services to you.
+                Our online store is powered by Shopify Inc., which provides us with the e-commerce platform that enables us to sell our products and services to you.
               </p>
             </section>
 
@@ -246,7 +246,7 @@ const TermsAndConditions = () => {
                 All products and services are provided "as is" and "as available", except as expressly stated.
               </p>
               <p className="mb-4">
-                To the maximum extent permitted by law, <strong className="text-foreground">Cosmic Igloo</strong> shall not be liable for any direct, indirect, incidental, punitive, or consequential damages arising from your use of the Service or any products purchased.
+                To the maximum extent permitted by law, Cosmic Igloo shall not be liable for any direct, indirect, incidental, punitive, or consequential damages arising from your use of the Service or any products purchased.
               </p>
               <p className="mb-4">
                 Where liability cannot be excluded, it is limited to the maximum extent permitted by law.
@@ -262,7 +262,7 @@ const TermsAndConditions = () => {
                 Section 14 – Indemnification
               </h2>
               <p>
-                You agree to indemnify and hold harmless <strong className="text-foreground">Cosmic Igloo</strong> and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
+                You agree to indemnify and hold harmless Cosmic Igloo and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
               </p>
             </section>
 
@@ -302,7 +302,7 @@ const TermsAndConditions = () => {
                 Section 18 – Governing Law
               </h2>
               <p>
-                Except where required otherwise, these Terms are governed by and construed in accordance with the laws of <strong className="text-foreground">Western Australia</strong>.
+                Except where required otherwise, these Terms are governed by and construed in accordance with the laws of Western Australia.
               </p>
             </section>
 
@@ -325,7 +325,7 @@ const TermsAndConditions = () => {
                 Questions about these Terms should be sent to:
               </p>
               <p>
-                <strong className="text-foreground">hello@cosmicigloo.com</strong>
+                hello@cosmicigloo.com
               </p>
             </section>
           </div>
