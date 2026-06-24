@@ -325,7 +325,7 @@ const TermsAndConditions = () => {
                 Questions about these Terms should be sent to:
               </p>
               <p>
-                hello@cosmicigloo.com
+                <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>
               </p>
             </section>
           </div>
