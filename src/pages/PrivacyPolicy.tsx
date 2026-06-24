@@ -74,7 +74,7 @@ const PrivacyPolicy = () => {
               </h2>
               <p className="mb-4">We may collect personal information from the following sources:</p>
               <ul className="space-y-2">
-                <li className="flex items-start gap-3"><Bullet color="bg-shaman-teal" /><span><strong className="text-foreground">Directly from you</strong> including when you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information;</span></li>
+                <li className="flex items-start gap-3"><Bullet color="bg-shaman-teal" /><span><strong className="text-foreground">Directly from you</strong> including when you visit or use the Services, communicate with us, or otherwise provide us with your personal information;</span></li>
                 <li className="flex items-start gap-3"><Bullet color="bg-shaman-teal" /><span><strong className="text-foreground">Automatically through the Services</strong> including from your device when you use our products or services or visit our websites, and through the use of cookies and similar technologies;</span></li>
                 <li className="flex items-start gap-3"><Bullet color="bg-shaman-teal" /><span><strong className="text-foreground">From our service providers</strong> including when we engage them to enable certain technology and when they collect or process your personal information on our behalf;</span></li>
                 <li className="flex items-start gap-3"><Bullet color="bg-shaman-teal" /><span>From our partners or other third parties.</span></li>
