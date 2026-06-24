@@ -220,7 +220,7 @@ const PrivacyPolicy = () => {
                 Contact
               </h2>
               <p>
-                Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please call or email us at <strong className="text-foreground">{CONTACT_EMAIL}</strong> or contact us at <strong className="text-foreground">{BUSINESS_ADDRESS}, AU</strong>. For the purpose of applicable data protection laws, we are the data controller of your personal information.
+                Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please email us at <strong className="text-foreground">{CONTACT_EMAIL}</strong> or contact us at <strong className="text-foreground">{BUSINESS_ADDRESS}, AU</strong>. For the purpose of applicable data protection laws, we are the data controller of your personal information.
               </p>
             </section>
           </div>
