@@ -83,7 +83,7 @@ const RefundPolicy = () => {
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Alterations to the product</span></li>
               </ul>
               <p className="mb-3">
-                <strong className="text-foreground">Caring for your mat:</strong> Cosmic Igloo mats have a suede microfibre top and a natural rubber base. To keep yours performing:
+                <strong className="text-foreground">Caring for your mat:</strong> To keep your mat performing:
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Wipe the top with a damp cloth and mild soap, or machine wash cold on a gentle cycle — no fabric softener or bleach.</span></li>
