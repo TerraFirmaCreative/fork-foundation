@@ -38,7 +38,7 @@ const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [loading, setLoading] = useState(true);
-  const [quantityInit] = useState(0);
+  
 
   const [quantity, setQuantity] = useState(1);
   const addItem = useCartStore((s) => s.addItem);
