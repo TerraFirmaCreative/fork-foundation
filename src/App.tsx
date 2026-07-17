@@ -24,6 +24,8 @@ const BlogPostHudson = lazy(() => import("./pages/BlogPost-Hudson"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
+const Trust = lazy(() => import("./pages/Trust"));
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +62,7 @@ const App = () => (
               <Route path="subscribe/thank-you" element={<SubscribeThankYou />} />
               <Route path="blog" element={<Blog />} />
               <Route path="blog/hudson-in-margaret-river" element={<BlogPostHudson />} />
+              <Route path="trust" element={<Trust />} />
             </Route>
 
             {/* Bare paths → detect locale and redirect */}
@@ -75,6 +78,7 @@ const App = () => (
             <Route path="/subscribe/thank-you" element={<LocaleRedirect />} />
             <Route path="/blog" element={<LocaleRedirect />} />
             <Route path="/blog/hudson-in-margaret-river" element={<LocaleRedirect />} />
+            <Route path="/trust" element={<LocaleRedirect />} />
 
             {/* Unsubscribe page (not locale-prefixed — linked from emails) */}
             <Route path="/unsubscribe" element={<Unsubscribe />} />
@@ -83,6 +87,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
