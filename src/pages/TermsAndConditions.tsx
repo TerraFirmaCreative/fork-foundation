@@ -35,7 +35,10 @@ const TermsAndConditions = () => {
                 Overview
               </h2>
               <p className="mb-4">
-                This website is operated by Cosmic Igloo. Throughout the Site, the terms "we", "us", and "our" refer to Cosmic Igloo. Cosmic Igloo offers this website, including all information, tools, and services available from cosmicigloo.com (the "Site") to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+                This website is operated by <strong className="text-foreground">Cosmic Igloo</strong>, an online business based in Perth, Western Australia. Throughout the Site, the terms "we", "us", and "our" refer to Cosmic Igloo. Cosmic Igloo is the merchant of record for every order placed through cosmicigloo.com (the "Site"), and offers this website, including all information, tools, and services available from it, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+              </p>
+              <p className="mb-4">
+                Our registered contact address is Level 2/179 St Georges Terrace, Perth WA 6000, Australia. For legal or business enquiries, email <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>.
               </p>
               <p className="mb-4">
                 By visiting our Site and/or purchasing something from us, you engage in our "Service" and agree to be bound by the following Terms & Conditions ("Terms"), including any additional terms and policies referenced herein and/or available by hyperlink. These Terms apply to all users of the Site, including browsers and customers.
@@ -43,11 +46,8 @@ const TermsAndConditions = () => {
               <p className="mb-4">
                 Please read these Terms carefully before accessing or using our Site. If you do not agree to all the Terms, you may not access the Site or use our Services.
               </p>
-              <p className="mb-4">
-                We reserve the right to update, change, or replace any part of these Terms by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the Site following the posting of any changes constitutes acceptance of those changes.
-              </p>
               <p>
-                Our online store is powered by Shopify Inc., which provides us with the e-commerce platform that enables us to sell our products and services to you.
+                We reserve the right to update, change, or replace any part of these Terms by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the Site following the posting of any changes constitutes acceptance of those changes.
               </p>
             </section>
 
