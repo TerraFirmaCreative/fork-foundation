@@ -62,6 +62,7 @@ const App = () => (
               <Route path="subscribe/thank-you" element={<SubscribeThankYou />} />
               <Route path="blog" element={<Blog />} />
               <Route path="blog/hudson-in-margaret-river" element={<BlogPostHudson />} />
+              <Route path="trust" element={<Trust />} />
             </Route>
 
             {/* Bare paths → detect locale and redirect */}
