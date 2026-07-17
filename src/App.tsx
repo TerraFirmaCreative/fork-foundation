@@ -24,6 +24,8 @@ const BlogPostHudson = lazy(() => import("./pages/BlogPost-Hudson"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
+const Trust = lazy(() => import("./pages/Trust"));
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
