@@ -78,6 +78,7 @@ const App = () => (
             <Route path="/subscribe/thank-you" element={<LocaleRedirect />} />
             <Route path="/blog" element={<LocaleRedirect />} />
             <Route path="/blog/hudson-in-margaret-river" element={<LocaleRedirect />} />
+            <Route path="/trust" element={<LocaleRedirect />} />
 
             {/* Unsubscribe page (not locale-prefixed — linked from emails) */}
             <Route path="/unsubscribe" element={<Unsubscribe />} />
@@ -86,6 +87,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
