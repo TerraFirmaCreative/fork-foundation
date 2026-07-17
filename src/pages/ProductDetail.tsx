@@ -38,8 +38,8 @@ const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [loading, setLoading] = useState(true);
-  
-
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [userInteracted, setUserInteracted] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
@@ -100,6 +100,16 @@ const ProductDetail = () => {
     })),
   ];
 
+  // Auto-cycle gallery: linger 5s on the mat (first image), then advance every 3s.
+  // Stops permanently once the user clicks a thumbnail.
+  useEffect(() => {
+    if (userInteracted || images.length <= 1) return;
+    const delay = selectedImageIndex === 0 ? 5000 : 3000;
+    const t = setTimeout(() => {
+      setSelectedImageIndex((i) => (i + 1) % images.length);
+    }, delay);
+    return () => clearTimeout(t);
+  }, [selectedImageIndex, userInteracted, images.length]);
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
@@ -197,31 +207,74 @@ const ProductDetail = () => {
           <span className="text-sm">Back to shop</span>
         </LocaleLink>
 
-        {/* Hero image — the mat itself */}
-        {images[0] && (
-          <div className="max-w-2xl mx-auto mb-12 md:mb-16">
-            {images[0].kind === "shopify" ? (
-              <ImageMagnifier
-                thumbhash={(images[0] as any).thumbhash}
-                src={shopifyImageUrl((images[0] as any).url, 800)}
-                srcSet={shopifySrcSet((images[0] as any).url, [400, 600, 800, 1200])}
-                sizes={PRODUCT_MAIN_SIZES}
-                alt={images[0].alt || product.node.title}
-                className="cursor-crosshair rounded-md overflow-clip aspect-[0.37076674277]"
-              />
-            ) : (
-              <ImageMagnifier
-                src={(images[0] as any).src}
-                alt={images[0].alt || product.node.title}
-                className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
-              />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left: Image Gallery */}
+          <div className="flex gap-4">
+            {/* Thumbnails */}
+            {images.length > 1 && (
+              <div className="flex flex-col gap-3">
+                {images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { setSelectedImageIndex(i); setUserInteracted(true); }}
+                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${i === selectedImageIndex
+                      ? "border-shaman-gold opacity-100"
+                      : "border-transparent opacity-60 hover:opacity-90"
+                      }`}
+                  >
+                    {img.kind === "shopify" ? (
+                      <ThumbhashImage
+                        thumbhash={img.thumbhash}
+                        src={shopifyImageUrl(img.url, 80)}
+                        srcSet={shopifySrcSet(img.url, [80, 160])}
+                        sizes={THUMBNAIL_SIZES}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-contain aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <img
+                        src={img.src}
+                        alt={img.alt || `Thumbnail ${i + 1}`}
+                        className="w-full h-full object-cover aspect-[2/3]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
             )}
-          </div>
-        )}
 
-        {/* Details + Shipping panel — sits ~25% down, between images */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 py-10 md:py-14 border-y border-border/40">
-          {/* Left: title, price, add to cart, description */}
+            {/* Main Image */}
+            <div className="flex flex-col rounded-xl overflow-hidden bg-background w-full items-center p-4">
+              {images[selectedImageIndex] ? (
+                images[selectedImageIndex].kind === "shopify" ? (
+                  <ImageMagnifier
+                    thumbhash={(images[selectedImageIndex] as any).thumbhash}
+                    src={shopifyImageUrl((images[selectedImageIndex] as any).url, 800)}
+                    srcSet={shopifySrcSet((images[selectedImageIndex] as any).url, [400, 600, 800, 1200])}
+                    sizes={PRODUCT_MAIN_SIZES}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
+                  />
+                ) : (
+                  <ImageMagnifier
+                    src={(images[selectedImageIndex] as any).src}
+                    alt={images[selectedImageIndex].alt || product.node.title}
+                    className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
+                  />
+                )
+              ) : (
+                <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
+                  No image available
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right: Product Info */}
           <div className="flex flex-col">
             <h1 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
               {product.node.title}
@@ -233,6 +286,8 @@ const ProductDetail = () => {
               </p>
             )}
 
+
+            {/* Quantity + Add to Cart */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
               <div className="flex items-center border border-border rounded-lg self-start">
                 <Button
@@ -276,109 +331,88 @@ const ProductDetail = () => {
               Secure checkout · Made to order · Free carry strap included
             </p>
 
+            {/* Description */}
             {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-6">
+              <p className="text-muted-foreground font-body leading-relaxed mt-6 border-t border-border/50 pt-6">
                 {product.node.description}
               </p>
             )}
 
+            {/* Free Carry Strap */}
             <div className="mt-6 flex items-center gap-3 p-4 rounded-md bg-shaman-gold/5 border border-shaman-gold/20">
               <span className="text-shaman-gold text-lg">✦</span>
               <p className="font-body text-foreground/90">
                 Includes a <span className="font-semibold text-shaman-gold">free carry strap</span> with every mat.
               </p>
             </div>
-          </div>
 
-          {/* Right: Specs + Shipping */}
-          <div id="specifications" className="flex flex-col gap-8 scroll-mt-24">
-            <div>
-              <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-              <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
-              <ul className="space-y-2 font-body text-foreground/90">
-                {[
-                  { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
-                  { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
-                  { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
-                  { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
-                  { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
-                  { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
-                  { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
-                ].map((s, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
-                    <span className="font-medium leading-relaxed">{s.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
-              <h2 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h2>
-              <ul className="space-y-2 font-body text-foreground/90">
-                {[
-                  { text: "USA — around 1 week" },
-                  { text: "UK / Europe — around 2 weeks" },
-                  { text: "Australia — up to 3 weeks", note: "Each mat is printed to order in the USA — crafted individually for you." },
-                ].map((d, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
-                    <div>
-                      <span className="font-medium leading-relaxed block">{d.text}</span>
-                      {d.note && (
-                        <span className="block text-sm italic text-muted-foreground/70 mt-1 leading-relaxed">
-                          {d.note}
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 text-sm font-body italic text-muted-foreground/80">
-                Ships from Nevada, USA
-              </p>
-            </div>
+            <button
+              type="button"
+              onClick={() => document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              className="group inline-flex items-center gap-2 mt-5 text-shaman-gold font-body font-medium text-base hover:text-shaman-gold/80 transition-colors self-start"
+            >
+              <span className="border-b border-shaman-gold/40 group-hover:border-shaman-gold pb-0.5">See full mat specs &amp; materials</span>
+              <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+            </button>
           </div>
         </div>
 
-        {/* Remaining images — stacked stylishly down the page */}
-        {images.length > 1 && (
-          <div className="mt-12 md:mt-16 flex flex-col gap-10 md:gap-16">
-            {images.slice(1).map((img, i) => {
-              const alignRight = i % 2 === 1;
-              return (
-                <div
-                  key={i}
-                  className={cn(
-                    "max-w-3xl w-full",
-                    alignRight ? "ml-auto" : "mr-auto"
-                  )}
-                >
-                  {img.kind === "shopify" ? (
-                    <ImageMagnifier
-                      thumbhash={(img as any).thumbhash}
-                      src={shopifyImageUrl((img as any).url, 1000)}
-                      srcSet={shopifySrcSet((img as any).url, [500, 800, 1000, 1400])}
-                      sizes="(min-width: 1024px) 720px, 100vw"
-                      alt={img.alt || `${product.node.title} — view ${i + 2}`}
-                      className="cursor-crosshair rounded-md overflow-clip w-full"
-                    />
-                  ) : (
-                    <ImageMagnifier
-                      src={(img as any).src}
-                      alt={img.alt || `${product.node.title} — view ${i + 2}`}
-                      className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
-                    />
-                  )}
-                </div>
-              );
-            })}
+        {/* Specs + Delivery — full width, side by side under the mat */}
+        <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Specifications */}
+          <div id="specifications" className="lg:px-4 scroll-mt-24">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
+            <ul className="space-y-2 font-body text-foreground/90">
+              {[
+                { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
+                { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
+                { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
+                { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
+                { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
+                { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
+                { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
+                { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
+              ].map((s, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
+                  <span className="font-medium leading-relaxed">{s.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
 
-        {/* Customer Reviews — full width */}
-        <div className="mt-16 border-t border-border/50 pt-8">
+          {/* Delivery */}
+          <div>
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Shipping</p>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h2>
+            <ul className="space-y-2 font-body text-foreground/90">
+              {[
+                { text: "USA — around 1 week" },
+                { text: "UK / Europe — around 2 weeks" },
+                { text: "Australia — up to 3 weeks", note: "Each mat is printed to order in the USA — crafted individually for you." },
+              ].map((d, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
+                  <div>
+                    <span className="font-medium leading-relaxed block">{d.text}</span>
+                    {d.note && (
+                      <span className="block text-sm italic text-muted-foreground/70 mt-1 leading-relaxed">
+                        {d.note}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm font-body italic text-muted-foreground/80">
+              Ships from Nevada, USA
+            </p>
+          </div>
+        </div>
+
+        {/* Customer Reviews — full width, below mat & info */}
+        <div className="mt-10 border-t border-border/50 pt-8">
           <div className="flex flex-col items-center text-center mb-6 gap-2">
             <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
               Customer Reviews
