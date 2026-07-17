@@ -386,7 +386,43 @@ const ProductDetail = () => {
             })}
           </div>
         )}
-      </div>
+
+        {/* Customer Reviews — full width */}
+        <div className="mt-16 border-t border-border/50 pt-8">
+          <div className="flex flex-col items-center text-center mb-6 gap-2">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium tracking-tight">
+              Customer Reviews
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {productReviews.map((r) => (
+              <div
+                key={r.id}
+                className="group p-8 rounded-md bg-card/40 border border-border/30 hover:border-shaman-violet/30 transition-all duration-500"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-shaman-gold/80 text-shaman-gold/80" />
+                    ))}
+                  </div>
+                </div>
+
+                <p className="font-display text-lg text-foreground/90 italic leading-relaxed mb-8">
+                  "{r.review}"
+                </p>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                      <span className="text-sm font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground font-body">{r.name}</p>
+                      <p className="text-xs text-muted-foreground/40 font-body">{r.date}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
