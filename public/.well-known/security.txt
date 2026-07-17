@@ -1,0 +1,5 @@
+Contact: mailto:hello@cosmicigloo.com
+Expires: 2027-07-17T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://cosmicigloo.com/.well-known/security.txt
+Policy: https://cosmicigloo.com/trust
