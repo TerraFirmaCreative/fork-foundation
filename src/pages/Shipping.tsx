@@ -21,7 +21,7 @@ const Shipping = () => {
 
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p>
-              Every mat is made to order and printed with care in Nevada, USA.
+              Every mat is made to order and printed with care by our production partner in Nevada, USA, then shipped directly to you. Cosmic Igloo (Perth, Australia) is the merchant of record for your order and remains your point of contact for anything to do with it.
             </p>
 
             <section>

@@ -7,7 +7,7 @@ const RefundPolicy = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Refund & Returns Policy — Cosmic Igloo"
-        description="Every mat is made to order. If yours arrives damaged or incorrect, contact us within 30 days and we'll make it right."
+        description="Every mat is made to order. We don't accept change-of-mind returns, but if yours arrives damaged, faulty, or incorrect, contact us within 30 days and we'll make it right."
         path="/refund-policy"
       />
       <Header />
@@ -19,41 +19,48 @@ const RefundPolicy = () => {
             Refund & Returns Policy
           </h1>
 
+          <p className="text-sm text-muted-foreground/70 font-body mb-8 italic">
+            Last updated: July 17, 2026
+          </p>
+
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p>
-              Because every mat is made to order, we don't accept returns for change of mind. But if something arrives damaged, faulty or incorrect, we absolutely want to sort it out.
+              Because every mat is printed to order, we handle returns a little differently to an off-the-shelf retailer. The short version: we don't accept change-of-mind returns, but if your mat arrives damaged, faulty, or isn't what you ordered, we'll replace or refund it. Your rights under the Australian Consumer Law always apply.
             </p>
 
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                If there's a problem with your order
+                Change-of-mind returns
               </h2>
-              <p className="mb-4">
-                Please contact us within 30 days of receiving your mat at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>. Include a photo of the issue so we can see what's happened, and we'll take it from there.
-              </p>
-              <p className="mb-4">
-                To be eligible for a return, the item needs to be unused, in its original condition and packaging where possible, and accompanied by proof of purchase.
-              </p>
               <p>
-                Please don't send anything back without contacting us first. Returns sent without prior approval won't be accepted.
+                We do not accept returns or offer refunds for change of mind, incorrect size selection, or ordering the wrong design. Because each mat is printed to your order, it can't be re-sold. Please double-check your design and quantity at checkout before completing your purchase.
               </p>
             </section>
 
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Exchanges
+                Damaged, faulty, or incorrect items
               </h2>
+              <p className="mb-4">
+                If your mat arrives damaged, faulty, or is different to what you ordered, contact us within <strong className="text-foreground">30 days of delivery</strong> at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>. Please include your order number, a clear photo of the issue, and (where relevant) a photo of the packaging.
+              </p>
+              <p className="mb-4">
+                To be eligible, the item needs to be unused, in its original condition, and accompanied by proof of purchase. Please don't send anything back before contacting us — returns sent without prior approval won't be accepted.
+              </p>
               <p>
-                If your mat needs to be replaced, get in touch and we'll guide you through the process once we've reviewed the issue.
+                Once we've reviewed the issue, we'll usually offer a free replacement, a full refund, or (with your agreement) a store credit. There is <strong className="text-foreground">no restocking fee</strong> on approved returns.
               </p>
             </section>
 
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Refunds
+                Return shipping
               </h2>
+              <p className="mb-4">
+                If a return is approved because the mat is damaged, faulty, or incorrect, <strong className="text-foreground">we cover return shipping</strong>. We'll either send you a prepaid return label or reimburse the standard shipping cost against a receipt.
+              </p>
               <p>
-                If a refund is approved, it'll be issued to your original payment method within <strong className="text-foreground">10 business days</strong>. If more than <strong className="text-foreground">15 business days</strong> have passed since we approved your refund and you haven't received it, please drop us a line at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>.
+                For any other return we agree to accept on a case-by-case basis, return shipping is at your cost, and the item must arrive back with us in original condition before a refund is issued. We recommend a tracked service — we can't refund items that don't reach us.
               </p>
             </section>
 
@@ -62,7 +69,16 @@ const RefundPolicy = () => {
                 Return address
               </h2>
               <p>
-                We'll provide a return address once your return request has been reviewed and approved.
+                Because our mats are printed and dispatched from our production partner in Nevada, USA, the correct return address depends on your order. We'll email you the exact address once your return has been approved. Please don't ship anything to our Perth business address — parcels sent there can't be processed.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
+                Refunds
+              </h2>
+              <p>
+                Approved refunds are issued to your original payment method. We process refunds <strong className="text-foreground">within 10 business days of approval</strong>. Your bank or card provider may take an additional few business days to show the credit in your account. If more than <strong className="text-foreground">15 business days</strong> have passed since we confirmed your refund and it still hasn't appeared, please email <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a> and we'll investigate.
               </p>
             </section>
 
@@ -71,7 +87,7 @@ const RefundPolicy = () => {
                 Warranty & Care
               </h2>
               <p className="mb-4">
-                We warrant Cosmic Igloo mats against manufacturing defects for <strong className="text-foreground">30 days from the date of purchase</strong>. If a defect appears, contact us at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a> with your order number and photos, and we'll repair, replace, or refund at our discretion.
+                We warrant Cosmic Igloo mats against manufacturing defects for <strong className="text-foreground">12 months from the date of purchase</strong>. If a defect appears, contact us at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a> with your order number and photos, and we'll repair, replace, or refund at our discretion.
               </p>
               <p className="mb-3 text-foreground font-medium">What's not covered:</p>
               <ul className="space-y-2 mb-6">
@@ -102,16 +118,16 @@ const RefundPolicy = () => {
                 Sale and discounted items
               </h2>
               <p>
-                Discounts and promotional pricing don't change this policy. Sale and discount-code orders are covered for faults, damage, or incorrect items, but (like all our made-to-order items) aren't eligible for change-of-mind returns.
+                Discounts and promotional pricing don't change this policy. Sale and discount-code orders are covered for faults, damage, or incorrect items on the same terms as full-price orders, but (like all our made-to-order items) aren't eligible for change-of-mind returns.
               </p>
             </section>
 
             <section>
               <h2 className="font-display text-2xl md:text-3xl font-medium mb-4 text-foreground">
-                Buy Now, Pay Later (Afterpay, Shop Pay Installments, Klarna)
+                Order cancellations
               </h2>
               <p>
-                If you paid using a Buy Now, Pay Later provider and we approve a refund for a faulty or incorrect item, the refund is processed back through that provider. You'll continue any remaining instalments with them until the refund clears. Your payment provider's own terms also apply.
+                Because production begins soon after checkout, we can only cancel an order if it hasn't yet entered production. Email us at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a> as soon as possible and we'll do our best to catch it before it's printed.
               </p>
             </section>
 
@@ -120,7 +136,7 @@ const RefundPolicy = () => {
                 Your rights under Australian Consumer Law
               </h2>
               <p>
-                Our products come with guarantees that cannot be excluded under the Australian Consumer Law. You're entitled to a replacement or refund for a major failure, and compensation for any other reasonably foreseeable loss or damage. For minor faults, we may choose to repair or replace the item. Nothing in this policy limits these rights.
+                Our products come with guarantees that cannot be excluded under the Australian Consumer Law. You're entitled to a replacement or refund for a major failure, and compensation for any other reasonably foreseeable loss or damage. For minor faults, we may choose to repair or replace the item. Nothing in this policy limits or replaces these rights.
               </p>
             </section>
           </div>

@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer: "All major credit and debit cards, processed securely at checkout."
+    answer: "All major credit and debit cards (Visa, Mastercard, American Express, UnionPay), along with PayPal, Apple Pay, Google Pay, and Shop Pay. Everything is processed securely at checkout."
   },
   {
     question: "When will my order be made?",
@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     question: "What is your returns policy?",
-    answer: "Because every mat is printed to order, we can't accept returns for change of mind. But if your mat arrives damaged or there's an issue with your order, please contact us within 30 days of delivery and we'll make it right."
+    answer: "Because every mat is printed to order, we don't accept returns for change of mind. But if your mat arrives damaged, faulty, or incorrect, contact us within 30 days of delivery and we'll replace or refund it — return shipping is on us in those cases. Full details are on our Refund & Returns Policy page."
   },
   {
     question: "Will the colors look exactly like they do on screen?",
