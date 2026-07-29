@@ -186,7 +186,7 @@ const BlogPostHudson = () => {
               {productImage ? (
                 <img
                   src={shopifyImageUrl(productImage.url, 600)}
-                  alt={productImage.altText || "Psychedelic Mandelbrot Dreams yoga mat"}
+                  alt={productImage.altText || "Psychedelic Fractal Reverie yoga mat"}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
@@ -216,7 +216,7 @@ const BlogPostHudson = () => {
                 Hudson's Mat
               </p>
               <h3 className="font-display text-4xl md:text-5xl font-medium text-foreground">
-                Mandelbrot Dreams
+                Fractal Reverie
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">
                 <em>"Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice."</em>
