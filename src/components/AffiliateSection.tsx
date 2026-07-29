@@ -14,7 +14,7 @@ const AffiliateSection = () => {
           Partner With Us
         </p>
         <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-6">
-          <span className="text-foreground">Become an </span>
+          <span className="text-gradient">Become an </span>
           <span className="text-gradient italic">Affiliate</span>
         </h2>
         <p className="text-muted-foreground font-body leading-relaxed mb-4 md:whitespace-nowrap">
