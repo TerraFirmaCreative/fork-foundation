@@ -61,8 +61,9 @@ const DesignGallery = () => {
             Your Mat
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">24 unique </span>
-            <span className="text-gradient italic">designs</span>
+            <span className="text-gradient">24 </span>
+            <span className="text-gradient italic">unique</span>
+            <span className="text-gradient"> designs</span>
           </h2>
         </div>
         {loading ? (
