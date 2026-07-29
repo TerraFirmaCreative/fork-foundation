@@ -61,7 +61,7 @@ const DesignGallery = () => {
             Your Mat
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">24 beautiful </span>
+            <span className="text-foreground">24 unique </span>
             <span className="text-gradient italic">designs</span>
           </h2>
         </div>
