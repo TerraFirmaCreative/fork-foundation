@@ -288,7 +288,7 @@ const HeroSection = () => {
         {/* Headline — poetic, layered */}
         <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
           <span className="block">
-            <span className="text-foreground">Beautiful</span>{" "}
+            <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
               and
               <svg
