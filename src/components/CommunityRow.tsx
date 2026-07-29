@@ -51,7 +51,7 @@ const CommunityRow = () => {
           Our Community
         </p>
         <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-          <span className="text-foreground">In the wild, </span>
+          <span className="text-gradient">In the wild, </span>
           <span className="text-gradient italic">on the mat</span>
         </h2>
       </div>

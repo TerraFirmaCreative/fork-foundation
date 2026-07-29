@@ -62,7 +62,7 @@ const MatBenefits = () => {
             About the Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium mb-4 tracking-tight leading-tight">
-            <span className="text-foreground">Beautiful design.</span>
+            <span className="text-gradient">Beautiful design.</span>
             <span className="hidden md:inline"> </span>
             <span className="block md:inline text-gradient italic">Built for practice.</span>
           </h2>
