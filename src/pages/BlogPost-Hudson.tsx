@@ -81,9 +81,7 @@ const BlogPostHudson = () => {
     setDrawerOpen(true);
   };
 
-  const price = variant
-    ? formatPrice(variant.price)
-    : "$170.00";
+  const price = variant ? formatPrice(variant.price) : null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -221,8 +219,8 @@ const BlogPostHudson = () => {
               <p className="text-foreground/60 font-body leading-relaxed">
                 <em>"Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice."</em>
               </p>
-              <p className="font-display text-3xl text-foreground font-medium">
-                {price}
+              <p className="font-display text-3xl text-foreground font-medium min-h-[1.2em]">
+                {price ?? <span className="inline-block h-8 w-28 rounded bg-foreground/10 animate-pulse align-middle" />}
               </p>
 
               {/* Quantity + Add to Cart */}
