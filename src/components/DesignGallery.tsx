@@ -58,7 +58,7 @@ const DesignGallery = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
-            Your Mat
+            Our Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
             <span className="text-gradient">24 </span>
