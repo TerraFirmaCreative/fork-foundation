@@ -178,7 +178,7 @@ const YogiOfTheWeek = () => {
   }, [country]);
 
   const variant = product?.node.variants.edges[0]?.node;
-  const price = variant ? formatPrice(variant.price) : "$170.00";
+  const price = variant ? formatPrice(variant.price) : null;
 
   return (
     <section className="relative py-12 md:py-16 px-6 overflow-hidden">
@@ -225,9 +225,11 @@ const YogiOfTheWeek = () => {
             </div>
 
             <div className="flex items-center gap-4 shrink-0">
-              <p className="font-display text-2xl md:text-3xl text-foreground font-medium">
-                {price}
-              </p>
+              {price && (
+                <p className="font-display text-2xl md:text-3xl text-foreground font-medium">
+                  {price}
+                </p>
+              )}
               <LocaleLink to={`/product/${product?.node.handle}`}>
                 <Button
                   variant="cta"

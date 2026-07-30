@@ -4,7 +4,7 @@ import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
-import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale } from "@/lib/i18n";
+import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale, setUserSelectedLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
 
 import {
@@ -28,6 +28,7 @@ const Header = () => {
   const switchLocale = (newLocale: SupportedLocale) => {
     if (newLocale === locale) return;
     const currentPath = location.pathname.replace(`/${locale}`, '') || '/';
+    setUserSelectedLocale(newLocale);
     updateLocale(getCountryForLocale(newLocale))
     rawNavigate(`/${newLocale}${currentPath}`);
   };

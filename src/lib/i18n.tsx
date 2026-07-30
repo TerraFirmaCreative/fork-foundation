@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import React, { createContext, useContext, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export const SUPPORTED_LOCALES = [
   "en-US", "en-AU", "en-UK", "en-CA", "en-NZ", "de-AT", "fr-BE", "bg-BG", "hr-HR", "cs-CZ", "da-DK",
@@ -63,8 +63,21 @@ export const useLocale = () => useContext(LocaleContext);
 
 export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { locale: localeParam } = useParams<{ locale: string }>();
+  const navigate = useNavigate();
+  const location = useLocation();
   const locale: SupportedLocale = localeParam && isValidLocale(localeParam) ? localeParam : DEFAULT_LOCALE;
   const country = getCountryForLocale(locale);
+
+  useEffect(() => {
+    if (getUserSelectedLocale()) return;
+
+    detectUserLocale().then((detectedLocale) => {
+      if (detectedLocale === locale) return;
+
+      const pathWithoutLocale = location.pathname.replace(`/${locale}`, "") || "";
+      navigate(`/${detectedLocale}${pathWithoutLocale}${location.search}${location.hash}`, { replace: true });
+    });
+  }, [locale, location.hash, location.pathname, location.search, navigate]);
 
   const localePath = (path: string) => {
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
@@ -79,15 +92,38 @@ export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 };
 
 // Storage key for detected locale
-const LOCALE_STORAGE_KEY = "detected-locale";
+const LOCALE_STORAGE_KEY = "detected-locale-v2";
+const USER_SELECTED_LOCALE_STORAGE_KEY = "user-selected-locale";
 
-export async function detectUserLocale(): Promise<SupportedLocale> {
-  // Check if we already detected and cached
-  const cached = sessionStorage.getItem(LOCALE_STORAGE_KEY);
-  if (cached && isValidLocale(cached)) return cached;
+export function getUserSelectedLocale(): SupportedLocale | null {
+  const stored = localStorage.getItem(USER_SELECTED_LOCALE_STORAGE_KEY);
+  return stored && isValidLocale(stored) ? stored : null;
+}
 
-  let detected: SupportedLocale = DEFAULT_LOCALE;
+export function setUserSelectedLocale(locale: SupportedLocale) {
+  localStorage.setItem(USER_SELECTED_LOCALE_STORAGE_KEY, locale);
+  sessionStorage.setItem(LOCALE_STORAGE_KEY, locale);
+}
 
+function localeFromBrowser(): SupportedLocale | null {
+  const languages = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language || (navigator as any).userLanguage || ""];
+
+  for (const language of languages) {
+    const normalized = language.replace("_", "-");
+    if (isValidLocale(normalized)) return normalized;
+
+    const countryCode = normalized.split("-")[1]?.toUpperCase();
+    if (countryCode && COUNTRY_TO_LOCALE[countryCode]) {
+      return COUNTRY_TO_LOCALE[countryCode];
+    }
+  }
+
+  return null;
+}
+
+async function detectFreshUserLocale(): Promise<SupportedLocale> {
   // 1. Try IP-based detection (priority)
   try {
     const response = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(3000) });
@@ -95,17 +131,25 @@ export async function detectUserLocale(): Promise<SupportedLocale> {
       const data = await response.json();
       const countryCode = data.country_code;
       if (countryCode && COUNTRY_TO_LOCALE[countryCode]) {
-        detected = COUNTRY_TO_LOCALE[countryCode];
+        return COUNTRY_TO_LOCALE[countryCode];
       }
     }
   } catch {
-    // Fallback to browser language (e.g. "en-AU", "de-AT", "fr-FR")
-    const browserLang = navigator.language || (navigator as any).userLanguage || "";
-    const normalized = browserLang.replace("_", "-");
-    if (isValidLocale(normalized)) {
-      detected = normalized;
-    }
+    // Fall through to browser locale.
   }
+
+  return localeFromBrowser() || DEFAULT_LOCALE;
+}
+
+export async function detectUserLocale({ force = false }: { force?: boolean } = {}): Promise<SupportedLocale> {
+  const userSelected = getUserSelectedLocale();
+  if (userSelected) return userSelected;
+
+  // Check if we already detected and cached
+  const cached = force ? null : sessionStorage.getItem(LOCALE_STORAGE_KEY);
+  if (cached && isValidLocale(cached)) return cached;
+
+  const detected = await detectFreshUserLocale();
 
   sessionStorage.setItem(LOCALE_STORAGE_KEY, detected);
   return detected;
