@@ -88,10 +88,7 @@ const DesignGallery = () => {
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
-                    <GalleryMagnifier
-                      zoomSrc={shopifyImageUrl(image.url, 1600)}
-                      className="block w-full"
-                    >
+                    <div className="block w-full">
                       <ThumbhashImage
                         thumbhash={image.thumbhash}
                         src={shopifyImageUrl(image.url, 240)}
@@ -105,7 +102,7 @@ const DesignGallery = () => {
                         fetchPriority={index < 3 ? "high" : "auto"}
                         decoding="async"
                       />
-                    </GalleryMagnifier>
+                    </div>
                   ) : (
                     <div className="w-full aspect-[1/3] bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-xs">No image</span>
