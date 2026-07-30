@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import React, { createContext, useContext, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export const SUPPORTED_LOCALES = [
   "en-US", "en-AU", "en-UK", "en-CA", "en-NZ", "de-AT", "fr-BE", "bg-BG", "hr-HR", "cs-CZ", "da-DK",
@@ -63,8 +63,21 @@ export const useLocale = () => useContext(LocaleContext);
 
 export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { locale: localeParam } = useParams<{ locale: string }>();
+  const navigate = useNavigate();
+  const location = useLocation();
   const locale: SupportedLocale = localeParam && isValidLocale(localeParam) ? localeParam : DEFAULT_LOCALE;
   const country = getCountryForLocale(locale);
+
+  useEffect(() => {
+    if (getUserSelectedLocale()) return;
+
+    detectUserLocale().then((detectedLocale) => {
+      if (detectedLocale === locale) return;
+
+      const pathWithoutLocale = location.pathname.replace(`/${locale}`, "") || "";
+      navigate(`/${detectedLocale}${pathWithoutLocale}${location.search}${location.hash}`, { replace: true });
+    });
+  }, [locale, location.hash, location.pathname, location.search, navigate]);
 
   const localePath = (path: string) => {
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
@@ -79,7 +92,7 @@ export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 };
 
 // Storage key for detected locale
-const LOCALE_STORAGE_KEY = "detected-locale";
+const LOCALE_STORAGE_KEY = "detected-locale-v2";
 const USER_SELECTED_LOCALE_STORAGE_KEY = "user-selected-locale";
 
 export function getUserSelectedLocale(): SupportedLocale | null {
