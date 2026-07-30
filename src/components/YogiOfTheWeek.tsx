@@ -230,7 +230,7 @@ const YogiOfTheWeek = () => {
                   {price}
                 </p>
               )}
-              <LocaleLink to={`/product/${product?.node.handle}`}>
+              <LocaleLink to={`/product/${PRODUCT_HANDLE}`}>
                 <Button
                   variant="cta"
                   size="lg"
