@@ -35,7 +35,7 @@ const images: { pic: Picture; alt: string }[] = [
   { pic: hudson4 as unknown as Picture, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
 
-const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
+const PRODUCT_HANDLE = "fractal-reverie";
 const SLOT_COUNT = 4;
 
 /** Shared controller that ensures no two slots show the same image */
@@ -230,7 +230,7 @@ const YogiOfTheWeek = () => {
                   {price}
                 </p>
               )}
-              <LocaleLink to={`/product/${product?.node.handle}`}>
+              <LocaleLink to={`/product/${PRODUCT_HANDLE}`}>
                 <Button
                   variant="cta"
                   size="lg"

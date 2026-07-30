@@ -37,7 +37,7 @@ const galleryPhotos = [
 const images = galleryPhotos;
 
 
-const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
+const PRODUCT_HANDLE = "fractal-reverie";
 
 const BlogPostHudson = () => {
   const [current, setCurrent] = useState(0);
