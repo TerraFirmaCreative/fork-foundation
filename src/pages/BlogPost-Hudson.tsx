@@ -81,9 +81,7 @@ const BlogPostHudson = () => {
     setDrawerOpen(true);
   };
 
-  const price = variant
-    ? formatPrice(variant.price)
-    : "$170.00";
+  const price = variant ? formatPrice(variant.price) : null;
 
   return (
     <div className="min-h-screen bg-background">
