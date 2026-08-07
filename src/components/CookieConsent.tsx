@@ -40,13 +40,13 @@ const CookieConsent = () => {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed bottom-6 left-6 right-6 md:right-auto md:max-w-xl z-[100] rounded-2xl border border-border/40 bg-card/95 backdrop-blur-md shadow-2xl px-8 py-9 md:px-10 md:py-10 font-body"
+      className="fixed bottom-4 left-4 right-4 md:right-auto md:max-w-sm z-[100] rounded-xl border border-border/40 bg-card/95 backdrop-blur-md shadow-xl px-5 py-5 font-body"
     >
-      <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-5">
+      <h2 className="font-display text-xl font-medium tracking-tight mb-2">
         <span className="text-gradient">We use cookies</span>
       </h2>
 
-      <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-8">
+      <p className="text-sm text-foreground/80 leading-relaxed mb-4">
         We use cookies to enhance your browsing experience, serve personalized content, and analyze
         our traffic. By clicking "Accept All", you consent to our use of cookies.{" "}
         <LocaleLink
@@ -58,12 +58,12 @@ const CookieConsent = () => {
       </p>
 
       {customize && (
-        <label className="flex items-start gap-3 mb-8 text-sm text-foreground/70">
+        <label className="flex items-start gap-2 mb-4 text-xs text-foreground/70">
           <input
             type="checkbox"
             checked={analytics}
             onChange={(e) => setAnalytics(e.target.checked)}
-            className="mt-1 h-4 w-4 accent-shaman-violet"
+            className="mt-0.5 h-3.5 w-3.5 accent-shaman-violet"
           />
           <span>
             Analytics cookies (Google Analytics, Microsoft Clarity). Essential cookies are always on.
@@ -71,11 +71,11 @@ const CookieConsent = () => {
         </label>
       )}
 
-      <div className="flex flex-wrap items-center gap-4">
-        <Button variant="hero" size="lg" className="px-10" onClick={() => persist(customize ? analytics : true)}>
+      <div className="flex flex-wrap items-center gap-2">
+        <Button variant="hero" size="sm" className="px-5" onClick={() => persist(customize ? analytics : true)}>
           {customize ? "Save choices" : "Accept All"}
         </Button>
-        <Button variant="outline" size="lg" className="px-10" onClick={() => persist(false)}>
+        <Button variant="outline" size="sm" className="px-5" onClick={() => persist(false)}>
           Reject All
         </Button>
       </div>
@@ -83,7 +83,7 @@ const CookieConsent = () => {
       <button
         type="button"
         onClick={() => setCustomize((c) => !c)}
-        className="mt-6 ml-2 text-base text-foreground/70 hover:text-shaman-violet transition-colors"
+        className="mt-3 text-xs text-foreground/70 hover:text-shaman-violet transition-colors"
       >
         Customize
       </button>
