@@ -40,13 +40,13 @@ const CookieConsent = () => {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed bottom-4 left-4 right-4 md:right-auto md:max-w-sm z-[100] rounded-xl border border-border/40 bg-card/95 backdrop-blur-md shadow-xl px-5 py-5 font-body"
+      className="fixed bottom-4 left-4 right-4 md:right-auto md:max-w-sm z-[100] rounded-xl border border-border bg-card shadow-xl px-5 py-5 font-body"
     >
       <h2 className="font-display text-xl font-medium tracking-tight mb-2">
         <span className="text-gradient">We use cookies</span>
       </h2>
 
-      <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+      <p className="text-sm text-foreground leading-relaxed mb-4">
         We use cookies to enhance your browsing experience, serve personalized content, and analyze
         our traffic. By clicking "Accept All", you consent to our use of cookies.{" "}
         <LocaleLink
@@ -58,7 +58,7 @@ const CookieConsent = () => {
       </p>
 
       {customize && (
-        <label className="flex items-start gap-2 mb-4 text-xs text-foreground/70">
+        <label className="flex items-start gap-2 mb-4 text-xs text-foreground/90">
           <input
             type="checkbox"
             checked={analytics}
@@ -71,11 +71,11 @@ const CookieConsent = () => {
         </label>
       )}
 
-      <div className="flex flex-wrap items-center gap-2">
-        <Button variant="hero" size="sm" className="px-5" onClick={() => persist(customize ? analytics : true)}>
+      <div className="flex items-center gap-2">
+        <Button variant="outline" size="sm" className="flex-1" onClick={() => persist(customize ? analytics : true)}>
           {customize ? "Save choices" : "Accept All"}
         </Button>
-        <Button variant="outline" size="sm" className="px-5" onClick={() => persist(false)}>
+        <Button variant="outline" size="sm" className="flex-1" onClick={() => persist(false)}>
           Reject All
         </Button>
       </div>
@@ -83,7 +83,7 @@ const CookieConsent = () => {
       <button
         type="button"
         onClick={() => setCustomize((c) => !c)}
-        className="mt-3 text-xs text-foreground/70 hover:text-shaman-violet transition-colors"
+        className="mt-3 text-xs text-foreground/80 hover:text-shaman-violet transition-colors"
       >
         Customize
       </button>
