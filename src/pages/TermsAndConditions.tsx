@@ -35,7 +35,10 @@ const TermsAndConditions = () => {
                 Overview
               </h2>
               <p className="mb-4">
-                This website is operated by <strong className="text-foreground">Cosmic Igloo</strong>. Throughout the Site, the terms "we", "us", and "our" refer to Cosmic Igloo. Cosmic Igloo offers this website, including all information, tools, and services available from <strong className="text-foreground">cosmicigloo.com</strong> (the "Site") to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+                This website is operated by <strong className="text-foreground">Cosmic Igloo</strong>, an online business based in Perth, Western Australia. Throughout the Site, the terms "we", "us", and "our" refer to Cosmic Igloo. Cosmic Igloo is the merchant of record for every order placed through cosmicigloo.com (the "Site"), and offers this website, including all information, tools, and services available from it, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+              </p>
+              <p className="mb-4">
+                Our registered contact address is Level 2/179 St Georges Terrace, Perth WA 6000, Australia. For legal or business enquiries, email <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>.
               </p>
               <p className="mb-4">
                 By visiting our Site and/or purchasing something from us, you engage in our "Service" and agree to be bound by the following Terms & Conditions ("Terms"), including any additional terms and policies referenced herein and/or available by hyperlink. These Terms apply to all users of the Site, including browsers and customers.
@@ -43,11 +46,8 @@ const TermsAndConditions = () => {
               <p className="mb-4">
                 Please read these Terms carefully before accessing or using our Site. If you do not agree to all the Terms, you may not access the Site or use our Services.
               </p>
-              <p className="mb-4">
-                We reserve the right to update, change, or replace any part of these Terms by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the Site following the posting of any changes constitutes acceptance of those changes.
-              </p>
               <p>
-                Our online store is powered by <strong className="text-foreground">Shopify Inc.</strong>, which provides us with the e-commerce platform that enables us to sell our products and services to you.
+                We reserve the right to update, change, or replace any part of these Terms by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the Site following the posting of any changes constitutes acceptance of those changes.
               </p>
             </section>
 
@@ -133,7 +133,7 @@ const TermsAndConditions = () => {
                 Product descriptions and pricing are subject to change at any time without notice. We reserve the right to discontinue any product at any time. Any offer made on this Site is void where prohibited.
               </p>
               <p>
-                Returns and refunds are handled in accordance with our <LocaleLink to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
+                Returns and refunds are handled in accordance with our <LocaleLink to="/refund-policy" className="text-shaman-violet font-semibold hover:text-shaman-violet/80 transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
               </p>
             </section>
 
@@ -152,7 +152,7 @@ const TermsAndConditions = () => {
                 You agree to provide current, complete, and accurate purchase and account information and to promptly update your details so we can complete transactions and contact you as required.
               </p>
               <p>
-                For more information, please review our <LocaleLink to="/refund-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
+                For more information, please review our <LocaleLink to="/refund-policy" className="text-shaman-violet font-semibold hover:text-shaman-violet/80 transition-colors underline underline-offset-2">Refund & Returns Policy</LocaleLink>.
               </p>
             </section>
 
@@ -204,7 +204,7 @@ const TermsAndConditions = () => {
                 Section 10 – Personal Information
               </h2>
               <p>
-                Your submission of personal information through the Site is governed by our <LocaleLink to="/privacy-policy" className="text-foreground font-semibold hover:text-shaman-violet transition-colors underline underline-offset-2">Privacy Policy</LocaleLink>.
+                Your submission of personal information through the Site is governed by our <LocaleLink to="/privacy-policy" className="text-shaman-violet font-semibold hover:text-shaman-violet/80 transition-colors underline underline-offset-2">Privacy Policy</LocaleLink>.
               </p>
             </section>
 
@@ -246,7 +246,7 @@ const TermsAndConditions = () => {
                 All products and services are provided "as is" and "as available", except as expressly stated.
               </p>
               <p className="mb-4">
-                To the maximum extent permitted by law, <strong className="text-foreground">Cosmic Igloo</strong> shall not be liable for any direct, indirect, incidental, punitive, or consequential damages arising from your use of the Service or any products purchased.
+                To the maximum extent permitted by law, Cosmic Igloo shall not be liable for any direct, indirect, incidental, punitive, or consequential damages arising from your use of the Service or any products purchased.
               </p>
               <p className="mb-4">
                 Where liability cannot be excluded, it is limited to the maximum extent permitted by law.
@@ -262,7 +262,7 @@ const TermsAndConditions = () => {
                 Section 14 – Indemnification
               </h2>
               <p>
-                You agree to indemnify and hold harmless <strong className="text-foreground">Cosmic Igloo</strong> and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
+                You agree to indemnify and hold harmless Cosmic Igloo and its affiliates, partners, officers, employees, and service providers from any claim arising out of your breach of these Terms or violation of any law or third-party rights.
               </p>
             </section>
 
@@ -302,7 +302,7 @@ const TermsAndConditions = () => {
                 Section 18 – Governing Law
               </h2>
               <p>
-                Except where required otherwise, these Terms are governed by and construed in accordance with the laws of <strong className="text-foreground">Western Australia</strong>.
+                Except where required otherwise, these Terms are governed by and construed in accordance with the laws of Western Australia.
               </p>
             </section>
 
@@ -325,7 +325,7 @@ const TermsAndConditions = () => {
                 Questions about these Terms should be sent to:
               </p>
               <p>
-                <strong className="text-foreground">hello@cosmicigloo.com</strong>
+                <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>
               </p>
             </section>
           </div>

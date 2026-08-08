@@ -37,7 +37,7 @@ const galleryPhotos = [
 const images = galleryPhotos;
 
 
-const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
+const PRODUCT_HANDLE = "fractal-reverie";
 
 const BlogPostHudson = () => {
   const [current, setCurrent] = useState(0);
@@ -81,9 +81,7 @@ const BlogPostHudson = () => {
     setDrawerOpen(true);
   };
 
-  const price = variant
-    ? formatPrice(variant.price)
-    : "$170.00";
+  const price = variant ? formatPrice(variant.price) : null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -186,7 +184,7 @@ const BlogPostHudson = () => {
               {productImage ? (
                 <img
                   src={shopifyImageUrl(productImage.url, 600)}
-                  alt={productImage.altText || "Psychedelic Mandelbrot Dreams yoga mat"}
+                  alt={productImage.altText || "Psychedelic Fractal Reverie yoga mat"}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
@@ -216,13 +214,13 @@ const BlogPostHudson = () => {
                 Hudson's Mat
               </p>
               <h3 className="font-display text-4xl md:text-5xl font-medium text-foreground">
-                Mandelbrot Dreams
+                Fractal Reverie
               </h3>
               <p className="text-foreground/60 font-body leading-relaxed">
                 <em>"Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice."</em>
               </p>
-              <p className="font-display text-3xl text-foreground font-medium">
-                {price}
+              <p className="font-display text-3xl text-foreground font-medium min-h-[1.2em]">
+                {price ?? <span className="inline-block h-8 w-28 rounded bg-foreground/10 animate-pulse align-middle" />}
               </p>
 
               {/* Quantity + Add to Cart */}

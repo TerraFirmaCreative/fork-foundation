@@ -8,7 +8,7 @@ const benefits = [
   },
   {
     title: "Suede Microfibre Surface",
-    description: "Soft underfoot and gets grippier as you warm up — sweat activates the surface.",
+    description: "Soft underfoot and gets grippier as you warm up. Sweat activates the surface.",
     tag: "GRIP IMPROVES WITH USE",
   },
   {
@@ -23,7 +23,7 @@ const benefits = [
   },
   {
     title: "Lightweight & Rollable",
-    description: "1.76kg — light enough to carry anywhere, tough enough for daily practice.",
+    description: "1.76kg Light enough to carry anywhere, tough enough for daily practice.",
     tag: "1.76KG",
   },
   {
@@ -59,12 +59,12 @@ const MatBenefits = () => {
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 font-body">
-            The Mats
+            About our Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium mb-4 tracking-tight leading-tight">
-            <span className="text-foreground">Beautiful design.</span>
+            <span className="text-gradient">Beautiful design.</span>
             <span className="hidden md:inline"> </span>
-            <span className="block md:inline text-gradient italic">Built for practice.</span>
+            <span className="block md:inline text-gradient">Built for practice.</span>
           </h2>
         </div>
 

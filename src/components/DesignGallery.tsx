@@ -5,7 +5,8 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
-import GalleryMagnifier from "@/components/GalleryMagnifier";
+import GalleryMagnifier from "./GalleryMagnifier";
+
 
 // Mount the first row eagerly; defer the rest until they're about to scroll into view.
 const INITIAL_TILES = 6;
@@ -58,11 +59,12 @@ const DesignGallery = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-20">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
-            Your Mat
+            Our Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">24 beautiful </span>
-            <span className="text-gradient italic">designs</span>
+            <span className="text-gradient">24 </span>
+            <span className="text-gradient">unique</span>
+            <span className="text-gradient"> designs</span>
           </h2>
         </div>
         {loading ? (

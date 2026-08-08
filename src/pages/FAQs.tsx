@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Are the mats made to order?",
-    answer: "Yes — every mat is printed specifically for you once you place your order. No excess stock, no waste, and nothing sitting in a warehouse. Every mat is made fresh, just for you."
+    answer: "Yes. Every mat is printed specifically for you once you place your order. No excess stock, no waste, and nothing sitting in a warehouse. Every mat is made fresh, just for you."
   },
   {
     question: "What are the mats made from?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer: "All major credit and debit cards, processed securely at checkout."
+    answer: "All major credit and debit cards (Visa, Mastercard, American Express, UnionPay), along with PayPal, Apple Pay, Google Pay, and Shop Pay. Everything is processed securely at checkout."
   },
   {
     question: "When will my order be made?",
@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     question: "What is your returns policy?",
-    answer: "Because every mat is printed to order, we can't accept returns for change of mind. But if your mat arrives damaged or there's an issue with your order, please contact us within 30 days of delivery and we'll make it right."
+    answer: "Because every mat is printed to order, we don't accept returns for change of mind. But if your mat arrives damaged, faulty, or incorrect, contact us within 30 days of delivery and we'll replace or refund it — return shipping is on us in those cases. Full details are on our Refund & Returns Policy page."
   },
   {
     question: "Will the colors look exactly like they do on screen?",
@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     question: "How do I get in touch?",
-    answer: "You can reach us at hello@cosmicigloo.com. We're a small team so we might not always reply instantly, but we do reply — and we're always happy to hear from you."
+    answer: "You can reach us at hello@cosmicigloo.com. We're a small team so we might not always reply instantly. But we do reply, and we're always happy to hear from you."
   }
 ];
 
@@ -105,7 +105,16 @@ const FAQs = () => {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="font-body text-muted-foreground whitespace-pre-line">
-                  {faq.answer}
+                  {faq.answer.split("hello@cosmicigloo.com").map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
+                          hello@cosmicigloo.com
+                        </a>
+                      )}
+                    </span>
+                  ))}
                 </AccordionContent>
               </AccordionItem>
             ))}

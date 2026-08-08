@@ -30,8 +30,8 @@ const AboutSection = () => {
         </p>
 
         <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-          <span className="text-foreground">Three friends. </span>
-          <span className="text-gradient italic">One shared idea.</span>
+          <span className="text-gradient">Three friends. </span>
+          <span className="text-gradient">One shared idea.</span>
         </h2>
 
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
@@ -47,9 +47,9 @@ const AboutSection = () => {
             We'd love you to join our little community.{" "}
             <LocaleLink
               to="/about"
-              className="text-shaman-gold hover:text-shaman-gold/80 underline underline-offset-4 transition-colors"
+              className="text-shaman-violet hover:text-shaman-violet/80 underline underline-offset-4 transition-colors"
             >
-              Read our full story →
+              About us →
             </LocaleLink>
           </p>
         </div>

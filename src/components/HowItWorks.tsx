@@ -88,8 +88,8 @@ const HowItWorks = () => {
             Simple Process
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">How it </span>
-            <span className="text-gradient italic">works</span>
+            <span className="text-gradient">How it </span>
+            <span className="text-gradient">works</span>
           </h2>
         </div>
 

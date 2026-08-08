@@ -16,12 +16,8 @@ const About = () => {
         <div className="texture-overlay" />
         <div className="absolute inset-0 shaman-bg" />
         <div className="max-w-3xl mx-auto relative z-10">
-          <h1 className="font-display text-4xl md:text-5xl font-medium mb-8 text-foreground">
-            About
-          </h1>
-
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
-            <p className="text-foreground italic">A warm space in the infinite.</p>
+            <p className="font-display italic text-shaman-gold text-xl md:text-2xl">A warm space in the infinite.</p>
             <p>
               That's what we believe our mats should be, a place of beauty and intention amongst the chaos.
             </p>
@@ -36,7 +32,7 @@ const About = () => {
             </p>
             <p className="text-foreground">Made to order. Made for us.</p>
             <p>
-              We're building a community of people who want to be inspired every time they unroll their mat. If that's you, <LocaleLink to="/#design-gallery" className="underline underline-offset-4 text-foreground hover:text-primary transition-colors">come find yours</LocaleLink>.
+              We're building a community of people who want to be inspired every time they unroll their mat. If that's you, <LocaleLink to="/#design-gallery" className="underline underline-offset-4 text-shaman-violet hover:text-shaman-violet/80 transition-colors">come find yours</LocaleLink>.
             </p>
           </div>
         </div>

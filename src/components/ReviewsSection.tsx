@@ -48,8 +48,8 @@ const ReviewsSection = () => {
             Customer Reviews
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-foreground">What people are </span>
-            <span className="text-gradient italic">saying</span>
+            <span className="text-gradient">What people are </span>
+            <span className="text-gradient">saying</span>
           </h2>
           
         </div>

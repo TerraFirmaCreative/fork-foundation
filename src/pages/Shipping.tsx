@@ -21,7 +21,7 @@ const Shipping = () => {
 
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p>
-              Every mat is made to order and printed with care in Nevada, USA.
+              Every mat is made to order and printed with care by our production partner in Nevada, USA, then shipped directly to you. Cosmic Igloo (Perth, Australia) is the merchant of record for your order and remains your point of contact for anything to do with it.
             </p>
 
             <section>
@@ -71,7 +71,7 @@ const Shipping = () => {
                 Lost or delayed parcels
               </h2>
               <p>
-                If your tracking hasn't updated or your order hasn't arrived within the expected window, contact us at <a href="mailto:hello@cosmicigloo.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">hello@cosmicigloo.com</a> and we'll help track it down.
+                If your tracking hasn't updated or your order hasn't arrived within the expected window, contact us at <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a> and we'll help track it down.
               </p>
             </section>
 
@@ -80,7 +80,7 @@ const Shipping = () => {
                 Questions?
               </h2>
               <p>
-                We're always happy to help — <a href="mailto:hello@cosmicigloo.com" className="text-foreground font-medium hover:text-shaman-violet transition-colors">hello@cosmicigloo.com</a>
+                We're always happy to help — <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">hello@cosmicigloo.com</a>
               </p>
             </section>
           </div>

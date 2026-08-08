@@ -35,7 +35,7 @@ const images: { pic: Picture; alt: string }[] = [
   { pic: hudson4 as unknown as Picture, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
 
-const PRODUCT_HANDLE = "harmony-yoga-mat-8053335f-7e1d-4503-af17-66a680c96fdc";
+const PRODUCT_HANDLE = "fractal-reverie";
 const SLOT_COUNT = 4;
 
 /** Shared controller that ensures no two slots show the same image */
@@ -101,18 +101,23 @@ const GallerySlot = ({
     return () => io.disconnect();
   }, []);
 
+  // Keep latest onAdvance in a ref so the scheduler effect doesn't re-run
+  // (and reset its timer) on every parent re-render.
+  const onAdvanceRef = useRef(onAdvance);
+  onAdvanceRef.current = onAdvance;
+
   useEffect(() => {
     if (!visible) return;
     let timeout: ReturnType<typeof setTimeout>;
     const schedule = (ms: number) => {
       timeout = setTimeout(() => {
-        onAdvance();
+        onAdvanceRef.current();
         schedule(6000 + Math.random() * 4000);
       }, ms);
     };
     schedule(delay);
     return () => clearTimeout(timeout);
-  }, [visible, onAdvance, delay]);
+  }, [visible, delay]);
 
   // Crossfade: keep the previous image mounted briefly until the new one fades in.
   useEffect(() => {
@@ -173,7 +178,7 @@ const YogiOfTheWeek = () => {
   }, [country]);
 
   const variant = product?.node.variants.edges[0]?.node;
-  const price = variant ? formatPrice(variant.price) : "$170.00";
+  const price = variant ? formatPrice(variant.price) : null;
 
   return (
     <section className="relative py-12 md:py-16 px-6 overflow-hidden">
@@ -184,8 +189,8 @@ const YogiOfTheWeek = () => {
             Community Spotlight
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-            <span className="text-foreground">Cosmic Yogi </span>
-            <span className="text-gradient italic">of the Month</span>
+            <span className="text-gradient">Cosmic Yogi </span>
+            <span className="text-gradient">of the Month</span>
           </h2>
           <p className="text-muted-foreground font-body leading-relaxed mt-3 max-w-2xl mx-auto">
             Every month we shine a light on someone from our community and the mat they chose. This month it's Hudson.
@@ -212,7 +217,7 @@ const YogiOfTheWeek = () => {
                 Hudson's Mat
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground">
-                Mandelbrot Dreams
+                Fractal Reverie
               </h3>
               <p className="text-muted-foreground font-body leading-relaxed">
                 Hudson was drawn to this mat the moment she saw it. The infinite fractal patterns mirror her own ever-evolving practice; always changing, but always beginning with stillness.
@@ -220,10 +225,12 @@ const YogiOfTheWeek = () => {
             </div>
 
             <div className="flex items-center gap-4 shrink-0">
-              <p className="font-display text-2xl md:text-3xl text-foreground font-medium">
-                {price}
-              </p>
-              <LocaleLink to={`/product/${product?.node.handle}`}>
+              {price && (
+                <p className="font-display text-2xl md:text-3xl text-foreground font-medium">
+                  {price}
+                </p>
+              )}
+              <LocaleLink to={`/product/${PRODUCT_HANDLE}`}>
                 <Button
                   variant="cta"
                   size="lg"
