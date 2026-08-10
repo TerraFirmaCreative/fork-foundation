@@ -119,19 +119,28 @@ const GallerySlot = ({
     return () => clearTimeout(timeout);
   }, [visible, delay]);
 
-  // Crossfade: keep the previous image mounted briefly until the new one fades in.
+  // Crossfade: keep the previous image mounted until the new one has actually
+  // loaded and faded in, so a tile is never empty.
+  const [loadedIndex, setLoadedIndex] = useState<number | null>(null);
+
   useEffect(() => {
     if (currentIndex === prevIndex) return;
     setShowPrev(true);
+    setLoadedIndex(null);
+  }, [currentIndex, prevIndex]);
+
+  useEffect(() => {
+    if (loadedIndex !== currentIndex || currentIndex === prevIndex) return;
     const t = setTimeout(() => {
       setPrevIndex(currentIndex);
       setShowPrev(false);
     }, 900);
     return () => clearTimeout(t);
-  }, [currentIndex, prevIndex]);
+  }, [loadedIndex, currentIndex, prevIndex]);
 
   const renderImg = (idx: number, active: boolean) => {
     const img = images[idx];
+    const isReady = !active || loadedIndex === idx || idx === prevIndex;
     return (
       <picture key={`${idx}-${active}`}>
         {img.pic.sources.avif && (
@@ -145,8 +154,12 @@ const GallerySlot = ({
           alt={img.alt}
           width={img.pic.img.w}
           height={img.pic.img.h}
+          onLoad={() => setLoadedIndex(idx)}
+          ref={(el) => {
+            if (el?.complete) setLoadedIndex((p) => (p === idx ? p : idx));
+          }}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ease-out ${
-            active ? "opacity-100" : "opacity-0"
+            active && isReady ? "opacity-100" : active ? "opacity-0" : "opacity-100"
           }`}
           loading="lazy"
           decoding="async"
@@ -165,6 +178,7 @@ const GallerySlot = ({
     </div>
   );
 };
+
 
 
 const YogiOfTheWeek = () => {
