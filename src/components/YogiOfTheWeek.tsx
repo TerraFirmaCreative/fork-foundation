@@ -53,19 +53,24 @@ const useGalleryController = () => {
 
   const advance = useCallback((slotIndex: number) => {
     setSlots((prev) => {
-      const taken = new Set(prev);
-      let next = (prev[slotIndex] + 1) % images.length;
-      // Walk forward until we find an image not used by another slot
-      let attempts = 0;
-      while (taken.has(next) && next !== prev[slotIndex] && attempts < images.length) {
-        next = (next + 1) % images.length;
-        attempts++;
+      // Every image currently shown in another slot is off-limits.
+      const taken = new Set(prev.filter((_, i) => i !== slotIndex));
+      const current = prev[slotIndex];
+      let next = current;
+      for (let step = 1; step <= images.length; step++) {
+        const candidate = (current + step) % images.length;
+        if (!taken.has(candidate)) {
+          next = candidate;
+          break;
+        }
       }
+      if (next === current) return prev;
       const updated = [...prev];
       updated[slotIndex] = next;
       return updated;
     });
   }, []);
+
 
   return { slots, advance };
 };
