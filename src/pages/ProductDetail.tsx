@@ -281,7 +281,7 @@ const ProductDetail = () => {
             </h1>
 
             {price && (
-              <p className="text-xl text-muted-foreground mt-3 font-body italic">
+              <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
                 {formatPrice(price)}
               </p>
             )}
