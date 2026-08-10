@@ -8,7 +8,6 @@ import LazyMount from "@/components/LazyMount";
 // Below-the-fold sections — code-split AND mount-deferred via IntersectionObserver.
 // This keeps initial JS and image requests focused on the hero, improving LCP.
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
-const LifestyleGallery = lazy(() => import("@/components/LifestyleGallery"));
 const MatBenefits = lazy(() => import("@/components/MatBenefits"));
 const CommunityRow = lazy(() => import("@/components/CommunityRow"));
 const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
@@ -42,9 +41,9 @@ const Index = () => {
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={1020}>
-          <Suspense fallback={<SectionFallback h={1020} />}>
-            <LifestyleGallery />
+        <LazyMount minHeight={700}>
+          <Suspense fallback={<SectionFallback h={700} />}>
+            <YogiOfTheWeek />
           </Suspense>
         </LazyMount>
 
@@ -66,11 +65,7 @@ const Index = () => {
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={700}>
-          <Suspense fallback={<SectionFallback h={700} />}>
-            <YogiOfTheWeek />
-          </Suspense>
-        </LazyMount>
+
 
         <LazyMount minHeight={500}>
           <Suspense fallback={<SectionFallback h={500} />}>

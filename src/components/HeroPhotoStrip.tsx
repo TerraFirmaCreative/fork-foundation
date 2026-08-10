@@ -1,8 +1,10 @@
 import LocaleLink from "@/components/LocaleLink";
-import { FEATURED_PRODUCT_HANDLE, shufflePhotos } from "@/lib/communityPhotos";
+import { FEATURED_PRODUCT_HANDLE } from "@/lib/communityPhotos";
+import { shuffleLifestylePhotos } from "@/lib/lifestylePhotos";
+import { shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 
 // Shuffled once per page load so returning visitors see variety.
-const photos = shufflePhotos();
+const photos = shuffleLifestylePhotos();
 // Duplicated for a seamless marquee loop.
 const loop = [...photos, ...photos];
 
@@ -34,24 +36,17 @@ const HeroPhotoStrip = () => {
             aria-label={`Shop the mat — ${p.alt}`}
             className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-[172px] md:h-[230px] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 hover:ring-shaman-gold/50 transition-all duration-500 hover:shadow-[0_0_36px_-10px_hsl(var(--shaman-violet)/0.7)]"
           >
-            <picture>
-              {p.pic.sources.avif && (
-                <source type="image/avif" srcSet={p.pic.sources.avif} sizes={SIZES} />
-              )}
-              {p.pic.sources.webp && (
-                <source type="image/webp" srcSet={p.pic.sources.webp} sizes={SIZES} />
-              )}
-              <img
-                src={p.pic.img.src}
-                alt={i >= photos.length ? "" : p.alt}
-                width={200}
-                height={267}
-                loading={i < 4 ? "eager" : "lazy"}
-                decoding="async"
-                style={{ objectPosition: p.position }}
-                className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-              />
-            </picture>
+            <img
+              src={shopifyImageUrl(p.src, 400)}
+              srcSet={shopifySrcSet(p.src, [200, 300, 400, 600])}
+              sizes={SIZES}
+              alt={i >= photos.length ? "" : p.alt}
+              width={200}
+              height={267}
+              loading={i < 4 ? "eager" : "lazy"}
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700" />
           </LocaleLink>
         ))}
