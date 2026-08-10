@@ -320,6 +320,15 @@ const HeroSection = () => {
           Designed to inspire. Made to perform.
         </p>
 
+        {/* Real yogis on the mats — drifting film strip */}
+        <div className="mt-8 md:mt-10 w-full">
+          <HeroPhotoStrip />
+          <p className="mt-3 text-[0.6rem] sm:text-[0.65rem] tracking-[0.4em] uppercase text-shaman-gold/70 font-body font-light">
+            Real practices. Real mats.
+          </p>
+        </div>
+
+
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
