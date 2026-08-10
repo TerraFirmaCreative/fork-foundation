@@ -277,7 +277,7 @@ const HeroSection = () => {
 
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div
-        className="relative z-10 w-full px-6 flex flex-col items-center text-center"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center justify-center text-center"
         style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
       >
         {/* Whisper-line above headline */}
@@ -286,7 +286,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-4 font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] max-w-5xl overflow-visible">
+        <h1 className="mt-4 mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] max-w-5xl text-center text-balance overflow-visible">
           <span className="block">
             <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -306,7 +306,7 @@ const HeroSection = () => {
                 />
               </svg>
             </span>{" "}
-            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
+            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pl-[0.02em] pr-[0.06em] overflow-visible align-baseline">
               grippy
             </span>
           </span>
