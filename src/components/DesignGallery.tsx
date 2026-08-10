@@ -20,7 +20,7 @@ const DesignGallery = () => {
   const { country } = useLocale();
 
   useEffect(() => {
-    fetchCollectionProducts("featured-home", 24, country)
+    fetchCollectionProducts("featured-home", 50, country)
       .then((items) => {
         setProducts(items);
         setLoading(false);
@@ -61,8 +61,8 @@ const DesignGallery = () => {
             Our Mats
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">24 </span>
-            <span className="text-gradient">unique</span>
+            <span className="text-gradient">{products.length || 24} </span>
+            <span className="text-gradient italic">unique</span>
             <span className="text-gradient"> designs</span>
           </h2>
         </div>
