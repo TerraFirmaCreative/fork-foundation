@@ -306,7 +306,7 @@ const HeroSection = () => {
                 />
               </svg>
             </span>{" "}
-            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
+            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pl-[0.02em] pr-[0.06em] overflow-visible align-baseline">
               grippy
             </span>
           </span>
