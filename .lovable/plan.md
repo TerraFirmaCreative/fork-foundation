@@ -1,61 +1,23 @@
-## Goal
+# Why the Shopify changes aren't showing
 
-Make Cosmic Igloo show up better in AI search (ChatGPT, Perplexity, Claude, Google AI Overviews) by publishing a proper `llms.txt` index and a comprehensive `llms-full.txt` knowledge document, both served from the site root.
+## What I found (checked live against your store)
 
-## What gets created
+The "Home" collection now contains **30 products**, but the homepage gallery is hardcoded to request only the **first 24** and the heading text is hardcoded to say "24 unique designs". So the last products in your collection — including recent additions — are simply never fetched.
 
-Two files in `public/` (served at `/llms.txt` and `/llms-full.txt`):
+Live order returned by Shopify for the Home collection (positions 22-24): Breath of Freedom, Prana Fest, Cosmic Igloo. "Fractal Reverie" (formerly Mandelbrot Dreams) sits at position 16 in the live data, even though your admin screenshot shows it at 23 with the old name — that admin list is showing a stale/differently-sorted view, not what the storefront serves.
 
-### 1. `public/llms.txt` (rewrite existing)
+So there is no caching bug and nothing failed to save: the site is faithfully showing the first 24 of 30, in the store's own order.
 
-Short, curated markdown index following the [llms.txt](https://llmstxt.org) spec. Adds:
-- A tightened one-paragraph site summary (premium made-to-order yoga mats, sacred-geometry art, US-printed).
-- Primary navigation pages (Home, About, How it works, FAQs, Shipping, Refund/Returns, Contact, Blog).
-- A new **Products** section linking each of the 47 mat product pages with a one-line description (name + style/theme).
-- Pointer to `/llms-full.txt` for full content.
-- Pointer to `/sitemap.xml`.
+## Proposed fix
 
-### 2. `public/llms-full.txt` (new)
+1. Fetch the whole collection instead of a fixed 24 (request up to 50 and render everything returned).
+2. Make the heading count dynamic — it reads the actual number of products instead of the hardcoded "24", so it stays correct whenever you add or remove mats in Shopify.
+3. Keep the existing lazy-mount behaviour (first row eager, the rest deferred) so performance doesn't regress with more tiles.
+4. Match the loading skeleton count to the real product count so the layout doesn't jump.
 
-Long-form single markdown doc containing the full text of every important page so an LLM can answer without crawling:
-- Brand summary + value props
-- About / Our Story
-- How it works (order → print → ship)
-- Materials & care
-- FAQs (full Q&A)
-- Shipping & delivery details
-- Refund & returns policy
-- Contact info
-- Blog post(s)
-- Product catalog: each mat with name, URL, and short description
+## Technical detail
 
-## How content is sourced
+- `src/components/DesignGallery.tsx`: change `fetchCollectionProducts("featured-home", 24, country)` to a higher limit, replace the literal `24` in the `<h2>` with `products.length`, and use a stable skeleton count while loading.
+- No Shopify-side changes needed; the Storefront query already returns the products correctly.
 
-Fresh scrape of the live site (cosmicigloo.com) using a Playwright script:
-
-1. Read `public/sitemap.xml` to get the full URL list (static pages + all 47 product pages + blog posts).
-2. Visit each URL, extract `<title>`, `<meta name="description">`, and main visible text.
-3. For product pages, also pull the product name and short description from the product detail template.
-4. Format everything into the two markdown files.
-
-The scrape runs once at plan-execution time; the resulting files are static and committed to `public/`. No runtime scraping, no Firecrawl/connector needed.
-
-## Discoverability
-
-- Add a `<link rel="alternate" type="text/markdown" href="/llms.txt" title="llms.txt">` to `index.html` `<head>` so AI crawlers that look for it find it explicitly. (Optional but cheap.)
-- `public/robots.txt`: ensure `/llms.txt` and `/llms-full.txt` are not disallowed (they shouldn't be — current robots allows them, will verify).
-- No change to `sitemap.xml` (llms files are conventionally excluded from sitemaps).
-
-## Out of scope
-
-- No new pages, routes, or UI.
-- No backend/edge functions.
-- No changes to SEO `<meta>` tags on existing pages (separate concern; can do after if you want).
-- No automated regeneration pipeline — if products change significantly, re-run the same scrape.
-
-## Files touched
-
-- `public/llms.txt` — rewritten
-- `public/llms-full.txt` — new
-- `index.html` — one `<link rel="alternate">` tag added to `<head>`
-- `public/robots.txt` — verified only, edited only if it currently blocks the files
+If the position of "Fractal Reverie" in the grid still looks wrong to you after this, that's a collection sort-order question in Shopify (the collection's manual order is what the site follows) and I can look at that separately.
