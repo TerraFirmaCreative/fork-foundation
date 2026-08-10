@@ -8,7 +8,6 @@ import LazyMount from "@/components/LazyMount";
 // Below-the-fold sections — code-split AND mount-deferred via IntersectionObserver.
 // This keeps initial JS and image requests focused on the hero, improving LCP.
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
-const LifestyleGallery = lazy(() => import("@/components/LifestyleGallery"));
 const MatBenefits = lazy(() => import("@/components/MatBenefits"));
 const CommunityRow = lazy(() => import("@/components/CommunityRow"));
 const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
