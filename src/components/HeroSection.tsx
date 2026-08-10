@@ -286,7 +286,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
+        <h1 className="mt-4 font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] max-w-5xl overflow-visible">
           <span className="block">
             <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -310,29 +310,29 @@ const HeroSection = () => {
               grippy
             </span>
           </span>
-          <span className="block text-gradient font-display font-medium tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mt-2 leading-[1.15] pb-[0.12em]">
+          <span className="block text-gradient font-display font-medium tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] mt-1 leading-[1.15] pb-[0.12em]">
             yoga mats.
           </span>
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-8 text-base sm:text-lg md:text-xl text-foreground/95 font-body max-w-xl leading-relaxed">
+        <p className="mt-4 text-sm sm:text-base md:text-lg text-foreground/95 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
         {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-8 md:mt-10 w-full">
+        <div className="mt-5 md:mt-7 w-full">
           <HeroPhotoStrip />
-          <p className="mt-3 text-[0.6rem] sm:text-[0.65rem] tracking-[0.4em] uppercase text-shaman-gold/70 font-body font-light">
+          <p className="mt-2.5 text-[0.6rem] sm:text-[0.65rem] tracking-[0.4em] uppercase text-shaman-gold/70 font-body font-light">
             Real practices. Real mats.
           </p>
         </div>
 
-
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="enter-cta group mt-12 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+          className="enter-cta group mt-6 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+
           aria-label="View the collection below"
         >
           <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
