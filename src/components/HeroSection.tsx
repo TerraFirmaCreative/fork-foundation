@@ -286,7 +286,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-4 font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] max-w-5xl overflow-visible">
+        <h1 className="mt-4 mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] max-w-5xl text-center text-balance overflow-visible">
           <span className="block">
             <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
