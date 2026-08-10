@@ -277,7 +277,7 @@ const HeroSection = () => {
 
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center justify-center text-center"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center justify-center text-center -translate-y-8 md:-translate-y-12"
         style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
       >
         {/* Whisper-line above headline */}
