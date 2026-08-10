@@ -323,9 +323,7 @@ const HeroSection = () => {
         {/* Real yogis on the mats — drifting film strip */}
         <div className="mt-5 md:mt-7 w-full">
           <HeroPhotoStrip />
-          <p className="mt-2.5 text-[0.6rem] sm:text-[0.65rem] tracking-[0.4em] uppercase text-shaman-gold/70 font-body font-light">
-            Real practices. Real mats.
-          </p>
+
         </div>
 
         {/* CTA button */}
