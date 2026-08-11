@@ -65,7 +65,9 @@ const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, 
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       <link rel="canonical" href={canonicalUrl} />
+
 
       {/* hreflang alternates — one per supported locale + x-default */}
       {SUPPORTED_LOCALES.map((loc) => (
