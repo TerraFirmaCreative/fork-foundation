@@ -138,10 +138,23 @@ const Contact = () => {
                   <strong className="text-foreground">Hours:</strong> Monday–Friday, 9am–5pm AWST (Perth). We're an online-only business, so please contact us by email or the form — we don't take phone enquiries.
                 </span>
               </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
+                <span>
+                  <strong className="text-foreground">Response time:</strong> we reply to every message within 1 business day.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
+                <span>
+                  <strong className="text-foreground">Where we ship from:</strong> our mats are printed and dispatched from our production partner in the United States, so most orders travel a short domestic hop to US customers and ship worldwide from there.
+                </span>
+              </li>
             </ul>
-            <p className="text-sm text-muted-foreground/70">
-              We aim to reply to every message within 2 business days.
+            <p className="text-sm text-shaman-gold font-medium">
+              We reply to every message within 1 business day.
             </p>
+
           </div>
 
           <form

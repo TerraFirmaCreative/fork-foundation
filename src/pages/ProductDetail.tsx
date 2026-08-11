@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
@@ -41,6 +41,8 @@ const ProductDetail = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
   const setDrawerOpen = useCartStore((s) => s.setDrawerOpen);
@@ -112,6 +114,19 @@ const ProductDetail = () => {
   }, [selectedImageIndex, userInteracted, images.length]);
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
+
+  // Sticky mobile add-to-cart bar: shown once the main button scrolls out of view.
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setShowStickyCta(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [product]);
+
 
   if (loading) {
     return (
@@ -288,7 +303,7 @@ const ProductDetail = () => {
 
 
             {/* Quantity + Add to Cart */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
               <div className="flex items-center border border-border rounded-lg self-start">
                 <Button
                   variant="ghost"
@@ -450,6 +465,42 @@ const ProductDetail = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Sticky mobile add-to-cart bar */}
+      <div
+        className={cn(
+          "md:hidden fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur-md transition-transform duration-300",
+          showStickyCta ? "translate-y-0" : "translate-y-full pointer-events-none"
+        )}
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        aria-hidden={!showStickyCta}
+      >
+        <div className="flex items-center gap-3 px-4 py-3">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-body text-foreground">{product.node.title}</p>
+            {price && (
+              <p className="text-sm font-body text-muted-foreground">{formatPrice(price)}</p>
+            )}
+          </div>
+          <Button
+            onClick={handleAddToCart}
+            disabled={isLoading || !variant?.availableForSale}
+            variant="conversion"
+            className="shrink-0"
+            tabIndex={showStickyCta ? undefined : -1}
+            aria-label="Add to cart"
+          >
+            {isLoading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                <span className="sr-only">Adding to cart</span>
+              </>
+            ) : (
+              <span>Add to Cart</span>
+            )}
+          </Button>
         </div>
       </div>
 
