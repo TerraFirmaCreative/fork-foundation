@@ -468,6 +468,42 @@ const ProductDetail = () => {
         </div>
       </div>
 
+      {/* Sticky mobile add-to-cart bar */}
+      <div
+        className={cn(
+          "md:hidden fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur-md transition-transform duration-300",
+          showStickyCta ? "translate-y-0" : "translate-y-full pointer-events-none"
+        )}
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        aria-hidden={!showStickyCta}
+      >
+        <div className="flex items-center gap-3 px-4 py-3">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-body text-foreground">{product.node.title}</p>
+            {price && (
+              <p className="text-sm font-body text-muted-foreground">{formatPrice(price)}</p>
+            )}
+          </div>
+          <Button
+            onClick={handleAddToCart}
+            disabled={isLoading || !variant?.availableForSale}
+            variant="conversion"
+            className="shrink-0"
+            tabIndex={showStickyCta ? undefined : -1}
+            aria-label="Add to cart"
+          >
+            {isLoading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                <span className="sr-only">Adding to cart</span>
+              </>
+            ) : (
+              <span>Add to Cart</span>
+            )}
+          </Button>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
