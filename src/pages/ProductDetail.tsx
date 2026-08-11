@@ -113,6 +113,19 @@ const ProductDetail = () => {
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
 
+  // Sticky mobile add-to-cart bar: shown once the main button scrolls out of view.
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setShowStickyCta(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [product]);
+
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
