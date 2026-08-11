@@ -16,6 +16,8 @@ interface SEOProps {
   jsonLd?: Record<string, any> | Record<string, any>[];
   /** Optional breadcrumb trail; emits BreadcrumbList JSON-LD */
   breadcrumbs?: BreadcrumbItem[];
+  /** Emit robots noindex (e.g. error pages) */
+  noindex?: boolean;
 }
 
 const SITE_URL = "https://cosmicigloo.com";
