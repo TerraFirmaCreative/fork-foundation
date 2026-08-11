@@ -34,7 +34,7 @@ const toHreflang = (locale: string) => HREFLANG_OVERRIDES[locale] || locale;
 const buildLocalePath = (locale: string, cleanPath: string) =>
   cleanPath === "/" ? `/${locale}` : `/${locale}${cleanPath}`;
 
-const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, breadcrumbs }: SEOProps) => {
+const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, breadcrumbs, noindex }: SEOProps) => {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   // Self-referential canonical: use the current URL path (including locale prefix
   // if present) so Lighthouse sees canonical === audited URL. Falls back to the
