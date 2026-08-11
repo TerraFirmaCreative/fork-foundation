@@ -303,7 +303,7 @@ const ProductDetail = () => {
 
 
             {/* Quantity + Add to Cart */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
               <div className="flex items-center border border-border rounded-lg self-start">
                 <Button
                   variant="ghost"
