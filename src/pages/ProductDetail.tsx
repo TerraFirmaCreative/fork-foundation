@@ -41,6 +41,8 @@ const ProductDetail = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
   const setDrawerOpen = useCartStore((s) => s.setDrawerOpen);
