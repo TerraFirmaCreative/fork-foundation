@@ -18,6 +18,7 @@ const buttonVariants = cva(
         hero: "btn-conversion !h-auto !px-7 !py-3 !rounded-full",
         cta: "btn-conversion !h-auto !px-7 !py-3 !rounded-full",
         conversion: "btn-conversion !h-auto !px-7 !py-3 !rounded-full",
+        buy: "btn-buy",
         nav: "text-muted-foreground hover:text-foreground font-medium bg-transparent",
       },
       size: {
