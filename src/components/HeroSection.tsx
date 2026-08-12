@@ -14,7 +14,7 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center pt-24 pb-10 md:pt-24 md:pb-8">
       {/* LAYER 1 — True black space base with subtle violet depth */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -287,7 +287,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-4 mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] max-w-5xl text-center text-balance overflow-visible">
+        <h1 className="mt-4 md:mt-[min(1rem,1.8vh)] mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] [@media(min-width:768px)_and_(max-height:820px)]:text-5xl max-w-5xl text-center text-balance overflow-visible">
           <span className="block">
             <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -311,24 +311,24 @@ const HeroSection = () => {
               grippy
             </span>
           </span>
-          <span className="block text-gradient font-display font-medium tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] mt-1 leading-[1.15] pb-[0.12em]">
+          <span className="block text-gradient font-display font-medium tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] [@media(min-width:768px)_and_(max-height:820px)]:text-5xl mt-1 leading-[1.15] pb-[0.12em]">
             yoga mats.
           </span>
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-4 text-sm sm:text-base md:text-lg text-foreground/95 font-body max-w-xl leading-relaxed">
+        <p className="mt-4 md:mt-[min(1rem,1.8vh)] text-sm sm:text-base md:text-lg text-foreground/95 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
 
         {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-8 md:mt-10 w-full">
+        <div className="mt-8 md:mt-[min(2.5rem,2.6vh)] w-full">
           <HeroPhotoStrip />
 
         </div>
 
         {/* Trust strip — slides slowly under the photos */}
-        <div className="mt-5 md:mt-6 w-full">
+        <div className="mt-5 md:mt-[min(1.5rem,1.8vh)] w-full">
           <UspBar />
         </div>
 
@@ -337,7 +337,7 @@ const HeroSection = () => {
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="enter-cta group mt-8 md:mt-9 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+          className="enter-cta group mt-8 md:mt-[min(2.25rem,2.4vh)] relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
 
           aria-label="View the collection below"
         >
