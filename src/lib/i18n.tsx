@@ -123,22 +123,43 @@ function localeFromBrowser(): SupportedLocale | null {
   return null;
 }
 
-async function detectFreshUserLocale(): Promise<SupportedLocale> {
-  // 1. Try IP-based detection (priority)
+async function countryFromCloudflare(): Promise<string | null> {
+  try {
+    const res = await fetch("/cdn-cgi/trace", { signal: AbortSignal.timeout(2500), cache: "no-store" });
+    if (!res.ok) return null;
+    const text = await res.text();
+    const loc = text.match(/^loc=([A-Z]{2})$/m)?.[1];
+    return loc || null;
+  } catch {
+    return null;
+  }
+}
+
+async function countryFromIpApi(): Promise<string | null> {
   try {
     const response = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(3000) });
-    if (response.ok) {
-      const data = await response.json();
-      const countryCode = data.country_code;
-      if (countryCode && COUNTRY_TO_LOCALE[countryCode]) {
-        return COUNTRY_TO_LOCALE[countryCode];
-      }
-    }
+    if (!response.ok) return null;
+    const data = await response.json();
+    return typeof data?.country_code === "string" ? data.country_code : null;
   } catch {
-    // Fall through to browser locale.
+    return null;
   }
+}
 
-  return localeFromBrowser() || DEFAULT_LOCALE;
+async function detectFreshUserLocale(): Promise<SupportedLocale> {
+  // 1. Cloudflare edge geo (same-origin, fast, no rate limits)
+  const cf = await countryFromCloudflare();
+  if (cf && COUNTRY_TO_LOCALE[cf]) return COUNTRY_TO_LOCALE[cf];
+
+  // 2. Browser locale (reflects the user's own region settings)
+  const fromBrowser = localeFromBrowser();
+  if (fromBrowser) return fromBrowser;
+
+  // 3. IP lookup as a last resort
+  const ip = await countryFromIpApi();
+  if (ip && COUNTRY_TO_LOCALE[ip]) return COUNTRY_TO_LOCALE[ip];
+
+  return DEFAULT_LOCALE;
 }
 
 export async function detectUserLocale({ force = false }: { force?: boolean } = {}): Promise<SupportedLocale> {
