@@ -376,7 +376,7 @@ const ProductDetail = () => {
                 </span>
                 <PaymentIcons className="opacity-80" />
               </div>
-              <p className="font-body text-sm text-foreground/90 mt-3">
+              <p className="font-body text-sm text-foreground/90 mt-7">
                 <span className="text-shaman-gold font-medium">Our promise:</span> every mat is made to order and
                 checked before it ships. If it arrives damaged, faulty or not as described, we'll replace it or refund
                 you in full — just email us within 30 days.
