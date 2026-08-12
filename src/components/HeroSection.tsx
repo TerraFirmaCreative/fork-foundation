@@ -14,7 +14,7 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center pt-16 pb-10 md:pt-16 md:pb-8">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center pt-16 pb-20 md:pt-12 md:pb-24">
       {/* LAYER 1 — True black space base with subtle violet depth */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -322,7 +322,7 @@ const HeroSection = () => {
         </p>
 
         {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-12 md:mt-[min(4rem,4.4vh)] w-full">
+        <div className="mt-9 md:mt-[min(3rem,3.4vh)] w-full">
           <HeroPhotoStrip />
 
         </div>
