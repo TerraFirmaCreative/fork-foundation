@@ -9,7 +9,6 @@ import LazyMount from "@/components/LazyMount";
 // This keeps initial JS and image requests focused on the hero, improving LCP.
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const MatBenefits = lazy(() => import("@/components/MatBenefits"));
-const CommunityRow = lazy(() => import("@/components/CommunityRow"));
 const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
 const YogiOfTheWeek = lazy(() => import("@/components/YogiOfTheWeek"));
 const AffiliateSection = lazy(() => import("@/components/AffiliateSection"));
@@ -53,11 +52,6 @@ const Index = () => {
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={1050}>
-          <Suspense fallback={<SectionFallback h={1050} />}>
-            <CommunityRow />
-          </Suspense>
-        </LazyMount>
 
         <LazyMount minHeight={900}>
           <Suspense fallback={<SectionFallback h={900} />}>
