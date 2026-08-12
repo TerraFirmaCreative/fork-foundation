@@ -101,13 +101,13 @@ const HowItWorks = () => {
               className="relative group text-center md:text-left flex flex-col items-center md:items-start"
             >
               {/* Step number */}
-              <span className="block font-display text-[2.655rem] md:text-[3.54rem] text-foreground/30 mb-2.5 md:mb-5 group-hover:text-foreground/50 transition-colors duration-700">
+              <span className="block font-display text-[2.4rem] md:text-[3.1rem] text-foreground/30 mb-2.5 md:mb-5 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
 
               {/* Fixed height title area */}
               <div className="h-auto md:h-[4.13rem] flex flex-col items-center md:items-start justify-start mb-1 md:mb-0">
-                <h3 className={`font-display text-[1.77rem] md:text-[2.065rem] font-normal tracking-tight ${step.color}`}>
+                <h3 className={`font-display text-[1.6rem] md:text-[1.78rem] font-normal tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
               </div>
@@ -118,7 +118,7 @@ const HowItWorks = () => {
                   {step.deliveryLines.map((dl, i) => (
                     <div key={i} className="flex gap-3.5 justify-center md:justify-start">
                       <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                      <p className="text-[20px] md:text-[21px] text-foreground/90 font-body leading-relaxed">
+                      <p className="text-[18px] md:text-[19px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
                     </div>
@@ -130,7 +130,7 @@ const HowItWorks = () => {
                 {step.lines.map((line, i) => (
                   <div key={i} className="flex gap-3.5 justify-center md:justify-start">
                     <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                    <p className={`text-[20px] md:text-[21px] font-body leading-relaxed text-pretty ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
+                    <p className={`text-[18px] md:text-[19px] font-body leading-relaxed text-pretty ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
                   </div>
