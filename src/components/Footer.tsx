@@ -19,6 +19,8 @@ const Footer = () => {
 
   const [email, setEmail] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [emailError, setEmailError] = useState<string>("")
+
 
   const scrollToSection = (sectionId: string) => {
     if (isHomePage) {
