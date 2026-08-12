@@ -4,7 +4,7 @@ import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown } from "lucide-react";
+import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -336,17 +336,22 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
-                variant="conversion"
-                className="w-full sm:w-auto"
+                variant="buy"
+                className="w-full sm:w-auto sm:min-w-[15rem] flex-1"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-                    <span className="sr-only">Adding to cart</span>
+                    <span>Adding…</span>
                   </>
+                ) : !variant?.availableForSale ? (
+                  <span>Sold out</span>
                 ) : (
-                  <span>Add to Cart</span>
+                  <>
+                    <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+                    <span>Add to Cart{price ? ` — ${formatPrice(price)}` : ""}</span>
+                  </>
                 )}
               </Button>
             </div>
@@ -511,18 +516,23 @@ const ProductDetail = () => {
           <Button
             onClick={handleAddToCart}
             disabled={isLoading || !variant?.availableForSale}
-            variant="conversion"
-            className="shrink-0"
+            variant="buy"
+            className="shrink-0 !min-h-[3rem] !px-6"
             tabIndex={showStickyCta ? undefined : -1}
             aria-label="Add to cart"
           >
             {isLoading ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-                <span className="sr-only">Adding to cart</span>
+                <span>Adding…</span>
               </>
+            ) : !variant?.availableForSale ? (
+              <span>Sold out</span>
             ) : (
-              <span>Add to Cart</span>
+              <>
+                <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+                <span>Add to Cart</span>
+              </>
             )}
           </Button>
         </div>
