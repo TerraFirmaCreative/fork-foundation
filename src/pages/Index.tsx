@@ -53,11 +53,6 @@ const Index = () => {
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={1050}>
-          <Suspense fallback={<SectionFallback h={1050} />}>
-            <CommunityRow />
-          </Suspense>
-        </LazyMount>
 
         <LazyMount minHeight={900}>
           <Suspense fallback={<SectionFallback h={900} />}>
