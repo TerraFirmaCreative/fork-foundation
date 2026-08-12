@@ -1,3 +1,8 @@
+import n12 from "@/assets/lifestyle-new-12.png.asset.json";
+import n13 from "@/assets/lifestyle-new-13.png.asset.json";
+import n14 from "@/assets/lifestyle-new-14.png.asset.json";
+import n15 from "@/assets/lifestyle-new-15.png.asset.json";
+
 // Lifestyle shots of real yogis on Cosmic Igloo mats (Shopify CDN hosted).
 export type LifestylePhoto = { src: string; alt: string };
 
@@ -13,8 +18,18 @@ export const lifestylePhotos: LifestylePhoto[] = [
   { src: "https://cdn.shopify.com/s/files/1/0789/0052/7412/files/lifestyle-9.webp?v=1773738117", alt: "Close up of Cosmic Igloo mat artwork texture" },
 ];
 
+
+// Newly added community shots (CDN hosted).
+
+export const newLifestylePhotos: LifestylePhoto[] = [
+  { src: n12.url, alt: "Seated meditation at sunset on a Cosmic Igloo mat on the beach" },
+  { src: n13.url, alt: "Headstand on a Cosmic Igloo mat on grass in the park" },
+  { src: n14.url, alt: "Cosmic Igloo mandala yoga mat laid out on a forest trail" },
+  { src: n15.url, alt: "Warrior pose on a Cosmic Igloo mat on white sand by the ocean" },
+];
+
 /** Fisher-Yates shuffle — returns a new array. */
-export function shuffleLifestylePhotos(list: LifestylePhoto[] = lifestylePhotos): LifestylePhoto[] {
+function shuffle(list: LifestylePhoto[]): LifestylePhoto[] {
   const arr = [...list];
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -22,3 +37,19 @@ export function shuffleLifestylePhotos(list: LifestylePhoto[] = lifestylePhotos)
   }
   return arr;
 }
+
+/** Shuffles the base set and spaces the newer photos evenly through it so no two new shots sit side by side. */
+export function shuffleLifestylePhotos(list: LifestylePhoto[] = lifestylePhotos): LifestylePhoto[] {
+  const base = shuffle(list);
+  const extras = shuffle(newLifestylePhotos);
+  const out: LifestylePhoto[] = [];
+  const gap = Math.max(2, Math.floor(base.length / (extras.length + 1)));
+  let e = 0;
+  base.forEach((photo, i) => {
+    out.push(photo);
+    if (e < extras.length && (i + 1) % gap === 0) out.push(extras[e++]);
+  });
+  while (e < extras.length) out.push(extras[e++]);
+  return out;
+}
+
