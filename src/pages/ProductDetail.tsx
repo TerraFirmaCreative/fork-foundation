@@ -346,7 +346,7 @@ const ProductDetail = () => {
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
                 variant="buy"
-                className="w-full sm:w-auto sm:min-w-[15rem] flex-1"
+                className="w-full sm:w-auto sm:min-w-[11rem]"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
