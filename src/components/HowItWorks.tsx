@@ -130,7 +130,7 @@ const HowItWorks = () => {
                 {step.lines.map((line, i) => (
                   <div key={i} className="flex gap-3.5 justify-center md:justify-start">
                     <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                    <p className={`text-[20px] md:text-[21px] font-body leading-relaxed whitespace-nowrap ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
+                    <p className={`text-[20px] md:text-[21px] font-body leading-relaxed text-pretty ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
                   </div>
