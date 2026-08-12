@@ -76,7 +76,7 @@ const Contact = () => {
 
       toast({
         title: "Message sent",
-        description: "Thanks — we've sent a confirmation to your inbox and will reply within 2 business days.",
+        description: "Thanks — we've sent a confirmation to your inbox and will reply within 1 business day.",
       });
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
@@ -94,7 +94,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contact Cosmic Igloo — We're Here to Help"
-        description="Question about your order or our yoga mats? Send us a message or email hello@cosmicigloo.com — we reply within 2 business days."
+        description="Question about your order or our yoga mats? Send us a message or email hello@cosmicigloo.com — we reply within 1 business day."
         path="/contact"
       />
       <Header />
