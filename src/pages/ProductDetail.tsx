@@ -350,7 +350,7 @@ const ProductDetail = () => {
                 ) : (
                   <>
                     <ShoppingCart className="w-4 h-4" aria-hidden="true" />
-                    <span>Add to Cart{price ? ` — ${formatPrice(price)}` : ""}</span>
+                    <span>Add to Cart</span>
                   </>
                 )}
               </Button>
