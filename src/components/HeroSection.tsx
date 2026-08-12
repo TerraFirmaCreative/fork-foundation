@@ -14,7 +14,7 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center pt-24 pb-10 md:pt-24 md:pb-8">
+    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black flex items-center justify-center pt-16 pb-10 md:pt-16 md:pb-8">
       {/* LAYER 1 — True black space base with subtle violet depth */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -322,7 +322,7 @@ const HeroSection = () => {
         </p>
 
         {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-8 md:mt-[min(2.5rem,2.6vh)] w-full">
+        <div className="mt-12 md:mt-[min(4rem,4.4vh)] w-full">
           <HeroPhotoStrip />
 
         </div>
@@ -337,7 +337,7 @@ const HeroSection = () => {
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="enter-cta group mt-8 md:mt-[min(2.25rem,2.4vh)] relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+          className="enter-cta group mt-5 md:mt-[min(1.5rem,1.8vh)] relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
 
           aria-label="View the collection below"
         >
