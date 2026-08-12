@@ -16,6 +16,8 @@ import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } f
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
+import PaymentIcons from "@/components/PaymentIcons";
+
 import whaleMat1 from "@/assets/whale-mat-1.webp";
 import whaleMat2 from "@/assets/whale-mat-2.webp";
 import whaleMat3 from "@/assets/whale-mat-3.webp";
