@@ -322,13 +322,13 @@ const HeroSection = () => {
         </p>
 
         {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-8 md:mt-10 [@media(min-width:768px)_and_(max-height:820px)]:mt-4 w-full">
+        <div className="mt-8 md:mt-[min(2.5rem,4vh)] w-full">
           <HeroPhotoStrip />
 
         </div>
 
         {/* Trust strip — slides slowly under the photos */}
-        <div className="mt-5 md:mt-6 [@media(min-width:768px)_and_(max-height:820px)]:mt-3 w-full">
+        <div className="mt-5 md:mt-[min(1.5rem,2.6vh)] w-full">
           <UspBar />
         </div>
 
@@ -337,7 +337,7 @@ const HeroSection = () => {
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="enter-cta group mt-8 md:mt-9 [@media(min-width:768px)_and_(max-height:820px)]:mt-5 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+          className="enter-cta group mt-8 md:mt-[min(2.25rem,4vh)] relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
 
           aria-label="View the collection below"
         >
