@@ -1,4 +1,5 @@
 import HeroPhotoStrip from "@/components/HeroPhotoStrip";
+import UspBar from "@/components/UspBar";
 
 
 
@@ -325,6 +326,13 @@ const HeroSection = () => {
           <HeroPhotoStrip />
 
         </div>
+
+        {/* Trust strip — slides slowly under the photos */}
+        <div className="mt-5 md:mt-6 w-full">
+          <UspBar />
+        </div>
+
+
 
         {/* CTA button */}
         <button
