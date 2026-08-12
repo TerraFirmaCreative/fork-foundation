@@ -34,7 +34,7 @@ const HeroPhotoStrip = () => {
             aria-hidden={i >= photos.length}
             tabIndex={i >= photos.length ? -1 : undefined}
             aria-label={`Shop the mat — ${p.alt}`}
-            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-[172px] md:h-[230px] [@media(min-width:768px)and(max-height:820px)]:w-[124px] [@media(min-width:768px)and(max-height:820px)]:h-[166px] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 hover:ring-shaman-gold/50 transition-all duration-500 hover:shadow-[0_0_36px_-10px_hsl(var(--shaman-violet)/0.7)]"
+            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-[172px] md:h-[230px] [@media(min-width:768px)_and_(max-height:820px)]:w-[124px] [@media(min-width:768px)_and_(max-height:820px)]:h-[166px] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 hover:ring-shaman-gold/50 transition-all duration-500 hover:shadow-[0_0_36px_-10px_hsl(var(--shaman-violet)/0.7)]"
           >
             <img
               src={shopifyImageUrl(p.src, 400)}
