@@ -1,3 +1,8 @@
+import n12 from "@/assets/lifestyle-new-12.png.asset.json";
+import n13 from "@/assets/lifestyle-new-13.png.asset.json";
+import n14 from "@/assets/lifestyle-new-14.png.asset.json";
+import n15 from "@/assets/lifestyle-new-15.png.asset.json";
+
 // Lifestyle shots of real yogis on Cosmic Igloo mats (Shopify CDN hosted).
 export type LifestylePhoto = { src: string; alt: string };
 
@@ -15,10 +20,6 @@ export const lifestylePhotos: LifestylePhoto[] = [
 
 
 // Newly added community shots (CDN hosted).
-import n12 from "@/assets/lifestyle-new-12.png.asset.json";
-import n13 from "@/assets/lifestyle-new-13.png.asset.json";
-import n14 from "@/assets/lifestyle-new-14.png.asset.json";
-import n15 from "@/assets/lifestyle-new-15.png.asset.json";
 
 export const newLifestylePhotos: LifestylePhoto[] = [
   { src: n12.url, alt: "Seated meditation at sunset on a Cosmic Igloo mat on the beach" },
