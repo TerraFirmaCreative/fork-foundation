@@ -375,12 +375,6 @@ const ProductDetail = () => {
             </div>
 
 
-            {/* Description */}
-            {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-6 border-t border-border/50 pt-6">
-                {product.node.description}
-              </p>
-            )}
 
             {/* Free Carry Strap */}
             <div className="mt-6 flex items-center gap-3 p-4 rounded-md bg-shaman-gold/5 border border-shaman-gold/20">
