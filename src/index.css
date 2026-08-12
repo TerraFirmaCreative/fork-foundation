@@ -396,6 +396,40 @@
 @layer components {
   /* Unified conversion CTA — matches Hero "Find your mat":
      translucent gold pill, uppercase tracking, looping shimmer + hover scale */
+  .btn-buy {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.9rem 2rem;
+    min-height: 3.25rem;
+    background-color: hsl(var(--shaman-gold));
+    color: hsl(var(--background));
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    border: 1px solid hsl(var(--shaman-gold));
+    box-shadow: 0 8px 24px -12px hsl(var(--shaman-gold) / 0.7);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  }
+  .btn-buy:hover {
+    background-color: hsl(var(--shaman-gold) / 0.9);
+    box-shadow: 0 10px 28px -10px hsl(var(--shaman-gold) / 0.85);
+  }
+  .btn-buy:active {
+    transform: translateY(1px);
+  }
+  .btn-buy:disabled {
+    background-color: hsl(var(--muted));
+    border-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    box-shadow: none;
+    pointer-events: none;
+  }
+
   .btn-conversion {
     position: relative;
     display: inline-flex;
