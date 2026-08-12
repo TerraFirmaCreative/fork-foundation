@@ -370,18 +370,19 @@ const ProductDetail = () => {
 
             {/* Guarantee + payment methods */}
             <div className="mt-5 rounded-md border border-border/50 bg-background/40 p-4">
-              <p className="font-body text-sm text-foreground/90">
-                <span className="text-shaman-gold font-medium">Our promise:</span> every mat is made to order and
-                checked before it ships. If it arrives damaged, faulty or not as described, we'll replace it or refund
-                you in full — just email us within 30 days.
-              </p>
-              <div className="mt-3 flex flex-col gap-2">
+              <div className="flex flex-col gap-2">
                 <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-display">
                   Secure payment methods
                 </span>
                 <PaymentIcons className="opacity-80" />
               </div>
+              <p className="font-body text-sm text-foreground/90 mt-3">
+                <span className="text-shaman-gold font-medium">Our promise:</span> every mat is made to order and
+                checked before it ships. If it arrives damaged, faulty or not as described, we'll replace it or refund
+                you in full — just email us within 30 days.
+              </p>
             </div>
+
 
 
 
