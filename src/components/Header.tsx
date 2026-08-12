@@ -16,7 +16,6 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useCartStore } from "@/stores/cartStore";
 import LogoMark from "@/components/LogoMark";
-import UspBar from "@/components/UspBar";
 
 const Header = () => {
   const localeNavigate = useLocaleNavigate();
@@ -179,9 +178,6 @@ const Header = () => {
           </Sheet>
         </div>
       </nav>
-      <div className="relative z-10 mt-4 -mx-6 -mb-5">
-        <UspBar />
-      </div>
     </header>
 
   );
