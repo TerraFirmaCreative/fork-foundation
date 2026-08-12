@@ -287,7 +287,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-4 md:mt-[min(1rem,1.8vh)] mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] [@media(min-width:768px)_and_(max-height:820px)]:text-5xl max-w-5xl text-center text-balance overflow-visible">
+        <h1 className="mt-4 md:mt-[min(1rem,1.8vh)] mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-[2.6rem] sm:text-[3.4rem] md:text-[4.2rem] lg:text-[5.1rem] [@media(min-width:768px)_and_(max-height:820px)]:text-[3.4rem] max-w-5xl text-center text-balance overflow-visible">
           <span className="block">
             <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -311,7 +311,7 @@ const HeroSection = () => {
               grippy
             </span>
           </span>
-          <span className="block text-gradient font-display font-medium tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] [@media(min-width:768px)_and_(max-height:820px)]:text-5xl mt-1 leading-[1.15] pb-[0.12em]">
+          <span className="block text-gradient font-display font-medium tracking-tight text-[2.6rem] sm:text-[3.4rem] md:text-[4.2rem] lg:text-[5.1rem] [@media(min-width:768px)_and_(max-height:820px)]:text-[3.4rem] mt-1 leading-[1.15] pb-[0.12em]">
             yoga mats.
           </span>
         </h1>
