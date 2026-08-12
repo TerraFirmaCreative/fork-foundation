@@ -53,12 +53,22 @@ const HowItWorks = () => {
   const [priceLabel, setPriceLabel] = useState("$149 AUD");
 
   useEffect(() => {
-    fetchCollectionProducts("featured-home", 1, country).then((products) => {
-      const price = products[0]?.node.variants.edges[0]?.node.price
-        || products[0]?.node.priceRange.minVariantPrice;
-      if (price) {
-        setPriceLabel(formatPrice(price));
-      }
+    fetchCollectionProducts("featured-home", 24, country).then((products) => {
+      // Use the most common price across the collection (the standard mat price),
+      // not just the first product — some legacy items are priced lower.
+      const counts = new Map<string, { price: { amount: string; currencyCode: string }; n: number }>();
+      products.forEach((p) => {
+        const price = p.node.variants.edges[0]?.node.price || p.node.priceRange.minVariantPrice;
+        if (!price) return;
+        const key = `${price.amount}-${price.currencyCode}`;
+        const entry = counts.get(key);
+        if (entry) entry.n += 1;
+        else counts.set(key, { price, n: 1 });
+      });
+      const best = [...counts.values()].sort(
+        (a, b) => b.n - a.n || Number(b.price.amount) - Number(a.price.amount),
+      )[0];
+      if (best) setPriceLabel(formatPrice(best.price));
     }).catch(() => { });
   }, [country]);
 
