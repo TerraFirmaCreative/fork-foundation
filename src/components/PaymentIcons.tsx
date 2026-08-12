@@ -1,4 +1,6 @@
-const cards = [
+type Card = { name: string; bg: string; text?: string; textSize?: string; icon?: string };
+
+const cards: Card[] = [
   { name: "Amex", bg: "#006FCF", text: "AMEX", textSize: "text-[5px]" },
   { name: "Apple Pay", bg: "#000", icon: "apple" },
   { name: "Google Pay", bg: "#fff", icon: "google" },
@@ -7,7 +9,8 @@ const cards = [
   { name: "Shop Pay", bg: "#5A31F4", icon: "shop" },
   { name: "Union Pay", bg: "#E21836", text: "UP", textSize: "text-[6px]" },
   { name: "Visa", bg: "#1A1F71", text: "VISA", textSize: "text-[6px]" },
-] as const;
+];
+
 
 const PaymentIcons = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center gap-2 flex-wrap ${className}`} aria-label="Accepted payment methods">
