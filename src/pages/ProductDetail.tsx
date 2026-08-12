@@ -298,10 +298,16 @@ const ProductDetail = () => {
             </h1>
 
             {price && (
-              <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
-                {formatPrice(price)}
-              </p>
+              <>
+                <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
+                  {formatPrice(price)}
+                </p>
+                <p className="font-body text-sm text-muted-foreground/80 mt-1">
+                  Includes free shipping globally
+                </p>
+              </>
             )}
+
 
 
             {/* Quantity + Add to Cart */}
