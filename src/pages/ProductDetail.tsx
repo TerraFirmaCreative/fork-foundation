@@ -428,24 +428,21 @@ const ProductDetail = () => {
               {[
                 { text: "USA — around 1 week" },
                 { text: "UK / Europe — around 2 weeks" },
-                { text: "Australia — up to 3 weeks", note: "Each mat is printed to order in the USA — crafted individually for you." },
+                { text: "Australia — up to 3 weeks" },
               ].map((d, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
-                  <div>
-                    <span className="font-medium leading-relaxed block">{d.text}</span>
-                    {d.note && (
-                      <span className="block text-sm italic text-muted-foreground/70 mt-1 leading-relaxed">
-                        {d.note}
-                      </span>
-                    )}
-                  </div>
+                  <span className="font-medium leading-relaxed block">{d.text}</span>
                 </li>
               ))}
             </ul>
+            <p className="mt-3 text-sm font-body italic text-muted-foreground/70 leading-relaxed">
+              Each mat is printed to order in the USA — crafted individually for you.
+            </p>
             <p className="mt-5 text-sm font-body italic text-muted-foreground/80">
               Ships from Nevada, USA
             </p>
+
           </div>
         </div>
 
