@@ -386,13 +386,6 @@ const ProductDetail = () => {
 
 
 
-            {/* Free Carry Strap */}
-            <div className="mt-6 flex items-center gap-3 p-4 rounded-md bg-shaman-gold/5 border border-shaman-gold/20">
-              <span className="text-shaman-gold text-lg">✦</span>
-              <p className="font-body text-foreground/90">
-                Includes a <span className="font-semibold text-shaman-gold">free carry strap</span> with every mat.
-              </p>
-            </div>
           </div>
         </div>
 
