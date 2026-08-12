@@ -369,7 +369,7 @@ const ProductDetail = () => {
             </p>
 
             {/* Guarantee + payment methods */}
-            <div className="mt-5 rounded-md border border-border/50 bg-background/40 p-4">
+            <div className="mt-5">
               <div className="flex flex-col gap-2">
                 <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-display">
                   Secure payment methods
