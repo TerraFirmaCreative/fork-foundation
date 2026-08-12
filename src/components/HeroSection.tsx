@@ -322,7 +322,7 @@ const HeroSection = () => {
         </p>
 
         {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-12 md:mt-[min(4rem,4.4vh)] w-full">
+        <div className="mt-9 md:mt-[min(3rem,3.4vh)] w-full">
           <HeroPhotoStrip />
 
         </div>
