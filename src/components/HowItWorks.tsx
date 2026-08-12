@@ -92,33 +92,33 @@ const HowItWorks = () => {
           </h2>
         </div>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-8">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-14 lg:gap-[2.36rem]">
           {/* Full-width horizontal line through numbers */}
-          <div className="hidden lg:block absolute top-[1.75rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
+          <div className="hidden lg:block absolute top-[2.065rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
           {steps.map((step, index) => (
             <div
               key={step.title}
               className="relative group text-center md:text-left flex flex-col items-center md:items-start"
             >
               {/* Step number */}
-              <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
+              <span className="block font-display text-[2.655rem] md:text-[3.54rem] text-foreground/30 mb-2.5 md:mb-5 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
 
               {/* Fixed height title area */}
-              <div className="h-auto md:h-[3.5rem] flex flex-col items-center md:items-start justify-start mb-1 md:mb-0">
-                <h3 className={`font-display text-2xl md:text-[1.75rem] font-normal tracking-tight ${step.color}`}>
+              <div className="h-auto md:h-[4.13rem] flex flex-col items-center md:items-start justify-start mb-1 md:mb-0">
+                <h3 className={`font-display text-[1.77rem] md:text-[2.065rem] font-normal tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
               </div>
 
 
               {step.deliveryLines && (
-                <div className="space-y-2 mt-3">
+                <div className="space-y-2.5 mt-3.5">
                   {step.deliveryLines.map((dl, i) => (
-                    <div key={i} className="flex gap-3 justify-center md:justify-start">
-                      <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                      <p className="text-[17px] md:text-[18px] text-foreground/90 font-body leading-relaxed">
+                    <div key={i} className="flex gap-3.5 justify-center md:justify-start">
+                      <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                      <p className="text-[20px] md:text-[21px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
                     </div>
@@ -126,16 +126,17 @@ const HowItWorks = () => {
                 </div>
               )}
 
-              <div className="space-y-2 mt-3">
+              <div className="space-y-2.5 mt-3.5">
                 {step.lines.map((line, i) => (
-                  <div key={i} className="flex gap-3 justify-center md:justify-start">
-                    <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                    <p className={`text-[17px] md:text-[18px] font-body leading-relaxed whitespace-nowrap ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
+                  <div key={i} className="flex gap-3.5 justify-center md:justify-start">
+                    <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                    <p className={`text-[20px] md:text-[21px] font-body leading-relaxed whitespace-nowrap ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
                   </div>
                 ))}
               </div>
+
 
             </div>
           ))}
