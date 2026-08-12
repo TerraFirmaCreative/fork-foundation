@@ -381,6 +381,16 @@ const ProductDetail = () => {
                 checked before it ships. If it arrives damaged, faulty or not as described, we'll replace it or refund
                 you in full — just email us within 30 days.
               </p>
+              <button
+                type="button"
+                onClick={() =>
+                  document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+                className="mt-4 inline-flex items-center gap-2 font-body text-sm text-shaman-gold hover:underline"
+              >
+                <ArrowDown className="w-4 h-4" aria-hidden="true" />
+                See full mat specs &amp; materials
+              </button>
             </div>
 
 
