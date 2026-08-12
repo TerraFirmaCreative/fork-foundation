@@ -336,17 +336,22 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
-                variant="conversion"
-                className="w-full sm:w-auto"
+                variant="buy"
+                className="w-full sm:w-auto sm:min-w-[15rem] flex-1"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-                    <span className="sr-only">Adding to cart</span>
+                    <span>Adding…</span>
                   </>
+                ) : !variant?.availableForSale ? (
+                  <span>Sold out</span>
                 ) : (
-                  <span>Add to Cart</span>
+                  <>
+                    <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+                    <span>Add to Cart{price ? ` — ${formatPrice(price)}` : ""}</span>
+                  </>
                 )}
               </Button>
             </div>
