@@ -92,7 +92,7 @@ export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 };
 
 // Storage key for detected locale
-const LOCALE_STORAGE_KEY = "detected-locale-v2";
+const LOCALE_STORAGE_KEY = "detected-locale-v3";
 const USER_SELECTED_LOCALE_STORAGE_KEY = "user-selected-locale";
 
 export function getUserSelectedLocale(): SupportedLocale | null {
