@@ -297,6 +297,15 @@ const ProductDetail = () => {
               {product.node.title}
             </h1>
 
+            {/* Description */}
+            {product.node.description && (
+              <p className="text-muted-foreground font-body leading-relaxed mt-4">
+                {product.node.description}
+              </p>
+            )}
+
+
+
             {price && (
               <>
                 <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
