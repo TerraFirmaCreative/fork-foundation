@@ -36,7 +36,7 @@ const ScrollToTop = () => {
         page_title: document.title,
       });
     }
-  }, [pathname, search]);
+  }, [pathname, search, hash]);
 
   return null;
 };
