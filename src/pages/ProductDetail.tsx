@@ -219,7 +219,7 @@ const ProductDetail = () => {
       <Header />
 
       <div className="max-w-6xl mx-auto px-6 py-8">
-        <LocaleLink to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
+        <LocaleLink to="/#design-gallery" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm">Back to shop</span>
         </LocaleLink>

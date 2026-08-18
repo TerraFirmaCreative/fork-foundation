@@ -8,10 +8,25 @@ declare global {
 }
 
 const ScrollToTop = () => {
-  const { pathname, search } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (hash) {
+      const id = hash.slice(1);
+      let tries = 0;
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "auto", block: "start" });
+        } else if (tries++ < 20) {
+          requestAnimationFrame(tryScroll);
+        }
+      };
+      requestAnimationFrame(tryScroll);
+    } else {
+      window.scrollTo(0, 0);
+    }
+
 
     // GA4 SPA page_view
     if (typeof window.gtag === "function") {
