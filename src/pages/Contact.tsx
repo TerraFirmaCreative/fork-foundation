@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { z } from "zod";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
@@ -20,6 +21,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,11 +76,11 @@ const Contact = () => {
       ]);
 
 
-      toast({
-        title: "Message sent",
-        description: "Thanks — we've sent a confirmation to your inbox.",
-      });
       setForm({ name: "", email: "", message: "" });
+      setSent(true);
+      setTimeout(() => {
+        document.getElementById("contact-sent")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
     } catch (err) {
       toast({
         title: "Couldn't send your message",
@@ -148,6 +150,34 @@ const Contact = () => {
           </div>
 
 
+          {sent && (
+            <div
+              id="contact-sent"
+              role="status"
+              aria-live="polite"
+              className="mt-10 rounded-xl border-2 border-shaman-gold bg-shaman-gold/10 p-8 text-center"
+            >
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-shaman-gold">
+                <Check className="h-8 w-8 text-background" strokeWidth={3} />
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-shaman-gold mb-3">
+                Message sent
+              </h2>
+              <p className="font-body text-foreground/90 max-w-md mx-auto">
+                Thanks — we've sent a confirmation to your inbox. If you don't see it, check your spam folder.
+              </p>
+              <Button
+                type="button"
+                variant="outline"
+                className="mt-6"
+                onClick={() => setSent(false)}
+              >
+                Send another message
+              </Button>
+            </div>
+          )}
+
+          {!sent && (
           <form
             onSubmit={handleSubmit}
             className="mt-10 space-y-5"
@@ -203,6 +233,7 @@ const Contact = () => {
               {submitting ? "Sending…" : "Let's connect"}
             </Button>
           </form>
+          )}
         </div>
       </main>
       <Footer />
