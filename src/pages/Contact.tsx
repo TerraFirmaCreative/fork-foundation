@@ -144,7 +144,7 @@ const Contact = () => {
               </a>
               , and we'll be in touch.
             </p>
-            <p className="text-foreground font-medium">Charly</p>
+            
           </div>
 
 
