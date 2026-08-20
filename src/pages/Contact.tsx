@@ -125,7 +125,7 @@ const Contact = () => {
             <p className="text-foreground font-medium">A few practical details, just in case:</p>
             <ul className="space-y-2">
               {[
-                "We're based in Perth, Australia, with team members also in the UK",
+                "We're based in Perth, Australia. We also have staff in the UK",
                 "We work Monday to Friday",
                 "We're online only, so email or the form is the best way to reach us",
                 "Your mats are printed and shipped from our production partner in the US",
