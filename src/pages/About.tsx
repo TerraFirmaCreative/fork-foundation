@@ -22,7 +22,7 @@ const About = () => {
               That's what we believe our mats should be, a place of real beauty and intention.
             </p>
             <p>
-              Every design in our collection is an original work of art, created to carry meaning, provoke feeling and elevate our practice.
+              Every design in our collection is an original work of art, created to carry meaning and inspire connection.
             </p>
             <p>
               Our mats are built to go everywhere we go. A suede microfibre surface that gets grippier as we warm up. A natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
