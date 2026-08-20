@@ -2,6 +2,10 @@ import n12 from "@/assets/lifestyle-new-12.png.asset.json";
 import n13 from "@/assets/lifestyle-new-13.png.asset.json";
 import n14 from "@/assets/lifestyle-new-14.png.asset.json";
 import n15 from "@/assets/lifestyle-new-15.png.asset.json";
+import n16 from "@/assets/lifestyle-new-16.jpeg.asset.json";
+import n17 from "@/assets/lifestyle-new-17.jpeg.asset.json";
+import n18 from "@/assets/lifestyle-new-18.jpeg.asset.json";
+import n19 from "@/assets/lifestyle-new-19.jpeg.asset.json";
 
 // Lifestyle shots of real yogis on Cosmic Igloo mats (Shopify CDN hosted).
 export type LifestylePhoto = { src: string; alt: string };
@@ -26,6 +30,10 @@ export const newLifestylePhotos: LifestylePhoto[] = [
   { src: n13.url, alt: "Headstand on a Cosmic Igloo mat on grass in the park" },
   { src: n14.url, alt: "Cosmic Igloo mandala yoga mat laid out on a forest trail" },
   { src: n15.url, alt: "Warrior pose on a Cosmic Igloo mat on white sand by the ocean" },
+  { src: n16.url, alt: "Close up of the botanical artwork and suede texture of a Cosmic Igloo mat" },
+  { src: n17.url, alt: "Three rolled Cosmic Igloo mats with carry straps lying on grass" },
+  { src: n18.url, alt: "Rolled Cosmic Igloo mats showing floral and cosmic nebula designs" },
+  { src: n19.url, alt: "Supported headstand on a Cosmic Igloo mat on a clifftop above turquoise ocean" },
 ];
 
 /** Fisher-Yates shuffle — returns a new array. */
