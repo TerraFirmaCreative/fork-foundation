@@ -2,6 +2,10 @@ import n12 from "@/assets/lifestyle-new-12.png.asset.json";
 import n13 from "@/assets/lifestyle-new-13.png.asset.json";
 import n14 from "@/assets/lifestyle-new-14.png.asset.json";
 import n15 from "@/assets/lifestyle-new-15.png.asset.json";
+import n16 from "@/assets/lifestyle-new-16.jpeg.asset.json";
+import n17 from "@/assets/lifestyle-new-17.jpeg.asset.json";
+import n18 from "@/assets/lifestyle-new-18.jpeg.asset.json";
+import n19 from "@/assets/lifestyle-new-19.jpeg.asset.json";
 
 // Lifestyle shots of real yogis on Cosmic Igloo mats (Shopify CDN hosted).
 export type LifestylePhoto = { src: string; alt: string };
