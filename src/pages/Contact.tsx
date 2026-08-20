@@ -232,6 +232,7 @@ const Contact = () => {
               {submitting ? "Sending…" : "Let's connect"}
             </Button>
           </form>
+          )}
         </div>
       </main>
       <Footer />
