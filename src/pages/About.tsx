@@ -29,7 +29,7 @@ const About = () => {
             </p>
             <p className="text-foreground">Made to order. Made for us.</p>
             <p>
-              We're a small online studio based in Perth, Western Australia. Every mat is printed and dispatched by our production partner in the United States, then shipped worldwide. Nothing sits in a warehouse waiting for a buyer.
+              We're a small online studio based in Perth, Western Australia. Every mat is printed and dispatched by our production partner in the United States, then shipped worldwide. No overproduction, no waste, just mats made when they're wanted.
             </p>
 
             <p>
