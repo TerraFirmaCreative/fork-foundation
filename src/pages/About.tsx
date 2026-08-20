@@ -19,7 +19,10 @@ const About = () => {
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p className="font-display italic text-shaman-gold text-xl md:text-2xl">A warm space in the infinite.</p>
             <p>
-              Cosmic Igloo was born from a simple belief: that the one thing we stare at for an entire practice should be genuinely, arrestingly beautiful. Beautiful enough to actually move you.
+              That's what we believe our mats should be, a place of beauty and intention.
+            </p>
+            <p>
+              Cosmic Igloo was born from a simple belief: that the one thing we stare at for an entire practice should be genuinely beautiful.
             </p>
             <p>
               Every design in our collection is an original work of art, created to carry meaning, provoke feeling and elevate our practice.
