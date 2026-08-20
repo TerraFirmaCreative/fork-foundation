@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check } from "lucide-react";
+
 import { z } from "zod";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
@@ -157,9 +157,6 @@ const Contact = () => {
               aria-live="polite"
               className="mt-10 rounded-xl border-2 border-shaman-gold bg-shaman-gold/10 p-8 text-center"
             >
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-shaman-gold">
-                <Check className="h-8 w-8 text-background" strokeWidth={3} />
-              </div>
               <h2 className="font-display text-2xl md:text-3xl font-medium text-shaman-gold mb-3">
                 Message sent
               </h2>
