@@ -46,10 +46,13 @@ function shuffle(list: LifestylePhoto[]): LifestylePhoto[] {
   return arr;
 }
 
+/** The rolled-mats shot is pinned to a fixed slot near the start of the strip. */
+const PINNED = { photo: { src: n18.url, alt: "Rolled Cosmic Igloo mats showing floral and cosmic nebula designs" }, index: 5 };
+
 /** Shuffles the base set and spaces the newer photos evenly through it so no two new shots sit side by side. */
 export function shuffleLifestylePhotos(list: LifestylePhoto[] = lifestylePhotos): LifestylePhoto[] {
   const base = shuffle(list);
-  const extras = shuffle(newLifestylePhotos);
+  const extras = shuffle(newLifestylePhotos.filter((p) => p.src !== PINNED.photo.src));
   const out: LifestylePhoto[] = [];
   const gap = Math.max(2, Math.floor(base.length / (extras.length + 1)));
   let e = 0;
@@ -58,6 +61,7 @@ export function shuffleLifestylePhotos(list: LifestylePhoto[] = lifestylePhotos)
     if (e < extras.length && (i + 1) % gap === 0) out.push(extras[e++]);
   });
   while (e < extras.length) out.push(extras[e++]);
+  out.splice(Math.min(PINNED.index, out.length), 0, PINNED.photo);
   return out;
 }
 
