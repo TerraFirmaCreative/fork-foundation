@@ -108,54 +108,45 @@ const Contact = () => {
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              We'd love to hear from you. For any questions about your order, our products, or anything else, drop us a line below or get in touch directly:
+              Got a question, need help with an order, or just want to say hi? We'd love to hear from you.
             </p>
+            <p>
+              The best way to reach us is{" "}
+              <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
+                hello@cosmicigloo.com
+              </a>
+              , or use the form below.
+            </p>
+            <p>
+              We're a small team, so we might not reply instantly, but we do reply, and we're always happy to hear from you.
+            </p>
+            <p className="text-foreground font-medium">A few practical details, just in case:</p>
             <ul className="space-y-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Email:</strong>{" "}
-                  <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
-                    hello@cosmicigloo.com
-                  </a>
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Contact form:</strong> use the form below for a written record and an emailed copy of your enquiry.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Business address:</strong> Cosmic Igloo, Level 2/179 St Georges Terrace, Perth WA 6000, Australia
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Hours:</strong> Monday–Friday, 9am–5pm AWST (Perth). We're an online-only business, so please contact us by email or the form — we don't take phone enquiries.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Response time:</strong> we reply to every message within 1 business day.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Where we ship from:</strong> our mats are printed and dispatched from our production partner in the United States, so most orders travel a short domestic hop to US customers and ship worldwide from there.
-                </span>
-              </li>
+              {[
+                "We're based in Perth, Australia, with team members also in the UK",
+                "We work Monday to Friday",
+                "We're online only, so email or the form is the best way to reach us",
+                "Your mats are printed and shipped from our production partner in the US",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-            <p className="text-sm text-shaman-gold font-medium">
-              We reply to every message within 1 business day.
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-shaman-gold pt-2">
+              Want to become an affiliate?
+            </h2>
+            <p>
+              If you love Cosmic Igloo and want to share it with your community, we'd love to work with you. Send us your details and a bit about yourself at{" "}
+              <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
+                hello@cosmicigloo.com
+              </a>
+              , and we'll be in touch.
             </p>
-
+            <p className="text-foreground font-medium">Charly</p>
           </div>
+
 
           <form
             onSubmit={handleSubmit}
