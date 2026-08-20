@@ -128,7 +128,7 @@ const Contact = () => {
                 "We're based in Perth, Australia. We also have staff in the UK",
                 "We work Monday to Friday",
                 "We're online only, so email or the form is the best way to reach us",
-                "Your mats are printed and shipped from our production partner in the US",
+                "Our mats are printed and shipped from our production partner in the US",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
