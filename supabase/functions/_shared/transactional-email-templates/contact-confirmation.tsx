@@ -1,6 +1,6 @@
 import * as React from 'npm:react@18.3.1'
 import {
-  Body, Container, Head, Heading, Html, Preview, Section, Text,
+  Body, Button, Container, Head, Heading, Html, Preview, Section, Text,
 } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
 
@@ -22,8 +22,8 @@ const ContactConfirmationEmail = ({ name, message }: ContactConfirmationProps) =
           {name ? `Thank you, ${name}.` : 'Thank you for reaching out.'}
         </Heading>
         <Text style={text}>
-          We've received your message and will get back to you within 1–2 business days.
-          If your question is urgent, just reply to this email and we'll prioritise it.
+          We've received your message and we'll get back to you as soon as we can.
+          If it's urgent, just reply to this email and we'll prioritise it.
         </Text>
         {message ? (
           <Section style={quoteBox}>
@@ -32,9 +32,14 @@ const ContactConfirmationEmail = ({ name, message }: ContactConfirmationProps) =
           </Section>
         ) : null}
         <Text style={text}>
-          In the meantime, feel free to explore our latest designs and stories.
+          In the meantime, feel free to have a look through the collection.
         </Text>
-        <Text style={signoff}>With warmth,<br />The {SITE_NAME} team</Text>
+        <Section style={buttonWrap}>
+          <Button href="https://cosmicigloo.com/#design-gallery" style={button}>
+            EXPLORE THE COLLECTION
+          </Button>
+        </Section>
+        <Text style={signoff}>Charly<br />{SITE_NAME}</Text>
       </Container>
     </Body>
   </Html>
@@ -97,6 +102,18 @@ const quoteText = {
   lineHeight: 1.5,
   margin: 0,
   whiteSpace: 'pre-wrap' as const,
+}
+const buttonWrap = { margin: '28px 0 8px' }
+const button = {
+  backgroundColor: '#c9a84c',
+  color: '#1a1a1a',
+  fontSize: '13px',
+  fontWeight: 600 as const,
+  letterSpacing: '0.12em',
+  textDecoration: 'none',
+  padding: '14px 28px',
+  borderRadius: '4px',
+  display: 'inline-block',
 }
 const signoff = {
   fontSize: '14px',
