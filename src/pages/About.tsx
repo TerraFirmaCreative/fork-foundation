@@ -22,9 +22,6 @@ const About = () => {
               That's what we believe our mats should be, a place of real beauty and intention.
             </p>
             <p>
-              Cosmic Igloo was born from a simple belief: that the one thing we stare at for an entire practice should be genuinely beautiful.
-            </p>
-            <p>
               Every design in our collection is an original work of art, created to carry meaning, provoke feeling and elevate our practice.
             </p>
             <p>
