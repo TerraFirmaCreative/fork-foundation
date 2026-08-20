@@ -62,14 +62,6 @@ const main = {
   padding: 0,
 }
 const container = { maxWidth: '560px', margin: '0 auto', padding: '40px 28px' }
-const brand = {
-  fontSize: '12px',
-  letterSpacing: '0.32em',
-  fontWeight: 500 as const,
-  color: '#6b5b8a',
-  margin: '0 0 32px',
-  textAlign: 'center' as const,
-}
 const h1 = {
   fontSize: '24px',
   fontWeight: 500 as const,
