@@ -17,7 +17,7 @@ const ContactConfirmationEmail = ({ name, message }: ContactConfirmationProps) =
     <Preview>Thanks for reaching out to {SITE_NAME}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={brand}>COSMIC IGLOO</Heading>
+        
         <Heading style={h1}>
           {name ? `Thank you, ${name}.` : 'Thank you for reaching out.'}
         </Heading>
@@ -62,14 +62,6 @@ const main = {
   padding: 0,
 }
 const container = { maxWidth: '560px', margin: '0 auto', padding: '40px 28px' }
-const brand = {
-  fontSize: '12px',
-  letterSpacing: '0.32em',
-  fontWeight: 500 as const,
-  color: '#6b5b8a',
-  margin: '0 0 32px',
-  textAlign: 'center' as const,
-}
 const h1 = {
   fontSize: '24px',
   fontWeight: 500 as const,
@@ -84,10 +76,10 @@ const text = {
   margin: '0 0 18px',
 }
 const quoteBox = {
-  borderLeft: '2px solid #c9a84c',
+  borderLeft: '2px solid #cccccc',
   padding: '12px 16px',
   margin: '24px 0',
-  backgroundColor: '#faf8f3',
+  backgroundColor: '#f5f5f5',
 }
 const quoteLabel = {
   fontSize: '11px',
@@ -105,8 +97,8 @@ const quoteText = {
 }
 const buttonWrap = { margin: '28px 0 8px' }
 const button = {
-  backgroundColor: '#c9a84c',
-  color: '#1a1a1a',
+  backgroundColor: '#1990C6',
+  color: '#ffffff',
   fontSize: '13px',
   fontWeight: 600 as const,
   letterSpacing: '0.12em',
