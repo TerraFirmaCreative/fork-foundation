@@ -25,7 +25,7 @@ const About = () => {
               Every design in our collection is an original work of art, created to carry meaning and inspire connection.
             </p>
             <p>
-              Our mats are built to go everywhere we go. A suede microfibre surface that gets grippier as we warm up. A natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
+              Our mats are built to go everywhere we go. A suede microfibre surface that gets grippier as we warm up, paired with a natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
             </p>
             <p className="text-foreground">Made to order. Made for us.</p>
             <p>
