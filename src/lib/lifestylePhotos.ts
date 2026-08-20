@@ -48,8 +48,9 @@ function shuffle(list: LifestylePhoto[]): LifestylePhoto[] {
 
 /** The two rolled-mat shots are pinned far apart so they never sit near each other. */
 const PINNED: { photo: LifestylePhoto; index: number }[] = [
-  { photo: { src: n18.url, alt: "Rolled Cosmic Igloo mats showing floral and cosmic nebula designs" }, index: 5 },
-  { photo: { src: n17.url, alt: "Three rolled Cosmic Igloo mats with carry straps lying on grass" }, index: 13 },
+  { photo: { src: n16.url, alt: "Close up of the botanical artwork and suede texture of a Cosmic Igloo mat" }, index: 1 },
+  { photo: { src: n18.url, alt: "Rolled Cosmic Igloo mats showing floral and cosmic nebula designs" }, index: 6 },
+  { photo: { src: n17.url, alt: "Three rolled Cosmic Igloo mats with carry straps lying on grass" }, index: 14 },
 ];
 const PINNED_SRCS = new Set(PINNED.map((p) => p.photo.src));
 
