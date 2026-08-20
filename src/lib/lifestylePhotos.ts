@@ -30,6 +30,10 @@ export const newLifestylePhotos: LifestylePhoto[] = [
   { src: n13.url, alt: "Headstand on a Cosmic Igloo mat on grass in the park" },
   { src: n14.url, alt: "Cosmic Igloo mandala yoga mat laid out on a forest trail" },
   { src: n15.url, alt: "Warrior pose on a Cosmic Igloo mat on white sand by the ocean" },
+  { src: n16.url, alt: "Close up of the botanical artwork and suede texture of a Cosmic Igloo mat" },
+  { src: n17.url, alt: "Three rolled Cosmic Igloo mats with carry straps lying on grass" },
+  { src: n18.url, alt: "Rolled Cosmic Igloo mats showing floral and cosmic nebula designs" },
+  { src: n19.url, alt: "Supported headstand on a Cosmic Igloo mat on a clifftop above turquoise ocean" },
 ];
 
 /** Fisher-Yates shuffle — returns a new array. */
