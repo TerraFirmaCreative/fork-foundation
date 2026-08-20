@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { z } from "zod";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
