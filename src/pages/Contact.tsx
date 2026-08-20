@@ -76,7 +76,7 @@ const Contact = () => {
 
       toast({
         title: "Message sent",
-        description: "Thanks — we've sent a confirmation to your inbox and will reply within 1 business day.",
+        description: "Thanks — we've sent a confirmation to your inbox.",
       });
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
