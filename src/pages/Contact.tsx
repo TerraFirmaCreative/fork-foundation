@@ -75,11 +75,11 @@ const Contact = () => {
       ]);
 
 
-      toast({
-        title: "Message sent",
-        description: "Thanks — we've sent a confirmation to your inbox.",
-      });
       setForm({ name: "", email: "", message: "" });
+      setSent(true);
+      setTimeout(() => {
+        document.getElementById("contact-sent")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
     } catch (err) {
       toast({
         title: "Couldn't send your message",
