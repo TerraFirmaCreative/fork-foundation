@@ -62,5 +62,6 @@ export function shuffleLifestylePhotos(list: LifestylePhoto[] = lifestylePhotos)
   });
   while (e < extras.length) out.push(extras[e++]);
   out.splice(Math.min(PINNED.index, out.length), 0, PINNED.photo);
+  return out;
 }
 
