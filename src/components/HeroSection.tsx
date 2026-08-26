@@ -407,7 +407,7 @@ const HeroSection = () => {
             />
           </div>
 
-          <div className="absolute -bottom-6 left-2 w-36 h-36 rounded-full overflow-hidden border border-shaman-teal/60 shadow-xl">
+          <div className="absolute bottom-24 -left-14 w-36 h-36 rounded-full overflow-hidden border border-shaman-teal/60 shadow-xl">
             <img
               src={shopifyImageUrl(heroPractice.src, 400)}
               alt={heroPractice.alt}
