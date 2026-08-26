@@ -276,89 +276,144 @@ const HeroSection = () => {
         }}
       />
 
-      {/* CONTENT — artistic centered composition, all above the fold */}
-      <div
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center justify-center text-center"
-        style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
-      >
-        {/* Whisper-line above headline */}
-        <p className="text-xs sm:text-sm tracking-[0.45em] uppercase text-shaman-gold font-body font-light">
-          A warm space in the infinite
-        </p>
+      {/* CONTENT — conversion-focused split layout */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        {/* LEFT — copy, CTA, trust */}
+        <div
+          className="flex flex-col text-center lg:text-left"
+          style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
+        >
+          <span className="inline-flex items-center justify-center lg:justify-start gap-3 text-shaman-gold font-body font-light text-[0.65rem] sm:text-xs tracking-[0.38em] uppercase">
+            <span aria-hidden className="hidden lg:block h-px w-8 bg-shaman-gold/50" />
+            A warm space in the infinite
+          </span>
 
-        {/* Headline — poetic, layered */}
-        <h1 className="mt-4 md:mt-[min(1rem,1.8vh)] mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-[2.86rem] sm:text-[3.75rem] md:text-[4.6rem] lg:text-[5.6rem] [@media(min-width:768px)_and_(max-height:820px)]:text-[3.75rem] max-w-5xl text-center text-balance overflow-visible">
-          <span className="block">
-            <span className="text-gradient">Beautiful</span>{" "}
-            <span className="text-gradient italic relative inline-block">
-              and
+          <h1 className="mt-4 font-display font-normal tracking-tight leading-[1.08] text-[2.7rem] sm:text-[3.4rem] lg:text-[4.4rem] [@media(min-width:1024px)_and_(max-height:820px)]:text-[3.4rem] text-balance pb-1">
+            <span className="text-gradient">Beautiful and </span>
+            <span className="text-gradient italic">grippy</span>
+            <br className="hidden sm:block" />
+            <span className="text-gradient"> yoga mats.</span>
+          </h1>
+
+          <p className="mt-4 text-base md:text-lg text-foreground/90 font-body leading-relaxed max-w-md mx-auto lg:mx-0">
+            Designed to inspire. Made to perform. Original artwork, printed for
+            your practice.
+          </p>
+
+          {/* CTA + shipping reassurance */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start">
+            <button
+              onClick={scrollToGallery}
+              aria-label="View the collection below"
+              className="enter-cta group relative inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-shaman-gold text-background font-body font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.03] shadow-[0_0_30px_-10px_hsl(var(--shaman-gold)/0.6)] hover:shadow-[0_0_40px_-6px_hsl(var(--shaman-gold)/0.8)]"
+            >
+              <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-background/20 to-transparent" />
+              <span className="relative text-sm tracking-[0.22em] uppercase">
+                Find your mat
+              </span>
               <svg
-                className="absolute left-0 right-0 -bottom-2 w-full"
-                viewBox="0 0 100 12"
-                preserveAspectRatio="none"
-                aria-hidden="true"
+                className="relative w-4 h-4 enter-cta-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path
-                  d="M2,8 Q50,-2 98,8"
+                <path d="M12 5v14M5 12l7 7 7-7" />
+              </svg>
+            </button>
+
+            <div className="flex flex-col items-center sm:items-start">
+              <span className="font-body text-xs tracking-[0.18em] uppercase text-shaman-gold/90">
+                Free worldwide shipping
+              </span>
+              <span className="font-body text-xs text-foreground/50">
+                Made to order, dispatched from the USA
+              </span>
+            </div>
+          </div>
+
+          {/* USP grid */}
+          <ul className="mt-9 pt-7 border-t border-foreground/10 grid grid-cols-2 gap-x-8 gap-y-5 max-w-lg mx-auto lg:mx-0 text-left">
+            {[
+              "Original artwork, made to order",
+              "Printed & dispatched in the USA",
+              "Secure checkout",
+              "Premium grip, natural rubber base",
+            ].map((usp) => (
+              <li key={usp} className="flex items-start gap-2.5">
+                <svg
+                  aria-hidden
+                  className="mt-0.5 w-4 h-4 shrink-0 text-shaman-gold"
+                  viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   strokeLinecap="round"
-                />
-              </svg>
-            </span>{" "}
-            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pl-[0.02em] pr-[0.06em] overflow-visible align-baseline">
-              grippy
-            </span>
-          </span>
-          <span className="block text-gradient font-display font-medium tracking-tight text-[2.86rem] sm:text-[3.75rem] md:text-[4.6rem] lg:text-[5.6rem] [@media(min-width:768px)_and_(max-height:820px)]:text-[3.75rem] mt-1 leading-[1.15] pb-[0.12em]">
-            yoga mats.
-          </span>
-        </h1>
-
-        {/* Single-line invitation */}
-        <p className="mt-4 md:mt-[min(1rem,1.8vh)] text-sm sm:text-base md:text-lg text-foreground/95 font-body max-w-xl leading-relaxed">
-          Designed to inspire. Made to perform.
-        </p>
-
-        {/* Real yogis on the mats — drifting film strip */}
-        <div className="mt-6 md:mt-[min(1.75rem,2vh)] w-full">
-          <HeroPhotoStrip />
-
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-body text-[0.68rem] tracking-[0.14em] uppercase leading-tight text-foreground/60">
+                  {usp}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Trust strip — slides slowly under the photos */}
-        <div className="mt-5 md:mt-[min(1.5rem,1.8vh)] w-full">
-          <UspBar />
+        {/* RIGHT — product proof collage (existing site photography) */}
+        <div className="relative hidden lg:flex justify-end">
+          <div className="relative w-[82%] aspect-[3/4] rounded-2xl overflow-hidden border border-foreground/15 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+            <img
+              src={shopifyImageUrl(heroMain.src, 800)}
+              srcSet={shopifySrcSet(heroMain.src, [400, 600, 800])}
+              sizes="(min-width: 1024px) 420px, 90vw"
+              alt={heroMain.alt}
+              width={600}
+              height={800}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-x-5 bottom-5 p-4 rounded-xl bg-background/60 backdrop-blur-md border border-foreground/10">
+              <p className="font-body text-[0.6rem] tracking-[0.24em] uppercase text-shaman-gold mb-1">
+                Suede microfibre surface
+              </p>
+              <p className="font-body text-sm text-foreground/90">
+                Grippier as you warm up, on a natural rubber base that stays put.
+              </p>
+            </div>
+          </div>
+
+          <div className="absolute -left-6 top-1/4 w-44 h-44 rounded-2xl overflow-hidden border border-shaman-gold/50 shadow-xl -rotate-6">
+            <img
+              src={shopifyImageUrl(heroDetail.src, 400)}
+              alt={heroDetail.alt}
+              width={400}
+              height={400}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="absolute -bottom-6 left-2 w-36 h-36 rounded-full overflow-hidden border border-shaman-teal/60 shadow-xl">
+            <img
+              src={shopifyImageUrl(heroPractice.src, 400)}
+              alt={heroPractice.alt}
+              width={400}
+              height={400}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
-
-
-
-        {/* CTA button */}
-        <button
-          onClick={scrollToGallery}
-          className="enter-cta group mt-12 md:mt-[min(4.5rem,7vh)] relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
-
-          aria-label="View the collection below"
-        >
-          <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />
-          <span className="relative text-[0.7rem] sm:text-xs tracking-[0.32em] uppercase text-shaman-gold group-hover:text-foreground transition-colors duration-500 font-body font-light">
-            Find your mat
-          </span>
-          <svg
-            className="relative w-3.5 h-3.5 text-shaman-gold group-hover:text-foreground transition-colors duration-500 enter-cta-arrow"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </button>
-
       </div>
+
 
 
       {/* Local keyframes for the scroll cue */}
