@@ -1,5 +1,14 @@
-import HeroPhotoStrip from "@/components/HeroPhotoStrip";
-import UspBar from "@/components/UspBar";
+import {
+  lifestylePhotos,
+  newLifestylePhotos,
+} from "@/lib/lifestylePhotos";
+import { shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
+
+// Product proof imagery — all existing site photography.
+const heroMain = newLifestylePhotos[2]; // mandala mat on a forest trail
+const heroDetail = newLifestylePhotos[4]; // botanical artwork / suede texture close up
+const heroPractice = lifestylePhotos[1]; // warrior pose on a mandala mat
+
 
 
 
