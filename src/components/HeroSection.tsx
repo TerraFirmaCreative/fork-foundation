@@ -1,13 +1,11 @@
-import {
-  lifestylePhotos,
-  newLifestylePhotos,
-} from "@/lib/lifestylePhotos";
+import { lifestylePhotos } from "@/lib/lifestylePhotos";
 import { shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 
 // Product proof imagery — all existing site photography.
-const heroMain = newLifestylePhotos[2]; // mandala mat on a forest trail
-const heroDetail = newLifestylePhotos[4]; // botanical artwork / suede texture close up
+const heroMain = lifestylePhotos[0]; // yoga pose in nature on a Cosmic Igloo mat
+const heroDetail = lifestylePhotos[8]; // close up of mat artwork texture
 const heroPractice = lifestylePhotos[1]; // warrior pose on a mandala mat
+
 
 
 
