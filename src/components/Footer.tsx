@@ -51,7 +51,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-x-6 gap-y-8 mb-10">
           {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-1">
             <LocaleLink to="/" className="flex items-center gap-3 mb-4 hover:opacity-85 transition-opacity">
               <LogoMark className="w-7 h-7" />
               <span className="font-display text-base tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
