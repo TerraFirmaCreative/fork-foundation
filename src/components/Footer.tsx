@@ -93,7 +93,7 @@ const Footer = () => {
           ))}
 
           {/* Subscribe Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-2">
             <h3 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h3>
             <p className="text-xs text-foreground/85 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
             <form className="max-w-xs mb-3" noValidate onSubmit={async (e) => {
