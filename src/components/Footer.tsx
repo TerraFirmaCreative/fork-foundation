@@ -34,9 +34,10 @@ const Footer = () => {
   };
 
   const footerLinks = {
-    Product: ["Shop Collection", "How It Works"],
-    Company: ["About", "Reviews"],
-    Support: ["FAQ", "Contact", "Shipping", "Returns", "Terms & Conditions", "Privacy Policy", "Trust & Security"],
+    Product: ["Shop Collection", "How It Works", "Reviews"],
+    Company: ["About", "Contact", "FAQ"],
+    Support: ["Shipping", "Returns", "Trust & Security"],
+    Legal: ["Terms & Conditions", "Privacy Policy"],
   };
 
   return (
@@ -48,9 +49,9 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-x-6 gap-y-8 mb-10">
           {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-1">
             <LocaleLink to="/" className="flex items-center gap-3 mb-4 hover:opacity-85 transition-opacity">
               <LogoMark className="w-7 h-7" />
               <span className="font-display text-base tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
@@ -92,7 +93,7 @@ const Footer = () => {
           ))}
 
           {/* Subscribe Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-2">
             <h3 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h3>
             <p className="text-xs text-foreground/85 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
             <form className="max-w-xs mb-3" noValidate onSubmit={async (e) => {
