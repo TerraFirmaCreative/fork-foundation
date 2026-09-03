@@ -34,9 +34,10 @@ const Footer = () => {
   };
 
   const footerLinks = {
-    Product: ["Shop Collection", "How It Works"],
-    Company: ["About", "Reviews"],
-    Support: ["FAQ", "Contact", "Shipping", "Returns", "Terms & Conditions", "Privacy Policy", "Trust & Security"],
+    Product: ["Shop Collection", "How It Works", "Reviews"],
+    Company: ["About", "Contact", "FAQ"],
+    Support: ["Shipping", "Returns", "Trust & Security"],
+    Legal: ["Terms & Conditions", "Privacy Policy"],
   };
 
   return (
