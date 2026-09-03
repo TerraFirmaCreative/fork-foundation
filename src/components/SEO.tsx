@@ -21,8 +21,7 @@ interface SEOProps {
 }
 
 const SITE_URL = "https://cosmicigloo.com";
-const DEFAULT_IMAGE =
-  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e52cbfe2-8f27-42e4-b8bb-f3872b505897/id-preview-f7b60088--518fbfed-d065-4906-a4e7-87fa2b752d66.lovable.app-1778319106626.png";
+const DEFAULT_IMAGE = "https://cosmicigloo.com/og-image.jpg";
 
 /** Map app locale (e.g. "en-UK") → BCP-47 hreflang value (e.g. "en-GB") */
 const HREFLANG_OVERRIDES: Record<string, string> = {
