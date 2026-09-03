@@ -207,6 +207,12 @@ const Footer = () => {
           <div className="text-xs text-muted-foreground font-display tracking-wide text-center">
             <p>© 2026 Cosmic Igloo. All rights reserved.</p>
           </div>
+
+          <address className="text-[11px] leading-relaxed text-muted-foreground font-display tracking-wide text-center not-italic">
+            Cosmic Igloo is a trading name of Terra Firma Ventures Pty Ltd<br />
+            ACN 615 679 331<br />
+            2/179 St Georges Terrace, Perth WA 6000, Australia
+          </address>
         </div>
       </div>
     </footer>
