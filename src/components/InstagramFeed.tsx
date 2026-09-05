@@ -17,14 +17,14 @@ const InstagramFeed = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 overflow-hidden rounded-xl">
           {photos.map((photo, i) => (
             <a
               key={i}
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-square overflow-hidden rounded-xl border border-border/40"
+              className="group relative block aspect-square overflow-hidden"
               aria-label="View this post on our Instagram"
             >
               <picture>
