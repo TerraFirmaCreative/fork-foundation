@@ -11,6 +11,7 @@ const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const MatBenefits = lazy(() => import("@/components/MatBenefits"));
 const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
 const YogiOfTheWeek = lazy(() => import("@/components/YogiOfTheWeek"));
+const InstagramFeed = lazy(() => import("@/components/InstagramFeed"));
 const AffiliateSection = lazy(() => import("@/components/AffiliateSection"));
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const Footer = lazy(() => import("@/components/Footer"));
