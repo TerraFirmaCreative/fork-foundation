@@ -42,6 +42,12 @@ const Index = () => {
 
         <LazyMount minHeight={700}>
           <Suspense fallback={<SectionFallback h={700} />}>
+            <InstagramFeed />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={700}>
+          <Suspense fallback={<SectionFallback h={700} />}>
             <YogiOfTheWeek />
           </Suspense>
         </LazyMount>
