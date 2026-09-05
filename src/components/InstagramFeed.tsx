@@ -3,7 +3,7 @@ import { allCommunityPhotos } from "@/lib/communityPhotos";
 const INSTAGRAM_URL = "https://www.instagram.com/cosmic.igloo";
 
 const InstagramFeed = () => {
-  const photos = allCommunityPhotos.slice(0, 8);
+  const photos = allCommunityPhotos.slice(0, 9);
 
   return (
     <section className="relative py-12 md:py-16 px-6" aria-labelledby="instagram-heading">
@@ -17,19 +17,19 @@ const InstagramFeed = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 overflow-hidden rounded-xl">
+        <div className="grid grid-cols-3 gap-[2px] overflow-hidden">
           {photos.map((photo, i) => (
             <a
               key={i}
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-square overflow-hidden"
+              className="group relative block aspect-[4/5] overflow-hidden"
               aria-label="View this post on our Instagram"
             >
               <picture>
                 {Object.entries(photo.pic.sources).map(([format, srcset]) => (
-                  <source key={format} type={`image/${format}`} srcSet={srcset} sizes="(min-width: 640px) 25vw, 50vw" />
+                  <source key={format} type={`image/${format}`} srcSet={srcset} sizes="33vw" />
                 ))}
                 <img
                   src={photo.pic.img.src}
