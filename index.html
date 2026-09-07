@@ -57,7 +57,11 @@
         }
         window.__enableAnalytics = enable;
         try {
-          if (localStorage.getItem('cc_consent_v1') === 'granted') enable();
+          var raw = localStorage.getItem('cc_consent_v1');
+          var granted = false;
+          if (raw === 'granted') granted = true;
+          else if (raw && raw !== 'denied') granted = !!JSON.parse(raw).analytics;
+          if (granted) enable();
         } catch(e) {}
       })();
     </script>

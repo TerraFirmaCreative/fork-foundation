@@ -4,11 +4,25 @@ import LocaleLink from "@/components/LocaleLink";
 
 const STORAGE_KEY = "cc_consent_v1";
 
+interface ConsentPrefs {
+  analytics: boolean;
+}
+
 declare global {
   interface Window {
     __enableAnalytics?: () => void;
   }
 }
+
+// Accepts the legacy flat "granted"/"denied" value for backward compatibility.
+const readStoredConsent = (): ConsentPrefs | null => {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return null;
+  if (raw === "granted") return { analytics: true };
+  if (raw === "denied") return { analytics: false };
+  const parsed = JSON.parse(raw);
+  return typeof parsed?.analytics === "boolean" ? parsed : null;
+};
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
@@ -17,8 +31,10 @@ const CookieConsent = () => {
 
   useEffect(() => {
     try {
-      const v = localStorage.getItem(STORAGE_KEY);
-      if (v !== "granted" && v !== "denied") {
+      const stored = readStoredConsent();
+      if (stored) {
+        setAnalytics(stored.analytics);
+      } else {
         const t = setTimeout(() => setVisible(true), 1500);
         return () => clearTimeout(t);
       }
@@ -27,9 +43,10 @@ const CookieConsent = () => {
     }
   }, []);
 
-  const persist = (granted: boolean) => {
-    try { localStorage.setItem(STORAGE_KEY, granted ? "granted" : "denied"); } catch {}
-    if (granted) window.__enableAnalytics?.();
+  const persist = (prefs: ConsentPrefs) => {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs)); } catch {}
+    if (prefs.analytics) window.__enableAnalytics?.();
+    setAnalytics(prefs.analytics);
     setVisible(false);
   };
 
@@ -72,10 +89,10 @@ const CookieConsent = () => {
       )}
 
       <div className="flex items-center gap-2">
-        <Button variant="outline" size="sm" className="flex-1 h-7 text-xs px-2" onClick={() => persist(customize ? analytics : true)}>
+        <Button variant="outline" size="sm" className="flex-1 h-7 text-xs px-2" onClick={() => persist({ analytics: customize ? analytics : true })}>
           {customize ? "Save choices" : "Accept All"}
         </Button>
-        <Button variant="outline" size="sm" className="flex-1 h-7 text-xs px-2" onClick={() => persist(false)}>
+        <Button variant="outline" size="sm" className="flex-1 h-7 text-xs px-2" onClick={() => persist({ analytics: false })}>
           Reject All
         </Button>
       </div>
