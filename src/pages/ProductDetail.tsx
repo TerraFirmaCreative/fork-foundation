@@ -14,7 +14,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
-import { cn, formatPrice } from "@/lib/utils";
+import { cn, formatPrice, sanitizeHtml } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
 import PaymentIcons from "@/components/PaymentIcons";
 
@@ -297,15 +297,6 @@ const ProductDetail = () => {
               {product.node.title}
             </h1>
 
-            {/* Description */}
-            {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-4">
-                {product.node.description}
-              </p>
-            )}
-
-
-
             {price && (
               <>
                 <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
@@ -394,7 +385,13 @@ const ProductDetail = () => {
             </div>
 
 
-
+                        {/* Description */}
+            {product.node.descriptionHtml && (
+              <div
+                className="text-muted-foreground text-lg leading-relaxed mt-4 [&_p]:mt-3 [&_p:first-child]:mt-0 [&_a]:text-shaman-gold [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1"
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(product.node.descriptionHtml) }}
+              />
+            )}
 
           </div>
         </div>
