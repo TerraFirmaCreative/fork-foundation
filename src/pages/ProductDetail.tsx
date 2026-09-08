@@ -297,6 +297,14 @@ const ProductDetail = () => {
               {product.node.title}
             </h1>
 
+            {/* Description */}
+            {product.node.descriptionHtml && (
+              <div
+                className="text-muted-foreground text-lg leading-relaxed mt-4 [&_p]:mt-3 [&_p:first-child]:mt-0 [&_a]:text-shaman-gold [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1"
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(product.node.descriptionHtml) }}
+              />
+            )}
+
             {price && (
               <>
                 <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
@@ -383,16 +391,6 @@ const ProductDetail = () => {
                 See full mat specs &amp; materials
               </button>
             </div>
-
-
-                        {/* Description */}
-            {product.node.descriptionHtml && (
-              <div
-                className="text-muted-foreground text-lg leading-relaxed mt-4 [&_p]:mt-3 [&_p:first-child]:mt-0 [&_a]:text-shaman-gold [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(product.node.descriptionHtml) }}
-              />
-            )}
-
           </div>
         </div>
 
