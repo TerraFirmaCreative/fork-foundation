@@ -297,14 +297,6 @@ const ProductDetail = () => {
               {product.node.title}
             </h1>
 
-            {/* Description */}
-            {product.node.descriptionHtml && (
-              <div
-                className="text-muted-foreground text-lg leading-relaxed mt-4 [&_p]:mt-3 [&_p:first-child]:mt-0 [&_a]:text-shaman-gold [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1"
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(product.node.descriptionHtml) }}
-              />
-            )}
-
             {price && (
               <>
                 <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
@@ -391,33 +383,42 @@ const ProductDetail = () => {
                 See full mat specs &amp; materials
               </button>
             </div>
+
+          {/* Specifications */}
+          <div id="specifications" className="pt-8">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
+            <div className="flex flex-col md:flex-row gap-x-6 font-body text-foreground/90">
+              {[
+                [
+                  { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
+                  { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
+                  { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
+                  { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
+                  { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
+                ],
+                [
+                  { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
+                  { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
+                  { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
+                ],
+              ].map((col, ci) => (
+                <div key={ci} className="flex flex-col gap-2 flex-1">
+                  {col.map((s, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
+                      <span className="font-medium leading-relaxed">{s.text}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
           </div>
         </div>
 
         {/* Specs + Delivery — full width, side by side under the mat */}
         <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Specifications */}
-          <div id="specifications" className="lg:px-4 scroll-mt-24">
-            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
-            <ul className="space-y-2 font-body text-foreground/90">
-              {[
-                { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
-                { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
-                { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
-                { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
-                { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
-                { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
-                { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
-                { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
-              ].map((s, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
-                  <span className="font-medium leading-relaxed">{s.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Delivery */}
           <div>
