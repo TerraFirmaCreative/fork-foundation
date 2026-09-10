@@ -7,7 +7,7 @@ const Shipping = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Shipping & Delivery — Cosmic Igloo"
-        description="Delivery times by region for our made-to-order yoga mats: around 1 week to the USA, 2 weeks to UK/Europe, up to 3 weeks to Australia."
+        description="Delivery times by region for our made-to-order yoga mats: up to 10 days to the USA, 2 weeks to UK/Europe, up to 3 weeks to Australia."
         path="/shipping"
       />
       <Header />
@@ -38,7 +38,7 @@ const Shipping = () => {
                 Delivery
               </h2>
               <ul className="space-y-2 mb-4">
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">USA</strong> — around 1 week</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">USA</strong> — up to 10 days</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Europe & UK</strong> — around 2 weeks</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Australia</strong> — up to 3 weeks</span></li>
               </ul>
