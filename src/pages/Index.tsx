@@ -47,15 +47,15 @@ const Index = () => {
           </Suspense>
         </LazyMount>
 
-        <LazyMount minHeight={700}>
-          <Suspense fallback={<SectionFallback h={700} />}>
-            <YogiOfTheWeek />
-          </Suspense>
-        </LazyMount>
-
         <LazyMount minHeight={1700}>
           <Suspense fallback={<SectionFallback h={1700} />}>
             <MatBenefits />
+          </Suspense>
+        </LazyMount>
+
+        <LazyMount minHeight={700}>
+          <Suspense fallback={<SectionFallback h={700} />}>
+            <YogiOfTheWeek />
           </Suspense>
         </LazyMount>
 
