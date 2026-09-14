@@ -1,5 +1,3 @@
-import LocaleLink from "@/components/LocaleLink";
-import { FEATURED_PRODUCT_HANDLE } from "@/lib/communityPhotos";
 import { shuffleLifestylePhotos } from "@/lib/lifestylePhotos";
 import { shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 
@@ -28,13 +26,10 @@ const HeroPhotoStrip = () => {
 
       <div className="hero-marquee flex gap-2 md:gap-3 w-max motion-reduce:animate-none">
         {loop.map((p, i) => (
-          <LocaleLink
+          <div
             key={i}
-            to={`/product/${FEATURED_PRODUCT_HANDLE}`}
             aria-hidden={i >= photos.length}
-            tabIndex={i >= photos.length ? -1 : undefined}
-            aria-label={`Shop the mat — ${p.alt}`}
-            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-auto md:aspect-[3/4] md:h-[min(230px,19.5vh)] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 hover:ring-shaman-gold/50 transition-all duration-500 hover:shadow-[0_0_36px_-10px_hsl(var(--shaman-violet)/0.7)]"
+            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-auto md:aspect-[3/4] md:h-[min(230px,19.5vh)] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 transition-all duration-500"
           >
             <img
               src={shopifyImageUrl(p.src, 400)}
@@ -45,10 +40,10 @@ const HeroPhotoStrip = () => {
               height={267}
               loading={i < 4 ? "eager" : "lazy"}
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700" />
-          </LocaleLink>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
+          </div>
         ))}
       </div>
 
