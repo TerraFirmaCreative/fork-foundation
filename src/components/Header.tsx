@@ -6,6 +6,7 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocaleNavigate } from "@/hooks/useLocaleNavigate";
 import { useLocale, SupportedLocale, SUPPORTED_LOCALES, LOCALE_LABELS, getCountryForLocale, setUserSelectedLocale } from "@/lib/i18n";
 import { CartDrawer } from "@/components/CartDrawer";
+import "flag-icons/css/flag-icons.min.css";
 
 import {
   DropdownMenu,
@@ -129,7 +130,10 @@ const Header = () => {
                   onClick={() => switchLocale(loc)}
                   className={`cursor-pointer ${locale === loc ? "text-foreground font-semibold" : "text-muted-foreground"}`}
                 >
-                  {LOCALE_LABELS[loc]}
+                  <div className="flex flex-row gap-2 mr-2">
+                    <span className={`fi fi-${getCountryForLocale(loc).toLowerCase()}`} />
+                    <span className="text-base">{LOCALE_LABELS[loc]}</span>
+                  </div>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>

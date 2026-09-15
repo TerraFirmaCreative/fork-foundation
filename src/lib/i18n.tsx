@@ -175,3 +175,8 @@ export async function detectUserLocale({ force = false }: { force?: boolean } = 
   sessionStorage.setItem(LOCALE_STORAGE_KEY, detected);
   return detected;
 }
+
+/** Get flag icon CSS class from country code */
+export function countryCodeToFlag(countryCode: string): string {
+  return `fi fi-${countryCode.toLowerCase()}`;
+}
