@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { z } from "zod";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
@@ -20,6 +21,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,11 +76,11 @@ const Contact = () => {
       ]);
 
 
-      toast({
-        title: "Message sent",
-        description: "Thanks — we've sent a confirmation to your inbox and will reply within 2 business days.",
-      });
       setForm({ name: "", email: "", message: "" });
+      setSent(true);
+      setTimeout(() => {
+        document.getElementById("contact-sent")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
     } catch (err) {
       toast({
         title: "Couldn't send your message",
@@ -94,7 +96,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contact Cosmic Igloo — We're Here to Help"
-        description="Question about your order or our yoga mats? Send us a message or email hello@cosmicigloo.com — we reply within 2 business days."
+        description="Question about your order or our yoga mats? Send us a message or email hello@cosmicigloo.com — we reply within 1 business day."
         path="/contact"
       />
       <Header />
@@ -108,42 +110,71 @@ const Contact = () => {
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p className="text-lg">
-              We'd love to hear from you. For any questions about your order, our products, or anything else, drop us a line below or get in touch directly:
+              Got a question, need help with an order, or just want to say hi? We'd love to hear from you.
             </p>
+            <p>
+              The best way to reach us is{" "}
+              <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
+                hello@cosmicigloo.com
+              </a>
+              , or use the form below.
+            </p>
+            <p>
+              We're a small team, so we might not reply instantly, but we do reply, and we're always happy to hear from you.
+            </p>
+            <p className="text-foreground font-medium">A few practical details, just in case:</p>
             <ul className="space-y-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Email:</strong>{" "}
-                  <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
-                    hello@cosmicigloo.com
-                  </a>
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Contact form:</strong> use the form below for a written record and an emailed copy of your enquiry.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Business address:</strong> Cosmic Igloo, Level 2/179 St Georges Terrace, Perth WA 6000, Australia
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground">Hours:</strong> Monday–Friday, 9am–5pm AWST (Perth). We're an online-only business, so please contact us by email or the form — we don't take phone enquiries.
-                </span>
-              </li>
+              {[
+                "We're based in Perth, Australia. We also have staff in the UK",
+                "We work Monday to Friday",
+                "We're online only, so email or the form is the best way to reach us",
+                "Our mats are printed and shipped from our production partner in the US",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
-            <p className="text-sm text-muted-foreground/70">
-              We aim to reply to every message within 2 business days.
+            <h2 className="font-display text-2xl md:text-3xl font-medium text-shaman-gold pt-2">
+              Want to become an affiliate?
+            </h2>
+            <p>
+              If you love Cosmic Igloo and want to share it with your community, we'd love to work with you. Send us your details and a bit about yourself at{" "}
+              <a href="mailto:hello@cosmicigloo.com" className="text-shaman-violet font-medium hover:text-shaman-violet/80 transition-colors">
+                hello@cosmicigloo.com
+              </a>
+              , and we'll be in touch.
             </p>
+            
           </div>
 
+
+          {sent && (
+            <div
+              id="contact-sent"
+              role="status"
+              aria-live="polite"
+              className="mt-10 rounded-xl border-2 border-shaman-gold bg-shaman-gold/10 p-8 text-center"
+            >
+              <h2 className="font-display text-2xl md:text-3xl font-medium text-shaman-gold mb-3">
+                Message sent
+              </h2>
+              <p className="font-body text-foreground/90 max-w-md mx-auto">
+                Thanks — we've sent a confirmation to your inbox. If you don't see it, check your spam folder.
+              </p>
+              <Button
+                type="button"
+                variant="outline"
+                className="mt-6"
+                onClick={() => setSent(false)}
+              >
+                Send another message
+              </Button>
+            </div>
+          )}
+
+          {!sent && (
           <form
             onSubmit={handleSubmit}
             className="mt-10 space-y-5"
@@ -199,6 +230,7 @@ const Contact = () => {
               {submitting ? "Sending…" : "Let's connect"}
             </Button>
           </form>
+          )}
         </div>
       </main>
       <Footer />

@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import HeroPhotoStrip from "@/components/HeroPhotoStrip";
+import UspBar from "@/components/UspBar";
 
 
 
@@ -154,7 +155,7 @@ const HeroSection = () => {
 
       {/* CONTENT — artistic centered composition, all above the fold */}
       <div
-        className="relative z-10 w-full px-6 flex flex-col items-center text-center"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center justify-center text-center"
         style={{ textShadow: "0 2px 18px hsla(240, 60%, 3%, 0.7)" }}
       >
         {/* Whisper-line above headline */}
@@ -163,7 +164,7 @@ const HeroSection = () => {
         </p>
 
         {/* Headline — poetic, layered */}
-        <h1 className="mt-6 font-display font-normal tracking-tight leading-[1.2] pb-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-5xl overflow-visible">
+        <h1 className="mt-4 md:mt-[min(1rem,1.8vh)] mx-auto font-display font-normal tracking-tight leading-[1.2] pb-4 text-[2.86rem] sm:text-[3.75rem] md:text-[4.6rem] lg:text-[5.6rem] [@media(min-width:768px)_and_(max-height:820px)]:text-[3.75rem] max-w-5xl text-center text-balance overflow-visible">
           <span className="block">
             <span className="text-gradient">Beautiful</span>{" "}
             <span className="text-gradient italic relative inline-block">
@@ -183,24 +184,38 @@ const HeroSection = () => {
                 />
               </svg>
             </span>{" "}
-            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pr-[0.04em] overflow-visible align-baseline">
+            <span className="text-gradient italic inline-block leading-[1.3] pb-[0.24em] mb-[-0.24em] pl-[0.02em] pr-[0.06em] overflow-visible align-baseline">
               grippy
             </span>
           </span>
-          <span className="block text-gradient font-display font-medium tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mt-2 leading-[1.15] pb-[0.12em]">
+          <span className="block text-gradient font-display font-medium tracking-tight text-[2.86rem] sm:text-[3.75rem] md:text-[4.6rem] lg:text-[5.6rem] [@media(min-width:768px)_and_(max-height:820px)]:text-[3.75rem] mt-1 leading-[1.15] pb-[0.12em]">
             yoga mats.
           </span>
         </h1>
 
         {/* Single-line invitation */}
-        <p className="mt-8 text-base sm:text-lg md:text-xl text-foreground/95 font-body max-w-xl leading-relaxed">
+        <p className="mt-4 md:mt-[min(1rem,1.8vh)] text-sm sm:text-base md:text-lg text-foreground/95 font-body max-w-xl leading-relaxed">
           Designed to inspire. Made to perform.
         </p>
+
+        {/* Real yogis on the mats — drifting film strip */}
+        <div className="mt-6 md:mt-[min(1.75rem,2vh)] w-full">
+          <HeroPhotoStrip />
+
+        </div>
+
+        {/* Trust strip — slides slowly under the photos */}
+        <div className="mt-5 md:mt-[min(1.5rem,1.8vh)] w-full">
+          <UspBar />
+        </div>
+
+
 
         {/* CTA button */}
         <button
           onClick={scrollToGallery}
-          className="enter-cta group mt-12 relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+          className="enter-cta group mt-12 md:mt-[min(4.5rem,7vh)] relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 backdrop-blur-sm shadow-[0_0_24px_-12px_hsl(var(--shaman-gold)/0.5)] hover:shadow-[0_0_36px_-8px_hsl(var(--shaman-gold)/0.7)] transition-all duration-500 hover:scale-[1.03] cursor-pointer overflow-hidden"
+
           aria-label="View the collection below"
         >
           <span aria-hidden className="enter-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-shaman-gold/15 to-transparent" />

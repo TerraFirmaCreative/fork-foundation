@@ -5,7 +5,7 @@ const reviews = [
   {
     id: 1,
     name: "Philippa W.",
-    review: "I love my Whale yoga mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring.",
+    review: "I love my mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring.",
     date: "3 weeks ago",
   },
   {

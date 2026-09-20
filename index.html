@@ -28,7 +28,7 @@
       window.gtag('config', 'G-QNLBHNGSJ6', { send_page_view: false });
 
       (function(){
-        var GA_LOADED = false, CL_LOADED = false;
+        var GA_LOADED = false, CL_LOADED = false, FB_LOADED = false;
         function loadGA(){
           if (GA_LOADED) return; GA_LOADED = true;
           var s = document.createElement('script');
@@ -44,10 +44,24 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "xbj5of4i9a");
         }
+        function loadMetaPixel(){
+          if (FB_LOADED) return; FB_LOADED = true;
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          window.fbq('init', '2269287090590106');
+          window.fbq('track', 'PageView');
+        }
         function enable(){
           // Defer to first interaction / 6s after load to protect LCP.
           var fired = false;
-          function go(){ if (fired) return; fired = true; cleanup(); loadGA(); loadClarity(); }
+          function go(){ if (fired) return; fired = true; cleanup(); loadGA(); loadClarity(); loadMetaPixel(); }
+
           var events = ['pointerdown','keydown','touchstart','scroll'];
           function cleanup(){ events.forEach(function(e){ window.removeEventListener(e, go, { passive: true }); }); }
           events.forEach(function(e){ window.addEventListener(e, go, { passive: true, once: true }); });
@@ -75,16 +89,19 @@
     <meta property="og:title" content="Cosmic Igloo — Custom Sacred Geometry Yoga Mats" />
     <meta property="og:description" content="Premium made-to-order yoga mats with original sacred-geometry and cosmic art. Custom-designed for serious practitioners. Printed and shipped from the US." />
     <meta property="og:url" content="https://cosmicigloo.com/" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e52cbfe2-8f27-42e4-b8bb-f3872b505897/id-preview-f7b60088--518fbfed-d065-4906-a4e7-87fa2b752d66.lovable.app-1778319106626.png" />
+    <meta property="og:image" content="https://cosmicigloo.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Cosmic Igloo yoga mat with whale and sacred geometry artwork" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@cosmicigloo" />
     <meta name="twitter:title" content="Cosmic Igloo — Custom Sacred Geometry Yoga Mats" />
     <meta name="twitter:description" content="Premium made-to-order yoga mats with original sacred-geometry and cosmic art. Printed and shipped from the US." />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e52cbfe2-8f27-42e4-b8bb-f3872b505897/id-preview-f7b60088--518fbfed-d065-4906-a4e7-87fa2b752d66.lovable.app-1778319106626.png" />
+    <meta name="twitter:image" content="https://cosmicigloo.com/og-image.jpg" />
 
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"Organization","name":"Cosmic Igloo","url":"https://cosmicigloo.com","logo":"https://cosmicigloo.com/favicon-512.png","description":"Cosmic Igloo is a premium made-to-order yoga mat brand. Each mat features original sacred-geometry and cosmic artwork, custom-designed and printed to order in the United States for serious yoga practitioners and wellness buyers. It is a premium wellness product brand — not a developer tool, code repository, or software project."}
+      {"@context":"https://schema.org","@type":"Organization","name":"Cosmic Igloo","legalName":"Terra Firma Ventures Pty Ltd","url":"https://cosmicigloo.com","logo":"https://cosmicigloo.com/favicon-512.png","email":"hello@cosmicigloo.com","address":{"@type":"PostalAddress","streetAddress":"2/179 St Georges Terrace","addressLocality":"Perth","addressRegion":"WA","postalCode":"6000","addressCountry":"AU"},"areaServed":"Worldwide","contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"hello@cosmicigloo.com","availableLanguage":["English"],"areaServed":"Worldwide","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}}],"description":"Cosmic Igloo is a premium made-to-order yoga mat brand. Each mat features original sacred-geometry and cosmic artwork, custom-designed and printed to order in the United States for serious yoga practitioners and wellness buyers. It is a premium wellness product brand — not a developer tool, code repository, or software project."}
     </script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"WebSite","name":"Cosmic Igloo","url":"https://cosmicigloo.com","description":"Premium made-to-order yoga mats with original sacred-geometry and cosmic art, printed and shipped from the US."}
@@ -93,7 +110,15 @@
     <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="llms-full.txt" />
   </head>
   <body>
+    <!-- Meta Pixel noscript fallback -->
+    <noscript><img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=2269287090590106&amp;ev=PageView&amp;noscript=1" /></noscript>
+    <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+      Cosmic Igloo is a trading name of Terra Firma Ventures Pty Ltd,
+      ACN 615 679 331, 2/179 St Georges Terrace, Perth WA 6000, Australia.
+    </div>
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -19,18 +19,19 @@ const About = () => {
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p className="font-display italic text-shaman-gold text-xl md:text-2xl">A warm space in the infinite.</p>
             <p>
-              That's what we believe our mats should be, a place of beauty and intention amongst the chaos.
+              That's what we believe our mats should be, a place of real beauty and intention.
             </p>
             <p>
-              Cosmic Igloo was born from a simple belief: that the one thing we stare at for an entire practice should be genuinely, arrestingly beautiful. Beautiful enough to actually move you.
+              Every design in our collection is an original work of art, created to carry meaning and inspire connection.
             </p>
             <p>
-              Every design in our collection is an original work of art, created to carry meaning, provoke feeling and elevate our practice.
-            </p>
-            <p>
-              Our mats are built to go everywhere we go. A suede microfibre surface that gets grippier as we warm up. A natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
+              Our mats are built to go everywhere we go. A suede microfibre surface that gets grippier as we warm up, paired with a natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
             </p>
             <p className="text-foreground">Made to order. Made for us.</p>
+            <p>
+              We're a small online studio based in Perth, Western Australia. Every mat is printed and dispatched by our production partner in the United States, then shipped worldwide. No overproduction, no waste, just mats made when they're wanted.
+            </p>
+
             <p>
               We're building a community of people who want to be inspired every time they unroll their mat. If that's you, <LocaleLink to="/#design-gallery" className="underline underline-offset-4 text-shaman-violet hover:text-shaman-violet/80 transition-colors">come find yours</LocaleLink>.
             </p>

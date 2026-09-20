@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown } from "lucide-react";
+import { Minus, Plus, Loader2, ArrowLeft, Layers, Maximize, Weight, Ruler, CircleDot, Feather, Star, Gift, ArrowDown, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -14,8 +14,10 @@ import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
 import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
-import { cn, formatPrice } from "@/lib/utils";
+import { cn, formatPrice, sanitizeHtml } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
+import PaymentIcons from "@/components/PaymentIcons";
+
 import whaleMat1 from "@/assets/whale-mat-1.webp";
 import whaleMat2 from "@/assets/whale-mat-2.webp";
 import whaleMat3 from "@/assets/whale-mat-3.webp";
@@ -28,7 +30,7 @@ const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
 };
 
 const productReviews = [
-  { id: 1, name: "Philippa W.", date: "3 weeks ago", review: "I love my Whale yoga mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring." },
+  { id: 1, name: "Philippa W.", date: "3 weeks ago", review: "I love my mat. The bright colours are really uplifting and calming at the same time. It's very comfortable and a good long length. I find the design really inspiring." },
   { id: 2, name: "Hudson R.", date: "1 month ago", review: "I was drawn to my mat the moment I saw the design. Additionally, the feel is incredible, with great texture, grip, and thickness. Having such a beautiful mat naturally brings more excitement and motivation to the start of each practice." },
   { id: 3, name: "Clare W.", date: "2 months ago", review: "A high quality, beautifully made yoga mat. Came with a handy carry strap. The vibrant pattern comes alive in the sunshine, which makes practising yoga a joy. Would highly recommend this mat." },
   { id: 4, name: "Kata S.", date: "3 months ago", review: "I've been using the Cosmic Igloo yoga mat daily in my yoga classes for several months now. I was initially drawn to its beautiful design—the pattern really spoke to me, and even now, every time I unroll it before a class, it fills me with joy.\n\nThe quality of the mat is flawless. It doesn't slip or stretch, and it lies perfectly flat on the floor. It feels stable and supportive throughout every practice.\n\nFor me, it has become more than just a yoga mat—it's a safe space and brings a true \"arriving home\" feeling the moment I step onto it." },
@@ -41,6 +43,8 @@ const ProductDetail = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [userInteracted, setUserInteracted] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  const ctaRef = useRef<HTMLDivElement | null>(null);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
   const setDrawerOpen = useCartStore((s) => s.setDrawerOpen);
@@ -112,6 +116,19 @@ const ProductDetail = () => {
   }, [selectedImageIndex, userInteracted, images.length]);
   const variant = product?.node.variants.edges[0]?.node;
   const price = variant?.price || product?.node.priceRange.minVariantPrice;
+
+  // Sticky mobile add-to-cart bar: shown once the main button scrolls out of view.
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setShowStickyCta(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      { threshold: 0 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [product]);
+
 
   if (loading) {
     return (
@@ -202,7 +219,7 @@ const ProductDetail = () => {
       <Header />
 
       <div className="max-w-6xl mx-auto px-6 py-8">
-        <LocaleLink to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
+        <LocaleLink to="/#design-gallery" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm">Back to shop</span>
         </LocaleLink>
@@ -281,14 +298,20 @@ const ProductDetail = () => {
             </h1>
 
             {price && (
-              <p className="text-xl text-muted-foreground mt-3 font-body italic">
-                {formatPrice(price)}
-              </p>
+              <>
+                <p className="text-[1.463rem] leading-snug text-muted-foreground mt-3 font-body">
+                  {formatPrice(price)}
+                </p>
+                <p className="font-body text-sm text-muted-foreground/80 mt-1">
+                  Includes free shipping globally
+                </p>
+              </>
             )}
 
 
+
             {/* Quantity + Add to Cart */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row sm:items-center gap-4 mt-6">
               <div className="flex items-center border border-border rounded-lg self-start">
                 <Button
                   variant="ghost"
@@ -313,17 +336,22 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
-                variant="conversion"
-                className="w-full sm:w-auto"
+                variant="buy"
+                className="w-full sm:w-auto sm:min-w-[11rem]"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-                    <span className="sr-only">Adding to cart</span>
+                    <span>Adding…</span>
                   </>
+                ) : !variant?.availableForSale ? (
+                  <span>Sold out</span>
                 ) : (
-                  <span>Add to Cart</span>
+                  <>
+                    <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+                    <span>Add to Cart</span>
+                  </>
                 )}
               </Button>
             </div>
@@ -331,56 +359,66 @@ const ProductDetail = () => {
               Secure checkout · Made to order · Free carry strap included
             </p>
 
-            {/* Description */}
-            {product.node.description && (
-              <p className="text-muted-foreground font-body leading-relaxed mt-6 border-t border-border/50 pt-6">
-                {product.node.description}
+            {/* Guarantee + payment methods */}
+            <div className="mt-5">
+              <div className="flex flex-col gap-2">
+                <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-display">
+                  Secure payment methods
+                </span>
+                <PaymentIcons className="opacity-80" />
+              </div>
+              <p className="font-body text-sm text-foreground/90 mt-7">
+                <span className="text-shaman-gold font-medium">Our promise:</span> every mat is made to order and
+                checked before it ships. If it arrives damaged, faulty or not as described, we'll replace it or refund
+                you in full — just email us within 30 days.
               </p>
-            )}
-
-            {/* Free Carry Strap */}
-            <div className="mt-6 flex items-center gap-3 p-4 rounded-md bg-shaman-gold/5 border border-shaman-gold/20">
-              <span className="text-shaman-gold text-lg">✦</span>
-              <p className="font-body text-foreground/90">
-                Includes a <span className="font-semibold text-shaman-gold">free carry strap</span> with every mat.
-              </p>
+              <button
+                type="button"
+                onClick={() =>
+                  document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+                className="mt-4 inline-flex items-center gap-2 font-body text-sm text-shaman-gold hover:underline"
+              >
+                <ArrowDown className="w-4 h-4" aria-hidden="true" />
+                See full mat specs &amp; materials
+              </button>
             </div>
 
-            <button
-              type="button"
-              onClick={() => document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-              className="group inline-flex items-center gap-2 mt-5 text-shaman-gold font-body font-medium text-base hover:text-shaman-gold/80 transition-colors self-start"
-            >
-              <span className="border-b border-shaman-gold/40 group-hover:border-shaman-gold pb-0.5">See full mat specs &amp; materials</span>
-              <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
-            </button>
+          {/* Specifications */}
+          <div id="specifications" className="pt-8">
+            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
+            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
+            <div className="flex flex-col md:flex-row gap-x-6 font-body text-foreground/90">
+              {[
+                [
+                  { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
+                  { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
+                  { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
+                  { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
+                  { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
+                ],
+                [
+                  { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
+                  { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
+                  { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
+                ],
+              ].map((col, ci) => (
+                <div key={ci} className="flex flex-col gap-2 flex-1">
+                  {col.map((s, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
+                      <span className="font-medium leading-relaxed">{s.text}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
           </div>
         </div>
 
         {/* Specs + Delivery — full width, side by side under the mat */}
         <div className="mt-8 border-t border-border/50 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Specifications */}
-          <div id="specifications" className="lg:px-4 scroll-mt-24">
-            <p className="text-[11px] tracking-[0.25em] uppercase text-shaman-gold/70 font-body mb-2">Details</p>
-            <h2 className="font-display text-lg text-foreground font-semibold mb-3">Specifications</h2>
-            <ul className="space-y-2 font-body text-foreground/90">
-              {[
-                { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
-                { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
-                { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
-                { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
-                { icon: <Ruler className="w-4 h-4" />, text: 'Dimensions 178cm x 66cm (70" x 26")' },
-                { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
-                { icon: <Weight className="w-4 h-4" />, text: "Weight ~1800g" },
-                { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
-              ].map((s, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="text-shaman-gold/70 mt-0.5">{s.icon}</span>
-                  <span className="font-medium leading-relaxed">{s.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Delivery */}
           <div>
@@ -388,26 +426,23 @@ const ProductDetail = () => {
             <h2 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h2>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
-                { text: "USA — around 1 week" },
+                { text: "USA — about 7-10 days" },
                 { text: "UK / Europe — around 2 weeks" },
-                { text: "Australia — up to 3 weeks", note: "Each mat is printed to order in the USA — crafted individually for you." },
+                { text: "Australia — up to 3 weeks" },
               ].map((d, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
-                  <div>
-                    <span className="font-medium leading-relaxed block">{d.text}</span>
-                    {d.note && (
-                      <span className="block text-sm italic text-muted-foreground/70 mt-1 leading-relaxed">
-                        {d.note}
-                      </span>
-                    )}
-                  </div>
+                  <span className="font-medium leading-relaxed block">{d.text}</span>
                 </li>
               ))}
             </ul>
+            <p className="mt-3 text-sm font-body italic text-muted-foreground/70 leading-relaxed">
+              Each mat is printed to order in the USA — crafted individually for you.
+            </p>
             <p className="mt-5 text-sm font-body italic text-muted-foreground/80">
               Ships from Nevada, USA
             </p>
+
           </div>
         </div>
 
@@ -450,6 +485,47 @@ const ProductDetail = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Sticky mobile add-to-cart bar */}
+      <div
+        className={cn(
+          "md:hidden fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-background/95 backdrop-blur-md transition-transform duration-300",
+          showStickyCta ? "translate-y-0" : "translate-y-full pointer-events-none"
+        )}
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        aria-hidden={!showStickyCta}
+      >
+        <div className="flex items-center gap-3 px-4 py-3">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-body text-foreground">{product.node.title}</p>
+            {price && (
+              <p className="text-sm font-body text-muted-foreground">{formatPrice(price)}</p>
+            )}
+          </div>
+          <Button
+            onClick={handleAddToCart}
+            disabled={isLoading || !variant?.availableForSale}
+            variant="buy"
+            className="shrink-0 !min-h-[3rem] !px-6"
+            tabIndex={showStickyCta ? undefined : -1}
+            aria-label="Add to cart"
+          >
+            {isLoading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                <span>Adding…</span>
+              </>
+            ) : !variant?.availableForSale ? (
+              <span>Sold out</span>
+            ) : (
+              <>
+                <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+                <span>Add to Cart</span>
+              </>
+            )}
+          </Button>
         </div>
       </div>
 

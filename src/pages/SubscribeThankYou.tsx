@@ -23,15 +23,12 @@ const SubscribeThankYou = () => {
           </h1>
 
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed text-base md:text-lg">
-            <p>Thank you for joining us.</p>
+            <p>Thanks for joining us.</p>
             <p>
-              We'll share new releases, stories from our yogis around the world, and
-              occasional early access to limited designs.
+              We'll let you know when new designs drop, plus the occasional early
+              access before they go live.
             </p>
-            <p>
-              In the meantime, explore the collection and find the mat that feels like
-              yours.
-            </p>
+            <p>Have a look through the collection while you wait.</p>
           </div>
 
           <div className="mt-10">

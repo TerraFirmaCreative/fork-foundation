@@ -27,10 +27,10 @@ const getSteps = (priceLabel: string) => [
   },
   {
     number: "03",
-    title: "Delivery",
+    title: "Delivery Times",
     color: "text-shaman-gold",
     deliveryLines: [
-      { country: "USA", time: "about 1 week" },
+      { country: "USA", time: "about 7-10 days" },
       { country: "UK/Europe", time: "about 2 weeks" },
       { country: "Australia", time: "about 2-3 weeks" },
     ],
@@ -43,7 +43,7 @@ const getSteps = (priceLabel: string) => [
     lines: [
       { text: "Your mat has arrived!", bold: "" },
       { text: "Unroll. Breathe. Practice", bold: "" },
-      { text: "We hope you love it as much as we do", bold: "" },
+      { text: "We hope you love it", bold: "" },
     ],
   },
 ];
@@ -53,12 +53,22 @@ const HowItWorks = () => {
   const [priceLabel, setPriceLabel] = useState("$149 AUD");
 
   useEffect(() => {
-    fetchCollectionProducts("featured-home", 1, country).then((products) => {
-      const price = products[0]?.node.variants.edges[0]?.node.price
-        || products[0]?.node.priceRange.minVariantPrice;
-      if (price) {
-        setPriceLabel(formatPrice(price));
-      }
+    fetchCollectionProducts("featured-home", 24, country).then((products) => {
+      // Use the most common price across the collection (the standard mat price),
+      // not just the first product — some legacy items are priced lower.
+      const counts = new Map<string, { price: { amount: string; currencyCode: string }; n: number }>();
+      products.forEach((p) => {
+        const price = p.node.variants.edges[0]?.node.price || p.node.priceRange.minVariantPrice;
+        if (!price) return;
+        const key = `${price.amount}-${price.currencyCode}`;
+        const entry = counts.get(key);
+        if (entry) entry.n += 1;
+        else counts.set(key, { price, n: 1 });
+      });
+      const best = [...counts.values()].sort(
+        (a, b) => b.n - a.n || Number(b.price.amount) - Number(a.price.amount),
+      )[0];
+      if (best) setPriceLabel(formatPrice(best.price));
     }).catch(() => { });
   }, [country]);
 
@@ -93,33 +103,33 @@ const HowItWorks = () => {
           </h2>
         </div>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-8">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-14 lg:gap-[2.36rem]">
           {/* Full-width horizontal line through numbers */}
-          <div className="hidden lg:block absolute top-[1.75rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
+          <div className="hidden lg:block absolute top-[2.065rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
           {steps.map((step, index) => (
             <div
               key={step.title}
               className="relative group text-center md:text-left flex flex-col items-center md:items-start"
             >
               {/* Step number */}
-              <span className="block font-display text-4xl md:text-5xl text-foreground/30 mb-2 md:mb-4 group-hover:text-foreground/50 transition-colors duration-700">
+              <span className="block font-display text-[2.4rem] md:text-[3.1rem] text-foreground/30 mb-2.5 md:mb-5 group-hover:text-foreground/50 transition-colors duration-700">
                 {step.number}
               </span>
 
               {/* Fixed height title area */}
-              <div className="h-auto md:h-[3.5rem] flex flex-col items-center md:items-start justify-start mb-1 md:mb-0">
-                <h3 className={`font-display text-2xl md:text-[1.75rem] font-normal tracking-tight ${step.color}`}>
+              <div className="h-auto md:h-[4.13rem] flex flex-col items-center md:items-start justify-start mb-1 md:mb-0">
+                <h3 className={`font-display text-[1.6rem] md:text-[1.78rem] font-normal tracking-tight ${step.color}`}>
                   {step.title}
                 </h3>
               </div>
 
 
               {step.deliveryLines && (
-                <div className="space-y-2 mt-3">
+                <div className="space-y-2.5 mt-3.5">
                   {step.deliveryLines.map((dl, i) => (
-                    <div key={i} className="flex gap-3 justify-center md:justify-start">
-                      <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                      <p className="text-[17px] md:text-[18px] text-foreground/90 font-body leading-relaxed">
+                    <div key={i} className="flex gap-3.5 justify-center md:justify-start">
+                      <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                      <p className="text-[18px] md:text-[19px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
                     </div>
@@ -127,16 +137,17 @@ const HowItWorks = () => {
                 </div>
               )}
 
-              <div className="space-y-2 mt-3">
+              <div className="space-y-2.5 mt-3.5">
                 {step.lines.map((line, i) => (
-                  <div key={i} className="flex gap-3 justify-center md:justify-start">
-                    <div className="w-0.5 h-6 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
-                    <p className={`text-[17px] md:text-[18px] font-body leading-relaxed whitespace-nowrap ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
+                  <div key={i} className="flex gap-3.5 justify-center md:justify-start">
+                    <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                    <p className={`text-[18px] md:text-[19px] font-body leading-relaxed text-pretty ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>
                   </div>
                 ))}
               </div>
+
 
             </div>
           ))}

@@ -19,6 +19,8 @@ const Footer = () => {
 
   const [email, setEmail] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [emailError, setEmailError] = useState<string>("")
+
 
   const scrollToSection = (sectionId: string) => {
     if (isHomePage) {
@@ -32,9 +34,10 @@ const Footer = () => {
   };
 
   const footerLinks = {
-    Product: ["Shop Collection", "How It Works"],
-    Company: ["About", "Reviews"],
-    Support: ["FAQ", "Contact", "Shipping", "Returns", "Terms & Conditions", "Privacy Policy", "Trust & Security"],
+    Product: ["Shop Collection", "How It Works", "Reviews"],
+    Company: ["About", "Contact", "FAQ"],
+    Support: ["Shipping", "Returns", "Trust & Security"],
+    Legal: ["Terms & Conditions", "Privacy Policy"],
   };
 
   return (
@@ -46,9 +49,9 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-x-6 gap-y-8 mb-10">
           {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-1">
             <LocaleLink to="/" className="flex items-center gap-3 mb-4 hover:opacity-85 transition-opacity">
               <LogoMark className="w-7 h-7" />
               <span className="font-display text-base tracking-[0.32em] text-foreground/90 uppercase" style={{ fontWeight: 500 }}>
@@ -90,14 +93,24 @@ const Footer = () => {
           ))}
 
           {/* Subscribe Column */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-2">
             <h3 className="text-xs font-display tracking-[0.28em] uppercase text-foreground mb-2" style={{ fontWeight: 500 }}>Subscribe</h3>
             <p className="text-xs text-foreground/85 mb-4 font-display tracking-wide">Early access. New designs. Community stories.</p>
-            <form className="flex items-center border border-foreground/30 hover:border-foreground/50 focus-within:border-shaman-gold/60 rounded-md bg-background/30 px-3 py-1 mb-3 max-w-xs transition-colors" onSubmit={async (e) => {
+            <form className="max-w-xs mb-3" noValidate onSubmit={async (e) => {
               e.preventDefault();
-              if (isSubmitting || !email) return;
+              if (isSubmitting) return;
+              const trimmed = email.trim();
+              if (!trimmed) {
+                setEmailError("Please enter your email address.");
+                return;
+              }
+              if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed)) {
+                setEmailError("That doesn't look like a valid email address.");
+                return;
+              }
+              setEmailError("");
               setIsSubmitting(true);
-              const submittedEmail = email;
+              const submittedEmail = trimmed;
               const result = await subscribeToNewsletter(submittedEmail);
               setIsSubmitting(false);
               if (result.success) {
@@ -123,23 +136,33 @@ const Footer = () => {
                 navigate("/subscribe/thank-you");
 
               } else {
+                setEmailError(result.error || "Failed to subscribe. Please try again.");
                 toast.error(result.error || "Failed to subscribe. Please try again.");
               }
             }}>
-              <input
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/70 text-foreground py-1.5 font-display tracking-wide"
-                required
-                disabled={isSubmitting}
-              />
-              <button type="submit" disabled={isSubmitting} aria-label="Subscribe" className="w-8 h-8 rounded-full bg-shaman-violet/20 hover:bg-shaman-gold/30 hover:text-shaman-gold flex items-center justify-center transition-colors text-foreground flex-shrink-0 ml-2">
-                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
-              </button>
+              <div className={`flex items-center border rounded-md bg-background/30 px-3 py-1 transition-colors ${emailError ? "border-destructive" : "border-foreground/30 hover:border-foreground/50 focus-within:border-shaman-gold/60"}`}>
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
+                  className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/70 text-foreground py-1.5 font-display tracking-wide"
+                  aria-invalid={!!emailError}
+                  aria-describedby={emailError ? "newsletter-error" : undefined}
+                  disabled={isSubmitting}
+                />
+                <button type="submit" disabled={isSubmitting} aria-label="Subscribe" className="w-8 h-8 rounded-full bg-shaman-violet/20 hover:bg-shaman-gold/30 hover:text-shaman-gold flex items-center justify-center transition-colors text-foreground flex-shrink-0 ml-2">
+                  {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
+                </button>
+              </div>
+              {emailError && (
+                <p id="newsletter-error" role="alert" className="mt-2 text-[11px] text-destructive font-display tracking-wide">
+                  {emailError}
+                </p>
+              )}
             </form>
             <p className="text-[11px] text-foreground/75 font-display tracking-wide mb-6">No spam. Unsubscribe anytime.</p>
+
 
           </div>
 
@@ -182,8 +205,15 @@ const Footer = () => {
             ))}
           </div>
 
-          <div className="text-xs text-muted-foreground font-display tracking-wide text-center">
-            <p>© 2026 Cosmic Igloo. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
+            <p className="text-xs text-muted-foreground font-display tracking-wide">© 2026 Cosmic Igloo. All rights reserved.</p>
+            <address className="text-[11px] text-muted-foreground font-display tracking-wide not-italic">
+              Cosmic Igloo is a trading name of Terra Firma Ventures Pty Ltd
+              <span className="mx-2 hidden sm:inline">·</span><br className="sm:hidden" />
+              ACN 615 679 331
+              <span className="mx-2 hidden sm:inline">·</span><br className="sm:hidden" />
+              2/179 St Georges Terrace, Perth WA 6000, Australia
+            </address>
           </div>
         </div>
       </div>

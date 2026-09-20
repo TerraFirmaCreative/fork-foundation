@@ -16,11 +16,12 @@ interface SEOProps {
   jsonLd?: Record<string, any> | Record<string, any>[];
   /** Optional breadcrumb trail; emits BreadcrumbList JSON-LD */
   breadcrumbs?: BreadcrumbItem[];
+  /** Emit robots noindex (e.g. error pages) */
+  noindex?: boolean;
 }
 
 const SITE_URL = "https://cosmicigloo.com";
-const DEFAULT_IMAGE =
-  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e52cbfe2-8f27-42e4-b8bb-f3872b505897/id-preview-f7b60088--518fbfed-d065-4906-a4e7-87fa2b752d66.lovable.app-1778319106626.png";
+const DEFAULT_IMAGE = "https://cosmicigloo.com/og-image.jpg";
 
 /** Map app locale (e.g. "en-UK") → BCP-47 hreflang value (e.g. "en-GB") */
 const HREFLANG_OVERRIDES: Record<string, string> = {
@@ -32,7 +33,7 @@ const toHreflang = (locale: string) => HREFLANG_OVERRIDES[locale] || locale;
 const buildLocalePath = (locale: string, cleanPath: string) =>
   cleanPath === "/" ? `/${locale}` : `/${locale}${cleanPath}`;
 
-const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, breadcrumbs }: SEOProps) => {
+const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, breadcrumbs, noindex }: SEOProps) => {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   // Self-referential canonical: use the current URL path (including locale prefix
   // if present) so Lighthouse sees canonical === audited URL. Falls back to the
@@ -63,7 +64,9 @@ const SEO = ({ title, description, path = "/", image, type = "website", jsonLd, 
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       <link rel="canonical" href={canonicalUrl} />
+
 
       {/* hreflang alternates — one per supported locale + x-default */}
       {SUPPORTED_LOCALES.map((loc) => (
