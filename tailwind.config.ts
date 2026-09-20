@@ -14,16 +14,21 @@ export default {
   	},
   	extend: {
   		fontFamily: {
+				hero: [
+					'Inter',
+					'Arial',
+					'sans-serif'
+				],
   			display: [
-  				'Cormorant Garamond',
-  				'Georgia',
-  				'serif'
+  				'Inter',
+  				'Arial',
+  				'sans-serif'
   			],
-		body: [
-				'Cormorant Garamond',
-				'Georgia',
-				'serif'
-			],
+				body: [
+						'Cormorant Garamond',
+						'Georgia',
+						'serif'
+				],
   			sans: [
   				'ui-sans-serif',
   				'system-ui',

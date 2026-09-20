@@ -58,13 +58,8 @@ const DesignGallery = () => {
     <section id="design-gallery" className="hero-gradient pt-6 md:pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
-            Choose From
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">24 </span>
-            <span className="text-gradient">unique</span>
-            <span className="text-gradient"> designs</span>
+          <h2 className="font-light text-4xl md:text-4xl text-shaman-gold tracking-tight">
+            <span className="text-6xl">24</span> UNIQUE DESIGNS
           </h2>
         </div>
         {loading ? (

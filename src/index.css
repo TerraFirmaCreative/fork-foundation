@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /* Self-hosted Cormorant Garamond (latin) — eliminates render-blocking Google Fonts request.
    One file serves weights 400-700 + italic since Google's latin subset is the same axis-restricted file. */
 @font-face {
