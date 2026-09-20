@@ -1,39 +1,444 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap')
+layer(base);
 
 /* Self-hosted Cormorant Garamond (latin) — eliminates render-blocking Google Fonts request.
    One file serves weights 400-700 + italic since Google's latin subset is the same axis-restricted file. */
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('/fonts/cormorant-garamond-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
 }
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: italic;
-  font-weight: 400 500;
-  font-display: swap;
-  src: url('/fonts/cormorant-garamond-latin-italic.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+@theme {
+  --font-hero: Inter, Arial, sans-serif;
+  --font-display: Inter, Arial, sans-serif;
+  --font-body: Cormorant Garamond, Georgia, serif;
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol, Noto Color Emoji;
+  --font-serif: ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+    Courier New, monospace;
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-shaman-violet: hsl(var(--shaman-violet));
+  --color-shaman-magenta: hsl(var(--shaman-magenta));
+  --color-shaman-teal: hsl(var(--shaman-teal));
+  --color-shaman-gold: hsl(var(--shaman-gold));
+  --color-shaman-ember: hsl(var(--shaman-ember));
+  --color-shaman-deep: hsl(var(--shaman-deep));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 3s ease-in-out infinite;
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility text-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(270, 65%, 72%) 0%,
+    hsl(285, 55%, 65%) 30%,
+    hsl(45, 80%, 70%) 75%,
+    hsl(220, 55%, 65%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+@utility text-gradient-warm {
+  background: linear-gradient(
+    135deg,
+    hsl(45, 80%, 70%) 0%,
+    hsl(270, 65%, 72%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility border-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    var(--gradient-shaman) border-box;
+}
+
+@utility glow-effect {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-shaman);
+    border-radius: inherit;
+    opacity: 0.3;
+    filter: blur(16px);
+    z-index: -1;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover::before {
+    opacity: 0.5;
+  }
+}
+
+@utility shaman-bg {
+  background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      hsla(270, 70%, 45%, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 25%,
+      hsla(285, 55%, 45%, 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 85%,
+      hsla(220, 60%, 35%, 0.14) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 75% 70%,
+      hsla(45, 80%, 60%, 0.06) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 20% 60%,
+      hsla(255, 50%, 30%, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+@utility starfield {
+  /* Subtle starfield for cosmic backgrounds */
+  background-image:
+    radial-gradient(
+      1px 1px at 12% 18%,
+      hsla(45, 80%, 80%, 0.6),
+      transparent 60%
+    ),
+    radial-gradient(
+      1px 1px at 78% 32%,
+      hsla(270, 70%, 85%, 0.5),
+      transparent 60%
+    ),
+    radial-gradient(
+      1px 1px at 33% 72%,
+      hsla(0, 0%, 100%, 0.4),
+      transparent 60%
+    ),
+    radial-gradient(
+      1px 1px at 88% 80%,
+      hsla(220, 70%, 85%, 0.5),
+      transparent 60%
+    ),
+    radial-gradient(
+      1px 1px at 55% 12%,
+      hsla(0, 0%, 100%, 0.45),
+      transparent 60%
+    ),
+    radial-gradient(
+      1px 1px at 22% 55%,
+      hsla(45, 80%, 80%, 0.45),
+      transparent 60%
+    ),
+    radial-gradient(1px 1px at 65% 88%, hsla(0, 0%, 100%, 0.4), transparent 60%);
+  background-repeat: repeat;
+  background-size: 600px 600px;
+}
+
+@utility texture-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+@utility animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@utility animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+@utility sacred-pattern {
+  /* Sacred geometry pattern */
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%239C92AC' stroke-opacity='0.05'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility font-body {
+  font-family: var(--font-body);
+}
+
+@utility btn-buy {
+  /* Unified conversion CTA — matches Hero "Find your mat":
+     translucent gold pill, uppercase tracking, looping shimmer + hover scale */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.9rem 2rem;
+  min-height: 3.25rem;
+  background-color: hsl(var(--shaman-gold));
+  color: hsl(var(--background));
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  border: 1px solid hsl(var(--shaman-gold));
+  box-shadow: 0 8px 24px -12px hsl(var(--shaman-gold) / 0.7);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+  &:hover {
+    background-color: hsl(var(--shaman-gold) / 0.9);
+    box-shadow: 0 10px 28px -10px hsl(var(--shaman-gold) / 0.85);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &:disabled {
+    background-color: hsl(var(--muted));
+    border-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    box-shadow: none;
+    pointer-events: none;
+  }
+}
+
+@utility btn-conversion {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  height: auto;
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--shaman-gold) / 0.12),
+    hsl(var(--shaman-violet) / 0.12),
+    hsl(var(--shaman-gold) / 0.12)
+  );
+  color: hsl(var(--shaman-gold));
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  border: 1px solid hsl(var(--shaman-gold) / 0.55);
+  box-shadow: 0 0 24px -12px hsl(var(--shaman-gold) / 0.6);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease,
+    color 0.5s ease,
+    background-image 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 36px -8px hsl(var(--shaman-gold) / 0.8);
+    color: hsl(var(--foreground));
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--shaman-gold) / 0.22),
+      hsl(var(--shaman-violet) / 0.22),
+      hsl(var(--shaman-gold) / 0.22)
+    );
+  }
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      hsl(var(--shaman-gold) / 0.18) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: btn-conversion-shimmer 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/cormorant-garamond-latin.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400 500;
+    font-display: swap;
+    src: url('/fonts/cormorant-garamond-latin-italic.woff2') format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Cormorant Fallback';
+    src: local('Georgia');
+    size-adjust: 105%;
+    ascent-override: 95%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+  }
 }
 
 /* Metric-matched fallback for Cormorant Garamond to prevent CLS from font swap.
    Adjusted Georgia metrics approximate Cormorant Garamond's x-height/advance,
    so the swap from fallback to web font causes virtually no layout shift. */
-@font-face {
-  font-family: 'Cormorant Fallback';
-  src: local('Georgia');
-  size-adjust: 105%;
-  ascent-override: 95%;
-  descent-override: 25%;
-  line-gap-override: 0%;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 
 @layer base {
@@ -241,85 +646,6 @@
 }
 
 @layer components {
-  .text-gradient {
-    background: linear-gradient(135deg, 
-      hsl(270, 65%, 72%) 0%, 
-      hsl(285, 55%, 65%) 30%,
-      hsl(45, 80%, 70%) 75%,
-      hsl(220, 55%, 65%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding-bottom: 0.15em;
-    margin-bottom: -0.15em;
-  }
-
-  .text-gradient-warm {
-    background: linear-gradient(135deg, 
-      hsl(45, 80%, 70%) 0%, 
-      hsl(270, 65%, 72%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .border-gradient {
-    border: 1px solid transparent;
-    background: linear-gradient(var(--card), var(--card)) padding-box,
-                var(--gradient-shaman) border-box;
-  }
-
-  .glow-effect {
-    position: relative;
-  }
-
-  .glow-effect::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: var(--gradient-shaman);
-    border-radius: inherit;
-    opacity: 0.3;
-    filter: blur(16px);
-    z-index: -1;
-    transition: opacity 0.4s ease;
-  }
-
-  .glow-effect:hover::before {
-    opacity: 0.5;
-  }
-
-  .shaman-bg {
-    background: 
-      radial-gradient(ellipse at 15% 15%, hsla(270, 70%, 45%, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 25%, hsla(285, 55%, 45%, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 85%, hsla(220, 60%, 35%, 0.14) 0%, transparent 55%),
-      radial-gradient(ellipse at 75% 70%, hsla(45, 80%, 60%, 0.06) 0%, transparent 40%),
-      radial-gradient(ellipse at 20% 60%, hsla(255, 50%, 30%, 0.1) 0%, transparent 50%);
-  }
-
-  /* Subtle starfield for cosmic backgrounds */
-  .starfield {
-    background-image:
-      radial-gradient(1px 1px at 12% 18%, hsla(45, 80%, 80%, 0.6), transparent 60%),
-      radial-gradient(1px 1px at 78% 32%, hsla(270, 70%, 85%, 0.5), transparent 60%),
-      radial-gradient(1px 1px at 33% 72%, hsla(0, 0%, 100%, 0.4), transparent 60%),
-      radial-gradient(1px 1px at 88% 80%, hsla(220, 70%, 85%, 0.5), transparent 60%),
-      radial-gradient(1px 1px at 55% 12%, hsla(0, 0%, 100%, 0.45), transparent 60%),
-      radial-gradient(1px 1px at 22% 55%, hsla(45, 80%, 80%, 0.45), transparent 60%),
-      radial-gradient(1px 1px at 65% 88%, hsla(0, 0%, 100%, 0.4), transparent 60%);
-    background-repeat: repeat;
-    background-size: 600px 600px;
-  }
-
-  .texture-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.025;
-    pointer-events: none;
-  }
-
   @keyframes float-orb {
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(20px, -15px) scale(1.05); }
@@ -331,18 +657,9 @@
     50% { opacity: 0.6; }
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 4s ease-in-out infinite;
-  }
-
   @keyframes shimmer {
     0% { background-position: -200% center; }
     100% { background-position: 200% center; }
-  }
-
-  .animate-shimmer {
-    background-size: 200% auto;
-    animation: shimmer 4s linear infinite;
   }
 
   @keyframes flower-spin {
@@ -361,121 +678,9 @@
     0%, 100% { transform: scale(0.85); }
     50% { transform: scale(1.08); }
   }
-
-  /* Sacred geometry pattern */
-  .sacred-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%239C92AC' stroke-opacity='0.05'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-}
-
-@layer utilities {
-  .font-display {
-    font-family: var(--font-display);
-  }
-
-  .font-body {
-    font-family: var(--font-body);
-  }
 }
 
 @layer components {
-  /* Unified conversion CTA — matches Hero "Find your mat":
-     translucent gold pill, uppercase tracking, looping shimmer + hover scale */
-  .btn-buy {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    padding: 0.9rem 2rem;
-    min-height: 3.25rem;
-    background-color: hsl(var(--shaman-gold));
-    color: hsl(var(--background));
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    border: 1px solid hsl(var(--shaman-gold));
-    box-shadow: 0 8px 24px -12px hsl(var(--shaman-gold) / 0.7);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-  }
-  .btn-buy:hover {
-    background-color: hsl(var(--shaman-gold) / 0.9);
-    box-shadow: 0 10px 28px -10px hsl(var(--shaman-gold) / 0.85);
-  }
-  .btn-buy:active {
-    transform: translateY(1px);
-  }
-  .btn-buy:disabled {
-    background-color: hsl(var(--muted));
-    border-color: hsl(var(--muted));
-    color: hsl(var(--muted-foreground));
-    box-shadow: none;
-    pointer-events: none;
-  }
-
-  .btn-conversion {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.625rem;
-    border-radius: 9999px;
-    padding: 0.75rem 1.75rem;
-    height: auto;
-    background-image: linear-gradient(
-      to right,
-      hsl(var(--shaman-gold) / 0.12),
-      hsl(var(--shaman-violet) / 0.12),
-      hsl(var(--shaman-gold) / 0.12)
-    );
-    color: hsl(var(--shaman-gold));
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: 0.75rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    border: 1px solid hsl(var(--shaman-gold) / 0.55);
-    box-shadow: 0 0 24px -12px hsl(var(--shaman-gold) / 0.6);
-    backdrop-filter: blur(4px);
-    overflow: hidden;
-    transition: transform 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background-image 0.5s ease;
-    cursor: pointer;
-  }
-  .btn-conversion:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 36px -8px hsl(var(--shaman-gold) / 0.8);
-    color: hsl(var(--foreground));
-    background-image: linear-gradient(
-      to right,
-      hsl(var(--shaman-gold) / 0.22),
-      hsl(var(--shaman-violet) / 0.22),
-      hsl(var(--shaman-gold) / 0.22)
-    );
-  }
-  .btn-conversion:disabled {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-  .btn-conversion::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      hsl(var(--shaman-gold) / 0.18) 50%,
-      transparent 100%
-    );
-    transform: translateX(-100%);
-    animation: btn-conversion-shimmer 4.5s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .btn-conversion > * {
-    position: relative;
-    z-index: 1;
-  }
   @keyframes btn-conversion-shimmer {
     0% { transform: translateX(-100%); }
     60%, 100% { transform: translateX(100%); }

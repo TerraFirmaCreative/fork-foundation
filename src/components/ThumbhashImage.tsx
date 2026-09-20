@@ -32,7 +32,7 @@ const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }:
     <div className={`relative overflow-hidden ${wrapperClassName ?? ""}`}>
       <img
         {...imgProps}
-        className={cn("relative z-[2]", className)}
+        className={cn("relative z-2", className)}
         onLoad={(e) => {
           imgProps.onLoad?.(e);
         }}
@@ -42,7 +42,7 @@ const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }:
           src={placeholderUrl}
           alt=""
           aria-hidden
-          className={cn("absolute top-0 inset-0 w-full h-full object-cover z-[1]", className)}
+          className={cn("absolute top-0 inset-0 w-full h-full object-cover z-1", className)}
         />
       )}
     </div>

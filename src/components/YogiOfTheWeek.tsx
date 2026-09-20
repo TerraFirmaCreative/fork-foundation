@@ -163,7 +163,7 @@ const GallerySlot = ({
           ref={(el) => {
             if (el?.complete) setLoadedIndex((p) => (p === idx ? p : idx));
           }}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ease-out ${
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-900 ease-out ${
             active && isReady ? "opacity-100" : active ? "opacity-0" : "opacity-100"
           }`}
           loading="lazy"
@@ -176,7 +176,7 @@ const GallerySlot = ({
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[3/4] rounded-xl overflow-hidden bg-card/40"
+      className="relative aspect-3/4 rounded-xl overflow-hidden bg-card/40"
     >
       {showPrev && prevIndex !== currentIndex && renderImg(prevIndex, false)}
       {renderImg(currentIndex, true)}
@@ -229,7 +229,7 @@ const YogiOfTheWeek = () => {
         </div>
 
         {/* Shop Hudson's Mat — compact */}
-        <div className="border border-border/40 rounded-2xl p-5 md:p-8 bg-card/30 backdrop-blur-sm">
+        <div className="border border-border/40 rounded-2xl p-5 md:p-8 bg-card/30 backdrop-blur-xs">
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
             <div className="flex-1 space-y-2">
               <p className="text-xs tracking-[0.3em] uppercase text-shaman-gold/85 font-body">

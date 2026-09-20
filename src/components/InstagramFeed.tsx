@@ -24,7 +24,7 @@ const InstagramFeed = () => {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-[4/5] overflow-hidden"
+              className="group relative block aspect-4/5 overflow-hidden"
               aria-label="View this post on our Instagram"
             >
               <picture>

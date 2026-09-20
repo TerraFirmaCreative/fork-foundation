@@ -73,9 +73,9 @@ const MatBenefits = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="group relative flex gap-5 rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-5 md:p-6 hover:border-shaman-violet/40 hover:bg-card/60 transition-all duration-300"
+              className="group relative flex gap-5 rounded-xl border border-border/40 bg-card/40 backdrop-blur-xs p-5 md:p-6 hover:border-shaman-violet/40 hover:bg-card/60 transition-all duration-300"
             >
-              <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet via-shaman-magenta to-shaman-gold opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="w-1 rounded-full bg-linear-to-b from-shaman-violet via-shaman-magenta to-shaman-gold opacity-70 group-hover:opacity-100 transition-opacity" />
               <div className="flex-1 min-w-0">
                 <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-1.5 leading-tight">
                   {benefit.title}
@@ -92,10 +92,10 @@ const MatBenefits = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-10 md:my-12 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
+        <div className="my-10 md:my-12 h-px bg-linear-to-r from-transparent via-shaman-violet/30 to-transparent" />
 
         {/* Stats bar */}
-        <div className="grid grid-cols-3 md:grid-cols-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm overflow-hidden">
+        <div className="grid grid-cols-3 md:grid-cols-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-xs overflow-hidden">
           {stats.map((stat, i) => (
             <div
               key={i}

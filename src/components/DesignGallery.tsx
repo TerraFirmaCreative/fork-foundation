@@ -65,7 +65,7 @@ const DesignGallery = () => {
         {loading ? (
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
             {Array.from({ length: 24 }).map((_, i) => (
-              <Skeleton key={i} className="w-full aspect-[1/3] rounded-xl" />
+              <Skeleton key={i} className="w-full aspect-1/3 rounded-xl" />
             ))}
           </div>
         ) : error ? (
@@ -104,11 +104,11 @@ const DesignGallery = () => {
                       />
                     </GalleryMagnifier>
                   ) : (
-                    <div className="w-full aspect-[1/3] bg-muted flex items-center justify-center">
+                    <div className="w-full aspect-1/3 bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-xs">No image</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </LocaleLink>
               );
             })}

@@ -46,7 +46,7 @@ const Footer = () => {
       <FractalGrid />
 
       {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/40 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-shaman-violet/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-x-6 gap-y-8 mb-10">
@@ -146,12 +146,12 @@ const Footer = () => {
                   placeholder="Your email"
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
-                  className="bg-transparent border-none outline-none text-sm w-full placeholder:text-foreground/70 text-foreground py-1.5 font-display tracking-wide"
+                  className="bg-transparent border-none outline-hidden text-sm w-full placeholder:text-foreground/70 text-foreground py-1.5 font-display tracking-wide"
                   aria-invalid={!!emailError}
                   aria-describedby={emailError ? "newsletter-error" : undefined}
                   disabled={isSubmitting}
                 />
-                <button type="submit" disabled={isSubmitting} aria-label="Subscribe" className="w-8 h-8 rounded-full bg-shaman-violet/20 hover:bg-shaman-gold/30 hover:text-shaman-gold flex items-center justify-center transition-colors text-foreground flex-shrink-0 ml-2">
+                <button type="submit" disabled={isSubmitting} aria-label="Subscribe" className="w-8 h-8 rounded-full bg-shaman-violet/20 hover:bg-shaman-gold/30 hover:text-shaman-gold flex items-center justify-center transition-colors text-foreground shrink-0 ml-2">
                   {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
                 </button>
               </div>

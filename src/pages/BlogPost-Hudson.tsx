@@ -157,19 +157,19 @@ const BlogPostHudson = () => {
 
 
         {/* Shop Hudson's Mat — gallery + product card in one bordered box */}
-        <div className="max-w-3xl mx-auto mt-16 border border-border/40 rounded-2xl bg-card/30 backdrop-blur-sm relative z-10 overflow-hidden">
+        <div className="max-w-3xl mx-auto mt-16 border border-border/40 rounded-2xl bg-card/30 backdrop-blur-xs relative z-10 overflow-hidden">
           {/* Photo grid — 2 rows of 4 */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full bg-background">
             {galleryPhotos.map((p, i) => (
-              <div key={i} className="group relative aspect-[3/4] overflow-hidden">
+              <div key={i} className="group relative aspect-3/4 overflow-hidden">
                 <img
                   src={p.src}
                   alt={p.alt}
                   loading={i < 4 ? "eager" : "lazy"}
                   decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1200 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-shaman-gold/0 group-hover:ring-shaman-gold/40 transition-all duration-500" />
               </div>
             ))}
@@ -198,7 +198,7 @@ const BlogPostHudson = () => {
                       srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
                       sizes={GALLERY_SIZES}
                       alt={img.alt}
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-3000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"
                         }`}
                       loading="lazy"
                       decoding="async"

@@ -48,10 +48,10 @@ const Blog = () => {
             <LocaleLink
               key={post.slug}
               to={`/blog/${post.slug}`}
-              className="group block border border-border/40 rounded-2xl overflow-hidden bg-card/30 backdrop-blur-sm hover:border-shaman-gold/30 transition-colors duration-300"
+              className="group block border border-border/40 rounded-2xl overflow-hidden bg-card/30 backdrop-blur-xs hover:border-shaman-gold/30 transition-colors duration-300"
             >
               <div className="grid md:grid-cols-[1.2fr_1fr] gap-0">
-                <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
+                <div className="aspect-4/3 md:aspect-auto overflow-hidden">
                   <img
                     src={shopifyImageUrl(post.image, 400)}
                     srcSet={shopifySrcSet(post.image, [150, 300, 450, 600])}

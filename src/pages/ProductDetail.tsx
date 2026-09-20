@@ -135,7 +135,7 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Skeleton className="w-full aspect-[2/3] rounded-xl" />
+          <Skeleton className="w-full aspect-2/3 rounded-xl" />
           <div className="space-y-4">
             <Skeleton className="h-10 w-3/4" />
             <Skeleton className="h-6 w-1/4" />
@@ -234,7 +234,7 @@ const ProductDetail = () => {
                   <button
                     key={i}
                     onClick={() => { setSelectedImageIndex(i); setUserInteracted(true); }}
-                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${i === selectedImageIndex
+                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${i === selectedImageIndex
                       ? "border-shaman-gold opacity-100"
                       : "border-transparent opacity-60 hover:opacity-90"
                       }`}
@@ -246,7 +246,7 @@ const ProductDetail = () => {
                         srcSet={shopifySrcSet(img.url, [80, 160])}
                         sizes={THUMBNAIL_SIZES}
                         alt={img.alt || `Thumbnail ${i + 1}`}
-                        className="w-full h-full object-contain aspect-[2/3]"
+                        className="w-full h-full object-contain aspect-2/3"
                         loading="lazy"
                         decoding="async"
                       />
@@ -254,7 +254,7 @@ const ProductDetail = () => {
                       <img
                         src={img.src}
                         alt={img.alt || `Thumbnail ${i + 1}`}
-                        className="w-full h-full object-cover aspect-[2/3]"
+                        className="w-full h-full object-cover aspect-2/3"
                         loading="lazy"
                         decoding="async"
                       />
@@ -284,7 +284,7 @@ const ProductDetail = () => {
                   />
                 )
               ) : (
-                <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
+                <div className="w-full aspect-2/3 flex items-center justify-center text-muted-foreground">
                   No image available
                 </div>
               )}
@@ -337,7 +337,7 @@ const ProductDetail = () => {
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
                 variant="buy"
-                className="w-full sm:w-auto sm:min-w-[11rem]"
+                className="w-full sm:w-auto sm:min-w-44"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
@@ -431,7 +431,7 @@ const ProductDetail = () => {
                 { text: "Australia — up to 3 weeks" },
               ].map((d, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full shrink-0" />
                   <span className="font-medium leading-relaxed block">{d.text}</span>
                 </li>
               ))}
@@ -473,7 +473,7 @@ const ProductDetail = () => {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
                       <span className="text-sm font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
                     </div>
                     <div>
@@ -508,7 +508,7 @@ const ProductDetail = () => {
             onClick={handleAddToCart}
             disabled={isLoading || !variant?.availableForSale}
             variant="buy"
-            className="shrink-0 !min-h-[3rem] !px-6"
+            className="shrink-0 min-h-12! px-6!"
             tabIndex={showStickyCta ? undefined : -1}
             aria-label="Add to cart"
           >

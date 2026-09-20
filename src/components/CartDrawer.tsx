@@ -29,14 +29,14 @@ export const CartDrawer = () => {
         <Button variant="ghost" size="icon" aria-label={`Shopping cart, ${totalItems} item${totalItems === 1 ? "" : "s"}`} className="relative text-muted-foreground hover:text-foreground">
           <ShoppingCart className="w-5 h-5" />
           {totalItems > 0 && (
-            <Badge className="absolute -top-1 -right-1 h-4 w-4 rounded-full p-0 flex items-center justify-center text-[10px] bg-gradient-to-r from-shaman-violet to-shaman-magenta text-white border-0">
+            <Badge className="absolute -top-1 -right-1 h-4 w-4 rounded-full p-0 flex items-center justify-center text-[10px] bg-linear-to-r from-shaman-violet to-shaman-magenta text-white border-0">
               {totalItems}
             </Badge>
           )}
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full bg-card border-border/50">
-        <SheetHeader className="flex-shrink-0">
+        <SheetHeader className="shrink-0">
           <SheetTitle className="font-display text-foreground">Shopping Cart</SheetTitle>
           <SheetDescription>
             {totalItems === 0 ? "Your cart is empty" : `${totalItems} item${totalItems !== 1 ? 's' : ''} in your cart`}
@@ -56,7 +56,7 @@ export const CartDrawer = () => {
                 <div className="space-y-4">
                   {items.map((item) => (
                     <div key={item.variantId} className="flex gap-4 p-3 rounded-lg bg-muted/30">
-                      <div className="w-16 h-20 rounded-md overflow-hidden flex-shrink-0">
+                      <div className="w-16 h-20 rounded-md overflow-hidden shrink-0">
                         {item.product.node.images?.edges?.[0]?.node && (
                           <img src={shopifyImageUrl(item.product.node.images.edges[0].node.url, 80)} alt={item.product.node.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                         )}
@@ -65,7 +65,7 @@ export const CartDrawer = () => {
                         <h4 className="font-medium text-sm truncate text-foreground">{item.product.node.title}</h4>
                         <p className="text-sm text-muted-foreground mt-1">{formatPrice(item.price)}</p>
                       </div>
-                      <div className="flex flex-col items-end gap-2 flex-shrink-0">
+                      <div className="flex flex-col items-end gap-2 shrink-0">
                         <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-destructive" onClick={() => removeItem(item.variantId)}>
                           <Trash2 className="h-3 w-3" />
                         </Button>
@@ -83,12 +83,12 @@ export const CartDrawer = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t border-border/50 bg-card">
+              <div className="shrink-0 space-y-4 pt-4 border-t border-border/50 bg-card">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-display font-semibold">Total</span>
                   <span className="text-xl font-bold">{formatPrice(totalPrice)}</span>
                 </div>
-                <Button onClick={handleCheckout} className="w-full bg-gradient-to-r from-shaman-violet to-shaman-magenta hover:opacity-90 text-white" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
+                <Button onClick={handleCheckout} className="w-full bg-linear-to-r from-shaman-violet to-shaman-magenta hover:opacity-90 text-white" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Checkout</>}
                 </Button>
               </div>

@@ -74,7 +74,7 @@ const ReviewsSection = () => {
               
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-linear-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
                     <span className="text-sm font-medium text-foreground/70 font-body">{review.name.charAt(0)}</span>
                   </div>
                   <div>

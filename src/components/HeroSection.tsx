@@ -15,7 +15,7 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="h-[100svh] min-h-[640px] w-full overflow-hidden flex flex-col items-center justify-center bg-slate-950">
+    <section className="h-svh min-h-[640px] w-full overflow-hidden flex flex-col items-center justify-center bg-slate-950">
       <img
           src={heroImage}
           alt={"Custom yoga mat hero image"}

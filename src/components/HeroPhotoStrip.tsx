@@ -29,7 +29,7 @@ const HeroPhotoStrip = () => {
           <div
             key={i}
             aria-hidden={i >= photos.length}
-            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-auto md:aspect-[3/4] md:h-[min(230px,19.5vh)] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 transition-all duration-500"
+            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-auto md:aspect-3/4 md:h-[min(230px,19.5vh)] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 transition-all duration-500"
           >
             <img
               src={shopifyImageUrl(p.src, 400)}
@@ -42,7 +42,7 @@ const HeroPhotoStrip = () => {
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-80" />
           </div>
         ))}
       </div>

@@ -57,7 +57,7 @@ const CookieConsent = () => {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed bottom-3 left-3 right-3 md:right-auto md:max-w-[300px] z-[100] rounded-lg border border-border bg-card shadow-lg px-4 py-3 font-body"
+      className="fixed bottom-3 left-3 right-3 md:right-auto md:max-w-[300px] z-100 rounded-lg border border-border bg-card shadow-lg px-4 py-3 font-body"
     >
       <h2 className="font-display text-sm font-medium tracking-tight mb-1">
         <span className="text-gradient">We use cookies</span>

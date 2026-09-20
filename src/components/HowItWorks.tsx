@@ -105,7 +105,7 @@ const HowItWorks = () => {
 
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-14 lg:gap-[2.36rem]">
           {/* Full-width horizontal line through numbers */}
-          <div className="hidden lg:block absolute top-[2.065rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
+          <div className="hidden lg:block absolute top-[2.065rem] left-0 right-0 h-px bg-linear-to-r from-transparent via-shaman-violet/30 to-transparent" />
           {steps.map((step, index) => (
             <div
               key={step.title}
@@ -128,7 +128,7 @@ const HowItWorks = () => {
                 <div className="space-y-2.5 mt-3.5">
                   {step.deliveryLines.map((dl, i) => (
                     <div key={i} className="flex gap-3.5 justify-center md:justify-start">
-                      <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                      <div className="w-0.5 h-7 mt-0.5 rounded-full bg-linear-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
                       <p className="text-[18px] md:text-[19px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
@@ -140,7 +140,7 @@ const HowItWorks = () => {
               <div className="space-y-2.5 mt-3.5">
                 {step.lines.map((line, i) => (
                   <div key={i} className="flex gap-3.5 justify-center md:justify-start">
-                    <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                    <div className="w-0.5 h-7 mt-0.5 rounded-full bg-linear-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
                     <p className={`text-[18px] md:text-[19px] font-body leading-relaxed text-pretty ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>

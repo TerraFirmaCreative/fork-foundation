@@ -66,8 +66,8 @@ const RetreatsSection = () => {
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-                <span className="absolute top-4 right-4 text-xs tracking-widest uppercase font-body text-shaman-gold bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">
+                <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent" />
+                <span className="absolute top-4 right-4 text-xs tracking-widest uppercase font-body text-shaman-gold bg-background/60 backdrop-blur-xs px-3 py-1 rounded-full">
                   {retreat.timing}
                 </span>
               </div>
