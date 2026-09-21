@@ -9,11 +9,8 @@ const InstagramFeed = () => {
     <section className="relative py-12 md:py-16 px-6" aria-labelledby="instagram-heading">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-3 font-body">
-            Instagram
-          </p>
           <h2 id="instagram-heading" className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-            <span className="text-gradient">@cosmic.igloo</span>
+            <span className="text-shaman-gold">@cosmic.igloo</span>
           </h2>
         </div>
 

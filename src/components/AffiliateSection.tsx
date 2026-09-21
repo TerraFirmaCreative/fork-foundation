@@ -7,15 +7,12 @@ const AffiliateSection = () => {
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
       
-      <MandalaDecoration className="-top-32 -left-32" size={400} />
-      
       <div className="max-w-3xl mx-auto relative z-10 text-center">
         <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-6 font-body">
           Partner With Us
         </p>
-        <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-6">
-          <span className="text-gradient">Become an </span>
-          <span className="text-gradient">Affiliate</span>
+        <h2 className="font-display text-4xl text-shaman-gold md:text-5xl font-medium tracking-tight mb-6">
+          Become an Affiliate
         </h2>
         <p className="text-muted-foreground font-body leading-relaxed mb-4 md:whitespace-nowrap">
           Share our mats with your friends and family and earn every time someone buys through your link.

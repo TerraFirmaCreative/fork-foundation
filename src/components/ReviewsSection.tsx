@@ -37,19 +37,13 @@ const ReviewsSection = () => {
       
       <FractalGrid />
       
-      <div 
-        className="floating-orb w-64 h-64 bottom-20 -left-32 bg-shaman-teal/08"
-        style={{ animationDelay: "3s" }}
-      />
-      
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-6 font-body">
             Customer Reviews
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">What people are </span>
-            <span className="text-gradient">saying</span>
+          <h2 className="font-display text-4xl md:text-5xl text-shaman-gold font-medium tracking-tight">
+            What people are saying
           </h2>
           
         </div>

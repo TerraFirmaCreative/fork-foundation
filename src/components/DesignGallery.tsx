@@ -55,11 +55,11 @@ const DesignGallery = () => {
 
 
   return (
-    <section id="design-gallery" className="hero-gradient pt-6 md:pt-12 pb-12 px-6">
+    <section id="design-gallery" className="pt-6 md:pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-20">
           <h2 className="font-light text-4xl md:text-4xl text-shaman-gold tracking-tight">
-            <span className="text-6xl">24</span> UNIQUE DESIGNS
+            <span className="text-6xl">24</span><br /> UNIQUE DESIGNS
           </h2>
         </div>
         {loading ? (

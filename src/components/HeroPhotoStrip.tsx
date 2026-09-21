@@ -20,7 +20,7 @@ const HeroPhotoStrip = () => {
         className="pointer-events-none absolute inset-0 z-10"
         style={{
           background:
-            "linear-gradient(to right, #000 0%, transparent 14%, transparent 86%, #000 100%)",
+            "linear-gradient(to right, hsl(var(--shaman-deep)) 0%, transparent 14%, transparent 86%, hsl(var(--shaman-deep)) 100%)",
         }}
       />
 

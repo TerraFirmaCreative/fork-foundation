@@ -15,23 +15,14 @@ const AboutSection = () => {
       {/* Fractal grid background */}
       <FractalGrid />
 
-      {/* Sacred geometry decoration */}
-      <MandalaDecoration className="-top-48 -left-48" size={500} />
-
-      {/* Orbs */}
-      <div
-        className="floating-orb w-72 h-72 -bottom-36 right-1/4 bg-shaman-ember/08"
-        style={{ animationDelay: "5s" }}
-      />
 
       <div className="max-w-3xl mx-auto relative z-10 text-center">
         <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-6 font-body">
           Our Story
         </p>
 
-        <h2 className="font-display text-3xl md:text-5xl font-medium mb-10 tracking-tight leading-tight">
-          <span className="text-gradient">Three friends. </span>
-          <span className="text-gradient">One shared idea.</span>
+        <h2 className="font-display text-3xl text-shaman-gold md:text-5xl font-medium mb-10 tracking-tight leading-tight">
+          Three friends. One shared idea.
         </h2>
 
         <div className="space-y-6 text-muted-foreground font-body leading-relaxed">

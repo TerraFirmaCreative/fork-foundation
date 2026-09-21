@@ -11,7 +11,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "24 original designs", bold: "" },
-      { text: "Suede microfibre surface", bold: "" },
+      { text: "Suede microfibre surface", bold: ""},
       { text: "Natural rubber base", bold: "" },
     ],
   },
@@ -28,7 +28,7 @@ const getSteps = (priceLabel: string) => [
   {
     number: "03",
     title: "Delivery Times",
-    color: "text-shaman-gold",
+    color: "text-shaman-magenta",
     deliveryLines: [
       { country: "USA", time: "about 7-10 days" },
       { country: "UK/Europe", time: "about 2 weeks" },
@@ -43,7 +43,7 @@ const getSteps = (priceLabel: string) => [
     lines: [
       { text: "Your mat has arrived!", bold: "" },
       { text: "Unroll. Breathe. Practice", bold: "" },
-      { text: "We hope you love it", bold: "" },
+      { text: "We hope you love it", bold: ""},
     ],
   },
 ];
@@ -94,12 +94,8 @@ const HowItWorks = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-10 md:mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
-            Simple Process
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">How it </span>
-            <span className="text-gradient">works</span>
+          <h2 className="font-display text-shaman-gold text-4xl md:text-5xl font-medium tracking-tight">
+            How it Works
           </h2>
         </div>
 

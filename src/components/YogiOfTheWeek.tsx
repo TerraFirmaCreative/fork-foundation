@@ -204,12 +204,8 @@ const YogiOfTheWeek = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-3 font-body">
-            Community Spotlight
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-            <span className="text-gradient">Cosmic Yogi </span>
-            <span className="text-gradient">of the Month</span>
+          <h2 className="font-display text-3xl md:text-4xl font-medium text-shaman-gold tracking-tight">
+            Cosmic Yogi of the Month
           </h2>
           <p className="text-muted-foreground font-body leading-relaxed mt-3 max-w-2xl mx-auto">
             Every month we shine a light on someone from our community and the mat they chose. This month it's Hudson.

@@ -12,13 +12,13 @@ const UspBar = () => {
   return (
     <div className="relative w-full overflow-hidden group/usp">
       {/* edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-10 bg-linear-to-r from-black to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 z-10 bg-linear-to-l from-black to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-10 bg-linear-to-r from-shaman-deep to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 z-10 bg-linear-to-l from-shaman-deep to-transparent" />
 
       <div className="usp-marquee flex w-max items-center will-change-transform">
         {track.map((usp, i) => (
           <div key={`${usp}-${i}`} className="flex items-center">
-            <span className="font-body text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-foreground/70 whitespace-nowrap">
+            <span className="font-body text-xs md:text-[11px] tracking-[0.28em] uppercase text-foreground whitespace-nowrap">
               {usp}
             </span>
             <span

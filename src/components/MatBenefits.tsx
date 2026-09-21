@@ -48,24 +48,12 @@ const MatBenefits = () => {
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
 
-      <MandalaDecoration className="-bottom-48 -right-48" size={500} />
-
-      <div
-        className="floating-orb w-72 h-72 -top-36 left-1/4 bg-shaman-teal/08"
-        style={{ animationDelay: "3s" }}
-      />
-
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 font-body">
+          <p className="text-3xl tracking-[0.3em] uppercase text-shaman-gold mb-4 font-medium">
             About our Mats
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium mb-4 tracking-tight leading-tight">
-            <span className="text-gradient">Beautiful design.</span>
-            <span className="hidden md:inline"> </span>
-            <span className="block md:inline text-gradient">Built for practice.</span>
-          </h2>
         </div>
 
         {/* Spec cards grid */}
