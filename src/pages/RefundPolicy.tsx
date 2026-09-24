@@ -94,7 +94,7 @@ const RefundPolicy = () => {
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Normal wear from regular use</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Damage from misuse, accidents, or improper storage</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Over-exposure to extreme heat or direct sunlight (this can degrade the natural rubber base)</span></li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Damage from oils, lotions, alcohol, harsh cleaning products, or chemicals (these affect the suede microfibre grip)</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Damage from oils, lotions, alcohol, harsh cleaning products, or chemicals (these affect the suede microfiber grip)</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Machine washing on a hot cycle, or with fabric softener or bleach</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span>Alterations to the product</span></li>
               </ul>
@@ -104,7 +104,7 @@ const RefundPolicy = () => {
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Wipe the top with a damp cloth and mild soap, or machine wash cold on a gentle cycle. No fabric softener or bleach.</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Air dry flat or hang to dry; never tumble dry.</span></li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Avoid oils, lotions, and alcohol-based sprays, which reduce the microfibre's grip.</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Avoid oils, lotions, and alcohol-based sprays, which reduce the microfiber's grip.</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Keep the rubber base out of direct sunlight and extreme heat, and don't leave your mat in a hot car.</span></li>
                 <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-teal mt-2.5 shrink-0" /><span>Store rolled, out of direct sunlight.</span></li>
               </ul>

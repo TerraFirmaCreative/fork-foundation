@@ -11,7 +11,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "24 original designs", bold: "" },
-      { text: "Suede microfibre surface", bold: "" },
+      { text: "Suede microfiber surface", bold: "" },
       { text: "Natural rubber base", bold: "" },
     ],
   },
