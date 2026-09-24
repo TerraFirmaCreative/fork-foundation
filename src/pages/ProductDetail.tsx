@@ -391,7 +391,7 @@ const ProductDetail = () => {
             <div className="flex flex-col md:flex-row gap-x-6 font-body text-foreground/90">
               {[
                 [
-                  { icon: <Layers className="w-4 h-4" />, text: "Suede Microfibre Surface" },
+                  { icon: <Layers className="w-4 h-4" />, text: "Suede Microfiber Surface" },
                   { icon: <CircleDot className="w-4 h-4" />, text: "Natural Rubber Bottom" },
                   { icon: <Maximize className="w-4 h-4" />, text: "Edge-to-Edge Print" },
                   { icon: <Feather className="w-4 h-4" />, text: "Lightweight (~1.8kg / 64oz)" },
