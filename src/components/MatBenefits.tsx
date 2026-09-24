@@ -23,8 +23,8 @@ const benefits = [
   },
   {
     title: "Lightweight & Rollable",
-    description: "1.76kg Light enough to carry anywhere, tough enough for daily practice.",
-    tag: "1.76KG",
+    description: "~4 lb (1.8 kg). Light enough to carry anywhere, tough enough for daily practice.",
+    tag: "~4 LB (1.8 KG)",
   },
   {
     title: "Made to Order",
@@ -37,7 +37,7 @@ const stats = [
   { value: "178cm", label: "Length" },
   { value: "66cm", label: "Width" },
   { value: "3mm", label: "Thickness" },
-  { value: "1.76kg", label: "Weight" },
+  { value: "~4 lb (1.8 kg)", label: "Weight" },
   { value: "Suede", label: "Top Layer" },
   { value: "Rubber", label: "Base" },
 ];
