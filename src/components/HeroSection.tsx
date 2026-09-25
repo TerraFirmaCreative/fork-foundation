@@ -1,9 +1,6 @@
 import { ChevronDown } from "lucide-react";
-import HeroPhotoStrip from "@/components/HeroPhotoStrip";
 import UspBar from "@/components/UspBar";
-import SacredGeometry from "@/components/SacredGeometry";
-import heroImage from "@/assets/hero/hero.jpeg";
-import heroVideo from "@/assets/hero/hero_vp9.webm"
+import heroVideo from "@/assets/hero/hero_vp9_hq.webm";
 
 const HeroSection = () => {
   const scrollToGallery = () =>
@@ -13,14 +10,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-svh min-h-160 w-full overflow-hidden flex flex-col">
-      {/* Background media — swap for a looping <video autoPlay muted loop playsInline> once footage is ready */}
-      {/* <img
-        src={heroImage}
-        alt="Custom yoga mat hero image"
-        className="absolute inset-0 w-full h-full object-cover scale-105"
-        loading="eager"
-        decoding="async"
-      /> */}
       <video autoPlay muted loop playsInline preload="auto"
        poster="hero-poster.avif" width="1920" height="1080"
        aria-hidden="true" tabIndex={0}
@@ -29,21 +18,14 @@ const HeroSection = () => {
         <source src={heroVideo} type="video/webm; codecs=vp9" />
       </video>
 
+      {/* Film grain */}
       {/* <div className="absolute inset-0 w-full h-full z-2 pointer-events-none mix-blend-overlay opacity-20 bg-[url('data:image/svg+xml,%3Csvg%20viewBox=%270%200%20200%20200%27%20xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter%20id=%27noiseFilter%27%3E%3CfeTurbulence%20type=%27fractalNoise%27%20baseFrequency=%271.50%27%20numOctaves=%273%27%20stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect%20width=%27100%25%27%20height=%27100%25%27%20filter=%27url(%23noiseFilter)%27/%3E%3C/svg%3E')] animate-[grainJitter_0.5s_steps(6)_infinite]"/> */}
-      <div className="absolute inset-0 w-full h-full z-2 opacity-20 pointer-events-none bg-[linear-gradient(to_right,rgba(0,0,0,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.35)_1px,transparent_1px)] bg-[length:2px_2px]"/>
+      
+      {/* Screen Door */}
+      {/* <div className="absolute inset-0 w-full h-full z-2 opacity-20 pointer-events-none bg-[linear-gradient(to_right,rgba(0,0,0,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.35)_1px,transparent_1px)] bg-size-[2px_2px]"/> */}
 
-      {/* Cosmic vignette so text stays legible over any bright media */}
-      {/* <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 0%, hsl(var(--shaman-deep) / 0.10) 50%, hsl(var(--shaman-deep) / 0.6) 100%)",
-        }}
-      /> */}
-
+      {/* Bottom Gradient */}
       <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-background from-5% via-background/70 to-transparent"/>
-
-
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col h-full">
