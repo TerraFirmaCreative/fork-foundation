@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import UspBar from "@/components/UspBar";
 import heroVideo from "@/assets/hero/hero_vp9_hq.webm";
+import heroPoster from "@/assets/hero/hero_poster.png";
 
 const HeroSection = () => {
   const scrollToGallery = () =>
@@ -11,7 +12,7 @@ const HeroSection = () => {
   return (
     <section className="relative h-svh min-h-160 w-full overflow-hidden flex flex-col">
       <video autoPlay muted loop playsInline preload="auto"
-       poster="hero-poster.avif" width="1920" height="1080"
+       poster={heroPoster} width="1920" height="1080"
        aria-hidden="true" tabIndex={0}
        className="absolute inset-0 w-full h-full object-cover scale-105"
       >
@@ -19,7 +20,7 @@ const HeroSection = () => {
       </video>
 
       {/* Film grain */}
-      {/* <div className="absolute inset-0 w-full h-full z-2 pointer-events-none mix-blend-overlay opacity-20 bg-[url('data:image/svg+xml,%3Csvg%20viewBox=%270%200%20200%20200%27%20xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter%20id=%27noiseFilter%27%3E%3CfeTurbulence%20type=%27fractalNoise%27%20baseFrequency=%271.50%27%20numOctaves=%273%27%20stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect%20width=%27100%25%27%20height=%27100%25%27%20filter=%27url(%23noiseFilter)%27/%3E%3C/svg%3E')] animate-[grainJitter_0.5s_steps(6)_infinite]"/> */}
+      {/* <div className="absolute inset-0 wx-full h-full z-2 pointer-events-none mix-blend-overlay opacity-20 bg-[url('data:image/svg+xml,%3Csvg%20viewBox=%270%200%20200%20200%27%20xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter%20id=%27noiseFilter%27%3E%3CfeTurbulence%20type=%27fractalNoise%27%20baseFrequency=%271.50%27%20numOctaves=%273%27%20stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect%20width=%27100%25%27%20height=%27100%25%27%20filter=%27url(%23noiseFilter)%27/%3E%3C/svg%3E')] animate-[grainJitter_0.5s_steps(6)_infinite]"/> */}
       
       {/* Screen Door */}
       {/* <div className="absolute inset-0 w-full h-full z-2 opacity-20 pointer-events-none bg-[linear-gradient(to_right,rgba(0,0,0,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.35)_1px,transparent_1px)] bg-size-[2px_2px]"/> */}
