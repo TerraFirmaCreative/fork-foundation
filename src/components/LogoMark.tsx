@@ -15,7 +15,10 @@ const LogoMark = ({ className = "w-12 h-12 md:w-14 md:h-14" }: LogoMarkProps) =>
     <svg
       aria-hidden="true"
       viewBox="0 0 64 64"
+      width="64"
+      height="64"
       className={`${className} shrink-0 text-shaman-gold`}
+      style={{ color: "hsl(45 75% 65%)" }}
       fill="none"
     >
       <g stroke="currentColor" strokeWidth="0.65" opacity="0.72">

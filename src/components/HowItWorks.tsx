@@ -11,7 +11,7 @@ const getSteps = (priceLabel: string) => [
     color: "text-shaman-violet",
     lines: [
       { text: "24 original designs", bold: "" },
-      { text: "Suede microfiber surface", bold: "" },
+      { text: "Suede microfibre surface", bold: ""},
       { text: "Natural rubber base", bold: "" },
     ],
   },
@@ -28,7 +28,7 @@ const getSteps = (priceLabel: string) => [
   {
     number: "03",
     title: "Delivery Times",
-    color: "text-shaman-gold",
+    color: "text-shaman-magenta",
     deliveryLines: [
       { country: "USA", time: "about 7-10 days" },
       { country: "UK/Europe", time: "about 2 weeks" },
@@ -43,7 +43,7 @@ const getSteps = (priceLabel: string) => [
     lines: [
       { text: "Your mat has arrived!", bold: "" },
       { text: "Unroll. Breathe. Practice", bold: "" },
-      { text: "We hope you love it", bold: "" },
+      { text: "We hope you love it", bold: ""},
     ],
   },
 ];
@@ -75,36 +75,23 @@ const HowItWorks = () => {
   const steps = getSteps(priceLabel);
   return (
     <section id="how-it-works" className="relative py-16 md:py-24 px-6 overflow-hidden">
-      <div className="texture-overlay" />
-      <div className="absolute inset-0 shaman-bg" />
+      <div className="absolute inset-0 shaman-bg">
+        {/* Fractal grid background */}
+        <FractalGrid />
+      </div>
 
-      {/* Fractal grid background */}
-      <FractalGrid />
-
-      {/* Subtle orbs */}
-      <div
-        className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/08"
-        style={{ animationDelay: "2s" }}
-      />
-      <div
-        className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
-        style={{ animationDelay: "5s" }}
-      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-10 md:mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
-            Simple Process
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">How it </span>
-            <span className="text-gradient">works</span>
+          <h2 className="font-display text-shaman-gold text-4xl md:text-5xl font-medium tracking-tight">
+            How it Works
           </h2>
         </div>
 
+        {/* Horizontal Rule */}
+        <div className="hidden lg:block h-px bg-linear-to-r from-transparent mb-8 via-shaman-violet/30 to-transparent" />
+        
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-14 lg:gap-[2.36rem]">
-          {/* Full-width horizontal line through numbers */}
-          <div className="hidden lg:block absolute top-[2.065rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
           {steps.map((step, index) => (
             <div
               key={step.title}
@@ -127,7 +114,7 @@ const HowItWorks = () => {
                 <div className="space-y-2.5 mt-3.5">
                   {step.deliveryLines.map((dl, i) => (
                     <div key={i} className="flex gap-3.5 justify-center md:justify-start">
-                      <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                      <div className="w-0.5 h-7 mt-0.5 rounded-full bg-linear-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
                       <p className="text-[18px] md:text-[19px] text-foreground/90 font-body leading-relaxed">
                         {dl.country}—{dl.time}
                       </p>
@@ -139,7 +126,7 @@ const HowItWorks = () => {
               <div className="space-y-2.5 mt-3.5">
                 {step.lines.map((line, i) => (
                   <div key={i} className="flex gap-3.5 justify-center md:justify-start">
-                    <div className="w-0.5 h-7 mt-0.5 rounded-full bg-gradient-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
+                    <div className="w-0.5 h-7 mt-0.5 rounded-full bg-linear-to-b from-shaman-violet/40 via-shaman-magenta/40 to-shaman-gold/40 shrink-0" />
                     <p className={`text-[18px] md:text-[19px] font-body leading-relaxed text-pretty ${(line as any).highlight ? "text-shaman-gold font-medium" : "text-foreground/90"}`}>
                       {line.text}{line.text ? " " : ""}{line.bold}
                     </p>

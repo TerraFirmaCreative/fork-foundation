@@ -7,31 +7,35 @@ import { Minus, Plus, ShoppingCart, Loader2 } from "lucide-react";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useLocale } from "@/lib/i18n";
-import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
+import { GALLERY_SIZES } from "@/lib/imageUtils";
+import { Image } from "@unpic/react";
 import LocaleLink from "@/components/LocaleLink";
-import hudson1 from "@/assets/hudson/hudson-1.webp";
-import hudson2 from "@/assets/hudson/hudson-2.webp";
-import hudson3 from "@/assets/hudson/hudson-3.webp";
-import hudson4 from "@/assets/hudson/hudson-4.webp";
-import hudson5 from "@/assets/hudson/hudson-5.webp";
-import hudson6 from "@/assets/hudson/hudson-6.webp";
-import hudson7 from "@/assets/hudson/hudson-7.webp";
-import hudson8 from "@/assets/hudson/hudson-8.webp";
+import hudson1 from "@/assets/hudson/hudson-1.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson2 from "@/assets/hudson/hudson-2.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson3 from "@/assets/hudson/hudson-3.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson4 from "@/assets/hudson/hudson-4.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson5 from "@/assets/hudson/hudson-5.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson6 from "@/assets/hudson/hudson-6.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson7 from "@/assets/hudson/hudson-7.webp?w=300;500;800&format=avif;webp&as=picture";
+import hudson8 from "@/assets/hudson/hudson-8.webp?w=300;500;800&format=avif;webp&as=picture";
 import { formatPrice } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
+import { Picture } from "@/lib/vite-imagetools";
+
+const GRID_SIZES = "(min-width: 640px) 190px, 50vw";
 
 // Mixed beach/forest for visual rhythm
-const galleryPhotos = [
+const galleryPhotos: { pic: Picture; alt: string }[] = [
   // Row 1 — beach / forest / beach / forest
-  { src: hudson1, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
-  { src: hudson5, alt: "Cosmic Igloo mat laid out on the forest floor" },
-  { src: hudson3, alt: "Hudson in warrior pose with arms wide on the beach" },
-  { src: hudson8, alt: "Hudson in a supported headstand in the forest" },
+  { pic: hudson1 as Picture, alt: "Hudson in crescent reach on the beach at Bunker Bay" },
+  { pic: hudson5  as Picture, alt: "Cosmic Igloo mat laid out on the forest floor" },
+  { pic: hudson3  as Picture, alt: "Hudson in warrior pose with arms wide on the beach" },
+  { pic: hudson8  as Picture, alt: "Hudson in a supported headstand in the forest" },
   // Row 2 — forest / beach / forest / beach
-  { src: hudson6, alt: "Hudson resting in child's pose in the forest" },
-  { src: hudson2, alt: "Hudson in a seated twist on her mat at the beach" },
-  { src: hudson7, alt: "Hudson in pigeon pose on the forest floor" },
-  { src: hudson4, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
+  { pic: hudson6 as Picture, alt: "Hudson resting in child's pose in the forest" },
+  { pic: hudson2 as Picture, alt: "Hudson in a seated twist on her mat at the beach" },
+  { pic: hudson7 as Picture, alt: "Hudson in pigeon pose on the forest floor" },
+  { pic: hudson4 as Picture, alt: "Hudson standing beside her Cosmic Igloo mat by the ocean" },
 ];
 
 const images = galleryPhotos;
@@ -90,7 +94,7 @@ const BlogPostHudson = () => {
         description="A Canadian yogi practising slow travel through Margaret River — the places, the poses, and the mat that comes with her."
         path="/blog/hudson-in-margaret-river"
         type="article"
-        image={`https://cosmicigloo.com${hudson1}`}
+        image={`https://cosmicigloo.com${(hudson1 as unknown as Picture).img.src}`}
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Blog", path: "/blog" },
@@ -102,7 +106,7 @@ const BlogPostHudson = () => {
           headline: "Hudson in South West Australia",
           description:
             "A Canadian yogi practising slow travel through Margaret River — the places, the poses, and the mat that comes with her.",
-          image: [`https://cosmicigloo.com${hudson1}`],
+          image: [`https://cosmicigloo.com${(hudson1 as unknown as Picture).img.src}`],
           author: {
             "@type": "Person",
             name: "Hudson R.",
@@ -157,19 +161,25 @@ const BlogPostHudson = () => {
 
 
         {/* Shop Hudson's Mat — gallery + product card in one bordered box */}
-        <div className="max-w-3xl mx-auto mt-16 border border-border/40 rounded-2xl bg-card/30 backdrop-blur-sm relative z-10 overflow-hidden">
+        <div className="max-w-3xl mx-auto mt-16 border border-border/40 rounded-2xl bg-card/30 backdrop-blur-xs relative z-10 overflow-hidden">
           {/* Photo grid — 2 rows of 4 */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full bg-background">
             {galleryPhotos.map((p, i) => (
-              <div key={i} className="group relative aspect-[3/4] overflow-hidden">
-                <img
-                  src={p.src}
-                  alt={p.alt}
-                  loading={i < 4 ? "eager" : "lazy"}
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
+              <div key={i} className="group relative aspect-3/4 overflow-hidden">
+                <picture>
+                  {p.pic.sources.avif && <source type="image/avif" srcSet={p.pic.sources.avif} sizes={GRID_SIZES} />}
+                  {p.pic.sources.webp && <source type="image/webp" srcSet={p.pic.sources.webp} sizes={GRID_SIZES} />}
+                  <img
+                    src={p.pic.img.src}
+                    width={p.pic.img.w}
+                    height={p.pic.img.h}
+                    alt={p.alt}
+                    loading={i < 4 ? "eager" : "lazy"}
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1200 ease-out group-hover:scale-110"
+                  />
+                </picture>
+                <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent opacity-80 group-hover:opacity-30 transition-opacity duration-700" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-shaman-gold/0 group-hover:ring-shaman-gold/40 transition-all duration-500" />
               </div>
             ))}
@@ -182,8 +192,10 @@ const BlogPostHudson = () => {
               className="block relative aspect-square rounded-xl overflow-hidden group"
             >
               {productImage ? (
-                <img
-                  src={shopifyImageUrl(productImage.url, 600)}
+                <Image
+                  src={productImage.url}
+                  layout="fullWidth"
+                  unstyled
                   alt={productImage.altText || "Psychedelic Fractal Reverie yoga mat"}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -192,17 +204,20 @@ const BlogPostHudson = () => {
               ) : (
                 <>
                   {images.map((img, i) => (
-                    <img
-                      key={i}
-                      src={shopifyImageUrl(img.src, 400)}
-                      srcSet={shopifySrcSet(img.src, [150, 300, 450, 600])}
-                      sizes={GALLERY_SIZES}
-                      alt={img.alt}
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[3000ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"
-                        }`}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <picture key={i}>
+                      {img.pic.sources.avif && <source type="image/avif" srcSet={img.pic.sources.avif} sizes={GALLERY_SIZES} />}
+                      {img.pic.sources.webp && <source type="image/webp" srcSet={img.pic.sources.webp} sizes={GALLERY_SIZES} />}
+                      <img
+                        src={img.pic.img.src}
+                        width={img.pic.img.w}
+                        height={img.pic.img.h}
+                        alt={img.alt}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-3000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+                          }`}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                   ))}
                 </>
               )}

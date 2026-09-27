@@ -1,6 +1,8 @@
 import { cn } from '@/lib/utils';
-import { MouseEvent, useState, useMemo, ImgHTMLAttributes } from 'react';
+import { MouseEvent, useState, useMemo, useRef } from 'react';
 import { thumbHashToDataURL } from 'thumbhash';
+import { Image, type ImageProps } from '@unpic/react';
+import ThumbhashImage from './ThumbhashImage';
 
 function decodeBase64ThumbHash(base64: string): string | null {
   try {
@@ -18,19 +20,15 @@ function decodeBase64ThumbHash(base64: string): string | null {
 const MAGNIFIER_SIZE = 300;
 const ZOOM_LEVEL = 2.5;
 
-interface ImageMagnifierProps extends ImgHTMLAttributes<HTMLImageElement> {
+type ImageMagnifierProps = ImageProps & {
   thumbhash?: string | null;
-}
+};
 
 const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
   const [zoomable, setZoomable] = useState(false);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
   const [position, setPosition] = useState({ x: 100, y: 100, mouseX: 0, mouseY: 0 });
-
-  const placeholderUrl = useMemo(
-    () => (thumbhash ? decodeBase64ThumbHash(thumbhash) : null),
-    [thumbhash]
-  );
+  const imgRef = useRef<HTMLImageElement>(null);
 
   const handleMouseEnter = (e: MouseEvent) => {
     const element = e.currentTarget;
@@ -63,16 +61,23 @@ const ImageMagnifier = ({ thumbhash, ...props }: ImageMagnifierProps) => {
 
   return (
     <div
-      className={cn("relative h-full max-h-[600px] items-center", props.className)}
+      className={cn("relative h-full max-h-150 items-center", props.className)}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
     >
-      <img {...props} className={cn(`relative z-[2] h-full w-full object-contain bg-background`)} onLoad={(e) => { props.onLoad?.(e); }} />
+      <ThumbhashImage 
+        {...props} 
+        thumbhash={thumbhash} 
+        ref={imgRef} 
+        unstyled 
+        className={cn(`relative z-2 h-full w-full object-contain bg-background`)} 
+        onLoad={(e) => { props.onLoad?.(e); }} 
+      />
       <div
         style={{
           backgroundPosition: `${Math.max(Math.min(0, position.x), -imageSize.width * ZOOM_LEVEL + MAGNIFIER_SIZE)}px ${Math.max(Math.min(0, position.y), -imageSize.height * ZOOM_LEVEL + MAGNIFIER_SIZE)}px`,
-          backgroundImage: `url("${props.src}")`,
+          backgroundImage: `url("${imgRef.current?.currentSrc || props.src}")`,
           backgroundSize: `${imageSize.width * ZOOM_LEVEL}px ${imageSize.height * ZOOM_LEVEL}px`,
           backgroundRepeat: 'no-repeat',
           display: zoomable ? 'block' : 'none',

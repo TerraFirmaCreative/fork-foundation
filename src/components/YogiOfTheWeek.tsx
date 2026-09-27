@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useLocale } from "@/lib/i18n";
-import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
 import { formatPrice } from "@/lib/utils";
 import hudson1 from "@/assets/hudson/hudson-1.webp?w=300;500;800&format=avif;webp&as=picture";
@@ -163,7 +162,7 @@ const GallerySlot = ({
           ref={(el) => {
             if (el?.complete) setLoadedIndex((p) => (p === idx ? p : idx));
           }}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ease-out ${
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-900 ease-out ${
             active && isReady ? "opacity-100" : active ? "opacity-0" : "opacity-100"
           }`}
           loading="lazy"
@@ -176,7 +175,7 @@ const GallerySlot = ({
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[3/4] rounded-xl overflow-hidden bg-card/40"
+      className="relative aspect-3/4 rounded-xl overflow-hidden bg-card/40"
     >
       {showPrev && prevIndex !== currentIndex && renderImg(prevIndex, false)}
       {renderImg(currentIndex, true)}
@@ -204,12 +203,8 @@ const YogiOfTheWeek = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-3 font-body">
-            Community Spotlight
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
-            <span className="text-gradient">Cosmic Yogi </span>
-            <span className="text-gradient">of the Month</span>
+          <h2 className="font-display text-3xl md:text-4xl font-medium text-shaman-gold tracking-tight">
+            Cosmic Yogi of the Month
           </h2>
           <p className="text-muted-foreground font-body leading-relaxed mt-3 max-w-2xl mx-auto">
             Every month we shine a light on someone from our community and the mat they chose. This month it's Hudson.
@@ -229,7 +224,7 @@ const YogiOfTheWeek = () => {
         </div>
 
         {/* Shop Hudson's Mat — compact */}
-        <div className="border border-border/40 rounded-2xl p-5 md:p-8 bg-card/30 backdrop-blur-sm">
+        <div className="border border-border/40 rounded-2xl p-5 md:p-8 bg-card/30 backdrop-blur-xs">
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
             <div className="flex-1 space-y-2">
               <p className="text-xs tracking-[0.3em] uppercase text-shaman-gold/85 font-body">

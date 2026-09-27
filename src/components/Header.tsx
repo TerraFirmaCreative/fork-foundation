@@ -52,8 +52,8 @@ const Header = () => {
 
   return (
     <header className="relative py-5 px-6">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background/60 backdrop-blur-sm" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-shaman-gold/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-b from-background via-background/90 to-background/60 backdrop-blur-xs" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-shaman-gold/20 to-transparent" />
 
       <nav className="max-w-6xl mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
@@ -106,7 +106,7 @@ const Header = () => {
                 { to: "/contact", label: "Contact" },
                 { to: "/blog", label: "Blog" },
               ].map((item) => (
-                <DropdownMenuItem key={item.to} asChild className="focus:bg-transparent data-[highlighted]:bg-transparent focus:text-primary data-[highlighted]:text-primary">
+                <DropdownMenuItem key={item.to} asChild className="focus:bg-transparent data-highlighted:bg-transparent focus:text-primary data-highlighted:text-primary">
                   <LocaleLink to={item.to} className="font-display tracking-[0.2em] uppercase text-xs cursor-pointer">{item.label}</LocaleLink>
                 </DropdownMenuItem>
               ))}

@@ -12,20 +12,25 @@ import { toast } from "sonner";
 import ImageMagnifier from "@/components/ImageMagnifier";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
-import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
+import { PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice, sanitizeHtml } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
 import PaymentIcons from "@/components/PaymentIcons";
 
-import whaleMat1 from "@/assets/whale-mat-1.webp";
-import whaleMat2 from "@/assets/whale-mat-2.webp";
-import whaleMat3 from "@/assets/whale-mat-3.webp";
-import whaleMat4 from "@/assets/whale-mat-4.webp";
+import whaleMat1 from "@/assets/whale-mat-1.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import whaleMat2 from "@/assets/whale-mat-2.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import whaleMat3 from "@/assets/whale-mat-3.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import whaleMat4 from "@/assets/whale-mat-4.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import { Picture } from "@/lib/vite-imagetools";
 
-const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
+
+const EXTRA_PRODUCT_IMAGES: Record<string, Picture[]> = {
   "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy": [
-    whaleMat1, whaleMat2, whaleMat3, whaleMat4,
+    whaleMat1 as Picture,
+    whaleMat2 as Picture,
+    whaleMat3 as Picture,
+    whaleMat4 as Picture,
   ],
 };
 
@@ -89,7 +94,7 @@ const ProductDetail = () => {
   const extras = (handle && EXTRA_PRODUCT_IMAGES[handle]) || [];
   type GalleryItem =
     | { kind: "shopify"; url: string; thumbhash?: string | null; alt?: string }
-    | { kind: "local"; src: string; alt?: string };
+    | { kind: "local"; pic: Picture; alt?: string };
   const images: GalleryItem[] = [
     ...shopifyImages.map((e) => ({
       kind: "shopify" as const,
@@ -97,9 +102,9 @@ const ProductDetail = () => {
       thumbhash: e.node.thumbhash,
       alt: e.node.altText || product?.node.title,
     })),
-    ...extras.map((src, i) => ({
+    ...extras.map((pic, i) => ({
       kind: "local" as const,
-      src,
+      pic,
       alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
     })),
   ];
@@ -135,7 +140,7 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Skeleton className="w-full aspect-[2/3] rounded-xl" />
+          <Skeleton className="w-full aspect-2/3 rounded-xl" />
           <div className="space-y-4">
             <Skeleton className="h-10 w-3/4" />
             <Skeleton className="h-6 w-1/4" />
@@ -234,7 +239,7 @@ const ProductDetail = () => {
                   <button
                     key={i}
                     onClick={() => { setSelectedImageIndex(i); setUserInteracted(true); }}
-                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${i === selectedImageIndex
+                    className={`w-16 h-20 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${i === selectedImageIndex
                       ? "border-shaman-gold opacity-100"
                       : "border-transparent opacity-60 hover:opacity-90"
                       }`}
@@ -242,19 +247,22 @@ const ProductDetail = () => {
                     {img.kind === "shopify" ? (
                       <ThumbhashImage
                         thumbhash={img.thumbhash}
-                        src={shopifyImageUrl(img.url, 80)}
-                        srcSet={shopifySrcSet(img.url, [80, 160])}
+                        src={img.url}
+                        layout="fullWidth"
                         sizes={THUMBNAIL_SIZES}
+                        breakpoints={[64]}
                         alt={img.alt || `Thumbnail ${i + 1}`}
-                        className="w-full h-full object-contain aspect-[2/3]"
+                        className={cn("w-full h-full", i == 0 ? "object-contain" : "object-cover", "aspect-2/3")}
                         loading="lazy"
                         decoding="async"
                       />
                     ) : (
                       <img
-                        src={img.src}
+                        src={img.pic.img.src}
+                        srcSet={img.pic.sources.webp}
+                        sizes={THUMBNAIL_SIZES}
                         alt={img.alt || `Thumbnail ${i + 1}`}
-                        className="w-full h-full object-cover aspect-[2/3]"
+                        className="w-full h-full object-cover aspect-2/3"
                         loading="lazy"
                         decoding="async"
                       />
@@ -270,21 +278,27 @@ const ProductDetail = () => {
                 images[selectedImageIndex].kind === "shopify" ? (
                   <ImageMagnifier
                     thumbhash={(images[selectedImageIndex] as any).thumbhash}
-                    src={shopifyImageUrl((images[selectedImageIndex] as any).url, 800)}
-                    srcSet={shopifySrcSet((images[selectedImageIndex] as any).url, [400, 600, 800, 1200])}
+                    src={(images[selectedImageIndex] as any).url}
+                    layout="fullWidth"
                     sizes={PRODUCT_MAIN_SIZES}
+                    breakpoints={[200, 300, 400, 600, 800]}
                     alt={images[selectedImageIndex].alt || product.node.title}
                     className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
                   />
                 ) : (
                   <ImageMagnifier
-                    src={(images[selectedImageIndex] as any).src}
+                    src={(images[selectedImageIndex] as any).pic.img.src}
+                    srcSet={(images[selectedImageIndex] as any).pic.sources.webp}
+                    layout="constrained"
+                    width={(images[selectedImageIndex] as any).pic.img.w}
+                    height={(images[selectedImageIndex] as any).pic.img.h}
+                    sizes={PRODUCT_MAIN_SIZES}
                     alt={images[selectedImageIndex].alt || product.node.title}
                     className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
                   />
                 )
               ) : (
-                <div className="w-full aspect-[2/3] flex items-center justify-center text-muted-foreground">
+                <div className="w-full aspect-2/3 flex items-center justify-center text-muted-foreground">
                   No image available
                 </div>
               )}
@@ -317,17 +331,17 @@ const ProductDetail = () => {
                   variant="ghost"
                   size="icon"
                   aria-label="Decrease quantity"
-                  className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
+                  className="h-12 w-12 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 >
                   <Minus className="w-4 h-4" />
                 </Button>
-                <span className="w-10 text-center text-foreground font-medium">{quantity}</span>
+                <span className="w-10 text-2xl text-center text-foreground font-medium">{quantity}</span>
                 <Button
                   variant="ghost"
                   size="icon"
                   aria-label="Increase quantity"
-                  className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
+                  className="h-12 w-12 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => q + 1)}
                 >
                   <Plus className="w-4 h-4" />
@@ -337,7 +351,7 @@ const ProductDetail = () => {
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
                 variant="buy"
-                className="w-full sm:w-auto sm:min-w-[11rem]"
+                className="px-6 h-12"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
@@ -430,7 +444,7 @@ const ProductDetail = () => {
                 { text: "Australia — up to 3 weeks" },
               ].map((d, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full flex-shrink-0" />
+                  <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full shrink-0" />
                   <span className="font-medium leading-relaxed block">{d.text}</span>
                 </li>
               ))}
@@ -472,7 +486,7 @@ const ProductDetail = () => {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-shaman-violet/20 to-shaman-magenta/20 border border-shaman-violet/20 flex items-center justify-center">
                       <span className="text-sm font-medium text-foreground/70 font-body">{r.name.charAt(0)}</span>
                     </div>
                     <div>
@@ -507,7 +521,7 @@ const ProductDetail = () => {
             onClick={handleAddToCart}
             disabled={isLoading || !variant?.availableForSale}
             variant="buy"
-            className="shrink-0 !min-h-[3rem] !px-6"
+            className="shrink-0 min-h-12! px-6!"
             tabIndex={showStickyCta ? undefined : -1}
             aria-label="Add to cart"
           >

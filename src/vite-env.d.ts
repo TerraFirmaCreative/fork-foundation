@@ -14,3 +14,9 @@ declare module "*&as=srcset" {
   const value: string;
   export default value;
 }
+
+// Fallback for a single resized/reformatted image with no `as=` query — resolves to one URL string.
+declare module "*&format=webp" {
+  const value: string;
+  export default value;
+}

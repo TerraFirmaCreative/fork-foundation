@@ -1,5 +1,5 @@
 import { shuffleLifestylePhotos } from "@/lib/lifestylePhotos";
-import { shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
+import { Image } from "@unpic/react";
 
 // Shuffled once per page load so returning visitors see variety.
 const photos = shuffleLifestylePhotos();
@@ -20,7 +20,7 @@ const HeroPhotoStrip = () => {
         className="pointer-events-none absolute inset-0 z-10"
         style={{
           background:
-            "linear-gradient(to right, #000 0%, transparent 14%, transparent 86%, #000 100%)",
+            "linear-gradient(to right, hsl(var(--shaman-deep)) 0%, transparent 14%, transparent 86%, hsl(var(--shaman-deep)) 100%)",
         }}
       />
 
@@ -29,20 +29,19 @@ const HeroPhotoStrip = () => {
           <div
             key={i}
             aria-hidden={i >= photos.length}
-            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-auto md:aspect-[3/4] md:h-[min(230px,19.5vh)] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 transition-all duration-500"
+            className="group relative block shrink-0 overflow-hidden rounded-lg w-[112px] h-[150px] md:w-auto md:aspect-3/4 md:h-[min(230px,19.5vh)] bg-black/60 ring-1 ring-inset ring-shaman-gold/10 transition-all duration-500"
           >
-            <img
-              src={shopifyImageUrl(p.src, 400)}
-              srcSet={shopifySrcSet(p.src, [200, 300, 400, 600])}
+            <Image
+              src={p.src}
+              layout="fullWidth"
+              unstyled
               sizes={SIZES}
               alt={i >= photos.length ? "" : p.alt}
-              width={200}
-              height={267}
               loading={i < 4 ? "eager" : "lazy"}
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-80" />
           </div>
         ))}
       </div>

@@ -3,8 +3,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCollectionProducts, ShopifyProduct } from "@/lib/shopify";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
-import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
+import GalleryMagnifier from "./GalleryMagnifier";
 
 
 // Mount the first row eagerly; defer the rest until they're about to scroll into view.
@@ -54,22 +54,17 @@ const DesignGallery = () => {
 
 
   return (
-    <section id="design-gallery" className="hero-gradient pt-6 md:pt-12 pb-12 px-6">
+    <section id="design-gallery" className="pt-6 md:pt-12 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-20">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 md:mb-6 font-body">
-            Choose From
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight">
-            <span className="text-gradient">24 </span>
-            <span className="text-gradient">unique</span>
-            <span className="text-gradient"> designs</span>
+          <h2 className="font-light text-4xl md:text-4xl text-shaman-gold tracking-tight">
+            <span className="text-6xl">24</span><br /> UNIQUE DESIGNS
           </h2>
         </div>
         {loading ? (
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-2.5 -mx-2 md:-mx-3">
             {Array.from({ length: 24 }).map((_, i) => (
-              <Skeleton key={i} className="w-full aspect-[1/3] rounded-xl" />
+              <Skeleton key={i} className="w-full aspect-1/3 rounded-xl" />
             ))}
           </div>
         ) : error ? (
@@ -84,31 +79,27 @@ const DesignGallery = () => {
                 <LocaleLink
                   to={`/product/${product.node.handle}`}
                   key={product.node.id}
-                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block bg-black"
+                  className="group relative overflow-hidden aspect-[0.37076674277] rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block bg-black"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
-                    <div className="block w-full">
                       <ThumbhashImage
-                        thumbhash={image.thumbhash}
-                        src={shopifyImageUrl(image.url, 240)}
-                        srcSet={shopifySrcSet(image.url, [140, 200, 260, 360, 480])}
+                        src={image.url}
+                        layout="fullWidth"
+                        aspectRatio={0.37076674277}
                         sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, 30vw"
+                        breakpoints={[200, 300, 400, 600, 800]} 
                         alt={image.altText || product.node.title}
-                        width={240}
-                        height={647}
-                        className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
-                        loading={index < 3 ? "eager" : "lazy"}
-                        fetchPriority={index < 3 ? "high" : "auto"}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        priority={index < 6}
                         decoding="async"
                       />
-                    </div>
                   ) : (
-                    <div className="w-full aspect-[1/3] bg-muted flex items-center justify-center">
+                    <div className="w-full aspect-1/3 bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-xs">No image</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </LocaleLink>
               );
             })}

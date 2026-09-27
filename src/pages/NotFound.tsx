@@ -67,7 +67,7 @@ const NotFound = () => {
               <LocaleLink
                 key={l.to}
                 to={l.to}
-                className="inline-flex items-center rounded-full border border-shaman-gold/40 bg-gradient-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 px-5 py-2.5 text-[0.7rem] sm:text-xs tracking-[0.22em] uppercase text-shaman-gold hover:text-foreground font-body font-light transition-all duration-500"
+                className="inline-flex items-center rounded-full border border-shaman-gold/40 bg-linear-to-r from-shaman-gold/10 via-shaman-violet/10 to-shaman-gold/10 hover:from-shaman-gold/20 hover:via-shaman-violet/20 hover:to-shaman-gold/20 px-5 py-2.5 text-[0.7rem] sm:text-xs tracking-[0.22em] uppercase text-shaman-gold hover:text-foreground font-body font-light transition-all duration-500"
               >
                 {l.label}
               </LocaleLink>

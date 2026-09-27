@@ -48,24 +48,12 @@ const MatBenefits = () => {
       <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg" />
 
-      <MandalaDecoration className="-bottom-48 -right-48" size={500} />
-
-      <div
-        className="floating-orb w-72 h-72 -top-36 left-1/4 bg-shaman-teal/08"
-        style={{ animationDelay: "3s" }}
-      />
-
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
-          <p className="text-sm tracking-[0.3em] uppercase text-shaman-gold/85 mb-4 font-body">
+          <p className="text-3xl tracking-[0.3em] uppercase text-shaman-gold mb-4 font-medium">
             About our Mats
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-medium mb-4 tracking-tight leading-tight">
-            <span className="text-gradient">Beautiful design.</span>
-            <span className="hidden md:inline"> </span>
-            <span className="block md:inline text-gradient">Built for practice.</span>
-          </h2>
         </div>
 
         {/* Spec cards grid */}
@@ -73,9 +61,9 @@ const MatBenefits = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="group relative flex gap-5 rounded-xl border border-border/40 bg-card/40 backdrop-blur-sm p-5 md:p-6 hover:border-shaman-violet/40 hover:bg-card/60 transition-all duration-300"
+              className="group relative flex gap-5 rounded-xl border border-border/40 bg-card/40 backdrop-blur-xs p-5 md:p-6 hover:border-shaman-violet/40 hover:bg-card/60 transition-all duration-300"
             >
-              <div className="w-1 rounded-full bg-gradient-to-b from-shaman-violet via-shaman-magenta to-shaman-gold opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="w-1 rounded-full bg-linear-to-b from-shaman-violet via-shaman-magenta to-shaman-gold opacity-70 group-hover:opacity-100 transition-opacity" />
               <div className="flex-1 min-w-0">
                 <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-1.5 leading-tight">
                   {benefit.title}
@@ -92,10 +80,10 @@ const MatBenefits = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-10 md:my-12 h-px bg-gradient-to-r from-transparent via-shaman-violet/30 to-transparent" />
+        <div className="my-10 md:my-12 h-px bg-linear-to-r from-transparent via-shaman-violet/30 to-transparent" />
 
         {/* Stats bar */}
-        <div className="grid grid-cols-3 md:grid-cols-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm overflow-hidden">
+        <div className="grid grid-cols-3 md:grid-cols-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-xs overflow-hidden">
           {stats.map((stat, i) => (
             <div
               key={i}
