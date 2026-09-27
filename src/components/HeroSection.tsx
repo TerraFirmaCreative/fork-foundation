@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import UspBar from "@/components/UspBar";
 import heroVideo from "@/assets/hero/hero_vp9_hq.webm";
-import heroPoster from "@/assets/hero/hero_poster.png";
+import heroPoster from "@/assets/hero/hero_poster.webp";
 
 const HeroSection = () => {
   const scrollToGallery = () =>
@@ -51,7 +51,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        <div className="pb-16 md:pb-24 space-y-4">
+        <div className="pb-12 md:pb-12 space-y-4">
           <UspBar />
         </div>
       </div>

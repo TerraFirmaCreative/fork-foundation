@@ -79,27 +79,21 @@ const DesignGallery = () => {
                 <LocaleLink
                   to={`/product/${product.node.handle}`}
                   key={product.node.id}
-                  className="group relative overflow-hidden rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block bg-black"
+                  className="group relative overflow-hidden aspect-[0.37076674277] rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-[1.02] cursor-pointer block bg-black"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {image ? (
-                    // <GalleryMagnifier
-                    //   zoomSrc={image.url}
-                    //   className="block w-full"
-                    //   prefetch={index < 6}
-                    // >
                       <ThumbhashImage
-                        thumbhash={image.thumbhash}
                         src={image.url}
                         layout="fullWidth"
+                        aspectRatio={0.37076674277}
                         sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, 30vw"
+                        breakpoints={[200, 300, 400, 600, 800]} 
                         alt={image.altText || product.node.title}
-                        className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                        fetchPriority={index < 6 ? "high" : "auto"}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        priority={index < 6}
                         decoding="async"
                       />
-                    // </GalleryMagnifier>
                   ) : (
                     <div className="w-full aspect-1/3 bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-xs">No image</span>

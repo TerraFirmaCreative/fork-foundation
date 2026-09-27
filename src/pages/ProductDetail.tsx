@@ -250,8 +250,9 @@ const ProductDetail = () => {
                         src={img.url}
                         layout="fullWidth"
                         sizes={THUMBNAIL_SIZES}
+                        breakpoints={[64]}
                         alt={img.alt || `Thumbnail ${i + 1}`}
-                        className="w-full h-full object-contain aspect-2/3"
+                        className={cn("w-full h-full", i == 0 ? "object-contain" : "object-cover", "aspect-2/3")}
                         loading="lazy"
                         decoding="async"
                       />
@@ -280,6 +281,7 @@ const ProductDetail = () => {
                     src={(images[selectedImageIndex] as any).url}
                     layout="fullWidth"
                     sizes={PRODUCT_MAIN_SIZES}
+                    breakpoints={[200, 300, 400, 600, 800]}
                     alt={images[selectedImageIndex].alt || product.node.title}
                     className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
                   />
