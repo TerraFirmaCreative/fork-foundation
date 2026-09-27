@@ -12,7 +12,7 @@ const HeroSection = () => {
   return (
     <section className="relative h-svh min-h-160 w-full overflow-hidden flex flex-col">
       <video autoPlay muted loop playsInline preload="auto"
-       poster={heroPoster} width="1920" height="1080"
+       poster={heroPoster}
        aria-hidden="true" tabIndex={0}
        className="absolute inset-0 w-full h-full object-cover scale-105"
       >
@@ -46,12 +46,12 @@ const HeroSection = () => {
             aria-label="Scroll to design gallery"
             className="mt-10 flex flex-col items-center gap-1.5 text-shaman-gold hover:text-shaman-gold transition-colors"
           >
-            <span className="font-body text-rg tracking-[0.3em] uppercase">Explore designs</span>
+            <span className="font-body text-rg tracking-[0.3em] uppercase cursor-pointer">Explore designs</span>
             <ChevronDown className="w-4 h-4 animate-bounce" />
           </button>
         </div>
 
-        <div className="pb-6 md:pb-8 space-y-4">
+        <div className="pb-16 md:pb-24 space-y-4">
           <UspBar />
         </div>
       </div>

@@ -75,20 +75,9 @@ const HowItWorks = () => {
   const steps = getSteps(priceLabel);
   return (
     <section id="how-it-works" className="relative py-16 md:py-24 px-6 overflow-hidden">
-      <div className="texture-overlay" />
       <div className="absolute inset-0 shaman-bg">
         {/* Fractal grid background */}
         <FractalGrid />
-
-        {/* Subtle orbs */}
-        <div
-          className="floating-orb w-80 h-80 -top-40 right-1/4 bg-shaman-magenta/06"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="floating-orb w-64 h-64 -bottom-32 left-1/4 bg-shaman-teal/06"
-          style={{ animationDelay: "5s" }}
-        />
       </div>
 
 
@@ -99,9 +88,10 @@ const HowItWorks = () => {
           </h2>
         </div>
 
+        {/* Horizontal Rule */}
+        <div className="hidden lg:block h-px bg-linear-to-r from-transparent mb-8 via-shaman-violet/30 to-transparent" />
+        
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-14 lg:gap-[2.36rem]">
-          {/* Full-width horizontal line through numbers */}
-          <div className="hidden lg:block absolute top-[2.065rem] left-0 right-0 h-px bg-linear-to-r from-transparent via-shaman-violet/30 to-transparent" />
           {steps.map((step, index) => (
             <div
               key={step.title}

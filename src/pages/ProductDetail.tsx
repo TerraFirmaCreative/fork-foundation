@@ -12,20 +12,25 @@ import { toast } from "sonner";
 import ImageMagnifier from "@/components/ImageMagnifier";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
-import { shopifySrcSet, shopifyImageUrl, PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
+import { PRODUCT_MAIN_SIZES, THUMBNAIL_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import { cn, formatPrice, sanitizeHtml } from "@/lib/utils";
 import { trackAddToCart } from "@/lib/analytics";
 import PaymentIcons from "@/components/PaymentIcons";
 
-import whaleMat1 from "@/assets/whale-mat-1.webp";
-import whaleMat2 from "@/assets/whale-mat-2.webp";
-import whaleMat3 from "@/assets/whale-mat-3.webp";
-import whaleMat4 from "@/assets/whale-mat-4.webp";
+import whaleMat1 from "@/assets/whale-mat-1.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import whaleMat2 from "@/assets/whale-mat-2.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import whaleMat3 from "@/assets/whale-mat-3.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import whaleMat4 from "@/assets/whale-mat-4.webp?w=400;600;800;1200&format=avif;webp&as=picture";
+import { Picture } from "@/lib/vite-imagetools";
 
-const EXTRA_PRODUCT_IMAGES: Record<string, string[]> = {
+
+const EXTRA_PRODUCT_IMAGES: Record<string, Picture[]> = {
   "beneath-the-waves-humpback-elegance-c8359a92-110f-4eae-88da-29b234d4c729-copy": [
-    whaleMat1, whaleMat2, whaleMat3, whaleMat4,
+    whaleMat1 as Picture,
+    whaleMat2 as Picture,
+    whaleMat3 as Picture,
+    whaleMat4 as Picture,
   ],
 };
 
@@ -89,7 +94,7 @@ const ProductDetail = () => {
   const extras = (handle && EXTRA_PRODUCT_IMAGES[handle]) || [];
   type GalleryItem =
     | { kind: "shopify"; url: string; thumbhash?: string | null; alt?: string }
-    | { kind: "local"; src: string; alt?: string };
+    | { kind: "local"; pic: Picture; alt?: string };
   const images: GalleryItem[] = [
     ...shopifyImages.map((e) => ({
       kind: "shopify" as const,
@@ -97,9 +102,9 @@ const ProductDetail = () => {
       thumbhash: e.node.thumbhash,
       alt: e.node.altText || product?.node.title,
     })),
-    ...extras.map((src, i) => ({
+    ...extras.map((pic, i) => ({
       kind: "local" as const,
-      src,
+      pic,
       alt: `${product?.node.title || "Product"} lifestyle ${i + 1}`,
     })),
   ];
@@ -242,8 +247,8 @@ const ProductDetail = () => {
                     {img.kind === "shopify" ? (
                       <ThumbhashImage
                         thumbhash={img.thumbhash}
-                        src={shopifyImageUrl(img.url, 80)}
-                        srcSet={shopifySrcSet(img.url, [80, 160])}
+                        src={img.url}
+                        layout="fullWidth"
                         sizes={THUMBNAIL_SIZES}
                         alt={img.alt || `Thumbnail ${i + 1}`}
                         className="w-full h-full object-contain aspect-2/3"
@@ -252,7 +257,9 @@ const ProductDetail = () => {
                       />
                     ) : (
                       <img
-                        src={img.src}
+                        src={img.pic.img.src}
+                        srcSet={img.pic.sources.webp}
+                        sizes={THUMBNAIL_SIZES}
                         alt={img.alt || `Thumbnail ${i + 1}`}
                         className="w-full h-full object-cover aspect-2/3"
                         loading="lazy"
@@ -270,15 +277,20 @@ const ProductDetail = () => {
                 images[selectedImageIndex].kind === "shopify" ? (
                   <ImageMagnifier
                     thumbhash={(images[selectedImageIndex] as any).thumbhash}
-                    src={shopifyImageUrl((images[selectedImageIndex] as any).url, 800)}
-                    srcSet={shopifySrcSet((images[selectedImageIndex] as any).url, [400, 600, 800, 1200])}
+                    src={(images[selectedImageIndex] as any).url}
+                    layout="fullWidth"
                     sizes={PRODUCT_MAIN_SIZES}
                     alt={images[selectedImageIndex].alt || product.node.title}
                     className={cn(selectedImageIndex == 0 && "aspect-[0.37076674277]", "cursor-crosshair rounded-md overflow-clip")}
                   />
                 ) : (
                   <ImageMagnifier
-                    src={(images[selectedImageIndex] as any).src}
+                    src={(images[selectedImageIndex] as any).pic.img.src}
+                    srcSet={(images[selectedImageIndex] as any).pic.sources.webp}
+                    layout="constrained"
+                    width={(images[selectedImageIndex] as any).pic.img.w}
+                    height={(images[selectedImageIndex] as any).pic.img.h}
+                    sizes={PRODUCT_MAIN_SIZES}
                     alt={images[selectedImageIndex].alt || product.node.title}
                     className="cursor-crosshair rounded-md overflow-clip object-cover w-full"
                   />

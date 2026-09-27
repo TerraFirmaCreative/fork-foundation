@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { fetchProductByHandle, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { useLocale } from "@/lib/i18n";
-import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
 import LocaleLink from "@/components/LocaleLink";
 import { formatPrice } from "@/lib/utils";
 import hudson1 from "@/assets/hudson/hudson-1.webp?w=300;500;800&format=avif;webp&as=picture";

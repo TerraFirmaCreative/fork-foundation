@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useMemo } from "react";
 import { thumbHashToDataURL } from "thumbhash";
+import { Image, type ImageProps } from "@unpic/react";
 
 function decodeBase64ThumbHash(base64: string): string | null {
   try {
@@ -15,11 +16,11 @@ function decodeBase64ThumbHash(base64: string): string | null {
   }
 }
 
-interface ThumbhashImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+type ThumbhashImageProps = ImageProps & {
   thumbhash?: string | null;
   /** Extra classes on the wrapper div */
   wrapperClassName?: string;
-}
+};
 
 const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }: ThumbhashImageProps) => {
 
@@ -30,8 +31,9 @@ const ThumbhashImage = ({ thumbhash, wrapperClassName, className, ...imgProps }:
 
   return (
     <div className={`relative overflow-hidden ${wrapperClassName ?? ""}`}>
-      <img
+      <Image
         {...imgProps}
+        unstyled
         className={cn("relative z-2", className)}
         onLoad={(e) => {
           imgProps.onLoad?.(e);

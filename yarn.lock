@@ -3346,6 +3346,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@unpic/core@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@unpic/core@npm:1.0.3"
+  dependencies:
+    unpic: "npm:^4.2.2"
+  checksum: 10c0/89cc3d8237aeb0828a1da462ab265c54ce723c4e404814be4da047ed6d598f18d10ddcc8b0ad97b640456f69b199687d8858f181cbdc46dbee5427d4f4042866
+  languageName: node
+  linkType: hard
+
+"@unpic/react@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@unpic/react@npm:1.0.2"
+  dependencies:
+    "@unpic/core": "npm:^1.0.3"
+  peerDependencies:
+    next: ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    next:
+      optional: true
+  checksum: 10c0/61c608b7f34689596f6d0092f616856bc0d325828350048d6c36b0e6aa64564909f7d80b8c0d6549f4ef367c0e8cbe93547d4d7e6f2e7eb4fab1383e7ad84cac
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react-swc@npm:^3.11.0":
   version: 3.11.0
   resolution: "@vitejs/plugin-react-swc@npm:3.11.0"
@@ -6999,6 +7024,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unpic@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "unpic@npm:4.2.2"
+  checksum: 10c0/ae652ceb1693ee9ef060c8091ad70da0af99eefb43bafc8417a139bf13a2fce0cd159d0490197014d91e160789ce1c81abd6d631b1f5d0a99f60e8f002311921
+  languageName: node
+  linkType: hard
+
 "uri-js@npm:^4.2.2":
   version: 4.4.1
   resolution: "uri-js@npm:4.4.1"
@@ -7333,6 +7365,7 @@ __metadata:
     "@types/node": "npm:^22.16.5"
     "@types/react": "npm:^18.3.23"
     "@types/react-dom": "npm:^18.3.7"
+    "@unpic/react": "npm:^1.0.2"
     "@vitejs/plugin-react-swc": "npm:^3.11.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"

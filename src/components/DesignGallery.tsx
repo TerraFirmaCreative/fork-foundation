@@ -3,7 +3,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCollectionProducts, ShopifyProduct } from "@/lib/shopify";
 import LocaleLink from "@/components/LocaleLink";
 import { useLocale } from "@/lib/i18n";
-import { shopifySrcSet, shopifyImageUrl, GALLERY_SIZES } from "@/lib/imageUtils";
 import ThumbhashImage from "@/components/ThumbhashImage";
 import GalleryMagnifier from "./GalleryMagnifier";
 
@@ -85,18 +84,16 @@ const DesignGallery = () => {
                 >
                   {image ? (
                     // <GalleryMagnifier
-                    //   zoomSrc={shopifyImageUrl(image.url, 1600)}
+                    //   zoomSrc={image.url}
                     //   className="block w-full"
                     //   prefetch={index < 6}
                     // >
                       <ThumbhashImage
                         thumbhash={image.thumbhash}
-                        src={shopifyImageUrl(image.url, 240)}
-                        srcSet={shopifySrcSet(image.url, [140, 200, 260, 360, 480])}
+                        src={image.url}
+                        layout="fullWidth"
                         sizes="(min-width: 1280px) 200px, (min-width: 640px) 16vw, 30vw"
                         alt={image.altText || product.node.title}
-                        width={240}
-                        height={647}
                         className="w-full aspect-[0.37076674277] object-contain transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         fetchPriority={index < 6 ? "high" : "auto"}

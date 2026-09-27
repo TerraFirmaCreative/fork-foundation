@@ -2,7 +2,8 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LocaleLink from "@/components/LocaleLink";
-import { GALLERY_SIZES, shopifyImageUrl, shopifySrcSet } from "@/lib/imageUtils";
+import { GALLERY_SIZES } from "@/lib/imageUtils";
+import { Image } from "@unpic/react";
 
 const blogPosts = [
   {
@@ -52,9 +53,10 @@ const Blog = () => {
             >
               <div className="grid md:grid-cols-[1.2fr_1fr] gap-0">
                 <div className="aspect-4/3 md:aspect-auto overflow-hidden">
-                  <img
-                    src={shopifyImageUrl(post.image, 400)}
-                    srcSet={shopifySrcSet(post.image, [150, 300, 450, 600])}
+                  <Image
+                    src={post.image}
+                    layout="fullWidth"
+                    unstyled
                     sizes={GALLERY_SIZES}
                     alt={post.imageAlt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
