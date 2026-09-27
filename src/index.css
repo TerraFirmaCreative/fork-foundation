@@ -307,7 +307,6 @@ layer(base);
   gap: 0.5rem;
   border-radius: 9999px;
   padding: 0.9rem 2rem;
-  min-height: 3.25rem;
   background-color: hsl(var(--shaman-gold));
   color: hsl(var(--background));
   font-family: var(--font-body);

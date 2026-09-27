@@ -331,17 +331,17 @@ const ProductDetail = () => {
                   variant="ghost"
                   size="icon"
                   aria-label="Decrease quantity"
-                  className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
+                  className="h-12 w-12 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 >
                   <Minus className="w-4 h-4" />
                 </Button>
-                <span className="w-10 text-center text-foreground font-medium">{quantity}</span>
+                <span className="w-10 text-2xl text-center text-foreground font-medium">{quantity}</span>
                 <Button
                   variant="ghost"
                   size="icon"
                   aria-label="Increase quantity"
-                  className="h-10 w-10 rounded-none text-muted-foreground hover:text-foreground"
+                  className="h-12 w-12 rounded-none text-muted-foreground hover:text-foreground"
                   onClick={() => setQuantity((q) => q + 1)}
                 >
                   <Plus className="w-4 h-4" />
@@ -351,7 +351,7 @@ const ProductDetail = () => {
                 onClick={handleAddToCart}
                 disabled={isLoading || !variant?.availableForSale}
                 variant="buy"
-                className="w-full sm:w-auto sm:min-w-44"
+                className="px-6 h-12"
                 aria-label="Add to cart"
               >
                 {isLoading ? (
