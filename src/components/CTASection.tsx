@@ -14,11 +14,11 @@ const CTASection = () => {
       
       {/* Central orb */}
       <div 
-        className="floating-orb w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-shaman-violet/12"
+        className="floating-orb w-150 h-150 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-shaman-violet/12"
         style={{ animationDelay: "0s" }}
       />
       <div 
-        className="floating-orb w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-shaman-magenta/08"
+        className="floating-orb w-150 h-150 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-shaman-magenta/08"
         style={{ animationDelay: "6s" }}
       />
       
