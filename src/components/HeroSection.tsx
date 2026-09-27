@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import UspBar from "@/components/UspBar";
-import heroVideo from "@/assets/hero/hero_vp9_hq.webm";
+import heroVideoVP9 from "@/assets/hero/hero_vp9_hq.webm";
+import heroVideoH264 from "@/assets/hero/hero_h264_hq.mp4";
 import heroPoster from "@/assets/hero/hero_poster.webp";
 
 const HeroSection = () => {
@@ -16,7 +17,8 @@ const HeroSection = () => {
        aria-hidden="true" tabIndex={0}
        className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src={heroVideo} type="video/webm; codecs=vp9" />
+        <source src={heroVideoVP9} type="video/webm; codecs=vp9" />
+        <source src={heroVideoH264} type="video/mp4; codecs=avc1.42E01E" />
       </video>
 
       {/* Film grain */}
