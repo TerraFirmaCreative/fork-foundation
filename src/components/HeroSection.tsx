@@ -14,10 +14,10 @@ const HeroSection = () => {
     <section className="relative h-svh min-h-160 w-full overflow-hidden flex flex-col">
       <video autoPlay muted loop playsInline preload="auto"
        poster={heroPoster}
-       aria-hidden="true" tabIndex={0}
+       aria-hidden="true" tabIndex={-1}
        className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src={heroVideoVP9} type="video/webm; codecs=vp9" />
+        <source src={`${heroVideoVP9}?v=${(Math.floor(Math.random() * 5000))}`} type="video/webm; codecs=vp9" />
         <source src={heroVideoH264} type="video/mp4; codecs=avc1.42E01E" />
       </video>
 
