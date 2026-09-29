@@ -314,8 +314,10 @@ const VARIANTS_BY_IDS_QUERY = `
 function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
-    url.searchParams.set("channel", "online_store");
-    return url.toString();
+    url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN
+    url.searchParams.set("channel", "online_store")
+    url.searchParams.set("utm_source", "custom_storefront")
+    return url.toString()
   } catch {
     return checkoutUrl;
   }
