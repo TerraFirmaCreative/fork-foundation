@@ -53,6 +53,7 @@ export const useCartStore = create<CartStore>()(
 
           if (result.success && result.cost) {
             set({
+              checkoutUrl: result.checkoutUrl,
               totalPrice: {
                 amount: result.cost?.totalAmount.amount,
                 currencyCode: result.cost?.totalAmount.currencyCode
@@ -112,6 +113,7 @@ export const useCartStore = create<CartStore>()(
             if (result.success) {
               set({
                 items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i),
+                checkoutUrl: result.checkoutUrl,
                 ...(result.cost && {
                   totalPrice: {
                     amount: result.cost?.totalAmount.amount,
@@ -127,6 +129,7 @@ export const useCartStore = create<CartStore>()(
             if (result.success) {
               set({
                 items: [...get().items, { ...item, lineId: result.lineId ?? null }],
+                checkoutUrl: result.checkoutUrl,
                 ...(result.cost && {
                   totalPrice: {
                     amount: result.cost?.totalAmount.amount,
@@ -161,6 +164,7 @@ export const useCartStore = create<CartStore>()(
           if (result.success) {
             set({
               items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i),
+              checkoutUrl: result.checkoutUrl,
               ...(result.cost && {
                 totalPrice: {
                   amount: result.cost?.totalAmount.amount,
@@ -190,6 +194,7 @@ export const useCartStore = create<CartStore>()(
             const newItems = get().items.filter(i => i.variantId !== variantId);
             newItems.length === 0 ? clearCart() : set({
               items: newItems,
+              checkoutUrl: result.checkoutUrl,
               ...(result.cost && {
                 totalPrice: {
                   amount: result.cost?.totalAmount.amount,

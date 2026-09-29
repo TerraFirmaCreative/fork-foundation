@@ -250,6 +250,7 @@ const CART_LINES_ADD_MUTATION = `
     cartLinesAdd(cartId: $cartId, lines: $lines) {
       cart {
         id
+        checkoutUrl
         cost {
           totalAmount {
             amount
@@ -268,6 +269,7 @@ const CART_LINES_UPDATE_MUTATION = `
     cartLinesUpdate(cartId: $cartId, lines: $lines) {
       cart { 
         id
+        checkoutUrl
         cost {
           totalAmount {
             amount
@@ -285,6 +287,7 @@ const CART_LINES_REMOVE_MUTATION = `
     cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
       cart { 
         id
+        checkoutUrl
         cost {
           totalAmount {
             amount
@@ -314,7 +317,6 @@ const VARIANTS_BY_IDS_QUERY = `
 function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
-    url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN
     url.searchParams.set("channel", "online_store")
     url.searchParams.set("utm_source", "custom_storefront")
     return url.toString()
@@ -376,6 +378,7 @@ export async function updateCartBuyerIdentity(
   country = "US",
 ): Promise<{
   success: boolean;
+  checkoutUrl?: string;
   cost?: { totalAmount: { amount: string; currencyCode: string } };
   lines?: Array<{ id: string; merchandise: { id: string } }>;
 }> {
@@ -394,6 +397,7 @@ export async function updateCartBuyerIdentity(
   return {
     success: true,
     cost: data?.data?.cartBuyerIdentityUpdate?.cart.cost,
+    checkoutUrl: data?.data?.cartBuyerIdentityUpdate?.cart.checkoutUrl,
     lines: data?.data?.cartBuyerIdentityUpdate?.cart.lines?.edges?.map(
       (edge: { node: { id: string; merchandise: { id: string } } }) => edge.node,
     ),
@@ -426,6 +430,7 @@ export async function addLineToShopifyCart(
   item: CartItem,
 ): Promise<{
   success: boolean;
+  checkoutUrl?: string,
   lineId?: string;
   cartNotFound?: boolean;
   cost?: { totalAmount: { amount: string; currencyCode: string } };
@@ -446,7 +451,12 @@ export async function addLineToShopifyCart(
   const newLine = lines.find(
     (l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId,
   );
-  return { success: true, lineId: newLine?.node?.id, cost: data?.data?.cartLinesAdd?.cart.cost };
+  return { 
+    success: true,
+    checkoutUrl: data?.data?.cartLinesAdd?.cart.checkoutUrl, 
+    lineId: newLine?.node?.id, 
+    cost: data?.data?.cartLinesAdd?.cart.cost 
+  };
 }
 
 export async function updateShopifyCartLine(
@@ -455,6 +465,7 @@ export async function updateShopifyCartLine(
   quantity: number,
 ): Promise<{
   success: boolean;
+  checkoutUrl?: string;
   cartNotFound?: boolean;
   cost?: { totalAmount: { amount: string; currencyCode: string } };
 }> {
@@ -469,7 +480,11 @@ export async function updateShopifyCartLine(
     console.error("Update line failed:", userErrors);
     return { success: false };
   }
-  return { success: true, cost: data?.data?.cartLinesUpdate?.cart.cost };
+  return { 
+    success: true, 
+    checkoutUrl: data?.data?.cartLinesUpdate?.cart.checkoutUrl,
+    cost: data?.data?.cartLinesUpdate?.cart.cost 
+  };
 }
 
 export async function removeLineFromShopifyCart(
@@ -477,6 +492,7 @@ export async function removeLineFromShopifyCart(
   lineId: string,
 ): Promise<{
   success: boolean;
+  checkoutUrl?: string;
   cartNotFound?: boolean;
   cost?: { totalAmount: { amount: string; currencyCode: string } };
 }> {
@@ -491,7 +507,11 @@ export async function removeLineFromShopifyCart(
     console.error("Remove line failed:", userErrors);
     return { success: false };
   }
-  return { success: true, cost: data?.data?.cartLinesRemove?.cart.cost };
+  return { 
+    success: true, 
+    checkoutUrl: data?.data?.cartLinesRemoves?.cart.checkoutUrl,
+    cost: data?.data?.cartLinesRemove?.cart.cost 
+  };
 }
 
 // Newsletter subscribe via Storefront API (using customerCreate with acceptsMarketing)
