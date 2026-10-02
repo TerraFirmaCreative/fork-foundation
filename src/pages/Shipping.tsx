@@ -7,7 +7,7 @@ const Shipping = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Shipping & Delivery — Cosmic Igloo"
-        description="Delivery times by region for our made-to-order yoga mats: about 7-10 days to the USA, 2 weeks to UK/Europe, up to 3 weeks to Australia."
+        description="Delivery times by region for our made-to-order yoga mats: about 7–10 days to the USA, about 2 weeks to UK / Europe, about 2–3 weeks to Australia."
         path="/shipping"
       />
       <Header />
@@ -38,9 +38,9 @@ const Shipping = () => {
                 Delivery
               </h2>
               <ul className="space-y-2 mb-4">
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">USA</strong> — about 7-10 days</span></li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Europe & UK</strong> — around 2 weeks</span></li>
-                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Australia</strong> — up to 3 weeks</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">USA</strong> — about 7–10 days</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">UK / Europe</strong> — about 2 weeks</span></li>
+                <li className="flex items-start gap-3"><span className="w-1.5 h-1.5 rounded-full bg-shaman-violet mt-2.5 shrink-0" /><span><strong className="text-foreground">Australia</strong> — about 2–3 weeks</span></li>
               </ul>
               <p className="mb-4">
                 Delivery times can vary slightly depending on your location, but most orders arrive within these windows. As soon as your mat is on its way, you'll receive tracking details so you can follow it to your door.
