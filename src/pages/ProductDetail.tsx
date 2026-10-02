@@ -412,7 +412,7 @@ const ProductDetail = () => {
                 ],
                 [
                   { icon: <Weight className="w-4 h-4" />, text: "3mm thick" },
-                  { icon: <Weight className="w-4 h-4" />, text: "Weight: ~4 lb (1.8 kg)" },
+                  { icon: <Weight className="w-4 h-4" />, text: "Weight: 4lb / 1.8kg" },
                   { icon: <Gift className="w-4 h-4" />, text: "Includes free carry strap with every mat" },
                 ],
               ].map((col, ci) => (
