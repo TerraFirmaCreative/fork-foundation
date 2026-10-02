@@ -1,4 +1,5 @@
 import { allCommunityPhotos } from "@/lib/communityPhotos";
+import eyeArtwork from "@/assets/instagram-eye-artwork.png.asset.json";
 import rolledMatSunset from "@/assets/instagram-rolled-mat-sunset.png.asset.json";
 
 const INSTAGRAM_URL = "https://www.instagram.com/cosmic.igloo";
@@ -7,7 +8,7 @@ const tileClass = "group relative block aspect-4/5 overflow-hidden";
 const imgClass = "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105";
 
 const InstagramFeed = () => {
-  const photos = allCommunityPhotos.slice(0, 8);
+  const photos = allCommunityPhotos.slice(0, 7);
 
   return (
     <section className="relative py-12 md:py-16 px-6" aria-labelledby="instagram-heading">
@@ -43,6 +44,21 @@ const InstagramFeed = () => {
               </picture>
             </a>
           ))}
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={tileClass}
+            aria-label="View this post on our Instagram"
+          >
+            <img
+              src={eyeArtwork.url}
+              alt="Close up of an eye artwork printed on a Cosmic Igloo mat"
+              loading="lazy"
+              decoding="async"
+              className={imgClass}
+            />
+          </a>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
