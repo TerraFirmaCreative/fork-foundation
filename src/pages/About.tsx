@@ -23,9 +23,6 @@ const About = () => {
             <p>
               Every design in our collection is an original work of art, created to carry meaning and inspire connection.
             </p>
-            <p>
-              Our mats are built to go everywhere we go. A suede microfiber surface that gets grippier as we warm up, paired with a natural rubber base that stays put. 3mm of balanced thickness, supportive enough for daily practice, light enough to carry anywhere.
-            </p>
             <p className="text-foreground">Made to order. Made for us.</p>
             <p>
               We're a small online studio based in Perth, Western Australia. Every mat is printed and dispatched by our production partner in the United States, then shipped worldwide. No overproduction, no waste, just mats made when they're wanted.
