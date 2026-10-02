@@ -48,7 +48,7 @@ const InstagramFeed = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={tileClass}
-              style={{ order: i === 4 ? 7 : i }}
+              style={{ order: i === 4 ? 7 : i === 6 ? 8 : i }}
               aria-label="View this post on our Instagram"
             >
               <picture>
@@ -88,7 +88,7 @@ const InstagramFeed = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={tileClass}
-            style={{ order: 8 }}
+            style={{ order: 6 }}
             aria-label="View this post on our Instagram"
           >
             <img
