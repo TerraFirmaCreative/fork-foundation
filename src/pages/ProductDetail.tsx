@@ -439,9 +439,9 @@ const ProductDetail = () => {
             <h2 className="font-display text-lg text-foreground font-semibold mb-3">Delivery</h2>
             <ul className="space-y-2 font-body text-foreground/90">
               {[
-                { text: "USA — about 7-10 days" },
-                { text: "UK / Europe — around 2 weeks" },
-                { text: "Australia — up to 3 weeks" },
+                { text: "USA — about 7–10 days" },
+                { text: "UK / Europe — about 2 weeks" },
+                { text: "Australia — about 2–3 weeks" },
               ].map((d, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="block w-[3px] h-5 mt-0.5 bg-shaman-violet/60 rounded-full shrink-0" />
