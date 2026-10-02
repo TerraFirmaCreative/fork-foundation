@@ -2,6 +2,7 @@ import { allCommunityPhotos } from "@/lib/communityPhotos";
 import eyeArtwork from "@/assets/instagram-eye-artwork.png.asset.json";
 import rolledMatSunset from "@/assets/instagram-rolled-mat-sunset.png.asset.json";
 import warriorPose from "@/assets/instagram-warrior-pose.png.asset.json";
+import whaleMatPose from "@/assets/instagram-whale-mat-pose.png.asset.json";
 
 const INSTAGRAM_URL = "https://www.instagram.com/cosmic.igloo";
 
@@ -22,23 +23,27 @@ const InstagramFeed = () => {
 
         <div className="grid grid-cols-3 gap-[2px] overflow-hidden">
           {photos.map((photo, i) =>
-            i === 1 ? (
+            i === 1 || i === 6 ? (
               <a
                 key={i}
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={tileClass}
-                style={{ order: 1 }}
+                style={{ order: i === 1 ? 1 : 8 }}
                 aria-label="View this post on our Instagram"
               >
                 <img
-                  src={warriorPose.url}
-                  alt="Yogi in warrior pose on a Cosmic Igloo mat on the grass at sunset"
+                  src={i === 1 ? warriorPose.url : whaleMatPose.url}
+                  alt={
+                    i === 1
+                      ? "Yogi in warrior pose on a Cosmic Igloo mat on the grass at sunset"
+                      : "Yogi resting forward onto a Cosmic Igloo whale mandala mat"
+                  }
                   loading="lazy"
                   decoding="async"
                   className={imgClass}
-                  style={{ objectPosition: "center 40%" }}
+                  style={{ objectPosition: i === 1 ? "center 40%" : "center" }}
                 />
               </a>
             ) : (
