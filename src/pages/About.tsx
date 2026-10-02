@@ -18,7 +18,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto relative z-10">
           <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
             <p>
-              We believe your mat should be a place of real beauty and intention.
+              We believe every mat should be a place of real beauty, ready to hold whatever intention you bring to your practice.
             </p>
             <p>
               Every design in our collection is an original work of art, created to carry meaning and inspire connection.
