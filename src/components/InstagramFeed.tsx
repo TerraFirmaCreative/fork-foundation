@@ -88,6 +88,7 @@ const InstagramFeed = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={tileClass}
+            style={{ order: 8 }}
             aria-label="View this post on our Instagram"
           >
             <img
