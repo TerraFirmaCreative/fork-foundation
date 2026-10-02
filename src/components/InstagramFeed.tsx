@@ -1,9 +1,13 @@
 import { allCommunityPhotos } from "@/lib/communityPhotos";
+import rolledMatSunset from "@/assets/instagram-rolled-mat-sunset.png.asset.json";
 
 const INSTAGRAM_URL = "https://www.instagram.com/cosmic.igloo";
 
+const tileClass = "group relative block aspect-4/5 overflow-hidden";
+const imgClass = "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105";
+
 const InstagramFeed = () => {
-  const photos = allCommunityPhotos.slice(0, 9);
+  const photos = allCommunityPhotos.slice(0, 8);
 
   return (
     <section className="relative py-12 md:py-16 px-6" aria-labelledby="instagram-heading">
@@ -21,7 +25,7 @@ const InstagramFeed = () => {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-4/5 overflow-hidden"
+              className={tileClass}
               aria-label="View this post on our Instagram"
             >
               <picture>
@@ -33,12 +37,28 @@ const InstagramFeed = () => {
                   alt={photo.alt}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={imgClass}
                   style={{ objectPosition: photo.position }}
                 />
               </picture>
             </a>
           ))}
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={tileClass}
+            aria-label="View this post on our Instagram"
+          >
+            <img
+              src={rolledMatSunset.url}
+              alt="Rolled Cosmic Igloo mat with carry strap on the grass at sunset"
+              loading="lazy"
+              decoding="async"
+              className={imgClass}
+              style={{ objectPosition: "center 60%" }}
+            />
+          </a>
         </div>
 
         <div className="text-center mt-8">
